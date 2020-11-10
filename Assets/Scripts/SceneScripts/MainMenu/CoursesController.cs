@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class CoursesController : BaseScene
+public class CoursesController : BaseManager
 {
     [Header("Parent Page Object")] [SerializeField] private GameObject coursesObject;
     [Header("Prefabs")] [SerializeField] private GameObject lessonTabPrefab;
@@ -108,24 +109,34 @@ public class CoursesController : BaseScene
         }
     }
 
+    private void LessonButtonCallback(GameObject g)
+    {
+        string scene = g.transform.GetChild(1).GetComponent<Text>().text;
+        scene = string.Concat(scene.Where(c => !char.IsWhiteSpace(c)));
+        //SceneManager.LoadScene(scene);
+        Debug.Log(scene);
+    }
+    
     private IEnumerator SpawnLessonTabs(GameObject g, bool open)
     {
         if (open)
         {
-            string[] lessons;
+            List<string> lessons;
             switch (_courseButtons.IndexOf(g))
             {
                 case 0: lessons = SharedData.melodyLessons; break;
                 case 1: lessons = SharedData.harmonyLessons; break;
                 case 2: lessons = SharedData.rhythmLessons; break;
                 case 3: lessons = SharedData.timbreLessons; break;
-                default: lessons = new string[0]; break;
+                default: lessons = new List<string>(); break;
             }
             int counter = 0;
             foreach (string s in lessons)
             {
+                Debug.Log(s);
                 _lessonListLookup[g].Add(Instantiate(lessonTabPrefab, _contentLookup[g].transform));
                 _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().text = s;
+                buttonCallbackLookup.Add(_lessonListLookup[g][counter], LessonButtonCallback);
                 counter++;
             }
         }
