@@ -20,7 +20,7 @@ using UnityEditor;
 
 public class CheckForCsound {
 
-    public static void performCheck()
+    public static void PerformCheck()
     {
         string csoundDir = Application.streamingAssetsPath;
 
@@ -46,7 +46,7 @@ public class CheckForCsound {
     [UnityEditor.Callbacks.DidReloadScripts]
     private static void OnScriptsReloaded()
     {
-        performCheck();
+        PerformCheck();
 ;   }
 }
 

@@ -28,7 +28,7 @@ public class CsoundChannelController
     public string type = "", channel = "", text = "", caption = "";
     public float min, max, value, skew, increment;
 
-    public void setRange(float uMin, float uMax, float uValue)
+    public void SetRange(float uMin, float uMax, float uValue)
     {
         min = uMin;
         max = uMax;
@@ -48,7 +48,7 @@ public class CsoundUnity : MonoBehaviour
 {
 
     // Use this for initialization
-    private CsoundUnityBridge csound;/**< 
+    private CsoundUnityBridge _csound;/**< 
                                      * The private member variable csound provides access to the CsoundUnityBridge class, which 
                                      * is defined in the *CsoundUnity.dll*(Assets/Plugins). If for some reason CsoundUnity.dll can 
                                      * not be found, Unity will report the issue in its output Console. The CsoundUnityBrdige object 
@@ -69,14 +69,14 @@ public class CsoundUnity : MonoBehaviour
                                        */
 
 
-    private uint ksmps = 32;
-    private int ksmpsIndex = 0;
-    private double zerdbfs = 1;
-    private bool compiledOk = false;
+    private uint _ksmps = 32;
+    private int _ksmpsIndex = 0;
+    private double _zerdbfs = 1;
+    private bool _compiledOk = false;
     public bool mute = false;
     public bool processClipAudio = false;
     //structure to hold channel data
-    List<CsoundChannelController> channels;
+    List<CsoundChannelController> _channels;
 
     /**
      * CsoundUnity Awake function. Called when this script is first instantiated. This should never be called directly. 
@@ -94,21 +94,21 @@ public class CsoundUnity : MonoBehaviour
             string csoundFilePath = Application.streamingAssetsPath + "/" + csoundFile + "_";
             string dataPath = Application.streamingAssetsPath;
             System.Environment.SetEnvironmentVariable("Path", Application.streamingAssetsPath);
-            channels = new List<CsoundChannelController>();
+            _channels = new List<CsoundChannelController>();
             /*
              * the CsoundUnity constructor takes a path to the project's Data folder, and path to the file name.
              * It then calls createCsound() to create an instance of Csound and compile the 'csdFile'. 
              * After this we start the performance of Csound. After this, we send the streaming assets path to
              * Csound on a string channel. This means we can then load samples contained within that folder.
              */
-            csound = new CsoundUnityBridge(dataPath, csoundFilePath);
+            _csound = new CsoundUnityBridge(dataPath, csoundFilePath);
 
-            channels = parseCsdFile(csoundFilePath);
+            _channels = ParseCsdFile(csoundFilePath);
             //initialise channels if found in xml descriptor..
-            for (int i = 0; i < channels.Count; i++)
+            for (int i = 0; i < _channels.Count; i++)
             {
                 //print("Channel:"+channels[i].channel + " Value:" + channels[i].value.ToString());
-                csound.setChannel(channels[i].channel, channels[i].value);
+                _csound.SetChannel(_channels[i].channel, _channels[i].value);
             }
 
 
@@ -116,12 +116,12 @@ public class CsoundUnity : MonoBehaviour
              * This method prints the Csound output to the Unity console
              */
             if (logCsoundOutput)
-                InvokeRepeating("logCsoundMessages", 0, .5f);
+                InvokeRepeating("LogCsoundMessages", 0, .5f);
 
-            compiledOk = csound.compiledWithoutError();
+            _compiledOk = _csound.CompiledWithoutError();
 
-            if (compiledOk)
-                csound.setStringChannel("AudioPath", Application.dataPath + "/Audio/");
+            if (_compiledOk)
+                _csound.SetStringChannel("AudioPath", Application.dataPath + "/Audio/");
 
     }
 
@@ -130,7 +130,7 @@ public class CsoundUnity : MonoBehaviour
      */
     void OnApplicationQuit()
     {
-        csound.stopCsound();
+        _csound.StopCsound();
 
         //csound.reset();
     }
@@ -138,9 +138,9 @@ public class CsoundUnity : MonoBehaviour
     /**
      * Get the current control rate
      */
-    public double setKr()
+    public double SetKr()
     {
-        return csound.getKr();
+        return _csound.GETKr();
     }
 
 
@@ -149,21 +149,21 @@ public class CsoundUnity : MonoBehaviour
      */
     void OnAudioFilterRead(float[] data, int channels)
     {
-        if (csound != null)
+        if (_csound != null)
         {
-            processBlock(data, channels);
+            ProcessBlock(data, channels);
         }
     }
 
     /**
     * Processes a block of samples
     */
-    public void processBlock(float[] samples, int numChannels)
+    public void ProcessBlock(float[] samples, int numChannels)
     {
 
-        if (compiledOk)
+        if (_compiledOk)
         {
-            for (int i = 0; i < samples.Length; i += numChannels, ksmpsIndex++)
+            for (int i = 0; i < samples.Length; i += numChannels, _ksmpsIndex++)
             {
                 for (int channel = 0; channel < numChannels; channel++)
                 {
@@ -171,19 +171,19 @@ public class CsoundUnity : MonoBehaviour
                         samples[i + channel] = 0.0f;
                     else
                     {
-                        if ((ksmpsIndex >= ksmps) && (ksmps > 0))
+                        if ((_ksmpsIndex >= _ksmps) && (_ksmps > 0))
                         {
-                            performKsmps();
-                            ksmpsIndex = 0;
+                            PerformKsmps();
+                            _ksmpsIndex = 0;
                         }
 
                         if (processClipAudio)
                         {
-                            setInputSample(ksmpsIndex * numChannels + channel, samples[i + channel]);
-                            samples[i + channel] = (float)getOutputSample(ksmpsIndex * numChannels + channel);
+                            SetInputSample(_ksmpsIndex * numChannels + channel, samples[i + channel]);
+                            samples[i + channel] = (float)GETOutputSample(_ksmpsIndex * numChannels + channel);
                         }
                         else
-                            samples[i + channel] = (float)(getOutputSample(ksmpsIndex, channel) / zerdbfs);
+                            samples[i + channel] = (float)(GETOutputSample(_ksmpsIndex, channel) / _zerdbfs);
 
 
 
@@ -196,52 +196,52 @@ public class CsoundUnity : MonoBehaviour
     /**
      * process a ksmps-sized block of samples
      */
-    public int performKsmps()
+    public int PerformKsmps()
     {
-        return csound.performKsmps();
+        return _csound.PerformKsmps();
     }
 
     /**
      * Get the current control rate
      */
-    public uint getKsmps()
+    public uint GETKsmps()
     {
-        return csound.getKsmps();
+        return _csound.GETKsmps();
     }
 
     /**
      * Set a sample in Csound's input buffer
     */
-    public void setInputSample(int pos, double sample)
+    public void SetInputSample(int pos, double sample)
     {
-        csound.setInputSample(pos, sample);
+        _csound.SetInputSample(pos, sample);
     }
 
     /**
         * Get a sample from Csound's audio output buffer
     */
-    public double getOutputSample(int frame, int channel)
+    public double GETOutputSample(int frame, int channel)
     {
-        return csound.getSpoutSample(frame, channel);
+        return _csound.GETSpoutSample(frame, channel);
     }
 
-    public double getOutputSample(int pos)
+    public double GETOutputSample(int pos)
     {
-        return csound.getOutputSample(pos);
+        return _csound.GETOutputSample(pos);
     }
     /**
      * Get 0 dbfs
      */
-    public double get0dbfs()
+    public double Get0dbfs()
     {
-        return csound.get0dbfs();
+        return _csound.Get0dbfs();
     }
 
     /**
     * process a ksmps-sized block of samples
     */
 #if UNITY_EDITOR
-    public string getFilePath(Object obj)
+    public string GETFilePath(Object obj)
     {
         return Application.dataPath.Replace("Assets", "") + AssetDatabase.GetAssetPath(obj);
     }
@@ -259,53 +259,53 @@ public class CsoundUnity : MonoBehaviour
     /**
      * Sets a Csound channel. Used in connection with a chnget opcode in your Csound instrument.
      */
-    public void setChannel(string channel, float val)
+    public void SetChannel(string channel, float val)
     {
-        csound.setChannel(channel, val);
+        _csound.SetChannel(channel, val);
     }
     /**
      * Sets a string channel in Csound. Used in connection with a chnget opcode in your Csound instrument.
      */
-    public void setStringChannel(string channel, string val)
+    public void SetStringChannel(string channel, string val)
     {
-        csound.setStringChannel(channel, val);
+        _csound.SetStringChannel(channel, val);
     }
     /**
      * Gets a Csound channel. Used in connection with a chnset opcode in your Csound instrument.
      */
-    public double getChannel(string channel)
+    public double GETChannel(string channel)
     {
-        return csound.getChannel(channel);
+        return _csound.GETChannel(channel);
     }
 
     /**
      * Retrieves a single sample from a Csound function table. 
      */
-    public double getTableSample(int tableNumber, int index)
+    public double GETTableSample(int tableNumber, int index)
     {
-        return csound.getTable(tableNumber, index);
+        return _csound.GETTable(tableNumber, index);
     }
     /**
      * Send a score event to Csound in the form of "i1 0 10 ...."
      */
-    public void sendScoreEvent(string scoreEvent)
+    public void SendScoreEvent(string scoreEvent)
     {
         //print(scoreEvent);
-        csound.sendScoreEvent(scoreEvent);
+        _csound.SendScoreEvent(scoreEvent);
     }
 
     /**
      * Print the Csound output to the Unity message console. No need to call this manually, it is set up and controlled in the CsoundUnity Awake() function.
      */
-    void logCsoundMessages()
+    void LogCsoundMessages()
     {
         //print Csound message to Unity console....
-        for (int i = 0; i < csound.getCsoundMessageCount(); i++)
-            print(csound.getCsoundMessage());
+        for (int i = 0; i < _csound.GETCsoundMessageCount(); i++)
+            print(_csound.GETCsoundMessage());
     }
 
 
-    public List<CsoundChannelController> parseCsdFile(string filename)
+    public List<CsoundChannelController> ParseCsdFile(string filename)
     {
         string[] fullCsdText = File.ReadAllLines(filename);
         List<CsoundChannelController> locaChannelControllers;
@@ -354,7 +354,7 @@ public class CsoundUnity : MonoBehaviour
                     range = range.Substring(0, range.IndexOf(")"));
                     char[] delimiterChars = { ',' };
                     string[] tokens = range.Split(delimiterChars);
-                    controller.setRange(float.Parse(tokens[0]), float.Parse(tokens[1]), float.Parse(tokens[2]));
+                    controller.SetRange(float.Parse(tokens[0]), float.Parse(tokens[1]), float.Parse(tokens[2]));
                 }
 
                 if (line.IndexOf("value(") > -1)

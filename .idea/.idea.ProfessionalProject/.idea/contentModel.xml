@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\ryand\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\ryand\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ProfessionalProject.2058306637.00" t="ExcludeRecursive" />
+    <e p="D:\College\ProfessionalProject\ProfessionalProject" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Editor" t="Include">
+          <e p="CsoundUnityEditor.cs" t="Include" />
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Files" t="Include">
+            <e p="Lessons" t="Include">
+              <e p="harmonylessons.txt" t="Include" />
+              <e p="melodylessons.txt" t="Include" />
+              <e p="rhythmlessons.txt" t="Include" />
+              <e p="timbrelessons.txt" t="Include" />
+            </e>
+            <e p="splashtexts.txt" t="Include" />
+            <e p="usersettings.xml" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Controllers" t="Include">
+            <e p="OldShitScripts" t="Include">
+              <e p="ExampleLevelController.cs" t="Include" />
+              <e p="HintTextController.cs" t="Include" />
+              <e p="NoteBlockController.cs" t="Include" />
+              <e p="OnScreenMessageButtonController.cs" t="Include" />
+              <e p="OnScreenMessageController.cs" t="Include" />
+              <e p="TryAgainTextController.cs" t="Include" />
+            </e>
+          </e>
+          <e p="CsoundUnityScripts" t="Include">
+            <e p="CheckForCsound.cs" t="Include" />
+            <e p="CsoundCsharp.cs" t="Include" />
+            <e p="CsoundUnity.cs" t="Include" />
+            <e p="CsoundUnityBridge.cs" t="Include" />
+            <e p="SendToStreamingAssets.cs" t="Include" />
+          </e>
+          <e p="EventScripts" t="Include">
+            <e p="ButtonClicked.cs" t="Include" />
+            <e p="SliderChanged.cs" t="Include" />
+          </e>
+          <e p="SceneScripts" t="Include">
+            <e p="MainMenu" t="Include">
+              <e p="BaseScene.cs" t="Include" />
+              <e p="CoursesController.cs" t="Include" />
+              <e p="MainMenu.cs" t="Include" />
+              <e p="QuaverAnimator.cs" t="Include" />
+              <e p="SplashTextAnimator.cs" t="Include" />
+            </e>
+            <e p="SettingsController.cs" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="Typedefs.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="ButtonClickedAnimation.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="ProfessionalProject.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

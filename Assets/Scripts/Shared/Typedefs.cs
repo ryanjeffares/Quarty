@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Extension functions to be used in the codebase
 public static class Typedefs
@@ -19,18 +21,18 @@ public static class Typedefs
             list[k] = list[n];
             list[n] = value;
         }
-    }
+    }    
 }
 
 // This class exists purely so we can implement Shuffle<T> above
 public static class ThreadSafeRandom
 {
-    [ThreadStatic] private static System.Random Local;    
+    [ThreadStatic] private static System.Random _local;    
     public static System.Random ThisThreadsRandom
     {
         get
         {
-            return Local ?? (Local = new System.Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId)));
+            return _local ?? (_local = new System.Random(unchecked(Environment.TickCount * 31 + Thread.CurrentThread.ManagedThreadId)));
         }
     }
 }
@@ -39,19 +41,27 @@ public static class ThreadSafeRandom
 public static class SharedData
 {    
     public static List<string> allNotes;
-    public static List<string> AMajor;
+    public static List<string> aMajor;
     public static List<int> majorScale;
     public static List<int> minorScale;
+    public static List<double> sineWaveValues;
     public static Dictionary<string, List<int>> midiNoteLookup;
     public static Dictionary<int, Color> colours;
+    public static string[] melodyLessons = File.ReadAllLines(Application.dataPath + "/Resources/Files/Lessons/melodylessons.txt");
+    public static string[] harmonyLessons = File.ReadAllLines(Application.dataPath + "/Resources/Files/Lessons/harmonylessons.txt");
+    public static string[] rhythmLessons = File.ReadAllLines(Application.dataPath + "/Resources/Files/Lessons/rhythmlessons.txt");
+    public static string[] timbreLessons = File.ReadAllLines(Application.dataPath + "/Resources/Files/Lessons/timbrelessons.txt");
+    //public static CsoundUnity csoundUnity;
+    //public static string settingsPath = Application.dataPath + "/Resources/Files/usersettings.xml";
 
     static SharedData()
-    {
+    { 
+        //csoundUnity = GameObject.Find("CsoundInstance").GetComponent<CsoundUnity>();
         allNotes = new List<string>
         {
             "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
         };
-        AMajor = new List<string>
+        aMajor = new List<string>
         {
             "C", "D", "E", "F", "G", "A", "B", "C"
         };
@@ -87,5 +97,10 @@ public static class SharedData
             { 6, new Color(185 / 255f, 107 / 255f, 255 / 255f, 0f) },
             { 7, new Color(255 / 255f, 107 / 255f, 223 / 255f, 0f) }
         };
+        sineWaveValues = new List<double>();
+        for (int i = 0; i < 360; i++)
+        {
+            sineWaveValues.Add(Math.Sin(i * Math.PI / 180));
+        }
     }
 }

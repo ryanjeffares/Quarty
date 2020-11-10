@@ -45,9 +45,9 @@ public class CsoundUnityEditor : Editor
             //deals with Csound files found the CsoundFiles folder
             string dir = Application.dataPath + "/Scripts/CsoundFiles";
             if (Directory.Exists(dir))
-                channelControllers = csoundUnity.parseCsdFile(dir+"/"+csoundUnity.csoundFile);
+                channelControllers = csoundUnity.ParseCsdFile(dir+"/"+csoundUnity.csoundFile);
             else
-                channelControllers = csoundUnity.parseCsdFile(Application.dataPath + "Scripts/" + csoundUnity.csoundFile);
+                channelControllers = csoundUnity.ParseCsdFile(Application.dataPath + "Scripts/" + csoundUnity.csoundFile);
         }
 
     } 
@@ -87,7 +87,7 @@ public class CsoundUnityEditor : Editor
                 {
                     channelControllers[i].value = controllerValues[i];
                     if (Application.isPlaying)
-                        csoundUnity.setChannel(channelControllers[i].channel, controllerValues[i]);
+                        csoundUnity.SetChannel(channelControllers[i].channel, controllerValues[i]);
                 }
             }
             else if (channelControllers[i].type.Contains("button"))
@@ -95,7 +95,7 @@ public class CsoundUnityEditor : Editor
                 if (GUILayout.Button(label))
                 {
                     channelControllers[i].value = channelControllers[i].value == 1 ? 0 : 1;
-                    csoundUnity.setChannel(channelControllers[i].channel, channelControllers[i].value);
+                    csoundUnity.SetChannel(channelControllers[i].channel, channelControllers[i].value);
                 }
             }
             else if (channelControllers[i].type.Contains("groupbox"))
@@ -109,7 +109,7 @@ public class CsoundUnityEditor : Editor
                 {
                     channelControllers[i].value = controllerValues[i];
                     if (Application.isPlaying)
-                        csoundUnity.setChannel(channelControllers[i].channel, controllerValues[i]);
+                        csoundUnity.SetChannel(channelControllers[i].channel, controllerValues[i]);
                 }
             }
         }
@@ -143,7 +143,7 @@ public class CsoundUnityEditor : Editor
                         csoundUnity.csoundFile = Path.GetFileName(dragged_object);
                         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
                         if(csoundUnity.csoundFile.Length>4)
-                            channelControllers = csoundUnity.parseCsdFile(dragged_object);
+                            channelControllers = csoundUnity.ParseCsdFile(dragged_object);
                             
                     }
                 }

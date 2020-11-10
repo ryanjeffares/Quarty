@@ -31,7 +31,7 @@ public class CsoundUnityBridge
 	//ManualResetEvent manualReset;
 	public string baseDir;
     //volatile bool shouldFinish=false;
-    bool compiledOk = false;
+    bool _compiledOk = false;
 
 	/* 
 		constructor sets up the OPCODE6DIR64 directory that holds the Csound plugins. 
@@ -52,7 +52,7 @@ public class CsoundUnityBridge
 		Csound6.NativeMethods.csoundCreateMessageBuffer(csound, 0);
 		string[] runargs = new string[] { "csound", csdFile };
 		int ret = Csound6.NativeMethods.csoundCompile(csound, 2, runargs);
-        compiledOk = ret == 0 ? true : false;
+        _compiledOk = ret == 0 ? true : false;
 
 
         //manualReset.Set();  
@@ -63,7 +63,7 @@ public class CsoundUnityBridge
 	}  
 
 	
-	public void stopCsound()   
+	public void StopCsound()   
 	{
 		//manualReset.Reset();
         Csound6.NativeMethods.csoundStop(csound);
@@ -72,93 +72,93 @@ public class CsoundUnityBridge
         
     }
 	
-	public void reset()
+	public void Reset()
 	{
         Csound6.NativeMethods.csoundStop(csound);
         Csound6.NativeMethods.csoundDestroyMessageBuffer(csound);
         Csound6.NativeMethods.csoundDestroy(csound); 
 	}
 	
-    public bool compiledWithoutError()
+    public bool CompiledWithoutError()
     {
-        return compiledOk;
+        return _compiledOk;
     }
 
-    public int performKsmps()
+    public int PerformKsmps()
     {
        return Csound6.NativeMethods.csoundPerformKsmps(csound);
     }
 	
-    public double get0dbfs()
+    public double Get0dbfs()
     {
         return Csound6.NativeMethods.csoundGet0dBFS(csound);
     }
 
-    public void setInputSample(int pos, double sample)
+    public void SetInputSample(int pos, double sample)
     {
         Csound6.NativeMethods.setCsoundInputSample(csound, pos, sample);
     }
 
-    public double getOutputSample(int pos)
+    public double GETOutputSample(int pos)
     {
         return Csound6.NativeMethods.getCsoundOutputSample(csound, pos);
     }
 
-    public void sendScoreEvent(string scoreEvent)
+    public void SendScoreEvent(string scoreEvent)
 	{
 		Csound6.NativeMethods.csoundInputMessage(csound, scoreEvent);
 	}
 	
 
 
-	public void setChannel(string channel, float value)
+	public void SetChannel(string channel, float value)
 	{
 		Csound6.NativeMethods.csoundSetControlChannel(csound, channel, value);
 	}
 
-	public void setStringChannel(string channel, string value)
+	public void SetStringChannel(string channel, string value)
 	{
 		Csound6.NativeMethods.csoundSetStringChannel(csound, channel, value);
 	}
 
-	public double getTable(int table, int index)
+	public double GETTable(int table, int index)
 	{
 		return Csound6.NativeMethods.csoundTableGet(csound, table, index);
 	}
 
-    public double getKr()
+    public double GETKr()
     {
         return Csound6.NativeMethods.csoundGetKr(csound);
     }
 
-    public uint getKsmps()
+    public uint GETKsmps()
     {
         return Csound6.NativeMethods.csoundGetKsmps(csound);
     }
 
-    public double getSpoutSample(int frame, int channel)
+    public double GETSpoutSample(int frame, int channel)
     {
         return Csound6.NativeMethods.csoundGetSpoutSample(csound, frame, channel);
     }
 
-    public double getChannel(string channel)
+    public double GETChannel(string channel)
 	{
 		return Csound6.NativeMethods.csoundGetControlChannel(csound, channel, IntPtr.Zero);
 	}
 
-	public int getCsoundMessageCount()
+	public int GETCsoundMessageCount()
 	{
 		return Csound6.NativeMethods.csoundGetMessageCnt(csound);
 	}
 	
-	public string getCsoundMessage()
+	public string GETCsoundMessage()
 	{
-		string message = getMessageText(Csound6.NativeMethods.csoundGetFirstMessage(csound));
+		string message = GETMessageText(Csound6.NativeMethods.csoundGetFirstMessage(csound));
 		Csound6.NativeMethods.csoundPopFirstMessage(csound);
 		return message;
 	}
 
-	public static string getMessageText(IntPtr message) {
+	public static string GETMessageText(IntPtr message) {
 		int len = 0;
 		while (Marshal.ReadByte(message, len) != 0) ++len;
 		byte[] buffer = new byte[len];
