@@ -51,7 +51,7 @@ public class QuaverAnimator : MonoBehaviour
                     }
                 }
                 
-                yield return new WaitForSeconds(0.0005f);
+                yield return new WaitForSeconds(Time.deltaTime / 3);
             }
         }
     }

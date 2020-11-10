@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class MainMenu : BaseScene
+public class MainMenu : BaseManager
 {
     [SerializeField] private GameObject playButton, settingsButton, statsButton, quitButton;
     [SerializeField] private GameObject settingsPage, coursesPage;
