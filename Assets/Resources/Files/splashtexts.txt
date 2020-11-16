@@ -1,4 +1,6 @@
 Now with classes!
+Hacked together with Perl.
+{placeholderfunnycomment}
 NOT sponsored by the CIA.
 Drink responsibly.
 Featuring 100 gecs!

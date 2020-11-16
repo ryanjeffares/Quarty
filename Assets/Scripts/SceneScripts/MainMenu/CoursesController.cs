@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class CoursesController : BaseManager
 {
     [Header("Parent Page Object")] [SerializeField] private GameObject coursesObject;
+    [Header("Content View")] [SerializeField] private RectTransform mainContent;
     [Header("Prefabs")] [SerializeField] private GameObject lessonTabPrefab;
     [Header("Buttons")]
     [SerializeField] private GameObject cancelButton;
@@ -28,12 +29,13 @@ public class CoursesController : BaseManager
     private List<GameObject> _harmonyLessons = new List<GameObject>();
     private List<GameObject> _rhythmLessons = new List<GameObject>();
     private List<GameObject> _timbreLessons = new List<GameObject>();
+    private List<int> _colourIndexes;
     private Dictionary<GameObject, bool> _tabMovingLookup;
     private Dictionary<GameObject, List<GameObject>> _lessonListLookup;
     private Dictionary<GameObject, GameObject> _contentLookup;
     private bool _melodyClicked, _harmonyClicked, _rhythmClicked, _timbreClicked;
-    private const float TimeToTake = 0.2f;
-    private const float TimeInc = 0.01f;
+    private const float TimeToTake = 0.1f;
+    private const float TimeInc = 0.005f;
     private const float NumIncs = TimeToTake / TimeInc;
 
     protected override void OnAwake()
@@ -71,6 +73,13 @@ public class CoursesController : BaseManager
             {rhythmButton, rhythmContent},
             {timbreButton, timbreContent}
         };
+        _colourIndexes = new List<int>
+        {
+            0, 1, 2, 3, 4, 5, 6, 7
+        };
+        _colourIndexes.Shuffle();
+        var height = 5f + _courseButtons.Sum(button => button.GetComponent<RectTransform>().sizeDelta.y + 5);
+        mainContent.sizeDelta = new Vector2(300, height);
     }
 
     private void CancelButtonCallback(GameObject g)
@@ -113,7 +122,7 @@ public class CoursesController : BaseManager
     {
         string scene = g.transform.GetChild(1).GetComponent<Text>().text;
         scene = string.Concat(scene.Where(c => !char.IsWhiteSpace(c)));
-        //SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(scene);
         Debug.Log(scene);
     }
     
@@ -136,17 +145,19 @@ public class CoursesController : BaseManager
                 Debug.Log(s);
                 _lessonListLookup[g].Add(Instantiate(lessonTabPrefab, _contentLookup[g].transform));
                 _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().text = s;
+                _lessonListLookup[g][counter].transform.GetChild(0).GetComponent<Image>().color =
+                    SharedData.colours[_colourIndexes[counter > 7 ? counter - 8 : counter]];
                 buttonCallbackLookup.Add(_lessonListLookup[g][counter], LessonButtonCallback);
                 counter++;
             }
+            var size = _contentLookup[g].transform.GetComponent<RectTransform>().sizeDelta;
+            size.y = lessons.Count * 70;
+            _contentLookup[g].transform.GetComponent<RectTransform>().sizeDelta = size;
         }
         else
         {
             _lessonListLookup[g].Clear();
-            while (_tabMovingLookup[g])
-            {
-                yield return null;
-            }
+            yield return new WaitUntil(() => !_tabMovingLookup[g]);
             int childCount = _contentLookup[g].transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
@@ -157,18 +168,12 @@ public class CoursesController : BaseManager
 
     private IEnumerator RotateArrow(GameObject g, bool down)
     {
-        // FIX
-        var rt = g.GetComponent<RectTransform>();
-        var startRotation = rt.rotation;
-        float timer = 0;
-        int target = down ? 0 : 90;
-        float rotationIncr = (down ? target - startRotation.z : startRotation.z - target) / NumIncs;
-        Debug.Log(down ? target - startRotation.z : startRotation.z - target);
+        float timer = 0f;
+        const float inc = 90 / NumIncs;
         while (timer <= TimeToTake)
         {
-            var rotation = rt.rotation;
-            rotation = new Quaternion(rotation[0], rotation[1], down ? rotation[2] + rotationIncr : rotation[2] - rotationIncr, rotation[3]);
-            rt.rotation = rotation;
+            var rotation = g.transform.eulerAngles;
+            g.transform.eulerAngles = new Vector3(0, 0, down ? rotation.z - inc : rotation.z + inc);
             timer += TimeInc;
             yield return new WaitForSeconds(TimeInc);
         }
@@ -176,53 +181,26 @@ public class CoursesController : BaseManager
 
     private IEnumerator ResizeTab(GameObject g, bool enlarge)
     {
-        _tabMovingLookup[g] = true;
         var rt = g.GetComponent<RectTransform>();
+        var bgCol = g.GetComponent<Image>().color;
         var startHeight = rt.rect.height;
         float timer = 0;
-        float target = enlarge ? startHeight * 4 : startHeight / 4;
+        float target = enlarge ? startHeight + 250 : startHeight - 250;
         float heightIncr = (enlarge ? target - startHeight : startHeight - target) / NumIncs;
+        float alphaInc = (enlarge ? 0.2f : -0.2f) / NumIncs;
+        _tabMovingLookup[g] = true;
         while (timer <= TimeToTake)
         {
             var sizeDelta = rt.sizeDelta;
             sizeDelta = new Vector2(sizeDelta[0], enlarge ? sizeDelta[1] + heightIncr : sizeDelta[1] - heightIncr);
             rt.sizeDelta = sizeDelta;
+            bgCol.a += alphaInc;
+            g.GetComponent<Image>().color = bgCol;
             timer += TimeInc;
             yield return new WaitForSeconds(TimeInc);
         }
         _tabMovingLookup[g] = false;
+        var height = 5f + _courseButtons.Sum(button => button.GetComponent<RectTransform>().sizeDelta.y + 5);
+        mainContent.sizeDelta = new Vector2(300, height);
     }
 }
-
-/*
-    private void MelodyButtonCallback(GameObject g)
-    {
-        Debug.Log(g.gameObject.name);
-        _melodyClicked = !_melodyClicked;
-        foreach (GameObject tab in _courseButtons.Where(tab => tab != g))
-        {
-            var pos = tab.transform.localPosition;
-            pos.y = _melodyClicked ? pos.y - 100 : pos.y + 100;
-            tab.transform.localPosition = pos;
-        }
-        StartCoroutine(RotateArrow(arrows[0], _melodyClicked));
-    }
-    private void HarmonyButtonCallback(GameObject g)
-    {
-        _harmonyClicked = !_harmonyClicked;
-        foreach (GameObject tab in _courseButtons.Where(tab => tab != harmonyButton))
-        {
-            var pos = tab.transform.localPosition;
-            //if()
-        }
-        StartCoroutine(RotateArrow(arrows[1], _harmonyClicked));
-    }
-    private void RhythmButtonCallback(GameObject g)
-    {
-        StartCoroutine(RotateArrow(arrows[2], _rhythmClicked));
-    }
-    private void TimbreButtonCallback(GameObject g)
-    {
-        StartCoroutine(RotateArrow(arrows[3], _timbreClicked));
-    }
-*/

@@ -1,5 +1,9 @@
 <Melody>
     <Lesson number="1" name="Note Values" />
     <Lesson number="2" name="Time Signatures" />
-    <Lesson number="3" name="Compound Time" />
+    <Lesson number="3" name="Dotted Notes" />
+    <Lesson number="4" name="Tied Notes" />
+    <Lesson number="5" name="Syncopation" />
+    <Lesson number="6" name="Compound Time" />
+    <Lesson number="7" name="Triplets" />
 </Melody>

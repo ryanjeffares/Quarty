@@ -59,14 +59,14 @@ public class SharedData : MonoBehaviour
         #region UI
         colours = new Dictionary<int, Color>
         {
-            { 0, new Color(255 / 255f, 117 / 255f, 117 / 255f, 0f) },
-            { 1, new Color(255 / 255f, 202 / 255f, 117 / 255f, 0f) },
-            { 2, new Color(255 / 255f, 244 / 255f, 117 / 255f, 0f) },
-            { 3, new Color(156 / 255f, 255 / 255f, 177 / 255f, 0f) },
-            { 4, new Color(117 / 255f, 255 / 255f, 244 / 255f, 0f) },
-            { 5, new Color(107 / 255f, 134 / 255f, 255 / 255f, 0f) },
-            { 6, new Color(185 / 255f, 107 / 255f, 255 / 255f, 0f) },
-            { 7, new Color(255 / 255f, 107 / 255f, 223 / 255f, 0f) }
+            { 0, new Color(255 / 255f, 117 / 255f, 117 / 255f, 0.2f) },
+            { 1, new Color(255 / 255f, 202 / 255f, 117 / 255f, 0.2f) },
+            { 2, new Color(255 / 255f, 244 / 255f, 117 / 255f, 0.2f) },
+            { 3, new Color(156 / 255f, 255 / 255f, 177 / 255f, 0.2f) },
+            { 4, new Color(117 / 255f, 255 / 255f, 244 / 255f, 0.2f) },
+            { 5, new Color(107 / 255f, 134 / 255f, 255 / 255f, 0.2f) },
+            { 6, new Color(185 / 255f, 107 / 255f, 255 / 255f, 0.2f) },
+            { 7, new Color(255 / 255f, 107 / 255f, 223 / 255f, 0.2f) }
         };
         #endregion
         #region Lesson Lists

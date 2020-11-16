@@ -21,6 +21,10 @@ public class MainMenu : BaseManager
             {statsButton, StatsButtonCallback},
             {quitButton, QuitButtonCallback}
         };
+    }
+
+    protected override void OnStart()
+    {
         StartCoroutine(LoadSettings());
     }
 

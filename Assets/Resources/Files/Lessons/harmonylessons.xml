@@ -1,5 +1,10 @@
 <Melody>
-    <Lesson number="1" name="Notes" />
-    <Lesson number="2" name="Tones and Semitones" />
-    <Lesson number="3" name="Major Scale" />
+    <Lesson number="1" name="Keys" />
+    <Lesson number="2" name="Triads" />
+    <Lesson number="3" name="Extended Chords" />
+    <Lesson number="4" name="Suspended Chords" />
+    <Lesson number="5" name="Inversions" />
+    <Lesson number="6" name="Circle Of Fifths" />
+    <Lesson number="7" name="Functions" />
+    <Lesson number="8" name="Cadences" />
 </Melody>
