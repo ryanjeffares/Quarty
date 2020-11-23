@@ -1,29 +1,29 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Xml;
 using UnityEngine;
-using UnityEngine.UI;
 
 // Data to be used commonly throughout the codebase
-public class SharedData : MonoBehaviour
-{    
+public static class SharedData
+{
+    public static string sceneToLoad;
     public static List<string> allNotes;
     public static List<string> aMajor;
     public static List<int> majorScale;
     public static List<int> minorScale;
     public static List<double> sineWaveValues;
     public static Dictionary<string, List<int>> midiNoteLookup;
-    public static Dictionary<int, Color> colours;
-    public static List<string> melodyLessons  = new List<string>();
-    public static List<string> harmonyLessons = new List<string>();
-    public static List<string> rhythmLessons  = new List<string>();
-    public static List<string> timbreLessons  = new List<string>();
-
-    private void Awake()
+    public static Dictionary<int, Color> rainbowColours;
+    public static Dictionary<string, Color> paletteColours;
+    public static readonly List<string> MelodyLessons  = new List<string>();
+    public static readonly List<string> HarmonyLessons = new List<string>();
+    public static readonly List<string> RhythmLessons  = new List<string>();
+    public static readonly List<string> TimbreLessons  = new List<string>();
+    public static string[] loadingTexts;
+    
+    static SharedData()
     {
         #region Theory Dictionaries
         allNotes = new List<string>
@@ -57,23 +57,33 @@ public class SharedData : MonoBehaviour
         }
         #endregion
         #region UI
-        colours = new Dictionary<int, Color>
+        rainbowColours = new Dictionary<int, Color>
         {
-            { 0, new Color(255 / 255f, 117 / 255f, 117 / 255f, 0.2f) },
-            { 1, new Color(255 / 255f, 202 / 255f, 117 / 255f, 0.2f) },
-            { 2, new Color(255 / 255f, 244 / 255f, 117 / 255f, 0.2f) },
-            { 3, new Color(156 / 255f, 255 / 255f, 177 / 255f, 0.2f) },
-            { 4, new Color(117 / 255f, 255 / 255f, 244 / 255f, 0.2f) },
-            { 5, new Color(107 / 255f, 134 / 255f, 255 / 255f, 0.2f) },
-            { 6, new Color(185 / 255f, 107 / 255f, 255 / 255f, 0.2f) },
-            { 7, new Color(255 / 255f, 107 / 255f, 223 / 255f, 0.2f) }
+            { 0, Typedefs.Colour255(255, 117, 117) },
+            { 1, Typedefs.Colour255(255, 202, 117) },
+            { 2, Typedefs.Colour255(255, 244, 117) },
+            { 3, Typedefs.Colour255(156, 255, 177) },
+            { 4, Typedefs.Colour255(117, 255, 244) },
+            { 5, Typedefs.Colour255(107, 134, 255) },
+            { 6, Typedefs.Colour255(185, 107, 255) },
+            { 7, Typedefs.Colour255(255, 107, 223) }
+        };
+        paletteColours = new Dictionary<string, Color>
+        {
+            {"Light Steel Blue", Typedefs.Colour255(167, 190, 211)},
+            {"Colombia Blue", Typedefs.Colour255(198, 226, 233)},
+            {"Cream", Typedefs.Colour255(241, 255, 196)},
+            {"Apricot", Typedefs.Colour255(255, 202, 175)},
+            {"Tan", Typedefs.Colour255(218, 184, 148)}
         };
         #endregion
         #region Lesson Lists
-        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/melodylessons.xml", ref melodyLessons);
-        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/harmonylessons.xml", ref harmonyLessons);
-        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/rhythmlessons.xml", ref rhythmLessons);
-        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/timbrelessons.xml", ref timbreLessons);
+        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/melodylessons.xml", MelodyLessons);
+        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/harmonylessons.xml", HarmonyLessons);
+        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/rhythmlessons.xml", RhythmLessons);
+        LoadLessons(Application.dataPath + "/Resources/Files/Lessons/timbrelessons.xml", TimbreLessons);
+        LoadSettings();
+        LoadLoadingTexts(Application.dataPath + "/Resources/Files/loadingscreentexts.txt");
         #endregion
         #region Other
         sineWaveValues = new List<double>();
@@ -84,11 +94,28 @@ public class SharedData : MonoBehaviour
         #endregion
     }
 
-    private static void LoadLessons(string path, ref List<string> lessonList)
+    private static void LoadLessons(string path, List<string> lessonList)
     {
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.Load(path);
         XmlNode rootNode = xmlDoc.FirstChild;
         lessonList.AddRange(from XmlNode lesson in rootNode where lesson.Attributes != null select lesson.Attributes[1].Value);
+    }
+    
+    private static void LoadSettings()
+    {
+        XmlDocument xmlDoc = new XmlDocument();
+        xmlDoc.Load(Application.dataPath + "/Resources/Files/usersettings.xml");
+        XmlNode rootNode = xmlDoc.FirstChild;
+        foreach (XmlNode setting in rootNode.Cast<XmlNode>().Where(setting => setting.Attributes != null))
+        {
+            if (setting.Attributes != null)
+                Settings.valueSettings.Add(setting.Attributes[0].Value, float.Parse(setting.Attributes[1].Value));
+        }
+    }
+
+    private static void LoadLoadingTexts(string path)
+    {
+        loadingTexts = File.ReadAllLines(path);
     }
 }

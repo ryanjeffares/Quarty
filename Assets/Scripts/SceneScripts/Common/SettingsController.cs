@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using System.Xml;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -12,6 +12,7 @@ public class SettingsController : BaseManager
     [SerializeField] private GameObject volumeSlider, cancelButton, acceptButton, settingsObject;
     [SerializeField] private AudioMixer audioMixer;
     private bool _saved;
+    private float _initVolumeSliderVal;
 
     protected override void OnAwake()
     {
@@ -24,7 +25,8 @@ public class SettingsController : BaseManager
             {cancelButton, CancelButtonCallback},
             {acceptButton, AcceptButtonCallback}
         };
-        StartCoroutine(LoadSettings());
+        // This function only loads settings on to their UI elements, actual values are set on the main menu script
+        LoadSettings();
     }
 
     private void VolumeSliderCallback(GameObject g, float value)
@@ -34,6 +36,8 @@ public class SettingsController : BaseManager
 
     private void CancelButtonCallback(GameObject g)
     {
+        // Need to discard changes to settings if user cancels instead of accepts
+        volumeSlider.GetComponent<Slider>().value = _initVolumeSliderVal;
         Destroy(settingsObject);
     }
 
@@ -43,19 +47,9 @@ public class SettingsController : BaseManager
         StartCoroutine(Exit());
     }
 
-    private IEnumerator LoadSettings()
+    private void LoadSettings()
     {
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load(Application.dataPath + "/Resources/Files/usersettings.xml");
-        XmlNode rootNode = xmlDoc.FirstChild;
-        foreach (XmlNode setting in rootNode)
-        {
-            if (setting.Attributes != null && setting.Attributes[0].Value == "Volume")
-            {
-                volumeSlider.GetComponent<Slider>().value = float.Parse(setting.Attributes[1].Value);
-            }
-            yield return null;
-        }
+        volumeSlider.GetComponent<Slider>().value = Settings.valueSettings["Volume"];
     }
 
     private IEnumerator SaveSettings()
@@ -67,6 +61,7 @@ public class SettingsController : BaseManager
         XmlElement volumeNode = xmlDoc.CreateElement("Setting");
         volumeNode.SetAttribute("name", "Volume");
         volumeNode.SetAttribute("value", volumeSlider.GetComponent<Slider>().value.ToString());
+        Settings.valueSettings["Volume"] = volumeSlider.GetComponent<Slider>().value;
 
         xmlDoc.AppendChild(rootNode);
         rootNode.AppendChild(volumeNode);

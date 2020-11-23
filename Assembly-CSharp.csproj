@@ -58,15 +58,21 @@
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\ExampleLevelController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\SplashTextAnimator.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\SettingsController.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\OnScreenMessageController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\HintTextController.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonClickedAnimation.cs" />
      <Compile Include="Assets\Scripts\EventScripts\ButtonClicked.cs" />
      <Compile Include="Assets\Scripts\Shared\Typedefs.cs" />
+     <Compile Include="Assets\Scripts\Controllers\FadeInTextLetterByLetter.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Common\PauseManager.cs" />
      <Compile Include="Assets\Scripts\EventScripts\SliderChanged.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\QuaverAnimator.cs" />
      <Compile Include="Assets\Scripts\Shared\SharedData.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
+     <Compile Include="Assets\Scripts\Shared\UserSettings.cs" />
+     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
      <None Include="Assets\Resources\Files\Lessons\timbrelessons.xml" />
      <None Include="Assets\Resources\Files\Lessons\melodylessons.txt" />
      <None Include="Assets\Resources\Files\Lessons\melodylessons.xml" />
@@ -76,6 +82,7 @@
      <None Include="Assets\Resources\Files\Lessons\timbrelessons.txt" />
      <None Include="Assets\Resources\Files\Lessons\rhythmlessons.txt" />
      <None Include="Assets\Resources\Files\Lessons\harmonylessons.txt" />
+     <None Include="Assets\Resources\Files\loadingscreentexts.txt" />
      <None Include="Assets\Resources\Files\usersettings.xml" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -337,6 +344,9 @@
  </Reference>
  <Reference Include="UnityEditor">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.6f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

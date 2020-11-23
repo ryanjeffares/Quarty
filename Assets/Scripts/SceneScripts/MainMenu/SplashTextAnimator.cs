@@ -28,7 +28,7 @@ public class SplashTextAnimator : MonoBehaviour
             {
                 float value = (float) SharedData.sineWaveValues[i];
                 transform.localScale = new Vector3(1 + (value * 0.1f), 1 + (value * 0.1f));
-                yield return null;
+                yield return new WaitForSeconds(0.005f);
             }
         }
     }

@@ -34,7 +34,7 @@ public class QuaverAnimator : MonoBehaviour
                 if (!_closed)
                 {
                     int num = _random.Next(1000);
-                    if (num < 5)
+                    if (num < 3)
                     {
                         face.sprite = eyesClosed;
                         _closed = true;
@@ -43,7 +43,7 @@ public class QuaverAnimator : MonoBehaviour
                 else
                 {
                     _timer += Time.deltaTime;
-                    if (_timer >= 0.5f)
+                    if (_timer >= 0.2f)
                     {
                         face.sprite = eyesOpen;
                         _timer = 0;
@@ -51,7 +51,7 @@ public class QuaverAnimator : MonoBehaviour
                     }
                 }
                 
-                yield return new WaitForSeconds(Time.deltaTime / 3);
+                yield return new WaitForSeconds(0.005f);
             }
         }
     }

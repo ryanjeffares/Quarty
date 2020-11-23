@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public abstract class BaseManager : MonoBehaviour
 {

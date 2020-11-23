@@ -134,7 +134,7 @@ public class ExampleLevelController : MonoBehaviour
                 if (usedIndexes[j] + 1 == 8) nb.GetComponent<NoteBlockController>().octaveUp = true;
                 nb.GetComponent<NoteBlockController>().id = usedIndexes[j];                                 
             }
-            nb.GetComponent<RawImage>().color = SharedData.colours[nb.GetComponent<NoteBlockController>().id];
+            nb.GetComponent<RawImage>().color = SharedData.rainbowColours[nb.GetComponent<NoteBlockController>().id];
             ++j;            
         }     
     }

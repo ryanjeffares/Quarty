@@ -25,7 +25,7 @@ public class MainMenu : BaseManager
 
     protected override void OnStart()
     {
-        StartCoroutine(LoadSettings());
+        audioMixer.SetFloat("MasterVolume", Settings.valueSettings["Volume"]);
     }
 
     private void PlayButtonCallback(GameObject g)
@@ -46,21 +46,5 @@ public class MainMenu : BaseManager
     private void QuitButtonCallback(GameObject g)
     {
         Application.Quit();
-    }
-
-    private IEnumerator LoadSettings()
-    {
-        XmlDocument xmlDoc = new XmlDocument();
-        xmlDoc.Load(Application.dataPath + "/Resources/Files/usersettings.xml");
-        XmlNode rootNode = xmlDoc.FirstChild;
-        foreach (XmlNode setting in rootNode)
-        {
-            if (setting.Attributes != null && setting.Attributes[0].Value == "Volume")
-            {
-                float val = float.Parse(setting.Attributes[1].Value);
-                audioMixer.SetFloat("MasterVolume", val);
-            }
-        }
-        yield return null;
     }
 }

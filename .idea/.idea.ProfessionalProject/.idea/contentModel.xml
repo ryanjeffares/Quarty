@@ -18,12 +18,14 @@
               <e p="timbrelessons.txt" t="Include" />
               <e p="timbrelessons.xml" t="Include" />
             </e>
+            <e p="loadingscreentexts.txt" t="Include" />
             <e p="splashtexts.txt" t="Include" />
             <e p="usersettings.xml" t="Include" />
           </e>
         </e>
         <e p="Scripts" t="Include">
           <e p="Controllers" t="Include">
+            <e p="FadeInTextLetterByLetter.cs" t="Include" />
             <e p="OldShitScripts" t="Include">
               <e p="ExampleLevelController.cs" t="Include" />
               <e p="HintTextController.cs" t="Include" />
@@ -40,7 +42,12 @@
           <e p="SceneScripts" t="Include">
             <e p="Common" t="Include">
               <e p="BaseManager.cs" t="Include" />
+              <e p="PauseManager.cs" t="Include" />
+              <e p="PauseMenu.cs" t="Include" />
               <e p="SettingsController.cs" t="Include" />
+            </e>
+            <e p="LoadingScreen" t="Include">
+              <e p="LoadingScreen.cs" t="Include" />
             </e>
             <e p="MainMenu" t="Include">
               <e p="CoursesController.cs" t="Include" />
@@ -52,9 +59,15 @@
           <e p="Shared" t="Include">
             <e p="SharedData.cs" t="Include" />
             <e p="Typedefs.cs" t="Include" />
+            <e p="UserSettings.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="ButtonClickedAnimation.cs" t="Include" />
+          </e>
+        </e>
+        <e p="UnityPackages" t="Include">
+          <e p="JsonNetSample" t="Include">
+            <e p="JsonNetSample.cs" t="Include" />
           </e>
         </e>
       </e>
