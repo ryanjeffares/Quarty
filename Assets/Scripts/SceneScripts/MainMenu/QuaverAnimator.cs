@@ -14,12 +14,14 @@ public class QuaverAnimator : MonoBehaviour
     private readonly Random _random = new Random();
     [SerializeField] private Sprite eyesClosed, eyesOpen;
     [SerializeField] private Image face;
+    [SerializeField] private bool shouldBlink, shouldMove;
 
     private void Awake()
     {
         _position = transform.localPosition;
         _y = _position.y;
-        StartCoroutine(Animate());
+        if(shouldBlink || shouldMove)
+            StartCoroutine(Animate());
     }
 
     private IEnumerator Animate()
@@ -28,26 +30,32 @@ public class QuaverAnimator : MonoBehaviour
         {
             for (int i = 0; i < 360; i++)
             {
-                _position.y = _y + (float)SharedData.sineWaveValues[i] * 15;
-                transform.localPosition = new Vector3(_position.x, _position.y);
-
-                if (!_closed)
+                if(shouldMove)
                 {
-                    int num = _random.Next(1000);
-                    if (num < 3)
-                    {
-                        face.sprite = eyesClosed;
-                        _closed = true;
-                    }   
+                    _position.y = _y + (float) Persistent.sineWaveValues[i] * 15;
+                    transform.localPosition = new Vector3(_position.x, _position.y);
                 }
-                else
+
+                if(shouldBlink)
                 {
-                    _timer += Time.deltaTime;
-                    if (_timer >= 0.2f)
+                    if (!_closed)
                     {
-                        face.sprite = eyesOpen;
-                        _timer = 0;
-                        _closed = false;
+                        int num = _random.Next(1000);
+                        if (num < 3)
+                        {
+                            face.sprite = eyesClosed;
+                            _closed = true;
+                        }
+                    }
+                    else
+                    {
+                        _timer += Time.deltaTime;
+                        if (_timer >= 0.2f)
+                        {
+                            face.sprite = eyesOpen;
+                            _timer = 0;
+                            _closed = false;
+                        }
                     }
                 }
                 

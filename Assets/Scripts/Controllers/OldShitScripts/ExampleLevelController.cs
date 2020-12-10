@@ -106,12 +106,12 @@ public class ExampleLevelController : MonoBehaviour
         int j = 0;
         foreach (GameObject nb in noteBlocks)
         {
-            int noteIndex = SharedData.majorScale[usedIndexes[j]];
+            int noteIndex = Persistent.majorScale[usedIndexes[j]];
             if (noteIndex == 12) noteIndex = 0;
-            nb.GetComponent<NoteBlockController>().note.Add(SharedData.allNotes[noteIndex], SharedData.midiNoteLookup[SharedData.allNotes[noteIndex]]); // aaaaa                  
+            nb.GetComponent<NoteBlockController>().note.Add(Persistent.allNotes[noteIndex], Persistent.midiNoteLookup[Persistent.allNotes[noteIndex]]); // aaaaa                  
             if (!isNumberRound)
             {
-                nb.GetComponent<NoteBlockController>().displayText.text = SharedData.allNotes[noteIndex];
+                nb.GetComponent<NoteBlockController>().displayText.text = Persistent.allNotes[noteIndex];
                 if (noteIndex == 0 && !rootFound)
                 {
                     nb.GetComponent<NoteBlockController>().id = 0;
@@ -125,7 +125,7 @@ public class ExampleLevelController : MonoBehaviour
                 }
                 else
                 {
-                    nb.GetComponent<NoteBlockController>().id = SharedData.aMajor.IndexOf(SharedData.allNotes[noteIndex]);
+                    nb.GetComponent<NoteBlockController>().id = Persistent.aMajor.IndexOf(Persistent.allNotes[noteIndex]);
                 }                
             }
             else
@@ -134,7 +134,7 @@ public class ExampleLevelController : MonoBehaviour
                 if (usedIndexes[j] + 1 == 8) nb.GetComponent<NoteBlockController>().octaveUp = true;
                 nb.GetComponent<NoteBlockController>().id = usedIndexes[j];                                 
             }
-            nb.GetComponent<RawImage>().color = SharedData.rainbowColours[nb.GetComponent<NoteBlockController>().id];
+            nb.GetComponent<RawImage>().color = Persistent.rainbowColours[nb.GetComponent<NoteBlockController>().id];
             ++j;            
         }     
     }

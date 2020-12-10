@@ -34,7 +34,9 @@ public class PauseMenu : BaseManager
 
     private void HomeButtonCallback(GameObject g)
     {
-        SharedData.sceneToLoad = "MainMenu";
+        Unpaused?.Invoke();
+        Persistent.sceneToLoad = "MainMenu";
+        Persistent.goingHome = true;
         SceneManager.LoadScene("LoadingScreen");
     }
     

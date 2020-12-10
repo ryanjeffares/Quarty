@@ -1,0 +1,10 @@
+<Rhythm>
+  <Lesson number="1" name="Rhythm Introduction" available="True" />
+  <Lesson number="2" name="Note Values" available="False" />
+  <Lesson number="3" name="Time Signatures" available="False" />
+  <Lesson number="4" name="Dotted Notes" available="False" />
+  <Lesson number="5" name="Tied Notes" available="False" />
+  <Lesson number="6" name="Syncopation" available="False" />
+  <Lesson number="7" name="Compound Time" available="False" />
+  <Lesson number="8" name="Triplets" available="False" />
+</Rhythm>

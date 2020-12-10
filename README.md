@@ -2,9 +2,8 @@
 
 <h2>FIXES</h2>
 <ul>
-<li>Fix arrow rotation</li>
-<li>Limit scroll view distance</li>
-<li>Fix volume setting not affecting mixer volume on load</li>
+<li>Keep arrow in note lesson on top</li>
+<li>User settings</li>
 </ul>
 </br>
 <h2>TO-DO</h2>

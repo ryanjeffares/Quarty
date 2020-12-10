@@ -1,0 +1,10 @@
+<Melody>
+  <Lesson number="1" name="Melody Introduction" available="True" />
+  <Lesson number="2" name="Notes" available="False" />
+  <Lesson number="3" name="Tones And Semitones" available="False" />
+  <Lesson number="4" name="Major Scale" available="False" />
+  <Lesson number="5" name="Major And Perfect Intervals" available="False" />
+  <Lesson number="6" name="Minor Scale" available="False" />
+  <Lesson number="7" name="Minor Intervals" available="False" />
+  <Lesson number="8" name="Melody Writing" available="False" />
+</Melody>

@@ -50,13 +50,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCirclesScaleController.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesLessonController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\NoteBlockController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\CoursesController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\TryAgainTextController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\OnScreenMessageButtonController.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\MelodyIntroductionController.cs" />
+     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\ExampleLevelController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\SplashTextAnimator.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\SettingsController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\OnScreenMessageController.cs" />
@@ -64,106 +69,104 @@
      <Compile Include="Assets\Scripts\UI\ButtonClickedAnimation.cs" />
      <Compile Include="Assets\Scripts\EventScripts\ButtonClicked.cs" />
      <Compile Include="Assets\Scripts\Shared\Typedefs.cs" />
+     <Compile Include="Assets\Scripts\Shared\UserSettings.cs" />
      <Compile Include="Assets\Scripts\Controllers\FadeInTextLetterByLetter.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesLessonArrowController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\PauseManager.cs" />
      <Compile Include="Assets\Scripts\EventScripts\SliderChanged.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\QuaverAnimator.cs" />
-     <Compile Include="Assets\Scripts\Shared\SharedData.cs" />
+     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleController.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
-     <Compile Include="Assets\Scripts\Shared\UserSettings.cs" />
-     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
-     <None Include="Assets\Resources\Files\Lessons\timbrelessons.xml" />
-     <None Include="Assets\Resources\Files\Lessons\melodylessons.txt" />
-     <None Include="Assets\Resources\Files\Lessons\melodylessons.xml" />
-     <None Include="Assets\Resources\Files\Lessons\harmonylessons.xml" />
-     <None Include="Assets\Resources\Files\Lessons\rhythmlessons.xml" />
-     <None Include="Assets\Resources\Files\splashtexts.txt" />
-     <None Include="Assets\Resources\Files\Lessons\timbrelessons.txt" />
-     <None Include="Assets\Resources\Files\Lessons\rhythmlessons.txt" />
-     <None Include="Assets\Resources\Files\Lessons\harmonylessons.txt" />
-     <None Include="Assets\Resources\Files\loadingscreentexts.txt" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleMovableController.cs" />
+     <Compile Include="Assets\NoteCirclesScaleEmptyController.cs" />
+     <None Include="Assets\Resources\Files\Lessons\TimbreLessons.xml" />
+     <None Include="Assets\Resources\Files\Lessons\MelodyLessons.xml" />
+     <None Include="Assets\Resources\Files\Lessons\HarmonyLessons.xml" />
+     <None Include="Assets\Resources\Files\Lessons\RhythmLessons.xml" />
      <None Include="Assets\Resources\Files\usersettings.xml" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Runtime">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Animation.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.SpriteShape.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Path.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Triangle.Runtime">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="PsdPlugin">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Psdimporter.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEngineBridge.001">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Sprite.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Runtime">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Common.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Tilemap.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.SpriteShape.Runtime">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.SpriteShape.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.PixelPerfect">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Animation.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Animation.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Mathematics.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.2D.Common.Editor">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.2D.Common.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEditorBridge.001">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.6f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -346,7 +349,7 @@
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.6f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>D:/College/ProfessionalProject/ProfessionalProject/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.1.6f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

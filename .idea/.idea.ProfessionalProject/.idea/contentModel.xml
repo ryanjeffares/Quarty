@@ -2,24 +2,19 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\ryand\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\ryand\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ProfessionalProject.2058306637.00" t="ExcludeRecursive" />
-    <e p="D:\College\ProfessionalProject\ProfessionalProject" t="IncludeRecursive">
+    <e p="C:\Users\ryand\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ProfessionalProject.1327951278.00" t="ExcludeRecursive" />
+    <e p="C:\Users\ryand\College\ProfessionalProject\ProfessionalProject" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="NoteCirclesScaleEmptyController.cs" t="Include" />
         <e p="Resources" t="Include">
           <e p="Files" t="Include">
             <e p="Lessons" t="Include">
-              <e p="harmonylessons.txt" t="Include" />
               <e p="harmonylessons.xml" t="Include" />
-              <e p="melodylessons.txt" t="Include" />
               <e p="melodylessons.xml" t="Include" />
-              <e p="rhythmlessons.txt" t="Include" />
               <e p="rhythmlessons.xml" t="Include" />
-              <e p="timbrelessons.txt" t="Include" />
               <e p="timbrelessons.xml" t="Include" />
             </e>
-            <e p="loadingscreentexts.txt" t="Include" />
-            <e p="splashtexts.txt" t="Include" />
             <e p="usersettings.xml" t="Include" />
           </e>
         </e>
@@ -55,9 +50,23 @@
               <e p="QuaverAnimator.cs" t="Include" />
               <e p="SplashTextAnimator.cs" t="Include" />
             </e>
+            <e p="Melody" t="Include">
+              <e p="MelodyIntroduction" t="Include">
+                <e p="MelodyIntroductionController.cs" t="Include" />
+                <e p="XylophoneController.cs" t="Include" />
+                <e p="XylophoneKeyController.cs" t="Include" />
+              </e>
+              <e p="NotesLesson" t="Include">
+                <e p="NoteCircleController.cs" t="Include" />
+                <e p="NoteCircleMovableController.cs" t="Include" />
+                <e p="NoteCirclesScaleController.cs" t="Include" />
+                <e p="NotesLessonArrowController.cs" t="Include" />
+                <e p="NotesLessonController.cs" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="Shared" t="Include">
-            <e p="SharedData.cs" t="Include" />
+            <e p="Persistent.cs" t="Include" />
             <e p="Typedefs.cs" t="Include" />
             <e p="UserSettings.cs" t="Include" />
           </e>

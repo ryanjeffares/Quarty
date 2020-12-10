@@ -109,7 +109,8 @@ public class CoursesController : BaseManager
     {
         // Loads a scene with corresponding name to the lesson button
         string scene = g.transform.GetChild(1).GetComponent<Text>().text;
-        SharedData.sceneToLoad = string.Concat(scene.Where(c => !char.IsWhiteSpace(c)));
+        Persistent.sceneToLoad = string.Concat(scene.Where(c => !char.IsWhiteSpace(c)));
+        Persistent.goingHome = false;
         SceneManager.LoadScene("LoadingScreen");
     }
     
@@ -118,25 +119,34 @@ public class CoursesController : BaseManager
         if (open)
         {
             // Populate the scroll view with lesson buttons, names are parsed from XML on load
-            List<string> lessons;
+            Dictionary<string, bool> lessons;
             switch (_courseButtons.IndexOf(g))
             {
-                case 0: lessons = SharedData.MelodyLessons; break;
-                case 1: lessons = SharedData.HarmonyLessons; break;
-                case 2: lessons = SharedData.RhythmLessons; break;
-                case 3: lessons = SharedData.TimbreLessons; break;
-                default: lessons = new List<string>(); break;
+                case 0: lessons = Persistent.melodyLessons.lessons; break;
+                case 1: lessons = Persistent.harmonyLessons.lessons; break;
+                case 2: lessons = Persistent.rhythmLessons.lessons; break;
+                case 3: lessons = Persistent.timbreLessons.lessons; break;
+                default: lessons = new Dictionary<string, bool>();
+                    Debug.LogError("No lessons lists found...");
+                    break;
             }
             int counter = 0;
-            foreach (string s in lessons)
+            foreach (var kvp in lessons)
             {
                 int colourIndex = counter % 8;
                 _lessonListLookup[g].Add(Instantiate(lessonTabPrefab, _contentLookup[g].transform));
-                _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().text = s;
+                _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().text = kvp.Key;
+                _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().color = new Color(
+                    0.196f, 0.196f, 0.196f, kvp.Value ? 1 : 0.3f);
                 _lessonListLookup[g][counter].transform.GetChild(0).GetComponent<Image>().color = new Color(
-                    SharedData.rainbowColours[colourIndex].r, SharedData.rainbowColours[colourIndex].g,
-                    SharedData.rainbowColours[colourIndex].b, SharedData.rainbowColours[colourIndex].a * 0.3f);
-                buttonCallbackLookup.Add(_lessonListLookup[g][counter], LessonButtonCallback);
+                    Persistent.rainbowColours[colourIndex].r, 
+                    Persistent.rainbowColours[colourIndex].g,
+                    Persistent.rainbowColours[colourIndex].b, 
+                    Persistent.rainbowColours[colourIndex].a * (kvp.Value ? 0.3f : 0.1f));
+                if (kvp.Value)
+                {
+                    buttonCallbackLookup.Add(_lessonListLookup[g][counter], LessonButtonCallback);   
+                }
                 counter++;
             }
             // Resize the content view depending on how many lessons there are

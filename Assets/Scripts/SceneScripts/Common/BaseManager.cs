@@ -31,7 +31,10 @@ public abstract class BaseManager : MonoBehaviour
     {
         ButtonClicked.OnButtonClicked -= ButtonClickedCallback;
         SliderChanged.OnSliderChanged -= SliderChangedCallback;
+        DestroyManager();
     }
+    
+    protected virtual void DestroyManager(){}
 
     protected virtual void ButtonClickedCallback(GameObject g)
     {

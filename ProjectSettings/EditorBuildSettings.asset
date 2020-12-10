@@ -12,9 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4ec4d37b7a31a9a4ab625a1b163f4503
   - enabled: 1
-    path: Assets/Scenes/Melody/Notes.unity
+    path: Assets/Scenes/Melody/MelodyIntroduction.unity
     guid: 77ff68c4dbb4b6243a871f7e8d4b5472
   - enabled: 1
     path: Assets/Scenes/LoadingScreen.unity
     guid: 9a49f915e79024f4098a00c63fa35571
+  - enabled: 1
+    path: Assets/Scenes/Melody/Notes.unity
+    guid: 688e307614fe0af4984d9e6ffc422b39
+  - enabled: 1
+    path: Assets/Scenes/Melody/TonesAndSemitones.unity
+    guid: 6103a7069fe9f3842b684ea9e9fcfa08
   m_configObjects: {}

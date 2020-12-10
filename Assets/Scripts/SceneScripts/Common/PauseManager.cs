@@ -5,7 +5,7 @@ using UnityEngine;
 public class PauseManager : BaseManager
 {
     [SerializeField] private GameObject pauseMenu, pauseButton;
-    private bool _paused;
+    public static bool paused;
     
     protected override void OnAwake()
     {
@@ -16,15 +16,23 @@ public class PauseManager : BaseManager
         };
     }
 
+    protected override void DestroyManager()
+    {
+        PauseMenu.Unpaused -= UnpausedCallback;
+    }
+
     private void PauseButtonCallback(GameObject g)
     {
-        if(!_paused)
+        Debug.Log("Pause clicked");
+        if(!paused)
+        {
             Instantiate(pauseMenu);
-        _paused = true;
+            paused = true;
+        }
     }
 
     private void UnpausedCallback()
     {
-        _paused = false;
+        paused = false;
     }
 }

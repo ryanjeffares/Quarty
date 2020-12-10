@@ -15,8 +15,7 @@ public class SplashTextAnimator : MonoBehaviour
     private void Awake()
     {
         _text = GetComponent<Text>();
-        string[] splashTexts = File.ReadAllLines(Application.dataPath + "/Resources/Files/splashtexts.txt");
-        _text.text = splashTexts[_random.Next(splashTexts.Length)];
+        _text.text = Persistent.SplashTexts.texts[_random.Next(Persistent.SplashTexts.texts.Count)];
         StartCoroutine(Animate());
     }
 
@@ -26,7 +25,7 @@ public class SplashTextAnimator : MonoBehaviour
         {
             for (int i = 0; i < 360; i++)
             {
-                float value = (float) SharedData.sineWaveValues[i];
+                float value = (float) Persistent.sineWaveValues[i];
                 transform.localScale = new Vector3(1 + (value * 0.1f), 1 + (value * 0.1f));
                 yield return new WaitForSeconds(0.005f);
             }

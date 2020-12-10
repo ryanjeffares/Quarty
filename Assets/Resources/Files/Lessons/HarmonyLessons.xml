@@ -1,0 +1,11 @@
+<Harmony>
+  <Lesson number="1" name="Harmony Introduction" available="True" />
+  <Lesson number="2" name="Keys" available="False" />
+  <Lesson number="3" name="Triads" available="False" />
+  <Lesson number="4" name="Extended Chords" available="False" />
+  <Lesson number="5" name="Suspended Chords" available="False" />
+  <Lesson number="6" name="Inversions" available="False" />
+  <Lesson number="7" name="Circle Of Fifths" available="False" />
+  <Lesson number="8" name="Functions" available="False" />
+  <Lesson number="9" name="Cadences" available="False" />
+</Harmony>
