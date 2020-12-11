@@ -206,6 +206,7 @@ public class NotesLessonController : BaseManager
         StartCoroutine(MoveMovableCircles(1f, 200f));
         StartCoroutine(MoveObjectLog(tryButton, new Vector2(-215, -250), 1f, 200f));
         StartCoroutine(MoveObjectLog(_emptyNoteCircles, new Vector2(0, -200), 1f, 200f));
+        StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -200), 1f, 200f));
         StartCoroutine(MoveCircles(new Vector2(-500, -100), 1f, 200f, true));
     }
     
@@ -363,7 +364,12 @@ public class NotesLessonController : BaseManager
             yield return new WaitUntil(() => !_arrowMoving);
             _arrowMoving = true;
         }
-        
+
+        if (obj == arrow && buttonCallbackLookup.ContainsKey(tryButton))
+        {
+            buttonCallbackLookup.Remove(tryButton);
+        }
+
         if (disableTrigger)
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
@@ -394,7 +400,13 @@ public class NotesLessonController : BaseManager
             _arrowMoving = false;
             if (target.x > 0)
             {
-                if(_levelStage == 2)
+                if(_levelStage > 1)
+                {
+                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f, 200f,
+                        0f,
+                        true, true));
+                }
+                /*if(_levelStage == 2)
                 {
                     StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -250), 1f, 200f, 0f,
                         true, true));
@@ -403,7 +415,7 @@ public class NotesLessonController : BaseManager
                 {
                     StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -200), 1f, 200f, 0f,
                         true, true));
-                }
+                }*/
             }
         }
     }
@@ -464,6 +476,10 @@ public class NotesLessonController : BaseManager
         if (obj == arrow)
         {
             _arrowMoving = false;
+            if (!buttonCallbackLookup.ContainsKey(tryButton))
+            {
+                buttonCallbackLookup.Add(tryButton, TryButtonCallback);
+            }
         }
     }
 

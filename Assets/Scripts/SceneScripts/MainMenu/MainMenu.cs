@@ -25,7 +25,7 @@ public class MainMenu : BaseManager
 
     protected override void OnStart()
     {
-        audioMixer.SetFloat("MasterVolume", Settings.valueSettings["Volume"]);
+        audioMixer.SetFloat("MasterVolume", Persistent.settings.valueSettings["Volume"]);
     }
 
     private void PlayButtonCallback(GameObject g)

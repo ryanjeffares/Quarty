@@ -59,11 +59,13 @@
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\OnScreenMessageButtonController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\MelodyIntroductionController.cs" />
      <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleMovableController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\ExampleLevelController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\SplashTextAnimator.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\SettingsController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
+     <Compile Include="Assets\NoteCirclesScaleEmptyController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\OnScreenMessageController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\HintTextController.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonClickedAnimation.cs" />
@@ -80,13 +82,11 @@
      <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
-     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleMovableController.cs" />
-     <Compile Include="Assets\NoteCirclesScaleEmptyController.cs" />
      <None Include="Assets\Resources\Files\Lessons\TimbreLessons.xml" />
      <None Include="Assets\Resources\Files\Lessons\MelodyLessons.xml" />
+     <None Include="Assets\Resources\Files\Settings\UserSettings.xml" />
      <None Include="Assets\Resources\Files\Lessons\HarmonyLessons.xml" />
      <None Include="Assets\Resources\Files\Lessons\RhythmLessons.xml" />
-     <None Include="Assets\Resources\Files\usersettings.xml" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

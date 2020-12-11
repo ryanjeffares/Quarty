@@ -15,7 +15,9 @@
               <e p="rhythmlessons.xml" t="Include" />
               <e p="timbrelessons.xml" t="Include" />
             </e>
-            <e p="usersettings.xml" t="Include" />
+            <e p="Settings" t="Include">
+              <e p="usersettings.xml" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Scripts" t="Include">

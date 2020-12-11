@@ -62,9 +62,17 @@ public class ColourHex
     }
 }
 
-public static class Settings
+public class Settings
 {
-    public static Dictionary<string, float> valueSettings = new Dictionary<string, float>();
+    public Dictionary<string, float> valueSettings;
+
+    public Settings()
+    {
+        valueSettings = new Dictionary<string, float>
+        {
+            {"Volume", 0f}
+        };
+    }
 }
 
 public class MelodyLessons

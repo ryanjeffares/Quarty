@@ -11,7 +11,6 @@ public class SettingsController : BaseManager
 {
     [SerializeField] private GameObject volumeSlider, cancelButton, acceptButton, settingsObject;
     [SerializeField] private AudioMixer audioMixer;
-    private bool _saved;
     private float _initVolumeSliderVal;
 
     protected override void OnAwake()
@@ -43,41 +42,24 @@ public class SettingsController : BaseManager
 
     private void AcceptButtonCallback(GameObject g)
     {
-        StartCoroutine(SaveSettings());
-        StartCoroutine(Exit());
+        SaveSettings();
+        Exit();
     }
 
     private void LoadSettings()
     {
-        volumeSlider.GetComponent<Slider>().value = Settings.valueSettings["Volume"];
+        volumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["Volume"];
+        _initVolumeSliderVal = volumeSlider.GetComponent<Slider>().value;
     }
 
-    private IEnumerator SaveSettings()
+    private void SaveSettings()
     {
-        string path = Application.dataPath + "/Resources/Files/usersettings.xml";
-        
-        XmlDocument xmlDoc = new XmlDocument();
-        XmlElement rootNode = xmlDoc.CreateElement("Settings");
-        XmlElement volumeNode = xmlDoc.CreateElement("Setting");
-        volumeNode.SetAttribute("name", "Volume");
-        volumeNode.SetAttribute("value", volumeSlider.GetComponent<Slider>().value.ToString());
-        Settings.valueSettings["Volume"] = volumeSlider.GetComponent<Slider>().value;
-
-        xmlDoc.AppendChild(rootNode);
-        rootNode.AppendChild(volumeNode);
-        
-        if (System.IO.File.Exists(path))
-        {
-            System.IO.File.Delete(path);
-        }
-        xmlDoc.Save(path);
-        _saved = true;
-        yield return null;
+        Persistent.settings.valueSettings["Volume"] = volumeSlider.GetComponent<Slider>().value;
+        Persistent.UpdateSettings();
     }
 
-    private IEnumerator Exit()
+    private void Exit()
     {
-        while (!_saved) yield return null;
         Destroy(settingsObject);
     }
 }

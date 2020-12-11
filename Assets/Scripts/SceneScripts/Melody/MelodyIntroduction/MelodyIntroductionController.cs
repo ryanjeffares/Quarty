@@ -74,7 +74,7 @@ public class MelodyIntroductionController : BaseManager
                 StartCoroutine(FadeText(introText, true, 0.5f, 200f));
                 _xylophone = Instantiate(xylophonePrefab, transform.GetChild(0));
                 _xylophone.transform.localPosition = new Vector3(0, -180, 0);
-                StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), true, 0.5f, 200f, 5f));
+                StartCoroutine(FadeButtonText(true, 0.5f, 200f, 5f));
                 break;
             case 2:
                 StartCoroutine(FadeText(introText, false, 0.5f, 200f));
