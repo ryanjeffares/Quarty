@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Melody/TonesAndSemitones.unity
     guid: 6103a7069fe9f3842b684ea9e9fcfa08
+  - enabled: 1
+    path: Assets/Scenes/Melody/NotesPuzzle.unity
+    guid: 6672c7b6f994f194b8a5dd54bbbc9af6
   m_configObjects: {}

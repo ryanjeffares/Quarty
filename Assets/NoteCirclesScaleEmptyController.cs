@@ -14,6 +14,7 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         float waitTime = 0f;
         for (int i = 0; i < 8; i++)
         {
+            circles[i].GetComponent<Image>().color = Color.clear;
             StartCoroutine(FadeElements(texts[i], circles[i], 0.5f, 200f, waitTime));
             waitTime += 0.1f;
         }

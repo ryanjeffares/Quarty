@@ -125,7 +125,7 @@ public class ExampleLevelController : MonoBehaviour
                 }
                 else
                 {
-                    nb.GetComponent<NoteBlockController>().id = Persistent.aMajor.IndexOf(Persistent.allNotes[noteIndex]);
+                    nb.GetComponent<NoteBlockController>().id = Persistent.cMajor.IndexOf(Persistent.allNotes[noteIndex]);
                 }                
             }
             else

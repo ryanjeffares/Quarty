@@ -18,6 +18,9 @@
             <e p="Settings" t="Include">
               <e p="usersettings.xml" t="Include" />
             </e>
+            <e p="User" t="Include">
+              <e p="username.txt" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Scripts" t="Include">
@@ -43,6 +46,10 @@
               <e p="PauseMenu.cs" t="Include" />
               <e p="SettingsController.cs" t="Include" />
             </e>
+            <e p="FirstTime" t="Include">
+              <e p="FirstTimeOpenScreen.cs" t="Include" />
+              <e p="ProfanityList.cs" t="Include" />
+            </e>
             <e p="LoadingScreen" t="Include">
               <e p="LoadingScreen.cs" t="Include" />
             </e>
@@ -64,6 +71,7 @@
                 <e p="NoteCirclesScaleController.cs" t="Include" />
                 <e p="NotesLessonArrowController.cs" t="Include" />
                 <e p="NotesLessonController.cs" t="Include" />
+                <e p="NotesPuzzleController.cs" t="Include" />
               </e>
             </e>
           </e>

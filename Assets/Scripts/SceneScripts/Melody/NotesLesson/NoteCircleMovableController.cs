@@ -19,8 +19,10 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     public float localY = 0;
     public List<int> availableX;
     public bool octaveUp;
+    public bool draggable;
 
-    public static Action<string> NotePlayed;
+    public static event Action CirclePlaced; 
+    public static event Action<string> NotePlayed;
 
     private void Awake()
     {
@@ -81,24 +83,29 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
 
     public void OnDrag(PointerEventData eventData)
     {
-        transform.position = eventData.position;
+        if(draggable && !PauseManager.paused)
+            transform.position = eventData.position;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        var size = GetComponent<RectTransform>().sizeDelta;
-        size *= 0.95f;
-        GetComponent<RectTransform>().sizeDelta = size;
+        if (draggable && !PauseManager.paused)
+        {
+            var size = GetComponent<RectTransform>().sizeDelta;
+            size *= 0.95f;
+            GetComponent<RectTransform>().sizeDelta = size;   
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         GetComponent<RectTransform>().sizeDelta = _size;
-        if (Math.Abs(localY - transform.localPosition.y) < 20)
+        if (Math.Abs(localY - transform.localPosition.y) <= 20)
         {
-            foreach (int x in availableX.Where(x => Math.Abs(x - transform.localPosition.x) < 20))
+            foreach (var x in availableX.Where(x => Math.Abs(x - transform.localPosition.x) <= 20))
             {
                 transform.localPosition = new Vector3(x, localY);
+                CirclePlaced?.Invoke();
                 break;
             }
         }
@@ -130,4 +137,21 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             }
         }
     }
+
+    public IEnumerator Destroy()
+    {
+        float time = 0.5f;
+        float timeCounter = 0f;
+        float resolution = 100f;
+        float interval = time / resolution;
+        var start = GetComponent<Image>().color;
+        while (timeCounter <= time)
+        {
+            GetComponent<Image>().color = Color.Lerp(start, Color.clear, timeCounter / time);
+            timeCounter += interval;
+            yield return new WaitForSeconds(interval);
+        }
+
+        Destroy(gameObject);
+    } 
 }

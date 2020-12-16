@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -34.64, y: -100.8}
-  m_SizeDelta: {x: 110, y: 700}
+  m_AnchoredPosition: {x: -32, y: -102}
+  m_SizeDelta: {x: 111.87656, y: 127.185974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3552165156268188146
 CanvasRenderer:
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3552165157448131339}
   - component: {fileID: 3552165157448131336}
   m_Layer: 5
-  m_Name: Quaver
+  m_Name: Crotchet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

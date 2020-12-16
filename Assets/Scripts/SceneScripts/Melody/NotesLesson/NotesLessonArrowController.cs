@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class NotesLessonArrowController : MonoBehaviour
 {
-    private void Awake()
-    {
-        //StartCoroutine(Move());
-    }
-
     private IEnumerator Move()
     {
         while(GetComponent<RectTransform>().localPosition.x <= 220)

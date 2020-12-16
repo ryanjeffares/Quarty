@@ -12,7 +12,7 @@ public static class Persistent
     public static string sceneToLoad;
     public static bool goingHome;
     public static List<string> allNotes;
-    public static List<string> aMajor;
+    public static List<string> cMajor;
     public static List<int> majorScale;
     public static List<int> minorScale;
     public static List<double> sineWaveValues;
@@ -36,7 +36,7 @@ public static class Persistent
         {
             "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
         };
-        aMajor = new List<string>
+        cMajor = new List<string>
         {
             "C", "D", "E", "F", "G", "A", "B", "C"
         };

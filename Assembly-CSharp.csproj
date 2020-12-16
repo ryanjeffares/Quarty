@@ -82,11 +82,15 @@
      <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\FirstTimeOpenScreen.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\ProfanityList.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesPuzzleController.cs" />
      <None Include="Assets\Resources\Files\Lessons\TimbreLessons.xml" />
      <None Include="Assets\Resources\Files\Lessons\MelodyLessons.xml" />
      <None Include="Assets\Resources\Files\Settings\UserSettings.xml" />
      <None Include="Assets\Resources\Files\Lessons\HarmonyLessons.xml" />
      <None Include="Assets\Resources\Files\Lessons\RhythmLessons.xml" />
+     <None Include="Assets\Resources\Files\User\username.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>

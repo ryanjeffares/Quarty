@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -62,10 +63,8 @@ public class NotesLessonController : BaseManager
         }
         else
         {
-            Persistent.sceneToLoad = "TonesAndSemitones";
+            Persistent.sceneToLoad = "NotesPuzzle";
             Persistent.goingHome = false;
-            Persistent.melodyLessons.lessons["Tones And Semitones"] = true;
-            Persistent.UpdateLessonAvailability("Melody");
             SceneManager.LoadScene("LoadingScreen");
         }
     }
@@ -87,7 +86,7 @@ public class NotesLessonController : BaseManager
                         break;
                     case 3:
                         _complete = true;
-                        helpText.text = "Amazing! You can hear it again or move to the next lesson.";
+                        helpText.text = "Amazing! You can hear it again or move into the puzzle.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, 200f));
                         StartCoroutine(FadeButtonText(true, 0.5f, 100f));
                         break;
@@ -293,6 +292,7 @@ public class NotesLessonController : BaseManager
             _movableCircles.Add(Instantiate(movableCirclePrefab, _emptyNoteCircles.transform));
             _movableCircles[i].GetComponent<NoteCircleMovableController>().note = notes[i];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = true;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i]];
             _movableCircles[i].GetComponent<AudioSource>().clip = clips[i];
             if (i == 0) // if its a C
