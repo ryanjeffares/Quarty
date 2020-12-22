@@ -1,65 +1,127 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.SymbolStore;
+using UnityEngine.SceneManagement;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NotesPuzzleController : BaseManager
 {
-    [SerializeField] private GameObject nextButton, tryButton, emptyNoteCirclesPrefab, movableCirclePrefab, arrow;
-    [SerializeField] private Text introText, timeText, niceText;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject emptyNoteCirclesPrefab;
+    [SerializeField] private GameObject movableCirclePrefab;
+    [SerializeField] private GameObject starPrefab;
+    [Header("Objects")]
     [SerializeField] private Slider timeRemaining;
-    [SerializeField] private AnimationCurve overshootCurve, overshootOutCurve, easeInOutCurve;
+    [SerializeField] private GameObject nextButton, tryButton, arrow, retryButton, mainHolder;
+    [Header("Texts")] 
+    [SerializeField] private Text introText;
+    [SerializeField] private Text timeText;
+    [SerializeField] private Text niceText;
+    [SerializeField] private Text scoreCounter;
+    [Header("Curves")]
+    [SerializeField] private AnimationCurve overshootCurve;
+    [SerializeField] private AnimationCurve overshootOutCurve;
+    [SerializeField] private AnimationCurve easeInOutCurve;
+    [Header("Lists")]
     [SerializeField] private List<AudioClip> clips;
 
+    public int timer;
+    
     private GameObject _emptyNoteCircles;
-    private Dictionary<Text, bool> _canTextLerp;
-    private List<GameObject> _movableCircles;
-    public List<string> _correctOrder, _playedNotes;
-    private int _levelStage = 0;
-    private int _circlesPlaced = 0;
-    private int _notesPlayed = 0;
-    private int _scalesDone = 0;
-    private bool _arrowMoving = false;
+    private List<GameObject> _movableCircles, _stars;
+    private List<string> _correctOrder, _playedNotes;
+    private int _levelStage;
+    private int _notesPlayed;
+    private int _scalesDone;
+    private bool _arrowMoving;
     private bool _playing;
+    private bool _success;
+    private string _previousRoot = "C";
     
     protected override void OnAwake()
     {
         NoteCircleMovableController.NotePlayed += NotePlayedCallback;
-        NoteCircleMovableController.CirclePlaced += CirclePlacedCallback;
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
             {nextButton, NextButtonCallback},
             {tryButton, TryButtonCallback},
         };
-        _canTextLerp = new Dictionary<Text, bool>
+        fullCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
+        {
+            {nextButton, NextButtonCallback},
+            {tryButton, TryButtonCallback},
+            {retryButton, RetryButtonCallback}
+        };
+        canTextLerp = new Dictionary<Text, bool>
         {
             {introText, true},
             {niceText, true},
+            {scoreCounter, true},
             {nextButton.transform.GetChild(0).GetComponent<Text>(), true},
             {tryButton.transform.GetChild(0).GetComponent<Text>(), true},
+            {retryButton.transform.GetChild(0).GetComponent<Text>(), true}
         };
         _playedNotes = new List<string>();
+        _stars = new List<GameObject>();
         timeRemaining.fillRect.GetComponent<Image>().color = Persistent.rainbowColours[3];
-        StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-        StartCoroutine(FadeButtonText(true, 0.5f, 200f));
+        StartCoroutine(FadeText(introText, true, 0.2f, 200f));
+        StartCoroutine(FadeButtonText(nextButton, true, 0.2f, 200f));
         StartCoroutine(FadeSlider(0.2f, 100f));
-        _emptyNoteCircles = Instantiate(emptyNoteCirclesPrefab, transform.GetChild(0));
+        _emptyNoteCircles = Instantiate(emptyNoteCirclesPrefab, mainHolder.transform); 
         _emptyNoteCircles.transform.localPosition = new Vector3(0, -200);
         StartCoroutine(SpawnMovableCircles());
     }
 
+    protected override void DestroyManager()
+    {
+        NoteCircleMovableController.NotePlayed -= NotePlayedCallback;
+    }
+
     private void NextButtonCallback(GameObject g)
     {
-        ++_levelStage;
-        StartCoroutine(AdvanceLevelStage());
+        if(!_success)
+        {
+            ++_levelStage;
+            StartCoroutine(AdvanceLevelStage());
+        }
+        else
+        {
+            Persistent.sceneToLoad = "TonesAndSemitones";
+            Persistent.goingHome = false;
+            Persistent.melodyLessons.lessons["Tones And Semitones"] = true;
+            Persistent.UpdateLessonAvailability("Melody");
+            SceneManager.LoadScene("LoadingScreen");
+        }
     }
 
     private void TryButtonCallback(GameObject g)
     {
+        if (_arrowMoving || !_playing) return;
         StartCoroutine(MoveArrow(new Vector2(215, -200), 1.2f, 200f));
+    }
+
+    private void RetryButtonCallback(GameObject g)
+    {
+        timeRemaining.value = 45;
+        foreach (var circle in _movableCircles)
+        {
+            Destroy(circle);
+        }
+
+        int index = 0;
+        foreach (var star in _stars)
+        {
+            StartCoroutine(FadeStar(star, overshootOutCurve, false, 0.3f, 100f, 0.2f * index));
+            index++;
+        }
+        _movableCircles.Clear();
+        StartCoroutine(FadeText(introText, false, 0.2f, 100f));
+        StartCoroutine(FadeButtonText(retryButton, false, 0.2f, 100f));
+        StartCoroutine(FadeButtonText(nextButton, false, 0.2f, 100f));
+        StartCoroutine(DecreaseTimer());
+        StartCoroutine(SpawnMovableCircles());
     }
     
     private IEnumerator AdvanceLevelStage()
@@ -69,13 +131,15 @@ public class NotesPuzzleController : BaseManager
             case 1:
                 StartCoroutine(FadeText(introText, false, 0.5f, 200f));
                 StartCoroutine(FadeText(tryButton.transform.GetChild(0).GetComponent<Text>(), true, 0.1f, 200f));
-                StartCoroutine(FadeButtonText(false, 0.5f, 200f));
+                StartCoroutine(FadeText(scoreCounter, true, 0.5f, 200f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
                 StartCoroutine(DecreaseTimer());
                 foreach (var circle in _movableCircles)
                 {
                     circle.GetComponent<NoteCircleMovableController>().draggable = true;
                 }
                 break;
+            default: break;
         }
 
         yield return null;
@@ -103,7 +167,11 @@ public class NotesPuzzleController : BaseManager
         int[] localXs = {-125, -75, -25, 25, 75, 125};
         List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
         indexes.Shuffle();
-        notesToShuffle.Shuffle();
+        while(notesToShuffle[0] == _previousRoot)
+        {
+            notesToShuffle.Shuffle();
+        }
+        _previousRoot = notesToShuffle[0];
         float wait = 0f;
         var startNote = notesToShuffle[0]; // random start note...
         int idx = notes.IndexOf(notes.First(s => s ==startNote));
@@ -116,6 +184,7 @@ public class NotesPuzzleController : BaseManager
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notesToShuffle[i % 7]];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = _playing;
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
             _movableCircles[i].GetComponent<AudioSource>().clip = clips[i + idx];
             switch (i)
             {
@@ -136,17 +205,61 @@ public class NotesPuzzleController : BaseManager
     {
         if (_scalesDone > 0)
         {
-            
+            _success = true;
+            int stars;
+            if (_scalesDone < 3)
+            {
+                stars = 1;
+            }
+            else if (_scalesDone < 6)
+            {
+                stars = 2;
+            }
+            else
+            {
+                stars = 3;
+            }
+            string readout = stars > 1 ? "stars" : "star";
+            introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
+            retryButton.transform.localPosition = new Vector3(0, -100);
+            StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+            StartCoroutine(FadeText(scoreCounter, false, 0.5f, 200f));
+            StartCoroutine(FadeButtonText(retryButton, true, 0.5f, 200f));
+            StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f));
+            List<Vector2> starPositions = new List<Vector2>();
+            switch (stars)
+            {
+                case 1: starPositions.Add(new Vector2(0, 30));
+                    break;
+                case 2: starPositions.Add(new Vector2(-50, 30));
+                    starPositions.Add(new Vector2(50, 30));
+                    break;
+                case 3: starPositions.Add(new Vector2(-70, 30));
+                    starPositions.Add(new Vector2(0, 30));
+                    starPositions.Add(new Vector2(70, 30));
+                    break;
+            }
+
+            for (int i = 0; i < stars; i++)
+            {
+                _stars.Add(Instantiate(starPrefab, mainHolder.transform));
+                _stars[i].transform.localPosition = starPositions[i];
+                _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
+                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, 100f, 0.2f * i));
+            }
         }
         else
         {
-            introText.text = "Looks like you didn't fill in any scales correctly. Press next to try again.";
-            StartCoroutine(FadeText(introText, false, 0.5f, 200f));
+            introText.text = "Looks like you didn't fill in any scales correctly. Press retry to try again.";
+            StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+            retryButton.transform.localPosition = new Vector3(0, -100);
+            StartCoroutine(FadeButtonText(retryButton, true, 0.5f, 200f));
         }
     }
     
     private void NotePlayedCallback(string note)
     {
+        if (!_playing) return;
         _playedNotes.Add(note);
         _notesPlayed++;
         if (_notesPlayed == 8)
@@ -154,17 +267,24 @@ public class NotesPuzzleController : BaseManager
             if (_playedNotes.SequenceEqual(_correctOrder))
             {
                 _scalesDone++;
-                niceText.text = "Nice!";
-                niceText.color = Persistent.rainbowColours[3];
-                StartCoroutine(ResizeText(0.3f, 200f, true));
-                StartCoroutine(ResizeText(0.3f, 200f, false, 1f));
+                scoreCounter.text = "Scales Done: " + _scalesDone;
+                if(_playing)
+                {
+                    niceText.text = "Nice!";
+                    niceText.color = new Color(0.32f, 0.57f, 0.47f);
+                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, 200f, true));
+                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, 200f, false, 1f));
+                }
             }
             else
             {
-                niceText.text = "Oops!";
-                niceText.color = Persistent.rainbowColours[0];
-                StartCoroutine(ResizeText(0.3f, 200f, true));
-                StartCoroutine(ResizeText(0.3f, 200f, false, 1f));
+                if(_playing)
+                {
+                    niceText.text = "Oops!";
+                    niceText.color = new Color(0.76f, 0.43f, 0.41f);
+                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, 200f, true));
+                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, 200f, false, 1f));
+                }
             }
             foreach (var circle in _movableCircles)
             {
@@ -175,83 +295,6 @@ public class NotesPuzzleController : BaseManager
         }
     }
 
-    private void CirclePlacedCallback()
-    {
-        _circlesPlaced++;
-        if (_circlesPlaced == 6)
-        {
-            //StartCoroutine(MoveArrow(new Vector2(215, -200), 1.2f, 200f));
-        }
-    }
-/*
-    private void RearrangeCircles()
-    {
-        var random = new System.Random();
-        List<string> notes = new List<string>{"C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G", "A", "B"};
-        List<string> notesToShuffle = new List<string>{"C", "D", "E", "F", "G", "A", "B"};
-        int[] localXs = {-125, -75, -25, 25, 75, 125};
-        List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
-        indexes.Shuffle();
-        notesToShuffle.Shuffle();
-        float wait = 0f;
-        var startNote = notesToShuffle[0]; // random start note...
-        Debug.Log(startNote);
-        int idx = notes.IndexOf(startNote);
-        _correctOrder.Clear();
-        for (int i = 0; i < 8; i++)
-        {
-            _correctOrder.Add(notes[(idx +i ) % 7]);
-        }
-        
-        foreach (var circle in _movableCircles)
-        {
-            Vector3 target;
-            if (circle.GetComponent<NoteCircleMovableController>().note == notesToShuffle[0])
-            {
-                Debug.Log("Root");
-                if (circle.GetComponent<NoteCircleMovableController>().octaveUp)
-                {
-                    target = new Vector3(175, 0);
-                }
-                else
-                {
-                    target = new Vector3(-175, 0);
-                }
-            }
-            else
-            {
-                Debug.Log(circle.GetComponent<NoteCircleMovableController>().note);
-                target = new Vector3(localXs[random.Next(localXs.Length)], -60);
-            }
-            StartCoroutine(MoveCircle(circle, circle.transform.localPosition, target, 0.3f, 100f));
-        }
-    }
-
-    private IEnumerator MoveCircle(GameObject circle, Vector3 startPos, Vector3 target, float time, float resolution)
-    {
-        arrow.GetComponent<BoxCollider2D>().enabled = false;
-        float targetX = target.x;
-        float targetY = target.y;
-        float yDiff = targetY - startPos.y;
-        float xDiff = targetX - startPos.x;
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            if (PauseManager.paused)
-            {
-                yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            var pos = circle.transform.localPosition;
-            pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
-            pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
-            circle.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-        arrow.GetComponent<BoxCollider2D>().enabled = true;
-    }
-    */
     private IEnumerator MoveArrow(Vector2 target, float time, float resolution, bool disableTrigger = false)
     {
         yield return new WaitUntil(() => !_arrowMoving);
@@ -326,15 +369,15 @@ public class NotesPuzzleController : BaseManager
         _playing = true;
         float timeCounter = 0f;
         float resolution = 1000f;
-        float interval = 45 / resolution;
+        float interval = timer / resolution;
         timeRemaining.fillRect.GetComponent<Image>().color = Persistent.rainbowColours[3];
-        while (timeCounter <= 45f)
+        while (timeCounter <= timer)
         {
             if (PauseManager.paused)
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
-            float remaining = 45 - timeCounter;
+            float remaining = timer - timeCounter;
             timeRemaining.value = remaining;
             if (remaining < 5f)
             {
@@ -351,10 +394,10 @@ public class NotesPuzzleController : BaseManager
             }
             else
             {
-                timeText.text = "Time remaining: " + ((int) (45 - timeCounter));   
+                timeText.text = "Time remaining: " + ((int) (timer - timeCounter));   
             }
 
-            timeRemaining.fillRect.GetComponent<Image>().color = Color.Lerp(Persistent.rainbowColours[3], Persistent.rainbowColours[0], timeCounter / 45f);
+            timeRemaining.fillRect.GetComponent<Image>().color = Color.Lerp(Persistent.rainbowColours[3], Persistent.rainbowColours[0], timeCounter / timer);
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
@@ -391,7 +434,7 @@ public class NotesPuzzleController : BaseManager
         }
     }
     
-    private IEnumerator FadeText(Text text, bool fadeIn, float time, float resolution, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
+    /* IEnumerator FadeText(Text text, bool fadeIn, float time, float resolution, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
     {
         yield return new WaitUntil(() => _canTextLerp[text]);
         _canTextLerp[text] = false;
@@ -449,15 +492,15 @@ public class NotesPuzzleController : BaseManager
         }
     }
     
-    private IEnumerator FadeButtonText(bool fadeIn, float time, float resolution, float wait = 0f)
+    private IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float resolution, float wait = 0f)
     {
-        if (buttonCallbackLookup.ContainsKey(nextButton))
+        if (buttonCallbackLookup.ContainsKey(button))
         {
-            buttonCallbackLookup.Remove(nextButton);
+            buttonCallbackLookup.Remove(button);
         }
-        yield return new WaitUntil(() => _canTextLerp[nextButton.transform.GetChild(0).GetComponent<Text>()]);
-        _canTextLerp[nextButton.transform.GetChild(0).GetComponent<Text>()] = false;
-        var startColour = nextButton.transform.GetChild(0).GetComponent<Text>().color;
+        yield return new WaitUntil(() => _canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
+        _canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
+        var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
 
         if (wait > 0f)
@@ -483,19 +526,19 @@ public class NotesPuzzleController : BaseManager
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
-            nextButton.transform.GetChild(0).GetComponent<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
+            button.transform.GetChild(0).GetComponent<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
 
-        _canTextLerp[nextButton.transform.GetChild(0).GetComponent<Text>()] = true;
+        _canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = true;
         if(fadeIn)
         {
-            buttonCallbackLookup.Add(nextButton, NextButtonCallback);
+            buttonCallbackLookup.Add(button, _fullCallbackLookup[button]);
         }
-    }
+    }*/
 
-    private IEnumerator ResizeText(float time, float resolution, bool enlarge, float wait = 0f)
+    /*private IEnumerator TextFadeSize(Text text, float time, float resolution, bool enlarge, float wait = 0f)
     {
         if (wait > 0f)
         {
@@ -512,7 +555,7 @@ public class NotesPuzzleController : BaseManager
             }   
         }
 
-        var startScale = niceText.transform.localScale;
+        var startScale = text.transform.localScale;
         float timeCounter = 0f;
         float interval = time / resolution;
         while (timeCounter <= time)
@@ -521,7 +564,7 @@ public class NotesPuzzleController : BaseManager
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
-            var sc = niceText.transform.localScale;
+            var sc = text.transform.localScale;
             if(enlarge)
             {
                 sc.x = startScale.x + overshootCurve.Evaluate(timeCounter / time);
@@ -532,9 +575,9 @@ public class NotesPuzzleController : BaseManager
                 sc.x = startScale.x - overshootOutCurve.Evaluate(timeCounter / time);
                 sc.y = startScale.y - overshootOutCurve.Evaluate(timeCounter / time);
             }
-            niceText.transform.localScale = sc;
+            text.transform.localScale = sc;
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
-    }
+    }*/
 }

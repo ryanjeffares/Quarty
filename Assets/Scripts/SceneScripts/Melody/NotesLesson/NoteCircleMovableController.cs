@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
     [SerializeField] private Text text;
+    [SerializeField] private ParticleSystem _particleSystem;
     private Vector2 _size;
     private RectTransform _rt;
     private Color _textColour;
@@ -20,6 +21,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     public List<int> availableX;
     public bool octaveUp;
     public bool draggable;
+    public AnimationCurve curve;
 
     public static event Action CirclePlaced; 
     public static event Action<string> NotePlayed;
@@ -36,7 +38,9 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     public void Show()
     {
         text.text = note;
-        StartCoroutine(FadeIn(0.5f, 200f));
+        var particleSystemMain = _particleSystem.main;
+        particleSystemMain.startColor = circleColour;
+        StartCoroutine(FadeIn(0.2f, 100f));
     }
 
     private IEnumerator FadeIn(float time, float resolution)
@@ -55,6 +59,8 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
                 yield return new WaitForSeconds(Time.deltaTime);
             }
         }
+
+        var startScale = transform.localScale;
         float interval = time / resolution;
         float timeCounter = 0f;
         while (timeCounter <= time)
@@ -65,6 +71,10 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             }
             text.color = Color.Lerp(text.color, _textColour, timeCounter / time);
             GetComponent<Image>().color = Color.Lerp(GetComponent<Image>().color, circleColour, timeCounter / time);
+            var scale = transform.localScale;
+            scale.x = startScale.x + curve.Evaluate(timeCounter / time);
+            scale.y = startScale.y + curve.Evaluate(timeCounter / time);
+            transform.localScale = scale;
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
@@ -72,6 +82,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     private void OnTriggerEnter2D(Collider2D other)
     {
         NotePlayed?.Invoke(text.text);
+        _particleSystem.Play();
         GetComponent<AudioSource>().Play();
         StartCoroutine(Resize(true));
     }

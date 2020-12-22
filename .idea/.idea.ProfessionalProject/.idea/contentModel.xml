@@ -39,6 +39,16 @@
             <e p="ButtonClicked.cs" t="Include" />
             <e p="SliderChanged.cs" t="Include" />
           </e>
+          <e p="ProfanityFilter" t="Include">
+            <e p="AllowList.cs" t="Include" />
+            <e p="Interfaces" t="Include">
+              <e p="IAllowList.cs" t="Include" />
+              <e p="IProfanityFilter.cs" t="Include" />
+            </e>
+            <e p="ProfanityBase.cs" t="Include" />
+            <e p="ProfanityFilter.cs" t="Include" />
+            <e p="ProfanityList.cs" t="Include" />
+          </e>
           <e p="SceneScripts" t="Include">
             <e p="Common" t="Include">
               <e p="BaseManager.cs" t="Include" />
@@ -48,7 +58,6 @@
             </e>
             <e p="FirstTime" t="Include">
               <e p="FirstTimeOpenScreen.cs" t="Include" />
-              <e p="ProfanityList.cs" t="Include" />
             </e>
             <e p="LoadingScreen" t="Include">
               <e p="LoadingScreen.cs" t="Include" />

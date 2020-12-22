@@ -15,10 +15,10 @@ public class NotesLessonController : BaseManager
     [SerializeField] private GameObject arrow;
     [SerializeField] private List<AudioClip> clips;
 
-    public AnimationCurve curve;
-    
+    [SerializeField] private AnimationCurve easeInOutCurve;
+    [SerializeField] private AnimationCurve overshootCurve;
+
     private GameObject _noteCircles, _emptyNoteCircles;
-    private Dictionary<Text, bool> _canTextLerp;
     private List<string> _playedNotes, _correctNotes;
     private List<GameObject> _movableCircles;
     private bool _arrowMoving, _complete;
@@ -32,7 +32,12 @@ public class NotesLessonController : BaseManager
             {nextButton, NextButtonCallback},
             {tryButton, TryButtonCallback}
         };
-        _canTextLerp = new Dictionary<Text, bool>
+        fullCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
+        {
+            {nextButton, NextButtonCallback},
+            {tryButton, TryButtonCallback}
+        };
+        canTextLerp = new Dictionary<Text, bool>
         {
             {introText, true},
             {helpText, true},
@@ -88,7 +93,7 @@ public class NotesLessonController : BaseManager
                         _complete = true;
                         helpText.text = "Amazing! You can hear it again or move into the puzzle.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, 200f));
-                        StartCoroutine(FadeButtonText(true, 0.5f, 100f));
+                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 100f));
                         break;
                 }
             }
@@ -123,7 +128,7 @@ public class NotesLessonController : BaseManager
         {
             case 1: 
                 StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(false, 0.5f, 200f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
                 float counter = 0f;
                 while (counter <= 2f)
                 {
@@ -135,7 +140,7 @@ public class NotesLessonController : BaseManager
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
-                introText.text = "See how the numbers increase with the notes' letters and their pitch.";
+                introText.text = "See how the numbers increase with the notes' letters and their pitch.\n \nWhen we get up to G, the next note is A but at a higher pitch.";
                 StartCoroutine(FadeText(introText, true, 0.5f, 200f));
                 counter = 0f;
                 while (counter <= 1f)
@@ -149,7 +154,7 @@ public class NotesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 StartCoroutine(SpawnSampleCirclesInitial());
-                StartCoroutine(FadeButtonText(true, 0.5f, 200f, 4f));
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 4f));
                 break;
             case 2:
                 StartCoroutine(FadeText(introText, false, 0.5f, 200f));
@@ -168,7 +173,7 @@ public class NotesLessonController : BaseManager
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
-                introText.text = "Drag the notes into the correct place.";
+                introText.text = "Drag the notes into the correct place and press Try to see if you got it right!";
                 StartCoroutine(FadeText(introText, true, 0.5f, 200f));
                 _emptyNoteCircles = Instantiate(emptyNoteCirclesPrefab, transform.GetChild(0));
                 _emptyNoteCircles.transform.localPosition = new Vector3(0, -250);
@@ -240,8 +245,8 @@ public class NotesLessonController : BaseManager
             foreach (var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "C"))
             {
                 var pos = circle.transform.localPosition;
-                pos.x = startPositions[circle].x + curve.Evaluate(timeCounter / time) * diffs[circle].Item1;
-                pos.y = startPositions[circle].y + curve.Evaluate(timeCounter / time) * diffs[circle].Item2;
+                pos.x = startPositions[circle].x + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item1;
+                pos.y = startPositions[circle].y + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item2;
                 circle.transform.localPosition = pos;
             }
             timeCounter += interval;
@@ -294,6 +299,7 @@ public class NotesLessonController : BaseManager
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = true;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i]];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
             _movableCircles[i].GetComponent<AudioSource>().clip = clips[i];
             if (i == 0) // if its a C
             {
@@ -329,8 +335,8 @@ public class NotesLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             var pos = _noteCircles.transform.localPosition;
-            pos.y = startPos.y + (curve.Evaluate(timeCounter / time) * yDiff);
-            pos.x = startPos.x + (curve.Evaluate(timeCounter / time) * xDiff);
+            pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
+            pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             _noteCircles.transform.localPosition = pos;
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
@@ -406,16 +412,6 @@ public class NotesLessonController : BaseManager
                         0f,
                         true, true));
                 }
-                /*if(_levelStage == 2)
-                {
-                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -250), 1f, 200f, 0f,
-                        true, true));
-                }
-                else if (_levelStage == 3)
-                {
-                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -200), 1f, 200f, 0f,
-                        true, true));
-                }*/
             }
         }
     }
@@ -459,8 +455,8 @@ public class NotesLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             var pos = obj.transform.localPosition;
-            pos.y = startPos.y + (curve.Evaluate(timeCounter / time) * yDiff);
-            pos.x = startPos.x + (curve.Evaluate(timeCounter / time) * xDiff);
+            pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
+            pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             obj.transform.localPosition = pos;
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
@@ -507,110 +503,6 @@ public class NotesLessonController : BaseManager
             arrow.transform.eulerAngles = new Vector3(0, 0, rotation.z + 360 / resolution);
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
-        }
-    }
-    
-    private IEnumerator FadeText(Text text, bool fadeIn, float time, float resolution, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
-    {
-        yield return new WaitUntil(() => _canTextLerp[text]);
-        _canTextLerp[text] = false;
-        var startColour = text.color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
-
-        if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
-            float waitCounter = 0f;
-            while (waitCounter <= wait)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
-            }   
-        }
-
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            if (PauseManager.paused)
-            {
-                yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            text.color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-
-        if (fadeOut)
-        {
-            yield return new WaitForSeconds(duration);
-            timeCounter = 0f;
-            while (timeCounter <= time)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                text.color = Color.Lerp(targetColour, startColour, timeCounter / time);
-                timeCounter += interval;
-                yield return new WaitForSeconds(interval);
-            }
-        }
-        _canTextLerp[text] = true;
-        if (destroy)
-        {
-            _canTextLerp.Remove(text);
-            Destroy(text);
-        }
-    }
-    
-    private IEnumerator FadeButtonText(bool fadeIn, float time, float resolution, float wait = 0f)
-    {
-        if (buttonCallbackLookup.ContainsKey(nextButton))
-        {
-            buttonCallbackLookup.Remove(nextButton);
-        }
-        yield return new WaitUntil(() => _canTextLerp[nextButton.transform.GetChild(0).GetComponent<Text>()]);
-        _canTextLerp[nextButton.transform.GetChild(0).GetComponent<Text>()] = false;
-        var startColour = nextButton.transform.GetChild(0).GetComponent<Text>().color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
-
-        if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
-            float waitCounter = 0f;
-            while (waitCounter <= wait)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
-            }   
-        }
-
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            if (PauseManager.paused)
-            {
-                yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            nextButton.transform.GetChild(0).GetComponent<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-
-        _canTextLerp[nextButton.transform.GetChild(0).GetComponent<Text>()] = true;
-        if(fadeIn)
-        {
-            buttonCallbackLookup.Add(nextButton, NextButtonCallback);
         }
     }
 }

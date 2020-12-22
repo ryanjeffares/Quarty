@@ -12,11 +12,9 @@ public class FirstTimeOpenScreen : BaseManager
     [SerializeField] private InputField input;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private Text warningText;
-    private ProfanityList _profanityList;
 
     protected override void OnAwake()
     {
-        _profanityList = new ProfanityList();
         if (File.Exists(Application.dataPath + "/Resources/Files/User/username.txt"))
         {
             Persistent.sceneToLoad = "MainMenu";
@@ -37,33 +35,30 @@ public class FirstTimeOpenScreen : BaseManager
     {
         if (input.text != "")
         {
-            foreach (string s in _profanityList.profanityList)
-            {
-                if (s.Contains(input.text))
-                {
-                    input.text = "";
-                    warningText.text = "Username not allowed! Try a different username.";
-                    StartCoroutine(FadeText(1f, 200f));
-                    return;
-                }
-            }
-
             if (!input.text.All(c =>char.IsLetterOrDigit(c) || !char.IsWhiteSpace(c)))
             {
+                input.text = "";
                 warningText.text = "Illegal character found, try a different username.";
-                StartCoroutine(FadeText(1f, 200f));
+                StartCoroutine(FadeText(0.2f, 200f));
+                return;
             }
-            else
+            var filter = new ProfanityFilter.ProfanityFilter();
+            if (filter.IsProfanity(input.text))
             {
-                using (StreamWriter sw = File.CreateText(Application.dataPath + "/Resources/Files/User/username.txt"))
-                {
-                    sw.WriteLine(input.text);
-                }
-
-                Persistent.sceneToLoad = "MainMenu";
-                Persistent.goingHome = false;
-                SceneManager.LoadScene("LoadingScreen");
+                input.text = "";
+                warningText.text = "Username not allowed! Try a different username.";
+                StartCoroutine(FadeText(0.2f, 200f));
+                return;
             }
+
+            using (StreamWriter sw = File.CreateText(Application.dataPath + "/Resources/Files/User/username.txt"))
+            {
+                sw.WriteLine(input.text);
+            }
+
+            Persistent.sceneToLoad = "MainMenu";
+            Persistent.goingHome = false;
+            SceneManager.LoadScene("LoadingScreen");
         }
     }
 

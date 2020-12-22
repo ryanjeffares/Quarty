@@ -50,6 +50,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesPuzzleController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCirclesScaleController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesLessonController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\NoteBlockController.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Scripts\Controllers\OldShitScripts\ExampleLevelController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\MainMenu\SplashTextAnimator.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneController.cs" />
+     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\FirstTimeOpenScreen.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\SettingsController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
      <Compile Include="Assets\NoteCirclesScaleEmptyController.cs" />
@@ -82,9 +84,12 @@
      <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
      <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
-     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\FirstTimeOpenScreen.cs" />
-     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\ProfanityList.cs" />
-     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesPuzzleController.cs" />
+     <Compile Include="Assets\Scripts\ProfanityFilter\AllowList.cs" />
+     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IProfanityFilter.cs" />
+     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityFilter.cs" />
+     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityBase.cs" />
+     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityList.cs" />
+     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IAllowList.cs" />
      <None Include="Assets\Resources\Files\Lessons\TimbreLessons.xml" />
      <None Include="Assets\Resources\Files\Lessons\MelodyLessons.xml" />
      <None Include="Assets\Resources\Files\Settings\UserSettings.xml" />

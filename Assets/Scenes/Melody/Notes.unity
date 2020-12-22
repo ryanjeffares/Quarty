@@ -465,8 +465,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73.9, y: 147.47}
-  m_SizeDelta: {x: 282.16748, y: 294.94235}
+  m_AnchoredPosition: {x: 73.9, y: 124}
+  m_SizeDelta: {x: 282.16748, y: 341.86758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1282249239
 MonoBehaviour:
@@ -955,7 +955,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9321e584b9df2f4888492db1c333b49, type: 3}
   - {fileID: 8300000, guid: 6d2dd5c7f671452459d6805a4afd20cc, type: 3}
   - {fileID: 8300000, guid: d84252e98db7c29449da917f5f8487b5, type: 3}
-  curve:
+  easeInOutCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -967,6 +967,39 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  overshootCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.75720704
+      value: 1.0634288
+      inSlope: 0.9688566
+      outSlope: 0.9688566
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
