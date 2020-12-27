@@ -82,6 +82,9 @@
                 <e p="NotesLessonController.cs" t="Include" />
                 <e p="NotesPuzzleController.cs" t="Include" />
               </e>
+              <e p="TonesAndSemitones" t="Include">
+                <e p="TonesAndSemitonesLessonController.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="Shared" t="Include">

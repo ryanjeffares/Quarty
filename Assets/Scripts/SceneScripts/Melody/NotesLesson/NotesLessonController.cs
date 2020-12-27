@@ -122,7 +122,7 @@ public class NotesLessonController : BaseManager
         }
     }
 
-    private IEnumerator AdvanceLevelStage()
+    protected override IEnumerator AdvanceLevelStage()
     {
         switch (_levelStage)
         {
@@ -348,7 +348,7 @@ public class NotesLessonController : BaseManager
         }
     }
 
-    private IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, bool disableTrigger = false, bool destroy = false)
+    protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, bool disableTrigger = false, bool destroy = false)
     {
         if (wait > 0f)
         {
@@ -416,7 +416,7 @@ public class NotesLessonController : BaseManager
         }
     }
 
-    private IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, bool disableTrigger = false, bool reset = false)
+    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, bool disableTrigger = false, bool reset = false, bool destroy = false)
     {
         if (wait > 0f)
         {

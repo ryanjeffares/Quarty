@@ -77,12 +77,22 @@ public static class Persistent
         noteColours = new Dictionary<string, Color>
         {
             {"C", new ColourHex("FF5D5D", 153).colour},
+            {"C#", new ColourHex("FF5D5D", 153).colour},
             {"D", new ColourHex("F3C568", 153).colour},
+            {"D#", new ColourHex("F3C568", 153).colour},
+            {"Db", new ColourHex("F3C568", 153).colour},
             {"E", new ColourHex("FFF79B", 153).colour},
+            {"Eb", new ColourHex("FFF79B", 153).colour},
             {"F", new ColourHex("B4FFA7", 153).colour},
+            {"F#", new ColourHex("B4FFA7", 153).colour},
             {"G", new ColourHex("99C2FF", 153).colour},
+            {"G#", new ColourHex("99C2FF", 153).colour},
+            {"Gb", new ColourHex("99C2FF", 153).colour},
             {"A", new ColourHex("B683FF", 153).colour},
-            {"B", new ColourHex("D174CC", 153).colour}
+            {"A#", new ColourHex("B683FF", 153).colour},
+            {"Ab", new ColourHex("B683FF", 153).colour},
+            {"B", new ColourHex("D174CC", 153).colour},
+            {"Bb", new ColourHex("D174CC", 153).colour}
         };
         paletteColours = new Dictionary<string, Color>
         {

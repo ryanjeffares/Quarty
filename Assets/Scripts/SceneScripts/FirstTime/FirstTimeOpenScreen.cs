@@ -24,11 +24,11 @@ public class FirstTimeOpenScreen : BaseManager
         else
         {
             Directory.CreateDirectory(Application.dataPath + "/Resources/Files/User/");
-            buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
-            {
-                {continueButton, ContinueButtonCallback}
-            };  
         }
+        buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
+        {
+            {continueButton, ContinueButtonCallback}
+        }; 
     }
 
     private void ContinueButtonCallback(GameObject g)

@@ -104,6 +104,8 @@ public class NotesPuzzleController : BaseManager
 
     private void RetryButtonCallback(GameObject g)
     {
+        _scalesDone = 0;
+        scoreCounter.text = "Scales Done: 0";
         timeRemaining.value = 45;
         foreach (var circle in _movableCircles)
         {
@@ -124,7 +126,7 @@ public class NotesPuzzleController : BaseManager
         StartCoroutine(SpawnMovableCircles());
     }
     
-    private IEnumerator AdvanceLevelStage()
+    protected override IEnumerator AdvanceLevelStage()
     {
         switch (_levelStage)
         {
@@ -433,151 +435,4 @@ public class NotesPuzzleController : BaseManager
             yield return new WaitForSeconds(interval);
         }
     }
-    
-    /* IEnumerator FadeText(Text text, bool fadeIn, float time, float resolution, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
-    {
-        yield return new WaitUntil(() => _canTextLerp[text]);
-        _canTextLerp[text] = false;
-        var startColour = text.color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
-
-        if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
-            float waitCounter = 0f;
-            while (waitCounter <= wait)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
-            }   
-        }
-
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            if (PauseManager.paused)
-            {
-                yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            text.color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-
-        if (fadeOut)
-        {
-            yield return new WaitForSeconds(duration);
-            timeCounter = 0f;
-            while (timeCounter <= time)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                text.color = Color.Lerp(targetColour, startColour, timeCounter / time);
-                timeCounter += interval;
-                yield return new WaitForSeconds(interval);
-            }
-        }
-        _canTextLerp[text] = true;
-        if (destroy)
-        {
-            _canTextLerp.Remove(text);
-            Destroy(text);
-        }
-    }
-    
-    private IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float resolution, float wait = 0f)
-    {
-        if (buttonCallbackLookup.ContainsKey(button))
-        {
-            buttonCallbackLookup.Remove(button);
-        }
-        yield return new WaitUntil(() => _canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
-        _canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
-        var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
-
-        if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
-            float waitCounter = 0f;
-            while (waitCounter <= wait)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
-            }   
-        }
-
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            if (PauseManager.paused)
-            {
-                yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            button.transform.GetChild(0).GetComponent<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-
-        _canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = true;
-        if(fadeIn)
-        {
-            buttonCallbackLookup.Add(button, _fullCallbackLookup[button]);
-        }
-    }*/
-
-    /*private IEnumerator TextFadeSize(Text text, float time, float resolution, bool enlarge, float wait = 0f)
-    {
-        if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
-            float waitCounter = 0f;
-            while (waitCounter <= wait)
-            {
-                if (PauseManager.paused)
-                {
-                    yield return new WaitUntil(() => !PauseManager.paused);
-                }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
-            }   
-        }
-
-        var startScale = text.transform.localScale;
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            if (PauseManager.paused)
-            {
-                yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            var sc = text.transform.localScale;
-            if(enlarge)
-            {
-                sc.x = startScale.x + overshootCurve.Evaluate(timeCounter / time);
-                sc.y = startScale.y + overshootCurve.Evaluate(timeCounter / time);
-            }
-            else
-            {
-                sc.x = startScale.x - overshootOutCurve.Evaluate(timeCounter / time);
-                sc.y = startScale.y - overshootOutCurve.Evaluate(timeCounter / time);
-            }
-            text.transform.localScale = sc;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-    }*/
 }

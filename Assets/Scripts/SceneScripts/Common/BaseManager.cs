@@ -26,6 +26,25 @@ public abstract class BaseManager : MonoBehaviour
     
     protected abstract void OnAwake();
 
+    protected virtual IEnumerator AdvanceLevelStage()
+    {
+        yield return null;
+    }
+
+    protected virtual IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution,
+        float wait = 0f,
+        bool disableTrigger = false, bool destroy = false)
+    {
+        yield return null;
+    }
+
+    protected virtual IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution,
+        float wait = 0f,
+        bool disableTrigger = false, bool reset = false, bool destroy = false)
+    {
+        yield return null;
+    }
+
     private void Start()
     {
         OnStart();
