@@ -131,8 +131,8 @@ public class NotesPuzzleController : BaseManager
         switch (_levelStage)
         {
             case 1:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeText(tryButton.transform.GetChild(0).GetComponent<Text>(), true, 0.1f, 200f));
+                StartCoroutine(FadeText(introText, false, 0.5f, 200f));   
+                StartCoroutine(FadeButtonText(tryButton, true, 0.1f, 200f));
                 StartCoroutine(FadeText(scoreCounter, true, 0.5f, 200f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
                 StartCoroutine(DecreaseTimer());

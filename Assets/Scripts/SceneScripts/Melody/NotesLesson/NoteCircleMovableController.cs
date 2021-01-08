@@ -13,6 +13,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     private Vector2 _size;
     private RectTransform _rt;
     private Color _textColour;
+    private bool _playable;
 
     public Color circleColour;
     public string note;
@@ -78,9 +79,11 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
+        _playable = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!_playable) return;
         NotePlayed?.Invoke(text.text);
         _particleSystem.Play();
         GetComponent<AudioSource>().Play();

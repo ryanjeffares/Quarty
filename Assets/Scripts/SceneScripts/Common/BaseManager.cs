@@ -13,6 +13,7 @@ public abstract class BaseManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 120;
         ButtonClicked.OnButtonClicked += ButtonClickedCallback;
         SliderChanged.OnSliderChanged += SliderChangedCallback;
         
@@ -25,6 +26,13 @@ public abstract class BaseManager : MonoBehaviour
     }
     
     protected abstract void OnAwake();
+    
+    private void Start()
+    {
+        OnStart();
+    }
+    
+    protected virtual void OnStart(){}
 
     protected virtual IEnumerator AdvanceLevelStage()
     {
@@ -33,24 +41,20 @@ public abstract class BaseManager : MonoBehaviour
 
     protected virtual IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution,
         float wait = 0f,
-        bool disableTrigger = false, bool destroy = false)
+        bool disableTrigger = false, 
+        bool destroy = false)
     {
         yield return null;
     }
 
     protected virtual IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution,
         float wait = 0f,
-        bool disableTrigger = false, bool reset = false, bool destroy = false)
+        bool disableTrigger = false, 
+        bool reset = false, 
+        bool destroy = false)
     {
         yield return null;
     }
-
-    private void Start()
-    {
-        OnStart();
-    }
-    
-    protected virtual void OnStart(){}
 
     private void OnDestroy()
     {

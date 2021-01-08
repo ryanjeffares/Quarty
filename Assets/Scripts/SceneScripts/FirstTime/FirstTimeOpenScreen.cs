@@ -12,10 +12,12 @@ public class FirstTimeOpenScreen : BaseManager
     [SerializeField] private InputField input;
     [SerializeField] private GameObject continueButton;
     [SerializeField] private Text warningText;
+    private List<char> otherAllowedCharacters;
 
     protected override void OnAwake()
     {
-        if (File.Exists(Application.dataPath + "/Resources/Files/User/username.txt"))
+        Debug.Log(Application.persistentDataPath);
+        if (File.Exists(Application.persistentDataPath + "/Resources/Files/User/username.txt"))
         {
             Persistent.sceneToLoad = "MainMenu";
             Persistent.goingHome = false;
@@ -23,19 +25,23 @@ public class FirstTimeOpenScreen : BaseManager
         }
         else
         {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/Files/User/");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/Files/User/");
         }
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
             {continueButton, ContinueButtonCallback}
-        }; 
+        };
+        otherAllowedCharacters = new List<char>
+        {
+            '-', '_'
+        };
     }
 
     private void ContinueButtonCallback(GameObject g)
     {
         if (input.text != "")
         {
-            if (!input.text.All(c =>char.IsLetterOrDigit(c) || !char.IsWhiteSpace(c)))
+            if (!input.text.All(c =>char.IsLetterOrDigit(c) || !char.IsWhiteSpace(c) || otherAllowedCharacters.Contains(c)))
             {
                 input.text = "";
                 warningText.text = "Illegal character found, try a different username.";
@@ -51,7 +57,7 @@ public class FirstTimeOpenScreen : BaseManager
                 return;
             }
 
-            using (StreamWriter sw = File.CreateText(Application.dataPath + "/Resources/Files/User/username.txt"))
+            using (StreamWriter sw = File.CreateText(Application.persistentDataPath + "/Resources/Files/User/username.txt"))
             {
                 sw.WriteLine(input.text);
             }

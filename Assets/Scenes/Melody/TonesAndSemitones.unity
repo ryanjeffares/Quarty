@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 89.00001, y: -233.82}
-  m_SizeDelta: {x: 282.16748, y: 102.763916}
+  m_AnchoredPosition: {x: 89.00001, y: -271.74}
+  m_SizeDelta: {x: 282.16748, y: 178.38196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &25058418
 CanvasRenderer:
@@ -201,7 +201,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Amazing! You can hear it again or move to the next lesson.
+  m_Text: That wasn't quite right - look at the list of notes below and remember
+    a Tone is 2 notes and a Semitone is 1 note.
 --- !u!1001 &155182258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -834,6 +835,7 @@ MonoBehaviour:
     type: 3}
   introText: {fileID: 663046184}
   allNotesText: {fileID: 628997489}
+  helpText: {fileID: 25058419}
   nextButton: {fileID: 2059904632}
   tryButton: {fileID: 978989320}
   mainContainer: {fileID: 1534438882}

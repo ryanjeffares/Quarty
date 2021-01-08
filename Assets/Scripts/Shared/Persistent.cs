@@ -17,7 +17,7 @@ public static class Persistent
     public static List<int> minorScale;
     public static List<double> sineWaveValues;
     public static Dictionary<string, List<int>> midiNoteLookup;
-    public static Dictionary<int, Color> rainbowColours;
+    public static List<Color> rainbowColours;
     public static Dictionary<string, Color> noteColours;
     public static Dictionary<string, Color> paletteColours;
     public static MelodyLessons melodyLessons;
@@ -29,8 +29,7 @@ public static class Persistent
     public static readonly SplashTexts SplashTexts;
     
     static Persistent()
-    {
-        Application.targetFrameRate = 120;
+    {        
         #region Theory Dictionaries
         allNotes = new List<string>
         {
@@ -63,16 +62,16 @@ public static class Persistent
         }
         #endregion
         #region UI
-        rainbowColours = new Dictionary<int, Color>
+        rainbowColours = new List<Color>
         {
-            { 0, new Colour255(255, 117, 117).colour },
-            { 1, new Colour255(255, 202, 117).colour },
-            { 2, new Colour255(255, 244, 117).colour },
-            { 3, new Colour255(156, 255, 177).colour },
-            { 4, new Colour255(117, 255, 244).colour },
-            { 5, new Colour255(107, 134, 255).colour },
-            { 6, new Colour255(185, 107, 255).colour },
-            { 7, new Colour255(255, 107, 223).colour }
+            new Colour255(255, 117, 117).colour,
+            new Colour255(255, 202, 117).colour,
+            new Colour255(255, 244, 117).colour,
+            new Colour255(156, 255, 177).colour,
+            new Colour255(117, 255, 244).colour,
+            new Colour255(107, 134, 255).colour,
+            new Colour255(185, 107, 255).colour,
+            new Colour255(255, 107, 223).colour
         };
         noteColours = new Dictionary<string, Color>
         {
@@ -106,13 +105,13 @@ public static class Persistent
         
         #region Lesson Lists
 
-        if (!(Directory.Exists(Application.dataPath + "/Resources/Files/Lessons/")))
+        if (!(Directory.Exists(Application.persistentDataPath + "/Resources/Files/Lessons/")))
         {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/Files/Lessons/");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/Files/Lessons/");
         }
-        if (!(Directory.Exists(Application.dataPath + "/Resources/Files/Settings/")))
+        if (!(Directory.Exists(Application.persistentDataPath + "/Resources/Files/Settings/")))
         {
-            Directory.CreateDirectory(Application.dataPath + "/Resources/Files/Settings/");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/Files/Settings/");
         }
         melodyLessons = new MelodyLessons();
         harmonyLessons = new HarmonyLessons();
@@ -151,7 +150,7 @@ public static class Persistent
 
     private static void LoadMelodyLessons()
     {
-        string path = Application.dataPath + "/Resources/Files/Lessons/MelodyLessons.xml";
+        string path = Application.persistentDataPath + "/Resources/Files/Lessons/MelodyLessons.xml";
         if (File.Exists(path))
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -183,7 +182,7 @@ public static class Persistent
     
     private static void LoadHarmonyLessons()
     {
-        string path = Application.dataPath + "/Resources/Files/Lessons/HarmonyLessons.xml";
+        string path = Application.persistentDataPath + "/Resources/Files/Lessons/HarmonyLessons.xml";
         if (File.Exists(path))
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -215,7 +214,7 @@ public static class Persistent
     
     private static void LoadRhythmLessons()
     {
-        string path = Application.dataPath + "/Resources/Files/Lessons/RhythmLessons.xml";
+        string path = Application.persistentDataPath + "/Resources/Files/Lessons/RhythmLessons.xml";
         if (File.Exists(path))
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -247,7 +246,7 @@ public static class Persistent
     
     private static void LoadTimbreLessons()
     {
-        string path = Application.dataPath + "/Resources/Files/Lessons/TimbreLessons.xml";
+        string path = Application.persistentDataPath + "/Resources/Files/Lessons/TimbreLessons.xml";
         if (File.Exists(path))
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -285,19 +284,19 @@ public static class Persistent
         {
             case "Melody": 
                 lessonList = melodyLessons.lessons;
-                path = Application.dataPath + "/Resources/Files/Lessons/MelodyLessons.xml";
+                path = Application.persistentDataPath + "/Resources/Files/Lessons/MelodyLessons.xml";
                 break;
             case "Harmony":
                 lessonList = harmonyLessons.lessons;
-                path = Application.dataPath + "/Resources/Files/Lessons/HarmonyLessons.xml";
+                path = Application.persistentDataPath + "/Resources/Files/Lessons/HarmonyLessons.xml";
                 break;
             case "Rhythm":
                 lessonList = rhythmLessons.lessons;
-                path = Application.dataPath + "/Resources/Files/Lessons/RhythmLessons.xml";
+                path = Application.persistentDataPath + "/Resources/Files/Lessons/RhythmLessons.xml";
                 break;
             case "Timbre":
                 lessonList = timbreLessons.lessons;
-                path = Application.dataPath + "/Resources/Files/Lessons/TimbreLessons.xml";
+                path = Application.persistentDataPath + "/Resources/Files/Lessons/TimbreLessons.xml";
                 break;
             default:
                 Debug.LogError("Invalid string given to UpdateLessonAvailability. Returning.");
@@ -321,7 +320,7 @@ public static class Persistent
     
     private static void LoadSettings()
     {
-        string path = Application.dataPath + "/Resources/Files/Settings/UserSettings.xml";
+        string path = Application.persistentDataPath + "/Resources/Files/Settings/UserSettings.xml";
         if (File.Exists(path))
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -350,7 +349,7 @@ public static class Persistent
 
     public static void UpdateSettings()
     {
-        string path = Application.dataPath + "/Resources/Files/Settings/UserSettings.xml";
+        string path = Application.persistentDataPath + "/Resources/Files/Settings/UserSettings.xml";
         XmlDocument xmlDoc = new XmlDocument();
         XmlNode rootNode = xmlDoc.CreateElement("Settings");
         xmlDoc.AppendChild(rootNode);

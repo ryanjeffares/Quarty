@@ -17,6 +17,10 @@ public class MelodyIntroductionController : BaseManager
 
     protected override void OnAwake()
     {
+        fullCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
+        {
+            {nextButton, NextButtonCallback}
+        };
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
             {nextButton, NextButtonCallback}

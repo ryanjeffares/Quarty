@@ -30,6 +30,9 @@ public static class Typedefs
     {
         return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
     }
+
+    public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> self)
+        => self.Select((item, index) => (item, index));
 }
 
 // This class exists purely so we can implement Shuffle<T> above

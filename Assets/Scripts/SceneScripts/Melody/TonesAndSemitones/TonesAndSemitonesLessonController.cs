@@ -15,6 +15,7 @@ public class TonesAndSemitonesLessonController : BaseManager
     [Header("Texts")] 
     [SerializeField] private Text introText;
     [SerializeField] private Text allNotesText;
+    [SerializeField] private Text helpText;
     [Header("GameObjects")] 
     [SerializeField] private GameObject nextButton;
     [SerializeField] private GameObject tryButton;
@@ -50,6 +51,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         {
             {introText, true},
             {allNotesText, true},
+            {helpText, true},
             {nextButton.transform.GetChild(0).GetComponent<Text>(), true},
             {tryButton.transform.GetChild(0).GetComponent<Text>(), true}
         };
@@ -70,8 +72,17 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void NextButtonCallback(GameObject g)
     {
-        ++_levelStage;
-        StartCoroutine(AdvanceLevelStage());
+        if(_levelStage < 3)
+        {
+            ++_levelStage;
+            StartCoroutine(AdvanceLevelStage());
+        }
+        else
+        {
+            Persistent.sceneToLoad = "TonesAndSemitonesPuzzle";
+            Persistent.goingHome = false;
+            SceneManager.LoadScene("LoadingScreen");
+        }
     }
 
     private void TryButtonCallback(GameObject g)
@@ -87,6 +98,7 @@ public class TonesAndSemitonesLessonController : BaseManager
     private void NotePlayedCallback(string note)
     {
         _playedNotes.Add(note);
+        Debug.Log("Level stage is " + _levelStage);
         if (_playedNotes.Count == 8)
         {
             if (_playedNotes.SequenceEqual(_correctNotes))
@@ -94,12 +106,23 @@ public class TonesAndSemitonesLessonController : BaseManager
                 switch (_levelStage)
                 {
                     case 2:
+                        helpText.text = "Awesome! You can hear it again or move into the puzzle.";
+                        StartCoroutine(FadeText(helpText, true, 0.5f, 200f));
+                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f));                        
+                        ++_levelStage;
                         break;
                 }
             }
             else
             {
-                
+                switch (_levelStage)
+                {
+                    case 2:
+                        helpText.text = "That wasn't quite right - look at the list of notes below and remember a Tone is 2 notes and a Semitone is 1 note.";
+                        StartCoroutine(FadeText(helpText, true, 0.5f, 200f, fadeOut: true, duration: 3f));
+                        StartCoroutine(MoveMovableCircles(0.5f, 200f));
+                        break;
+                }
             }
             _playedNotes.Clear();
         }
@@ -202,7 +225,41 @@ public class TonesAndSemitonesLessonController : BaseManager
             wait += 0.1f;
         }
     }
-    
+
+    private IEnumerator MoveMovableCircles(float time, float resolution)
+    {
+        int[] localXs = { -125, -75, -25, 25, 75, 125 };
+        List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
+        indexes.Shuffle();
+        Dictionary<GameObject, Vector3> startPositions = new Dictionary<GameObject, Vector3>();
+        Dictionary<GameObject, Vector3> targetPositions = new Dictionary<GameObject, Vector3>();
+        Dictionary<GameObject, Tuple<float, float>> diffs = new Dictionary<GameObject, Tuple<float, float>>();
+        int i = 0;
+        foreach(var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "A"))
+        {
+            startPositions.Add(circle, circle.transform.localPosition);
+            targetPositions.Add(circle, new Vector3(localXs[indexes[i]], - 60));
+            diffs.Add(circle, new Tuple<float, float>
+                (targetPositions[circle].x - startPositions[circle].x, targetPositions[circle].y - startPositions[circle].y));
+            i++;
+        }
+        float timeCounter = 0f;
+        float interval = time / resolution;
+        while (timeCounter <= time)
+        {
+            yield return new WaitUntil(() => !PauseManager.paused);
+            foreach(var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "A"))
+            {
+                var pos = circle.transform.localPosition;
+                pos.x = startPositions[circle].x + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item1;
+                pos.y = startPositions[circle].y + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item2;
+                circle.transform.localPosition = pos;
+            }
+            timeCounter += interval;
+            yield return new WaitForSeconds(interval);
+        }
+    }
+
     private IEnumerator SpawnEmptyScale()
     {
         float counter = 0f;
@@ -216,8 +273,8 @@ public class TonesAndSemitonesLessonController : BaseManager
         _emptyNoteScale = Instantiate(emptyScalePrefab, mainContainer.transform);
         _emptyNoteScale.transform.localPosition = new Vector3(0, 200);
         SpawnMovableCircles();
-    }
-    
+    }        
+
     protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f,
         bool disableTrigger = false, bool destroy = false)
     {

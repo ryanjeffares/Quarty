@@ -7,4 +7,5 @@
   <Lesson number="6" name="Minor Scale" available="False" />
   <Lesson number="7" name="Minor Intervals" available="False" />
   <Lesson number="8" name="Melody Writing" available="False" />
+  <Lesson number="9" name="MajorScale" available="True" />
 </Melody>

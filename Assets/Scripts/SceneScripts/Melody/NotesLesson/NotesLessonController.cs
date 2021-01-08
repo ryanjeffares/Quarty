@@ -40,7 +40,7 @@ public class NotesLessonController : BaseManager
         canTextLerp = new Dictionary<Text, bool>
         {
             {introText, true},
-            {helpText, true},
+            {helpText, true},           
             {nextButton.transform.GetChild(0).GetComponent<Text>(), true},
             {tryButton.transform.GetChild(0).GetComponent<Text>(), true}
         };
@@ -69,7 +69,7 @@ public class NotesLessonController : BaseManager
         else
         {
             Persistent.sceneToLoad = "NotesPuzzle";
-            Persistent.goingHome = false;
+            Persistent.goingHome = false;            
             SceneManager.LoadScene("LoadingScreen");
         }
     }
@@ -223,14 +223,13 @@ public class NotesLessonController : BaseManager
         Dictionary<GameObject, Vector3> startPositions = new Dictionary<GameObject, Vector3>();
         Dictionary<GameObject, Vector3> targetPositions = new Dictionary<GameObject, Vector3>();
         Dictionary<GameObject, Tuple<float, float>> diffs = new Dictionary<GameObject, Tuple<float, float>>();
-        int idx = 0;
-        foreach (var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "C"))
+
+        foreach(var (circle, idx) in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "C").WithIndex())
         {
             startPositions.Add(circle, circle.transform.localPosition);
             targetPositions.Add(circle, new Vector3(localXs[indexes[idx]], -60));
             diffs.Add(circle, new Tuple<float, float>
                 (targetPositions[circle].x - startPositions[circle].x, targetPositions[circle].y - startPositions[circle].y));
-            idx++;
         }
 
         float timeCounter = 0f;
@@ -409,14 +408,16 @@ public class NotesLessonController : BaseManager
                 if(_levelStage > 1)
                 {
                     StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f, 200f,
-                        0f,
-                        true, true));
+                        disableTrigger:true, reset:true));
                 }
             }
         }
     }
 
-    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, bool disableTrigger = false, bool reset = false, bool destroy = false)
+    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, 
+        bool disableTrigger = false, 
+        bool reset = false, 
+        bool destroy = false)
     {
         if (wait > 0f)
         {

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public static class UserSettings
 {
-    private static string _path = Application.dataPath + "/files/settings.json";
+    private static string _path = Application.persistentDataPath + "/files/settings.json";
 
     public static Dictionary<string, dynamic> settings;
 
