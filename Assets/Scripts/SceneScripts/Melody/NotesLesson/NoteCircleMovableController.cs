@@ -41,11 +41,11 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         text.text = note;
         var particleSystemMain = _particleSystem.main;
         particleSystemMain.startColor = circleColour;
-        StartCoroutine(FadeIn(0.2f, 100f));
+        StartCoroutine(FadeIn(0.5f));
     }
 
-    private IEnumerator FadeIn(float time, float resolution)
-    {
+    private IEnumerator FadeIn(float time)
+    {        
         if(waitTime > 0)
         {
             float counter = 0f;
@@ -60,7 +60,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
                 yield return new WaitForSeconds(Time.deltaTime);
             }
         }
-
+        float resolution = time / 0.016f;
         var startScale = transform.localScale;
         float interval = time / resolution;
         float timeCounter = 0f;
@@ -156,7 +156,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     {
         float time = 0.5f;
         float timeCounter = 0f;
-        float resolution = 100f;
+        float resolution = time / 0.016f;
         float interval = time / resolution;
         var start = GetComponent<Image>().color;
         while (timeCounter <= time)

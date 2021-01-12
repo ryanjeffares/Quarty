@@ -17,15 +17,20 @@ public class FirstTimeOpenScreen : BaseManager
     protected override void OnAwake()
     {
         Debug.Log(Application.persistentDataPath);
-        if (File.Exists(Application.persistentDataPath + "/Resources/Files/User/username.txt"))
+        if (File.Exists(Application.persistentDataPath + "/Files/User/user.dat"))
         {
+            using(BinaryReader br = new BinaryReader(File.Open(Application.persistentDataPath + "/Files/User/user.dat", FileMode.Open)))
+            {
+                Persistent.userName = br.ReadString();
+            }
+            Debug.Log(Persistent.userName);
             Persistent.sceneToLoad = "MainMenu";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
         else
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/Files/User/");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Files/User/");
         }
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
@@ -56,12 +61,12 @@ public class FirstTimeOpenScreen : BaseManager
                 StartCoroutine(FadeText(0.2f, 200f));
                 return;
             }
-
-            using (StreamWriter sw = File.CreateText(Application.persistentDataPath + "/Resources/Files/User/username.txt"))
+            using (FileStream fs = new FileStream(Application.persistentDataPath + "/Files/User/user.dat", FileMode.CreateNew))
             {
-                sw.WriteLine(input.text);
-            }
-
+                BinaryWriter bw = new BinaryWriter(fs);
+                bw.Write(input.text);
+                bw.Close();
+            }            
             Persistent.sceneToLoad = "MainMenu";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

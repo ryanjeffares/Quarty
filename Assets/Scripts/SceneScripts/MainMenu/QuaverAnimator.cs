@@ -28,7 +28,7 @@ public class QuaverAnimator : MonoBehaviour
     {
         while (enabled)
         {
-            for (int i = 0; i < 360; i++)
+            for (int i = 0; i < 360; i+=2)
             {
                 if(shouldMove)
                 {
@@ -59,7 +59,7 @@ public class QuaverAnimator : MonoBehaviour
                     }
                 }
                 
-                yield return new WaitForSeconds(0.005f);
+                yield return new WaitForSeconds(Time.deltaTime);
             }
         }
     }

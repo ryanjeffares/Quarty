@@ -66,9 +66,9 @@ public class NotesPuzzleController : BaseManager
         _playedNotes = new List<string>();
         _stars = new List<GameObject>();
         timeRemaining.fillRect.GetComponent<Image>().color = Persistent.rainbowColours[3];
-        StartCoroutine(FadeText(introText, true, 0.2f, 200f));
-        StartCoroutine(FadeButtonText(nextButton, true, 0.2f, 200f));
-        StartCoroutine(FadeSlider(0.2f, 100f));
+        StartCoroutine(FadeText(introText, true, 0.5f));
+        StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
+        StartCoroutine(FadeSlider(0.5f));
         _emptyNoteCircles = Instantiate(emptyNoteCirclesPrefab, mainHolder.transform); 
         _emptyNoteCircles.transform.localPosition = new Vector3(0, -200);
         StartCoroutine(SpawnMovableCircles());
@@ -99,7 +99,7 @@ public class NotesPuzzleController : BaseManager
     private void TryButtonCallback(GameObject g)
     {
         if (_arrowMoving || !_playing) return;
-        StartCoroutine(MoveArrow(new Vector2(215, -200), 1.2f, 200f));
+        StartCoroutine(MoveArrow(new Vector2(215, -200), 2f));
     }
 
     private void RetryButtonCallback(GameObject g)
@@ -115,13 +115,14 @@ public class NotesPuzzleController : BaseManager
         int index = 0;
         foreach (var star in _stars)
         {
-            StartCoroutine(FadeStar(star, overshootOutCurve, false, 0.3f, 100f, 0.2f * index));
+            StartCoroutine(FadeStar(star, overshootOutCurve, false, 0.3f, 0.2f * index));            
             index++;
         }
+        _stars.Clear();
         _movableCircles.Clear();
-        StartCoroutine(FadeText(introText, false, 0.2f, 100f));
-        StartCoroutine(FadeButtonText(retryButton, false, 0.2f, 100f));
-        StartCoroutine(FadeButtonText(nextButton, false, 0.2f, 100f));
+        StartCoroutine(FadeText(introText, false, 0.5f));
+        StartCoroutine(FadeButtonText(retryButton, false, 0.5f));
+        StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
         StartCoroutine(DecreaseTimer());
         StartCoroutine(SpawnMovableCircles());
     }
@@ -131,10 +132,10 @@ public class NotesPuzzleController : BaseManager
         switch (_levelStage)
         {
             case 1:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));   
-                StartCoroutine(FadeButtonText(tryButton, true, 0.1f, 200f));
-                StartCoroutine(FadeText(scoreCounter, true, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, false, 0.5f));   
+                StartCoroutine(FadeButtonText(tryButton, true, 0.5f));
+                StartCoroutine(FadeText(scoreCounter, true, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 StartCoroutine(DecreaseTimer());
                 foreach (var circle in _movableCircles)
                 {
@@ -149,9 +150,10 @@ public class NotesPuzzleController : BaseManager
 
     private IEnumerator SpawnMovableCircles(float waitTime = 0f)
     {
+        float resolution = waitTime / 0.016f;
         if (waitTime > 0)
         {
-            float waitInterval = waitTime / 100f;
+            float waitInterval = waitTime / resolution;
             float waitCounter = 0f;
             while (waitCounter <= waitTime)
             {
@@ -224,10 +226,10 @@ public class NotesPuzzleController : BaseManager
             string readout = stars > 1 ? "stars" : "star";
             introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
             retryButton.transform.localPosition = new Vector3(0, -100);
-            StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-            StartCoroutine(FadeText(scoreCounter, false, 0.5f, 200f));
-            StartCoroutine(FadeButtonText(retryButton, true, 0.5f, 200f));
-            StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f));
+            StartCoroutine(FadeText(introText, true, 0.5f));
+            StartCoroutine(FadeText(scoreCounter, false, 0.5f));
+            StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
+            StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
             List<Vector2> starPositions = new List<Vector2>();
             switch (stars)
             {
@@ -247,15 +249,15 @@ public class NotesPuzzleController : BaseManager
                 _stars.Add(Instantiate(starPrefab, mainHolder.transform));
                 _stars[i].transform.localPosition = starPositions[i];
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
-                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, 100f, 0.2f * i));
+                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:(0.2f * i)));
             }
         }
         else
         {
             introText.text = "Looks like you didn't fill in any scales correctly. Press retry to try again.";
-            StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+            StartCoroutine(FadeText(introText, true, 0.5f));
             retryButton.transform.localPosition = new Vector3(0, -100);
-            StartCoroutine(FadeButtonText(retryButton, true, 0.5f, 200f));
+            StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
         }
     }
     
@@ -274,8 +276,8 @@ public class NotesPuzzleController : BaseManager
                 {
                     niceText.text = "Nice!";
                     niceText.color = new Color(0.32f, 0.57f, 0.47f);
-                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, 200f, true));
-                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, 200f, false, 1f));
+                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, true));
+                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait:1f));
                 }
             }
             else
@@ -284,8 +286,8 @@ public class NotesPuzzleController : BaseManager
                 {
                     niceText.text = "Oops!";
                     niceText.color = new Color(0.76f, 0.43f, 0.41f);
-                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, 200f, true));
-                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, 200f, false, 1f));
+                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, true));
+                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait:1f));
                 }
             }
             foreach (var circle in _movableCircles)
@@ -297,7 +299,7 @@ public class NotesPuzzleController : BaseManager
         }
     }
 
-    private IEnumerator MoveArrow(Vector2 target, float time, float resolution, bool disableTrigger = false)
+    private IEnumerator MoveArrow(Vector2 target, float time, bool disableTrigger = false)
     {
         yield return new WaitUntil(() => !_arrowMoving);
         _arrowMoving = true;
@@ -305,6 +307,7 @@ public class NotesPuzzleController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         var startPos = arrow.transform.localPosition;
@@ -323,10 +326,10 @@ public class NotesPuzzleController : BaseManager
             arrow.GetComponent<BoxCollider2D>().enabled = true;
         }
         _arrowMoving = false;
-        StartCoroutine(MoveArrowLog(new Vector2(-215, arrow.transform.localPosition.y), 1f, 200f, true, true));
+        StartCoroutine(MoveArrowLog(new Vector2(-215, arrow.transform.localPosition.y), 1f, true, true));
     }
 
-    private IEnumerator MoveArrowLog(Vector2 target, float time, float resolution, bool disableTrigger, bool reset)
+    private IEnumerator MoveArrowLog(Vector2 target, float time, bool disableTrigger, bool reset)
     {
         yield return new WaitUntil(() => !_arrowMoving);
         _arrowMoving = true;
@@ -334,6 +337,7 @@ public class NotesPuzzleController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
+        float resolution = time / 0.016f;
         float targetX = target.x;
         float targetY = target.y;
         var startPos = arrow.transform.localPosition;
@@ -412,8 +416,9 @@ public class NotesPuzzleController : BaseManager
         TimerEnd();
     }
     
-    private IEnumerator FadeSlider(float time, float resolution)
+    private IEnumerator FadeSlider(float time)
     {
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         var startScale = timeRemaining.transform.localScale;

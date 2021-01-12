@@ -13,7 +13,7 @@ public abstract class BaseManager : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = 60;
         ButtonClicked.OnButtonClicked += ButtonClickedCallback;
         SliderChanged.OnSliderChanged += SliderChangedCallback;
         
@@ -39,7 +39,7 @@ public abstract class BaseManager : MonoBehaviour
         yield return null;
     }
 
-    protected virtual IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution,
+    protected virtual IEnumerator MoveObject(GameObject obj, Vector2 target, float time,
         float wait = 0f,
         bool disableTrigger = false, 
         bool destroy = false)
@@ -47,7 +47,7 @@ public abstract class BaseManager : MonoBehaviour
         yield return null;
     }
 
-    protected virtual IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution,
+    protected virtual IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time,
         float wait = 0f,
         bool disableTrigger = false, 
         bool reset = false, 
@@ -81,10 +81,11 @@ public abstract class BaseManager : MonoBehaviour
         }
     }
     
-    protected virtual IEnumerator FadeText(Text text, bool fadeIn, float time, float resolution, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
+    protected virtual IEnumerator FadeText(Text text, bool fadeIn, float time, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
     {
         yield return new WaitUntil(() => canTextLerp[text]);
         canTextLerp[text] = false;
+        float resolution = time / 0.016f;
         var startColour = text.color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
 
@@ -115,7 +116,7 @@ public abstract class BaseManager : MonoBehaviour
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
-
+        text.color = targetColour;
         if (fadeOut)
         {
             yield return new WaitForSeconds(duration);
@@ -130,6 +131,7 @@ public abstract class BaseManager : MonoBehaviour
                 timeCounter += interval;
                 yield return new WaitForSeconds(interval);
             }
+            text.color = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 0f : 1f);
         }
         canTextLerp[text] = true;
         if (destroy)
@@ -138,7 +140,7 @@ public abstract class BaseManager : MonoBehaviour
             Destroy(text);
         }
     }
-    protected virtual IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float resolution, float wait = 0f)
+    protected virtual IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float wait = 0f)
     {
         if (buttonCallbackLookup.ContainsKey(button))
         {
@@ -148,7 +150,7 @@ public abstract class BaseManager : MonoBehaviour
         canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
         var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
-
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
@@ -176,7 +178,7 @@ public abstract class BaseManager : MonoBehaviour
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
-
+        button.transform.GetChild(0).GetComponent<Text>().color = targetColour;
         canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = true;
         if(fadeIn)
         {
@@ -184,8 +186,9 @@ public abstract class BaseManager : MonoBehaviour
         }
     }
     
-    protected virtual IEnumerator TextFadeSize(Text text, AnimationCurve curve, float time, float resolution, bool enlarge, float wait = 0f)
+    protected virtual IEnumerator TextFadeSize(Text text, AnimationCurve curve, float time, bool enlarge, float wait = 0f)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
@@ -217,11 +220,13 @@ public abstract class BaseManager : MonoBehaviour
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
+        text.transform.localScale = enlarge ? new Vector2(1, 1) : new Vector2(0, 0);
     }
     
-    protected virtual IEnumerator FadeStar(GameObject star, AnimationCurve curve, bool fadeIn, float time, float resolution, float wait = 0f)
+    protected virtual IEnumerator FadeStar(GameObject star, AnimationCurve curve, bool fadeIn, float time, float wait = 0f)
     {
-        yield return new WaitForSeconds(wait);    
+        yield return new WaitForSeconds(wait);
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         var startScale = star.transform.localScale;
@@ -234,5 +239,6 @@ public abstract class BaseManager : MonoBehaviour
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
+        if (!fadeIn) Destroy(star);
     }
 }

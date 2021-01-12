@@ -9,7 +9,7 @@ using UnityEngine;
 // Data to be used commonly throughout the codebase
 public static class Persistent
 {
-    public static string sceneToLoad;
+    public static string sceneToLoad, userName;
     public static bool goingHome;
     public static List<string> allNotes;
     public static List<string> cMajor;
@@ -105,22 +105,19 @@ public static class Persistent
         
         #region Lesson Lists
 
-        if (!(Directory.Exists(Application.persistentDataPath + "/Resources/Files/Lessons/")))
+        if (!(Directory.Exists(Application.persistentDataPath + "/Files/Lessons/")))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/Files/Lessons/");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Files/Lessons/");
         }
-        if (!(Directory.Exists(Application.persistentDataPath + "/Resources/Files/Settings/")))
+        if (!(Directory.Exists(Application.persistentDataPath + "/Files/Settings/")))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + "/Resources/Files/Settings/");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Files/Settings/");
         }
         melodyLessons = new MelodyLessons();
         harmonyLessons = new HarmonyLessons();
         rhythmLessons = new RhythmLessons();
         timbreLessons = new TimbreLessons();
-        LoadMelodyLessons();
-        LoadHarmonyLessons();
-        LoadRhythmLessons();
-        LoadTimbreLessons();
+        LoadLessons();
         
         #endregion
         
@@ -148,133 +145,77 @@ public static class Persistent
         #endregion
     }
 
-    private static void LoadMelodyLessons()
+    private static void LoadLessons()
     {
-        string path = Application.persistentDataPath + "/Resources/Files/Lessons/MelodyLessons.xml";
-        if (File.Exists(path))
+        string[] courses = new string[] { "Melody", "Harmony", "Rhythm", "Timbre" };
+        foreach(string course in courses)
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path);
-            XmlNode rootNode = xmlDoc.FirstChild;
-            foreach (XmlElement lesson in rootNode.ChildNodes)
+            string path = Application.persistentDataPath + $"/Files/Lessons/{course}Lessons.dat";
+            if (File.Exists(path))
             {
-                melodyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                using (BinaryReader br = new BinaryReader(File.Open(path, FileMode.Open)))
+                {
+                    var data = br.ReadString();
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.LoadXml(data);
+                    XmlNode rootNode = xmlDoc.FirstChild;
+                    foreach (XmlElement lesson in rootNode.ChildNodes)
+                    {
+                        switch (course)
+                        {
+                            case "Melody": melodyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                                break;
+                            case "Harmony": harmonyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
+                                break;
+                            case "Rhythm": rhythmLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                                break;
+                            case "Timbre": timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
+                                break;
+                        }                        
+                    }
+                }
+            }
+            else
+            {
+                XmlDocument xmlDoc = new XmlDocument();
+                XmlNode rootNode = xmlDoc.CreateElement(course);
+                xmlDoc.AppendChild(rootNode);
+                var lessons = new Dictionary<string, bool>();
+                switch (course)
+                {
+                    case "Melody":
+                        lessons = melodyLessons.lessons;
+                        break;
+                    case "Harmony":
+                        lessons = harmonyLessons.lessons;
+                        break;
+                    case "Rhythm":
+                        lessons = rhythmLessons.lessons;
+                        break;
+                    case "Timbre":
+                        lessons = timbreLessons.lessons;
+                        break;
+                }                         
+                int counter = 1;
+                foreach (var kvp in lessons)
+                {
+                    XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
+                    lessonNode.SetAttribute("number", counter.ToString());
+                    lessonNode.SetAttribute("name", kvp.Key);
+                    lessonNode.SetAttribute("available", kvp.Value.ToString());
+                    rootNode.AppendChild(lessonNode);
+                    counter++;
+                }
+                using (FileStream fs = new FileStream(path, FileMode.Create))
+                {
+                    string xmlData = xmlDoc.DocumentElement.OuterXml;
+                    BinaryWriter bw = new BinaryWriter(fs);
+                    bw.Write(xmlData);
+                    bw.Close();
+                }
             }
         }
-        else
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("Melody");
-            xmlDoc.AppendChild(rootNode);
-            int counter = 1;
-            foreach (var kvp in melodyLessons.lessons)
-            {
-                XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
-                lessonNode.SetAttribute("number", counter.ToString());
-                lessonNode.SetAttribute("name", kvp.Key);
-                lessonNode.SetAttribute("available", kvp.Value.ToString());
-                rootNode.AppendChild(lessonNode);
-                counter++;
-            }
-            xmlDoc.Save(path);
-        }
-    }
-    
-    private static void LoadHarmonyLessons()
-    {
-        string path = Application.persistentDataPath + "/Resources/Files/Lessons/HarmonyLessons.xml";
-        if (File.Exists(path))
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path);
-            XmlNode rootNode = xmlDoc.FirstChild;
-            foreach (XmlElement lesson in rootNode.ChildNodes)
-            {
-                harmonyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
-            }
-        }
-        else
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("Harmony");
-            xmlDoc.AppendChild(rootNode);
-            int counter = 1;
-            foreach (var kvp in harmonyLessons.lessons)
-            {
-                XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
-                lessonNode.SetAttribute("number", counter.ToString());
-                lessonNode.SetAttribute("name", kvp.Key);
-                lessonNode.SetAttribute("available", kvp.Value.ToString());
-                rootNode.AppendChild(lessonNode);
-                counter++;
-            }
-            xmlDoc.Save(path);
-        }
-    }
-    
-    private static void LoadRhythmLessons()
-    {
-        string path = Application.persistentDataPath + "/Resources/Files/Lessons/RhythmLessons.xml";
-        if (File.Exists(path))
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path);
-            XmlNode rootNode = xmlDoc.FirstChild;
-            foreach (XmlElement lesson in rootNode.ChildNodes)
-            {
-                rhythmLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
-            }
-        }
-        else
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("Rhythm");
-            xmlDoc.AppendChild(rootNode);
-            int counter = 1;
-            foreach (var kvp in rhythmLessons.lessons)
-            {
-                XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
-                lessonNode.SetAttribute("number", counter.ToString());
-                lessonNode.SetAttribute("name", kvp.Key);
-                lessonNode.SetAttribute("available", kvp.Value.ToString());
-                rootNode.AppendChild(lessonNode);
-                counter++;
-            }
-            xmlDoc.Save(path);
-        }
-    }
-    
-    private static void LoadTimbreLessons()
-    {
-        string path = Application.persistentDataPath + "/Resources/Files/Lessons/TimbreLessons.xml";
-        if (File.Exists(path))
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path);
-            XmlNode rootNode = xmlDoc.FirstChild;
-            foreach (XmlElement lesson in rootNode.ChildNodes)
-            {
-                timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
-            }
-        }
-        else
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("Timbre");
-            xmlDoc.AppendChild(rootNode);
-            int counter = 1;
-            foreach (var kvp in timbreLessons.lessons)
-            {
-                XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
-                lessonNode.SetAttribute("number", counter.ToString());
-                lessonNode.SetAttribute("name", kvp.Key);
-                lessonNode.SetAttribute("available", kvp.Value.ToString());
-                rootNode.AppendChild(lessonNode);
-                counter++;
-            }
-            xmlDoc.Save(path);
-        }
-    }
+    }    
 
     public static void UpdateLessonAvailability(string course)
     {
@@ -284,19 +225,19 @@ public static class Persistent
         {
             case "Melody": 
                 lessonList = melodyLessons.lessons;
-                path = Application.persistentDataPath + "/Resources/Files/Lessons/MelodyLessons.xml";
+                path = Application.persistentDataPath + "/Files/Lessons/MelodyLessons.dat";
                 break;
             case "Harmony":
                 lessonList = harmonyLessons.lessons;
-                path = Application.persistentDataPath + "/Resources/Files/Lessons/HarmonyLessons.xml";
+                path = Application.persistentDataPath + "/Files/Lessons/HarmonyLessons.dat";
                 break;
             case "Rhythm":
                 lessonList = rhythmLessons.lessons;
-                path = Application.persistentDataPath + "/Resources/Files/Lessons/RhythmLessons.xml";
+                path = Application.persistentDataPath + "/Files/Lessons/RhythmLessons.dat";
                 break;
             case "Timbre":
                 lessonList = timbreLessons.lessons;
-                path = Application.persistentDataPath + "/Resources/Files/Lessons/TimbreLessons.xml";
+                path = Application.persistentDataPath + "/Files/Lessons/TimbreLessons.dat";
                 break;
             default:
                 Debug.LogError("Invalid string given to UpdateLessonAvailability. Returning.");
@@ -315,21 +256,31 @@ public static class Persistent
             rootNode.AppendChild(lessonNode);
             counter++;
         }
-        xmlDoc.Save(path);
+        using (FileStream fs = new FileStream(path, FileMode.Create))
+        {
+            string xmlData = xmlDoc.DocumentElement.OuterXml;
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(xmlData);
+            bw.Close();
+        }
     }
     
     private static void LoadSettings()
     {
-        string path = Application.persistentDataPath + "/Resources/Files/Settings/UserSettings.xml";
+        string path = Application.persistentDataPath + "/Files/Settings/UserSettings.dat";
         if (File.Exists(path))
         {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(path);
-            XmlNode rootNode = xmlDoc.FirstChild;
-            foreach (XmlElement setting in rootNode)
+            using(BinaryReader br = new BinaryReader(File.Open(path, FileMode.Open)))
             {
-                settings.valueSettings[setting.Attributes[0].Value] = float.Parse(setting.Attributes[1].Value);
-            }
+                string data = br.ReadString();
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(data);
+                XmlNode rootNode = xmlDoc.FirstChild;
+                foreach (XmlElement setting in rootNode)
+                {
+                    settings.valueSettings[setting.Attributes[0].Value] = float.Parse(setting.Attributes[1].Value);
+                }
+            }            
         }
         else
         {
@@ -343,13 +294,19 @@ public static class Persistent
                 setting.SetAttribute("value", kvp.Value.ToString());
                 rootNode.AppendChild(setting);
             }
-            xmlDoc.Save(path);
+            using(FileStream fs = new FileStream(path, FileMode.Create))
+            {
+                string xmlData = xmlDoc.DocumentElement.OuterXml;
+                BinaryWriter bw = new BinaryWriter(fs);
+                bw.Write(xmlData);
+                bw.Close();
+            }
         }
     }
 
     public static void UpdateSettings()
     {
-        string path = Application.persistentDataPath + "/Resources/Files/Settings/UserSettings.xml";
+        string path = Application.persistentDataPath + "/Files/Settings/UserSettings.dat";
         XmlDocument xmlDoc = new XmlDocument();
         XmlNode rootNode = xmlDoc.CreateElement("Settings");
         xmlDoc.AppendChild(rootNode);
@@ -360,6 +317,12 @@ public static class Persistent
             setting.SetAttribute("value", kvp.Value.ToString());
             rootNode.AppendChild(setting);
         }
-        xmlDoc.Save(path);
+        using (FileStream fs = new FileStream(path, FileMode.Create))
+        {
+            string xmlData = xmlDoc.DocumentElement.OuterXml;
+            BinaryWriter bw = new BinaryWriter(fs);
+            bw.Write(xmlData);
+            bw.Close();
+        }
     }
 }

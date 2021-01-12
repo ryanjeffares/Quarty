@@ -85,9 +85,9 @@
     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityBase.cs" />
     <Compile Include="Assets\Scripts\Shared\UserSettings.cs" />
     <Compile Include="Assets\Scripts\Controllers\FadeInTextLetterByLetter.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NotesLessonArrowController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityList.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\PauseManager.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\TonesAndSemitones\TonesAndSemitonesPuzzleController.cs" />
     <Compile Include="Assets\Scripts\EventScripts\SliderChanged.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\QuaverAnimator.cs" />
     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
@@ -96,16 +96,9 @@
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Melody\TonesAndSemitones\TonesAndSemitonesPuzzleController.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Resources\Files\Lessons\TimbreLessons.xml" />
-     <None Include="Assets\Resources\Files\Lessons\MelodyLessons.xml" />
-     <None Include="Assets\Resources\Files\Settings\UserSettings.xml" />
-     <None Include="Assets\Resources\Files\Lessons\HarmonyLessons.xml" />
-     <None Include="Assets\Resources\Files\Lessons\RhythmLessons.xml" />
      <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />
-     <None Include="Assets\Resources\Files\User\username.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

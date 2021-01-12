@@ -21,12 +21,12 @@ public class NoteCirclesScaleController : MonoBehaviour
         waitTime = 0f;
         foreach (Text text in texts)
         {
-            StartCoroutine(FadeText(text, 0.5f, 200f, waitTime));
+            StartCoroutine(FadeText(text, 0.5f, waitTime));
             waitTime += 0.1f;
         }
     }
 
-    private IEnumerator FadeText(Text text, float time, float resolution, float waitTime)
+    private IEnumerator FadeText(Text text, float time, float waitTime)
     {
         if(waitTime > 0)
         {
@@ -44,7 +44,7 @@ public class NoteCirclesScaleController : MonoBehaviour
         }
         var startColour = text.color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, 1f);
-
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         while (timeCounter <= time)

@@ -61,8 +61,8 @@ public class TonesAndSemitonesLessonController : BaseManager
         {
             "A", "B", "C#", "D", "E", "F#", "G#", "A"
         };
-        StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 1f));
+        StartCoroutine(FadeText(introText, true, 0.5f));
+        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 1f));
     }
 
     protected override void DestroyManager()
@@ -90,7 +90,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         switch (_levelStage)
         {
             case 2:
-                StartCoroutine(MoveObject(arrow, new Vector2(215, 200), 1.2f, 200f));
+                StartCoroutine(MoveObject(arrow, new Vector2(215, 200), 2f));
                 break;
         }
     }
@@ -107,8 +107,8 @@ public class TonesAndSemitonesLessonController : BaseManager
                 {
                     case 2:
                         helpText.text = "Awesome! You can hear it again or move into the puzzle.";
-                        StartCoroutine(FadeText(helpText, true, 0.5f, 200f));
-                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f));                        
+                        StartCoroutine(FadeText(helpText, true, 0.5f));
+                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f));                        
                         ++_levelStage;
                         break;
                 }
@@ -119,8 +119,8 @@ public class TonesAndSemitonesLessonController : BaseManager
                 {
                     case 2:
                         helpText.text = "That wasn't quite right - look at the list of notes below and remember a Tone is 2 notes and a Semitone is 1 note.";
-                        StartCoroutine(FadeText(helpText, true, 0.5f, 200f, fadeOut: true, duration: 3f));
-                        StartCoroutine(MoveMovableCircles(0.5f, 200f));
+                        StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
+                        StartCoroutine(MoveMovableCircles(0.5f));
                         break;
                 }
             }
@@ -133,8 +133,8 @@ public class TonesAndSemitonesLessonController : BaseManager
         switch (_levelStage)
         {
             case 1:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 float timeCounter = 0f;
                 while (timeCounter <= 1f)
                 {
@@ -143,7 +143,7 @@ public class TonesAndSemitonesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 introText.text = "Look how the notes follow the tone and semitone pattern.\n \nRemember, all the notes in music are A, A#, B, C, C#, D, D#, E, F, F#, G, and G# - and they repeat!";
-                StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, true, 0.5f));
                 timeCounter = 0f;
                 while (timeCounter <= 1f)
                 {
@@ -152,14 +152,14 @@ public class TonesAndSemitonesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 StartCoroutine(SpawnSampleScale());
-                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 4f));
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 4f));
                 break;
             case 2:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
-                StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, 200), 0.5f, 100f, disableTrigger:true));
-                StartCoroutine(MoveObjectLog(_noteScale, new Vector2(-1000, 50), 0.5f, 100f, destroy:true));
-                StartCoroutine(RotateArrow360(0.5f, 100f));
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
+                StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, 200), 1.5f, disableTrigger:true));
+                StartCoroutine(MoveObjectLog(_noteScale, new Vector2(-1000, 50), 1.5f, destroy:true));
+                StartCoroutine(RotateArrow360(1.5f));
                 timeCounter = 0f;
                 while (timeCounter <= 1f)
                 {
@@ -168,10 +168,10 @@ public class TonesAndSemitonesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 introText.text = "Now you try it! We'll keep the list of all notes on the screen to help you.";
-                StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-                StartCoroutine(FadeText(allNotesText, true, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(tryButton, true, 0.5f, 200f, 1f));
-                StartCoroutine(SpawnEmptyScale());
+                StartCoroutine(FadeText(introText, true, 0.5f));
+                StartCoroutine(FadeText(allNotesText, true, 0.5f));
+                StartCoroutine(FadeButtonText(tryButton, true, 0.5f, 1f));
+                SpawnEmptyScale();
                 break;
         }
     }
@@ -186,11 +186,11 @@ public class TonesAndSemitonesLessonController : BaseManager
             yield return new WaitUntil(() => !PauseManager.paused);
             var col = arrow.GetComponent<Image>().color;
             arrow.GetComponent<Image>().color = new Color(col.r, col.g, col.b, alpha);
-            alpha += 0.01f;
-            yield return new WaitForSeconds(0.005f);
+            alpha += (1 / (0.5f / 0.016f));
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(MoveObject(arrow, new Vector2(215, 50), 1.2f, 200f));
+        StartCoroutine(MoveObject(arrow, new Vector2(215, 50), 2f));
     }
 
     private void SpawnMovableCircles()
@@ -226,7 +226,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         }
     }
 
-    private IEnumerator MoveMovableCircles(float time, float resolution)
+    private IEnumerator MoveMovableCircles(float time)
     {
         int[] localXs = { -125, -75, -25, 25, 75, 125 };
         List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
@@ -243,6 +243,7 @@ public class TonesAndSemitonesLessonController : BaseManager
                 (targetPositions[circle].x - startPositions[circle].x, targetPositions[circle].y - startPositions[circle].y));
             i++;
         }
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         while (timeCounter <= time)
@@ -260,24 +261,17 @@ public class TonesAndSemitonesLessonController : BaseManager
         }
     }
 
-    private IEnumerator SpawnEmptyScale()
-    {
-        float counter = 0f;
-        while (counter <= 1)
-        {
-            yield return new WaitUntil(() => !PauseManager.paused);
-            counter += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
-        }
-
+    private void SpawnEmptyScale()
+    {        
         _emptyNoteScale = Instantiate(emptyScalePrefab, mainContainer.transform);
         _emptyNoteScale.transform.localPosition = new Vector3(0, 200);
         SpawnMovableCircles();
     }        
 
-    protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f,
+    protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float wait = 0f,
         bool disableTrigger = false, bool destroy = false)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
@@ -307,7 +301,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         if (disableTrigger)
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
-        }
+        }        
         float timeCounter = 0f;
         float interval = time / resolution;
         var startPos = obj.transform.localPosition;
@@ -336,18 +330,18 @@ public class TonesAndSemitonesLessonController : BaseManager
             {
                 if(_levelStage > 1)
                 {
-                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f, 200f,
-                        0f,
+                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f, 0f,
                         true, true));
                 }
             }
         }
     }
 
-    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution,
+    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time,
         float wait = 0f,
         bool disableTrigger = false, bool reset = true, bool destroy = false)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
@@ -395,10 +389,6 @@ public class TonesAndSemitonesLessonController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = true;
         }
-        if (reset)
-        {
-            //_playedNotes.Clear();
-        }
         if (obj == arrow)
         {
             _arrowMoving = false;
@@ -414,8 +404,9 @@ public class TonesAndSemitonesLessonController : BaseManager
         }
     }
     
-    private IEnumerator RotateArrow360(float time, float resolution, float wait = 0f)
+    private IEnumerator RotateArrow360(float time, float wait = 0f)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;

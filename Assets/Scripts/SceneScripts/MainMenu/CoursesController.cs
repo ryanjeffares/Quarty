@@ -31,10 +31,7 @@ public class CoursesController : BaseManager
     private Dictionary<GameObject, bool> _tabMovingLookup;
     private Dictionary<GameObject, bool> _tabOpenLookup;
     private Dictionary<GameObject, List<GameObject>> _lessonListLookup;
-    private Dictionary<GameObject, GameObject> _contentLookup;
-    private const float TimeToTake = 0.1f;
-    private const float TimeInc = 0.005f;
-    private const float NumIncs = TimeToTake / TimeInc;
+    private Dictionary<GameObject, GameObject> _contentLookup;            
     #endregion
 
     protected override void OnAwake()
@@ -100,8 +97,8 @@ public class CoursesController : BaseManager
     {
         // Set whether the tab is being opened/closed and start the coroutines appropriately
         _tabOpenLookup[g] = !_tabOpenLookup[g];
-        StartCoroutine(RotateArrow(arrows[_courseButtons.IndexOf(g)], _tabOpenLookup[g]));
-        StartCoroutine(ResizeTab(g, _tabOpenLookup[g]));
+        StartCoroutine(RotateArrow(arrows[_courseButtons.IndexOf(g)], 0.2f, _tabOpenLookup[g]));
+        StartCoroutine(ResizeTab(g, 0.2f, _tabOpenLookup[g]));
         StartCoroutine(SpawnLessonTabs(g, _tabOpenLookup[g]));
     }
 
@@ -167,37 +164,40 @@ public class CoursesController : BaseManager
         }
     }
 
-    private IEnumerator RotateArrow(GameObject g, bool down)
+    private IEnumerator RotateArrow(GameObject g, float time, bool down)
     {
+        float resolution = time / 0.016f;
+        float interval = time / resolution;
         float timer = 0f;
-        const float inc = 90 / NumIncs;
-        while (timer <= TimeToTake)
+        float inc = 90 / resolution;
+        while (timer <= time)
         {
             var rotation = g.transform.eulerAngles;
             g.transform.eulerAngles = new Vector3(0, 0, down ? rotation.z - inc : rotation.z + inc);
-            timer += TimeInc;
-            yield return new WaitForSeconds(TimeInc);
+            timer += interval;
+            yield return new WaitForSeconds(interval);
         }
     }
 
-    private IEnumerator ResizeTab(GameObject g, bool enlarge)
-    {
-        // i fucking love ternaries
+    private IEnumerator ResizeTab(GameObject g, float time, bool enlarge)
+    {        
         var rt = g.GetComponent<RectTransform>();
         var bgCol = g.GetComponent<Image>().color;
+        float resolution = time / 0.016f;
+        float interval = time / resolution;
         float timer = 0;
-        float heightIncr = (enlarge ? 300 : -300) / NumIncs;
-        float alphaInc = (enlarge ? 0.2f : -0.2f) / NumIncs;
+        float heightIncr = (enlarge ? 300 : -300) / resolution;
+        float alphaInc = (enlarge ? 0.2f : -0.2f) / resolution;
         _tabMovingLookup[g] = true;
-        while (timer <= TimeToTake)
+        while (timer <= time)
         {
             var sizeDelta = rt.sizeDelta;
             sizeDelta = new Vector2(sizeDelta[0], sizeDelta[1] + heightIncr);
             rt.sizeDelta = sizeDelta;
             bgCol.a += alphaInc;
             g.GetComponent<Image>().color = bgCol;
-            timer += TimeInc;
-            yield return new WaitForSeconds(TimeInc);
+            timer += interval;
+            yield return new WaitForSeconds(interval);
         }
         _tabMovingLookup[g] = false;
         // Resize the main scroll view to be the same size as all the course buttons in their open/closed state

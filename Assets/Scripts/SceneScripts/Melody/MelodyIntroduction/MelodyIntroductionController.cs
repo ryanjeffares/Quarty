@@ -31,9 +31,9 @@ public class MelodyIntroductionController : BaseManager
             {notesText, true},
             {nextButton.transform.GetChild(0).GetComponent<Text>(), true}
         };
-        StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-        StartCoroutine(FadeText(notesText, true, 0.5f, 200f, 1.5f));
-        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 4f));
+        StartCoroutine(FadeText(introText, true, 0.5f));
+        StartCoroutine(FadeText(notesText, true, 0.5f, 1.5f));
+        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 4f));
     }
 
     private void NextButtonCallback(GameObject g)
@@ -58,9 +58,9 @@ public class MelodyIntroductionController : BaseManager
         switch (_levelStage)
         {
             case 1:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeText(notesText, false, 0.5f, 200f, 0f, true));
-                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeText(notesText, false, 0.5f, destroy:true));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 float counter = 0f;
                 while (counter <= 1.5f)
                 {
@@ -74,14 +74,14 @@ public class MelodyIntroductionController : BaseManager
                 }
                 introText.text =
                     "More on that later, for now have a play with the notes. Pay attention to which notes sound good together, and which don't.";
-                StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, true, 0.5f));
                 _xylophone = Instantiate(xylophonePrefab, transform.GetChild(0));
                 _xylophone.transform.localPosition = new Vector3(0, -180, 0);
-                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 5f));
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 5f));
                 break;
             case 2:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 counter = 0f;
                 while (counter <= 1.5f)
                 {
@@ -94,8 +94,8 @@ public class MelodyIntroductionController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 introText.text = "Whenever you're ready, let's move into the first lesson!";
-                StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 1f));
+                StartCoroutine(FadeText(introText, true, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, wait:1f));
                 break;
         }
     }

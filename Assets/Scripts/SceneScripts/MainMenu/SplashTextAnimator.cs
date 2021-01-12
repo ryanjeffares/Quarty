@@ -1,16 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Collections;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = System.Random;
 
 public class SplashTextAnimator : MonoBehaviour
 {
     private Text _text;
-    private readonly Random _random = new Random();
+    private readonly System.Random _random = new System.Random();
 
     private void Awake()
     {
@@ -23,11 +18,11 @@ public class SplashTextAnimator : MonoBehaviour
     {
         while (enabled)
         {
-            for (int i = 0; i < 360; i++)
+            for (int i = 0; i < 360; i+=2)
             {
                 float value = (float) Persistent.sineWaveValues[i];
                 transform.localScale = new Vector3(1 + (value * 0.1f), 1 + (value * 0.1f));
-                yield return new WaitForSeconds(0.005f);
+                yield return new WaitForSeconds(Time.deltaTime);
             }
         }
     }

@@ -20,10 +20,10 @@ public class NoteCircleController : MonoBehaviour
         GetComponent<Image>().color = new Color(_circleColour.r, _circleColour.g, _circleColour.b, 0);
         _rt = GetComponent<RectTransform>();
         _size = _rt.sizeDelta;
-        StartCoroutine(FadeIn(0.5f, 200f));
+        StartCoroutine(FadeIn(0.5f));
     }
 
-    private IEnumerator FadeIn(float time, float resolution)
+    private IEnumerator FadeIn(float time)
     {
         if(waitTime > 0)
         {
@@ -39,6 +39,7 @@ public class NoteCircleController : MonoBehaviour
                 yield return new WaitForSeconds(Time.deltaTime);
             }
         }
+        float resolution = time / 0.016f;
         float interval = time / resolution;
         float timeCounter = 0f;
         while (timeCounter <= time)

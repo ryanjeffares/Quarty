@@ -50,8 +50,8 @@ public class NotesLessonController : BaseManager
         };
         _playedNotes = new List<string>();
         _movableCircles = new List<GameObject>();
-        StartCoroutine(FadeText(introText, true, 0.5f, 200f));
-        StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), true, 0.5f, 200f, 1f));
+        StartCoroutine(FadeText(introText, true, 0.5f));
+        StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), true, 0.5f, 1f));
     }
 
     protected override void DestroyManager()
@@ -85,15 +85,15 @@ public class NotesLessonController : BaseManager
                 {
                     case 2:
                         helpText.text = "Nice! Now try it on your own.";
-                        StartCoroutine(FadeText(helpText, true, 0.5f, 200f, 0f, false, true, 2f));
+                        StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut:true, duration:2f));
                         StartCoroutine(StageThree());
                         _levelStage++;
                         break;
                     case 3:
                         _complete = true;
                         helpText.text = "Amazing! You can hear it again or move into the puzzle.";
-                        StartCoroutine(FadeText(helpText, true, 0.5f, 200f));
-                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 100f));
+                        StartCoroutine(FadeText(helpText, true, 0.5f));
+                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
                         break;
                 }
             }
@@ -102,8 +102,8 @@ public class NotesLessonController : BaseManager
                 if(!_complete)
                 {
                     helpText.text = "That didn't sound quite right! Have another try.";
-                    StartCoroutine(FadeText(helpText, true, 0.5f, 200f, 0f, false, true, 2f));
-                    StartCoroutine(MoveMovableCircles(1f, 200f));
+                    StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 2f));
+                    StartCoroutine(MoveMovableCircles(0.5f));
                 }
             }
             _playedNotes.Clear();
@@ -114,11 +114,11 @@ public class NotesLessonController : BaseManager
     {
         if(_levelStage == 2)
         {
-            StartCoroutine(MoveObject(arrow, new Vector2(215, -250), 1.2f, 200f));
+            StartCoroutine(MoveObject(arrow, new Vector2(215, -250), 2f));
         }
         else if (_levelStage == 3)
         {
-            StartCoroutine(MoveObject(arrow, new Vector2(215, -200), 1.2f, 200f));
+            StartCoroutine(MoveObject(arrow, new Vector2(215, -200), 2f));
         }
     }
 
@@ -127,8 +127,8 @@ public class NotesLessonController : BaseManager
         switch (_levelStage)
         {
             case 1: 
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeButtonText(nextButton, false, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 float counter = 0f;
                 while (counter <= 2f)
                 {
@@ -141,7 +141,7 @@ public class NotesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 introText.text = "See how the numbers increase with the notes' letters and their pitch.\n \nWhen we get up to G, the next note is A but at a higher pitch.";
-                StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, true, 0.5f));
                 counter = 0f;
                 while (counter <= 1f)
                 {
@@ -154,14 +154,14 @@ public class NotesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 StartCoroutine(SpawnSampleCirclesInitial());
-                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 200f, 4f));
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 6f));
                 break;
             case 2:
-                StartCoroutine(FadeText(introText, false, 0.5f, 200f));
-                StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), false, 0.5f, 200f)); ;
-                StartCoroutine(MoveCircles(new Vector2(0, -100), 0.3f, 100f));
-                StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -250), 0.3f, 100f));
-                StartCoroutine(RotateArrow360(0.3f, 100f));
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), false, 0.5f)); ;
+                StartCoroutine(MoveCircles(new Vector2(0, -100), 1.5f));
+                StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -250), 1.5f));
+                StartCoroutine(RotateArrow360(1.5f));
                 counter = 0f;
                 while (counter <= 1f)
                 {
@@ -174,7 +174,7 @@ public class NotesLessonController : BaseManager
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
                 introText.text = "Drag the notes into the correct place and press Try to see if you got it right!";
-                StartCoroutine(FadeText(introText, true, 0.5f, 200f));
+                StartCoroutine(FadeText(introText, true, 0.5f));
                 _emptyNoteCircles = Instantiate(emptyNoteCirclesPrefab, transform.GetChild(0));
                 _emptyNoteCircles.transform.localPosition = new Vector3(0, -250);
                 SpawnMovableCircles();
@@ -189,7 +189,7 @@ public class NotesLessonController : BaseManager
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
-                StartCoroutine(FadeText(tryButton.transform.GetChild(0).GetComponent<Text>(), true, 0.5f, 200f));
+                StartCoroutine(FadeButtonText(tryButton, true, 0.5f));
                 break;
         }
     }
@@ -207,14 +207,14 @@ public class NotesLessonController : BaseManager
             counter += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        StartCoroutine(MoveMovableCircles(1f, 200f));
-        StartCoroutine(MoveObjectLog(tryButton, new Vector2(-215, -250), 1f, 200f));
-        StartCoroutine(MoveObjectLog(_emptyNoteCircles, new Vector2(0, -200), 1f, 200f));
-        StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -200), 1f, 200f));
-        StartCoroutine(MoveCircles(new Vector2(-500, -100), 1f, 200f, true));
+        StartCoroutine(MoveMovableCircles(1f));
+        StartCoroutine(MoveObjectLog(tryButton, new Vector2(-215, -250), 1f));
+        StartCoroutine(MoveObjectLog(_emptyNoteCircles, new Vector2(0, -200), 1f));
+        StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -200), 1f));
+        StartCoroutine(MoveCircles(new Vector2(-500, -100), 1f, true));
     }
     
-    private IEnumerator MoveMovableCircles(float time, float resolution)
+    private IEnumerator MoveMovableCircles(float time)
     {
         int[] localXs = {-125, -75, -25, 25, 75, 125};
         List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5}; 
@@ -232,6 +232,7 @@ public class NotesLessonController : BaseManager
                 (targetPositions[circle].x - startPositions[circle].x, targetPositions[circle].y - startPositions[circle].y));
         }
 
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         while (timeCounter <= time)
@@ -281,7 +282,7 @@ public class NotesLessonController : BaseManager
             yield return new WaitForSeconds(0.005f);
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(MoveObject(arrow, new Vector2(215, -200), 1.2f, 200f));
+        StartCoroutine(MoveObject(arrow, new Vector2(215, -200), 2f));
     }
 
     private void SpawnMovableCircles()
@@ -317,7 +318,7 @@ public class NotesLessonController : BaseManager
         }
     }
 
-    private IEnumerator MoveCircles(Vector2 target, float time, float resolution, bool destroy = false)
+    private IEnumerator MoveCircles(Vector2 target, float time, bool destroy = false)
     {
         arrow.GetComponent<BoxCollider2D>().enabled = false;
         float targetX = target.x;
@@ -325,6 +326,7 @@ public class NotesLessonController : BaseManager
         var startPos = _noteCircles.transform.localPosition;
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
+        float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
         while (timeCounter <= time)
@@ -347,8 +349,9 @@ public class NotesLessonController : BaseManager
         }
     }
 
-    protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, bool disableTrigger = false, bool destroy = false)
+    protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float wait = 0f, bool disableTrigger = false, bool destroy = false)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
@@ -407,18 +410,19 @@ public class NotesLessonController : BaseManager
             {
                 if(_levelStage > 1)
                 {
-                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f, 200f,
+                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f,
                         disableTrigger:true, reset:true));
                 }
             }
         }
     }
 
-    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float resolution, float wait = 0f, 
+    protected override IEnumerator MoveObjectLog(GameObject obj, Vector2 target, float time, float wait = 0f, 
         bool disableTrigger = false, 
         bool reset = false, 
         bool destroy = false)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
@@ -480,8 +484,9 @@ public class NotesLessonController : BaseManager
         }
     }
 
-    private IEnumerator RotateArrow360(float time, float resolution, float wait = 0f)
+    private IEnumerator RotateArrow360(float time, float wait = 0f)
     {
+        float resolution = time / 0.016f;
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
