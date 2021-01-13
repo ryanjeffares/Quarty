@@ -87,12 +87,10 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void TryButtonCallback(GameObject g)
     {
-        switch (_levelStage)
+        if(_levelStage > 1)
         {
-            case 2:
-                StartCoroutine(MoveObject(arrow, new Vector2(215, 200), 2f));
-                break;
-        }
+            StartCoroutine(MoveObject(arrow, new Vector2(260, 200), 2f));
+        }                    
     }
 
     private void NotePlayedCallback(string note)
@@ -157,7 +155,7 @@ public class TonesAndSemitonesLessonController : BaseManager
             case 2:
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
-                StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, 200), 1.5f, disableTrigger:true));
+                StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, 200), 1.5f, disableTrigger:true));
                 StartCoroutine(MoveObjectLog(_noteScale, new Vector2(-1000, 50), 1.5f, destroy:true));
                 StartCoroutine(RotateArrow360(1.5f));
                 timeCounter = 0f;
@@ -190,7 +188,7 @@ public class TonesAndSemitonesLessonController : BaseManager
             yield return new WaitForSeconds(Time.deltaTime);
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(MoveObject(arrow, new Vector2(215, 50), 2f));
+        StartCoroutine(MoveObject(arrow, new Vector2(260, 50), 2f));
     }
 
     private void SpawnMovableCircles()
@@ -330,7 +328,7 @@ public class TonesAndSemitonesLessonController : BaseManager
             {
                 if(_levelStage > 1)
                 {
-                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f, 0f,
+                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, arrow.transform.localPosition.y), 1f, 0f,
                         true, true));
                 }
             }

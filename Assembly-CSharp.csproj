@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\ScrollviewArrowAnimator.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />

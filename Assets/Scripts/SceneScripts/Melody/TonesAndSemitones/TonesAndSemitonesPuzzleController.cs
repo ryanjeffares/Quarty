@@ -109,7 +109,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
     private void TryButtonCallback(GameObject g)
     {
         if (_arrowMoving || !_playing) return;
-        StartCoroutine(MoveArrow(new Vector2(215, 100), 2f));
+        StartCoroutine(MoveArrow(new Vector2(260, 100), 2f));
     }
 
     private void RetryButtonCallback(GameObject g)
@@ -192,26 +192,24 @@ public class TonesAndSemitonesPuzzleController : BaseManager
                 stars = 3;
             }
             string readout = stars > 1 ? "stars" : "star";
-            introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
-            retryButton.transform.localPosition = new Vector3(0, -270);
-            StartCoroutine(FadeText(introText, true, 0.5f));
-            StartCoroutine(FadeText(scoreCounter, false, 0.5f));
+            introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";            
+            StartCoroutine(FadeText(introText, true, 0.5f));            
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
             StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
             List<Vector2> starPositions = new List<Vector2>();
             switch (stars)
             {
                 case 1:
-                    starPositions.Add(new Vector2(0, 180));
+                    starPositions.Add(new Vector2(0, 340));
                     break;
                 case 2:
-                    starPositions.Add(new Vector2(-50, 180));
-                    starPositions.Add(new Vector2(50, 180));
+                    starPositions.Add(new Vector2(-50, 340));
+                    starPositions.Add(new Vector2(50, 340));
                     break;
                 case 3:
-                    starPositions.Add(new Vector2(-70, 180));
-                    starPositions.Add(new Vector2(0, 180));
-                    starPositions.Add(new Vector2(70, 180));
+                    starPositions.Add(new Vector2(-70, 340));
+                    starPositions.Add(new Vector2(0, 340));
+                    starPositions.Add(new Vector2(70, 340));
                     break;
             }            
             for (int i = 0; i < stars; i++)
@@ -225,8 +223,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
         else
         {
             introText.text = "Looks like you didn't fill in any scales correctly. Press retry to try again.";
-            StartCoroutine(FadeText(introText, true, 0.5f));
-            retryButton.transform.localPosition = new Vector3(0, -270);
+            StartCoroutine(FadeText(introText, true, 0.5f));            
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
         }
     }
@@ -405,7 +402,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
             arrow.GetComponent<BoxCollider2D>().enabled = true;
         }
         _arrowMoving = false;
-        StartCoroutine(MoveArrowLog(new Vector2(-215, arrow.transform.localPosition.y), 1f, true, true));
+        StartCoroutine(MoveArrowLog(new Vector2(-260, arrow.transform.localPosition.y), 1f, true, true));
     }
 
     private IEnumerator MoveArrowLog(Vector2 target, float time, bool disableTrigger, bool reset)

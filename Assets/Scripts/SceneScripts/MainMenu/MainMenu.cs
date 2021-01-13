@@ -8,6 +8,8 @@ public class MainMenu : BaseManager
     [SerializeField] private GameObject playButton, settingsButton, statsButton, quitButton;
     [SerializeField] private GameObject settingsPage, coursesPage;
     [SerializeField] private AudioMixer audioMixer;
+
+    private GameObject _settings, _courses;
     
     protected override void OnAwake()
     {
@@ -27,12 +29,16 @@ public class MainMenu : BaseManager
 
     private void PlayButtonCallback(GameObject g)
     {
-        Instantiate(coursesPage, transform);
+        _courses = Instantiate(coursesPage, transform.GetChild(0));
+        _courses.transform.GetChild(0).localScale = new Vector3(1, 1);
+        _courses.transform.localScale = new Vector3(1.2f, 1.2f);
     }
 
     private void SettingsButtonCallback(GameObject g)
     {
-        Instantiate(settingsPage, transform);
+        _settings = Instantiate(settingsPage, transform.GetChild(0));
+        _settings.transform.GetChild(0).localScale = new Vector3(1, 1);
+        _settings.transform.localScale = new Vector3(1.2f, 1.2f);
     }
 
     private void StatsButtonCallback(GameObject g)

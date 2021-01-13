@@ -99,7 +99,7 @@ public class NotesPuzzleController : BaseManager
     private void TryButtonCallback(GameObject g)
     {
         if (_arrowMoving || !_playing) return;
-        StartCoroutine(MoveArrow(new Vector2(215, -200), 2f));
+        StartCoroutine(MoveArrow(new Vector2(260, -200), 2f));
     }
 
     private void RetryButtonCallback(GameObject g)
@@ -233,14 +233,14 @@ public class NotesPuzzleController : BaseManager
             List<Vector2> starPositions = new List<Vector2>();
             switch (stars)
             {
-                case 1: starPositions.Add(new Vector2(0, 30));
+                case 1: starPositions.Add(new Vector2(0, 70));
                     break;
-                case 2: starPositions.Add(new Vector2(-50, 30));
-                    starPositions.Add(new Vector2(50, 30));
+                case 2: starPositions.Add(new Vector2(-50, 70));
+                    starPositions.Add(new Vector2(50, 70));
                     break;
-                case 3: starPositions.Add(new Vector2(-70, 30));
-                    starPositions.Add(new Vector2(0, 30));
-                    starPositions.Add(new Vector2(70, 30));
+                case 3: starPositions.Add(new Vector2(-70, 70));
+                    starPositions.Add(new Vector2(0, 70));
+                    starPositions.Add(new Vector2(70, 70));
                     break;
             }
 
@@ -326,7 +326,7 @@ public class NotesPuzzleController : BaseManager
             arrow.GetComponent<BoxCollider2D>().enabled = true;
         }
         _arrowMoving = false;
-        StartCoroutine(MoveArrowLog(new Vector2(-215, arrow.transform.localPosition.y), 1f, true, true));
+        StartCoroutine(MoveArrowLog(new Vector2(-260, arrow.transform.localPosition.y), 1f, true, true));
     }
 
     private IEnumerator MoveArrowLog(Vector2 target, float time, bool disableTrigger, bool reset)

@@ -114,11 +114,11 @@ public class NotesLessonController : BaseManager
     {
         if(_levelStage == 2)
         {
-            StartCoroutine(MoveObject(arrow, new Vector2(215, -250), 2f));
+            StartCoroutine(MoveObject(arrow, new Vector2(260, -250), 2f));
         }
         else if (_levelStage == 3)
         {
-            StartCoroutine(MoveObject(arrow, new Vector2(215, -200), 2f));
+            StartCoroutine(MoveObject(arrow, new Vector2(260, -200), 2f));
         }
     }
 
@@ -160,7 +160,7 @@ public class NotesLessonController : BaseManager
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), false, 0.5f)); ;
                 StartCoroutine(MoveCircles(new Vector2(0, -100), 1.5f));
-                StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -250), 1.5f));
+                StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, -250), 1.5f));
                 StartCoroutine(RotateArrow360(1.5f));
                 counter = 0f;
                 while (counter <= 1f)
@@ -208,9 +208,9 @@ public class NotesLessonController : BaseManager
             yield return new WaitForSeconds(Time.deltaTime);
         }
         StartCoroutine(MoveMovableCircles(1f));
-        StartCoroutine(MoveObjectLog(tryButton, new Vector2(-215, -250), 1f));
+        StartCoroutine(MoveObjectLog(tryButton, new Vector2(-260, -250), 1f));
         StartCoroutine(MoveObjectLog(_emptyNoteCircles, new Vector2(0, -200), 1f));
-        StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, -200), 1f));
+        StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, -200), 1f));
         StartCoroutine(MoveCircles(new Vector2(-500, -100), 1f, true));
     }
     
@@ -282,7 +282,7 @@ public class NotesLessonController : BaseManager
             yield return new WaitForSeconds(0.005f);
         }
         yield return new WaitForSeconds(1f);
-        StartCoroutine(MoveObject(arrow, new Vector2(215, -200), 2f));
+        StartCoroutine(MoveObject(arrow, new Vector2(260, -200), 2f));
     }
 
     private void SpawnMovableCircles()
@@ -410,7 +410,7 @@ public class NotesLessonController : BaseManager
             {
                 if(_levelStage > 1)
                 {
-                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-215, arrow.transform.localPosition.y), 1f,
+                    StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, arrow.transform.localPosition.y), 1f,
                         disableTrigger:true, reset:true));
                 }
             }
