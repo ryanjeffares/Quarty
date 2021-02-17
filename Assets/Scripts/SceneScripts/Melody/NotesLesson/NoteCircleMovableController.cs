@@ -23,8 +23,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     public bool octaveUp;
     public bool draggable;
     public AnimationCurve curve;
-
-    public static event Action CirclePlaced; 
+    
     public static event Action<string> NotePlayed;
 
     private void Awake()
@@ -116,12 +115,8 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         GetComponent<RectTransform>().sizeDelta = _size;
         if (Math.Abs(localY - transform.localPosition.y) <= 20)
         {
-            foreach (var x in availableX.Where(x => Math.Abs(x - transform.localPosition.x) <= 20))
-            {
-                transform.localPosition = new Vector3(x, localY);
-                CirclePlaced?.Invoke();
-                break;
-            }
+            int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 20);
+            transform.localPosition = new Vector3(snap, localY);
         }
     }
 

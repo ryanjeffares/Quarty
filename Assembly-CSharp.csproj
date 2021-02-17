@@ -90,13 +90,13 @@
     <Compile Include="Assets\Scripts\SceneScripts\Melody\TonesAndSemitones\TonesAndSemitonesPuzzleController.cs" />
     <Compile Include="Assets\Scripts\EventScripts\SliderChanged.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\QuaverAnimator.cs" />
+    <Compile Include="Assets\Scripts\UI\ScrollviewArrowAnimator.cs" />
     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IAllowList.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
-    <Compile Include="Assets\Scripts\UI\ScrollviewArrowAnimator.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />
@@ -711,6 +711,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="FMODUnity.csproj">
+      <Project>{C4D4E4F8-3D18-5719-05B7-556D8F1A4E30}</Project>
+      <Name>FMODUnity</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonance.csproj">
+      <Project>{FA1A9738-C7BC-C114-5A65-B4F4A85EC5C9}</Project>
+      <Name>FMODUnityResonance</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
+      <Project>{1B369BEB-FBEB-A2B0-F3F4-A0CC76FC236B}</Project>
+      <Name>FMODUnityResonanceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityEditor.csproj">
+      <Project>{CBEA84C9-BC7C-8786-3693-1F76A195DF1E}</Project>
+      <Name>FMODUnityEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

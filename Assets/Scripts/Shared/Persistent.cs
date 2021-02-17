@@ -95,11 +95,11 @@ public static class Persistent
         };
         paletteColours = new Dictionary<string, Color>
         {
-            {"Light Steel Blue", Typedefs.Colour255(167, 190, 211)},
-            {"Colombia Blue", Typedefs.Colour255(198, 226, 233)},
-            {"Cream", Typedefs.Colour255(241, 255, 196)},
-            {"Apricot", Typedefs.Colour255(255, 202, 175)},
-            {"Tan", Typedefs.Colour255(218, 184, 148)}
+            {"Light Steel Blue", new Colour255(167, 190, 211).colour},
+            {"Colombia Blue", new Colour255(198, 226, 233).colour},
+            {"Cream", new Colour255(241, 255, 196).colour},
+            {"Apricot", new Colour255(255, 202, 175).colour},
+            {"Tan", new Colour255(218, 184, 148).colour}
         };
         #endregion
         

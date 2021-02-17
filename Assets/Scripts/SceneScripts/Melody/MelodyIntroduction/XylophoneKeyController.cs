@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using FMODUnity;
 
-public class XylophoneKeyController : MonoBehaviour
+public class XylophoneKeyController : MonoBehaviour, IPointerDownHandler
 {
+    public static event Action<GameObject> XylophoneKeyClicked;
     public string note;
     public float waitTime;
     private Text _text;
-    private Color _keyColour, _textColour;
+    private Color _keyColour, _textColour;    
 
     private void Awake()
     {
@@ -51,5 +53,10 @@ public class XylophoneKeyController : MonoBehaviour
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        RuntimeManager.PlayOneShot("event:/Xylophone/" + note);        
     }
 }

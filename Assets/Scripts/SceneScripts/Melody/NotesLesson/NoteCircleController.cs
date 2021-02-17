@@ -11,6 +11,7 @@ public class NoteCircleController : MonoBehaviour
     private RectTransform _rt;
     private Color _textColour, _circleColour; 
     public float waitTime;
+    public string note;
 
     private void Awake()
     {
@@ -54,6 +55,7 @@ public class NoteCircleController : MonoBehaviour
             yield return new WaitForSeconds(interval);
         }
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         GetComponent<AudioSource>().Play();

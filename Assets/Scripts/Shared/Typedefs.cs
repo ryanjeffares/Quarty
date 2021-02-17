@@ -19,16 +19,11 @@ public static class Typedefs
             list[k] = list[n];
             list[n] = value;
         }
-    }
+    }    
 
     public static bool CheckIfAllStrings<T>(this IList<T> list)
     {
         return list.All(item => item.GetType() == typeof(string));
-    }
-
-    public static Color Colour255(int r, int g, int b, int a=255)
-    {
-        return new Color(r / 255f, g / 255f, b / 255f, a / 255f);
     }
 
     public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> self)
@@ -87,13 +82,13 @@ public class MelodyLessons
         lessons = new Dictionary<string, bool>
         {
             {"Melody Introduction", true},
-            {"Notes", false},
-            {"Tones And Semitones", false},
-            {"Major Scale", false},
-            {"Major And Perfect Intervals", false},
-            {"Minor Scale", false},
-            {"Minor Intervals", false},
-            {"Melody Writing", false}
+            {"Notes", true},
+            {"Tones And Semitones", true},
+            {"Major Scale", true},
+            {"Major And Perfect Intervals", true},
+            {"Minor Scale", true},
+            {"Minor Intervals", true},
+            {"Melody Writing", true}
         };
     }
 }
@@ -107,14 +102,14 @@ public class HarmonyLessons
         lessons = new Dictionary<string, bool>
         {
             {"Harmony Introduction", true},
-            {"Keys", false},
-            {"Triads", false},
-            {"Extended Chords", false},
-            {"Suspended Chords", false},
-            {"Inversions", false},
-            {"Circle Of Fifths", false},
-            {"Functions", false},
-            {"Cadences", false}
+            {"Keys", true},
+            {"Triads", true},
+            {"Extended Chords", true},
+            {"Suspended Chords", true},
+            {"Inversions", true},
+            {"Circle Of Fifths", true},
+            {"Functions", true},
+            {"Cadences", true}
         };
     }
 }
@@ -128,13 +123,13 @@ public class RhythmLessons
         lessons = new Dictionary<string, bool>
         {
             {"Rhythm Introduction", true},
-            {"Note Values", false},
-            {"Time Signatures", false},
-            {"Dotted Notes", false},
-            {"Tied Notes", false},
-            {"Syncopation", false},
-            {"Compound Time", false},
-            {"Triplets", false}
+            {"Note Values", true},
+            {"Time Signatures", true},
+            {"Dotted Notes", true},
+            {"Tied Notes", true},
+            {"Syncopation", true},
+            {"Compound Time", true},
+            {"Triplets", true}
         };
     }
 }
@@ -148,13 +143,13 @@ public class TimbreLessons
         lessons = new Dictionary<string, bool>
         {
             {"Timbre Introduction", true},
-            {"Strings", false},
-            {"Woodwinds", false},
-            {"Brass", false},
-            {"Percussion", false},
-            {"Tremolo", false},
-            {"Vibrato", false},
-            {"Synthesis", false}
+            {"Strings", true},
+            {"Woodwinds", true},
+            {"Brass", true},
+            {"Percussion", true},
+            {"Tremolo", true},
+            {"Vibrato", true},
+            {"Synthesis", true}
         };
     }
 }

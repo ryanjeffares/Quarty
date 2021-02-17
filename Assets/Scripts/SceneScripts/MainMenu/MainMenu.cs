@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Audio;
 
 public class MainMenu : BaseManager
@@ -8,7 +10,7 @@ public class MainMenu : BaseManager
     [SerializeField] private GameObject playButton, settingsButton, statsButton, quitButton;
     [SerializeField] private GameObject settingsPage, coursesPage;
     [SerializeField] private AudioMixer audioMixer;
-
+    [SerializeField] private Button devButton;
     private GameObject _settings, _courses;
     
     protected override void OnAwake()
@@ -20,6 +22,14 @@ public class MainMenu : BaseManager
             {statsButton, StatsButtonCallback},
             {quitButton, QuitButtonCallback}
         };
+        devButton.onClick.AddListener(() =>
+        {
+            foreach(var dir in Directory.GetDirectories(Application.persistentDataPath + "/Files"))
+            {
+                Directory.Delete(dir, true);
+                Application.Quit();
+            }
+        });
     }
 
     protected override void OnStart()

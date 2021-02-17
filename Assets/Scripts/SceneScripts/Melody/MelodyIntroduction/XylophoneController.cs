@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class XylophoneController : BaseManager
+public class XylophoneController : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> keyHolders;
-    
-    protected override void OnAwake()
+    [SerializeField] private List<GameObject> keyHolders;    
+
+    private void Awake()
     {        
         float time = 1f;
         foreach(var obj in keyHolders)
@@ -14,15 +14,9 @@ public class XylophoneController : BaseManager
             int childCount = obj.transform.childCount;
             for (int i = 0; i < childCount; i++)
             {
-                obj.transform.GetChild(i).GetComponent<XylophoneKeyController>().waitTime = time;
-                buttonCallbackLookup.Add(obj.transform.GetChild(i).gameObject, KeyPressedCallback);
+                obj.transform.GetChild(i).GetComponent<XylophoneKeyController>().waitTime = time;                
                 time += 0.1f;
             }
         }        
-    }
-
-    private void KeyPressedCallback(GameObject key)
-    {
-        key.GetComponent<AudioSource>().Play();
     }
 }

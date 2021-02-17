@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,10 +10,12 @@ public class NoteCirclesScaleController : MonoBehaviour
 
     private void Awake()
     {
+        string[] notes = { "C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3" };
         float waitTime = 0f;
-        foreach (GameObject circle in circles)
+        foreach (var (circle, index) in circles.WithIndex())
         {
             circle.GetComponent<NoteCircleController>().waitTime = waitTime;
+            circle.GetComponent<NoteCircleController>().note = notes[index];
             waitTime += 0.1f;
         }
 
