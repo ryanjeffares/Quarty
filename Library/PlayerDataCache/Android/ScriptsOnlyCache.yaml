@@ -22,10 +22,29 @@ ScriptsOnlyBuild:
     - SettingsController
     - SliderChanged
     - SplashTextAnimator
+    - StatsPageController
     - TonesAndSemitonesLessonController
     - TonesAndSemitonesPuzzleController
     - XylophoneController
     - XylophoneKeyController
+    FMODUnity.dll:
+    - FMODUnity.PlatformAndroid
+    - FMODUnity.PlatformAppleTV
+    - FMODUnity.PlatformDefault
+    - FMODUnity.PlatformIOS
+    - FMODUnity.PlatformLinux
+    - FMODUnity.PlatformMac
+    - FMODUnity.PlatformMobileHigh
+    - FMODUnity.PlatformMobileLow
+    - FMODUnity.PlatformPlayInEditor
+    - FMODUnity.PlatformWebGL
+    - FMODUnity.PlatformWindows
+    - FMODUnity.Settings
+    FMODUnityEditor.dll:
+    - FMODUnity.EditorBankRef
+    - FMODUnity.EditorEventRef
+    - FMODUnity.EditorParamRef
+    - FMODUnity.EventCache
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
@@ -43,6 +62,7 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.ContentSizeFitter
     - UnityEngine.UI.GraphicRaycaster
@@ -76,25 +96,49 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12472}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12602}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 12838}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 12966}
     - Class: 114
-      Script: {instanceID: 14058}
+      Script: {instanceID: 13044}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 13196}
+    - Class: 114
+      Script: {instanceID: 13316}
+    - Class: 114
+      Script: {instanceID: 13546}
+    - Class: 114
+      Script: {instanceID: 13614}
+    - Class: 114
+      Script: {instanceID: 13876}
+    - Class: 114
+      Script: {instanceID: 14328}
+    - Class: 114
+      Script: {instanceID: 14630}
+    - Class: 114
+      Script: {instanceID: 14870}
+    - Class: 114
+      Script: {instanceID: 14938}
+    - Class: 114
+      Script: {instanceID: 14952}
+    - Class: 114
+      Script: {instanceID: 15060}
+    - Class: 114
+      Script: {instanceID: 15552}
+    - Class: 114
+      Script: {instanceID: 15628}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -129,19 +173,19 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 15552}
     - Class: 114
-      Script: {instanceID: 15226}
+      Script: {instanceID: 15572}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -176,47 +220,51 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 12042}
+      Script: {instanceID: 12178}
     - Class: 114
-      Script: {instanceID: 12116}
+      Script: {instanceID: 12258}
     - Class: 114
-      Script: {instanceID: 12406}
+      Script: {instanceID: 12562}
     - Class: 114
-      Script: {instanceID: 12436}
+      Script: {instanceID: 12592}
     - Class: 114
-      Script: {instanceID: 12654}
-    - Class: 114
-      Script: {instanceID: 12758}
+      Script: {instanceID: 12832}
     - Class: 114
       Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13342}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13900}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 13988}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14160}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 14784}
     - Class: 114
-      Script: {instanceID: 30856}
+      Script: {instanceID: 14792}
+    - Class: 114
+      Script: {instanceID: 14870}
+    - Class: 114
+      Script: {instanceID: 15552}
+    - Class: 114
+      Script: {instanceID: 42026}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -261,43 +309,43 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 12342}
+      Script: {instanceID: 12494}
     - Class: 114
-      Script: {instanceID: 12936}
+      Script: {instanceID: 13132}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 13822}
+      Script: {instanceID: 14076}
     - Class: 114
-      Script: {instanceID: 14110}
+      Script: {instanceID: 14382}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14784}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 15012}
+      Script: {instanceID: 15348}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 15552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -341,50 +389,48 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 11870}
+      Script: {instanceID: 11986}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14784}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 14662}
+      Script: {instanceID: 14978}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 15552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -404,12 +450,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
       Script: {instanceID: 0}
     Assets/Scenes/Melody/NotesPuzzle.unity:
     - Class: 1
@@ -432,46 +472,44 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 11856}
+      Script: {instanceID: 11972}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14784}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 15552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -491,12 +529,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
       Script: {instanceID: 0}
     Assets/Scenes/Melody/TonesAndSemitones.unity:
     - Class: 1
@@ -519,50 +551,48 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 11868}
+      Script: {instanceID: 11984}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13266}
+      Script: {instanceID: 13484}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14784}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 14662}
+      Script: {instanceID: 14978}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 15552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -582,12 +612,6 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
       Script: {instanceID: 0}
     Assets/Scenes/Melody/TonesAndSemitonesPuzzle.unity:
     - Class: 1
@@ -610,46 +634,42 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11814}
+      Script: {instanceID: 11928}
     - Class: 114
-      Script: {instanceID: 11816}
+      Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11818}
+      Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11820}
+      Script: {instanceID: 11960}
     - Class: 114
-      Script: {instanceID: 12498}
+      Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 13142}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13206}
     - Class: 114
-      Script: {instanceID: 13040}
+      Script: {instanceID: 13240}
     - Class: 114
-      Script: {instanceID: 13060}
+      Script: {instanceID: 13260}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 13546}
     - Class: 114
-      Script: {instanceID: 13386}
+      Script: {instanceID: 13614}
     - Class: 114
-      Script: {instanceID: 14148}
+      Script: {instanceID: 14420}
     - Class: 114
-      Script: {instanceID: 14340}
+      Script: {instanceID: 14638}
     - Class: 114
-      Script: {instanceID: 14390}
+      Script: {instanceID: 14690}
     - Class: 114
-      Script: {instanceID: 14484}
+      Script: {instanceID: 14784}
     - Class: 114
-      Script: {instanceID: 14568}
+      Script: {instanceID: 14870}
     - Class: 114
-      Script: {instanceID: 15208}
+      Script: {instanceID: 15552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -670,12 +690,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
-      Script: {instanceID: 0}
   scriptHashData:
   - hash:
       serializedVersion: 2
@@ -691,16 +705,16 @@ ScriptsOnlyBuild:
     className: Image
   - hash:
       serializedVersion: 2
-      Hash: 4bc4346a71a8df53a6b106f68ef3a190
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
-  - hash:
-      serializedVersion: 2
       Hash: 0c05f2bfb402def3f0a85a62a2323c7f
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Slider
+  - hash:
+      serializedVersion: 2
+      Hash: 4bc4346a71a8df53a6b106f68ef3a190
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: 3e7fd91772beef5a958e5d32b44ed0a0
@@ -709,7 +723,7 @@ ScriptsOnlyBuild:
     className: NotesPuzzleController
   - hash:
       serializedVersion: 2
-      Hash: 774b2aa15e9af8680e841ec62d9b7327
+      Hash: 1df440ed5c89bb9df587065489d29ea9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NoteCirclesScaleController
@@ -745,6 +759,12 @@ ScriptsOnlyBuild:
     className: NoteBlockController
   - hash:
       serializedVersion: 2
+      Hash: 20b332383e61f96f02730c5f42fef7cf
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformGroup
+  - hash:
+      serializedVersion: 2
       Hash: c8cb8198a84dd2a01f6aeb3d50226d70
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -769,7 +789,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 01c6f24f07efe7964eb564ec3595d394
+      Hash: f2d495d8a40745bf3b141cb6104c4d2f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MainMenu
@@ -829,6 +849,12 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformMobileLow
+  - hash:
+      serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -877,6 +903,24 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformAndroid
+  - hash:
+      serializedVersion: 2
+      Hash: a6e3c7eb90cba24ee3ab1cd02ed0046b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: StudioEventEmitter
+  - hash:
+      serializedVersion: 2
+      Hash: fb9ffa19cc5f6f8e5c4464a77236fffa
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: StudioGlobalParameterTrigger
+  - hash:
+      serializedVersion: 2
       Hash: 94e9fe8c4da5adefa0c2e17cd1566f88
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -913,6 +957,12 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
+      Hash: 444398bc4fb783b0b448ac3c979214e1
+    assemblyName: FMODUnityResonance.dll
+    namespaceName: FMODUnityResonance
+    className: FmodResonanceAudioRoom
+  - hash:
+      serializedVersion: 2
       Hash: ef5c43f921427d03730f6ea4c848f07d
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -937,6 +987,12 @@ ScriptsOnlyBuild:
     className: SplashTextAnimator
   - hash:
       serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformWebGL
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -949,10 +1005,28 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: f02e7f5f95372c9bc8e358d573d235b0
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: Settings
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 2ec6667e5c574bcffe26a1c9289b1b0e
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: FMODEventPlayable
+  - hash:
+      serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformLinux
   - hash:
       serializedVersion: 2
       Hash: ecc75f7b34e84dfb3b3ad67c8c88ab9f
@@ -997,7 +1071,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 62afa5428f1e0902899053429185a5a8
+      Hash: b87a82bbc5f78aa3047d5d7104ee73f4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsController
@@ -1025,6 +1099,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NoteCirclesScaleEmptyController
+  - hash:
+      serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformAppleTV
+  - hash:
+      serializedVersion: 2
+      Hash: c3d3430df9e3ea95e3e3d587961390fb
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: FMODEventTrack
   - hash:
       serializedVersion: 2
       Hash: d8779986b8b7011ecc049b006c7b52c9
@@ -1075,6 +1161,12 @@ ScriptsOnlyBuild:
     className: SpriteSkinEntity
   - hash:
       serializedVersion: 2
+      Hash: 78ed600767ee635c93a9c698186c105b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: StudioListener
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1085,6 +1177,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: RemoteTestResultSender
+  - hash:
+      serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformMobileHigh
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -1183,7 +1281,13 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: b1bf89677cf853884476acdf34d18e26
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformPlayInEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 83716e30dfe0f9c42be6b5f791e50b4d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TonesAndSemitonesPuzzleController
@@ -1207,6 +1311,12 @@ ScriptsOnlyBuild:
     className: QuaverAnimator
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScrollviewArrowAnimator
+  - hash:
+      serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1225,10 +1335,40 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: 7c416287c23427075128ad5e5f54c563
+      Hash: af18424ab4310bab8befde4fcb8b8ca8
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: StudioParameterTrigger
+  - hash:
+      serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformDefault
+  - hash:
+      serializedVersion: 2
+      Hash: 4680db657a09772d677eb34657f979a8
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: FMODRuntimeManagerOnGUIHelper
+  - hash:
+      serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformIOS
+  - hash:
+      serializedVersion: 2
+      Hash: f03986bf07770b84d510324da6ae5773
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NoteCircleController
+  - hash:
+      serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformWindows
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1273,6 +1413,12 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: RuntimeManager
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1315,6 +1461,12 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
+      Hash: 7d11e17b0323c2d01abce64d39203eb6
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: StudioBankLoader
+  - hash:
+      serializedVersion: 2
       Hash: 2fd60557c21bd0e6e1818bd7cbecb6c3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1333,6 +1485,12 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: ad0a90df225a85d2b19c5faf1a43177b
+    assemblyName: FMODUnity.dll
+    namespaceName: FMODUnity
+    className: PlatformMac
+  - hash:
+      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1345,10 +1503,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: cc3b83d47650eee4e761743b6722c531
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ScrollviewArrowAnimator
+    className: StatsPageController
   platform: 13
   scenePathNames:
   - Assets/Scenes/FirstTime.unity

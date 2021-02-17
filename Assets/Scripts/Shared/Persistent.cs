@@ -163,13 +163,21 @@ public static class Persistent
                     {
                         switch (course)
                         {
-                            case "Melody": melodyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                            case "Melody": 
+                                melodyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                                melodyLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
                                 break;
-                            case "Harmony": harmonyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
+                            case "Harmony": 
+                                harmonyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
+                                harmonyLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value); 
                                 break;
-                            case "Rhythm": rhythmLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                            case "Rhythm": 
+                                rhythmLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                                rhythmLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
                                 break;
-                            case "Timbre": timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
+                            case "Timbre": 
+                                timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
+                                timbreLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value); 
                                 break;
                         }                        
                     }
@@ -181,19 +189,24 @@ public static class Persistent
                 XmlNode rootNode = xmlDoc.CreateElement(course);
                 xmlDoc.AppendChild(rootNode);
                 var lessons = new Dictionary<string, bool>();
+                var scores = new Dictionary<string, int>();
                 switch (course)
                 {
                     case "Melody":
                         lessons = melodyLessons.lessons;
+                        scores = melodyLessons.scores;
                         break;
                     case "Harmony":
                         lessons = harmonyLessons.lessons;
+                        scores = harmonyLessons.scores;
                         break;
                     case "Rhythm":
                         lessons = rhythmLessons.lessons;
+                        scores = rhythmLessons.scores;
                         break;
                     case "Timbre":
                         lessons = timbreLessons.lessons;
+                        scores = timbreLessons.scores;
                         break;
                 }                         
                 int counter = 1;
@@ -203,6 +216,7 @@ public static class Persistent
                     lessonNode.SetAttribute("number", counter.ToString());
                     lessonNode.SetAttribute("name", kvp.Key);
                     lessonNode.SetAttribute("available", kvp.Value.ToString());
+                    lessonNode.SetAttribute("score", scores[kvp.Key].ToString());
                     rootNode.AppendChild(lessonNode);
                     counter++;
                 }
@@ -220,23 +234,28 @@ public static class Persistent
     public static void UpdateLessonAvailability(string course)
     {
         Dictionary<string, bool> lessonList;
+        Dictionary<string, int> scores;
         string path;
         switch (course)
         {
             case "Melody": 
                 lessonList = melodyLessons.lessons;
+                scores = melodyLessons.scores;
                 path = Application.persistentDataPath + "/Files/Lessons/MelodyLessons.dat";
                 break;
             case "Harmony":
                 lessonList = harmonyLessons.lessons;
+                scores = harmonyLessons.scores;
                 path = Application.persistentDataPath + "/Files/Lessons/HarmonyLessons.dat";
                 break;
             case "Rhythm":
                 lessonList = rhythmLessons.lessons;
+                scores = rhythmLessons.scores;
                 path = Application.persistentDataPath + "/Files/Lessons/RhythmLessons.dat";
                 break;
             case "Timbre":
                 lessonList = timbreLessons.lessons;
+                scores = timbreLessons.scores;
                 path = Application.persistentDataPath + "/Files/Lessons/TimbreLessons.dat";
                 break;
             default:
@@ -250,9 +269,12 @@ public static class Persistent
         foreach (var kvp in lessonList)
         {
             XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
+            var name = kvp.Key;
+            Debug.Log(name);
             lessonNode.SetAttribute("number", counter.ToString());
-            lessonNode.SetAttribute("name", kvp.Key);
+            lessonNode.SetAttribute("name", name);
             lessonNode.SetAttribute("available", kvp.Value.ToString());
+            lessonNode.SetAttribute("score", scores[name].ToString());
             rootNode.AppendChild(lessonNode);
             counter++;
         }

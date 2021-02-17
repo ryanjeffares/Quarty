@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
@@ -37,7 +38,14 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
 
     public void Show()
     {
-        text.text = note;
+        if(note.Contains("1") || note.Contains("2") || note.Contains("3"))
+        {
+            text.text = note.Substring(0, note.Length - 1);
+        }
+        else
+        {
+            text.text = note;
+        }
         var particleSystemMain = _particleSystem.main;
         particleSystemMain.startColor = circleColour;
         StartCoroutine(FadeIn(0.5f));
@@ -54,7 +62,6 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-
                 counter += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
             }
@@ -84,8 +91,8 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     {
         if (!_playable) return;
         NotePlayed?.Invoke(text.text);
-        _particleSystem.Play();
-        GetComponent<AudioSource>().Play();
+        _particleSystem.Play();        
+        RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
         StartCoroutine(Resize(true));
     }
 

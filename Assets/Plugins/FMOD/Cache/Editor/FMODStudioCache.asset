@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9020934267021614723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/MenuMusic
+  m_EditorClassIdentifier: 
+  Path: event:/Music/MenuMusic
+  guid: f88d64c94ac75148b9bef12300ed4cd7
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 192000
 --- !u!114 &-8104139716042820791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +89,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-7704251286818579680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/D2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/D2
+  guid: f67d10cb60e7d24f88764ea45c8e110f
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-7698041191352551262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +135,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-7640593160182487850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/A#2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/A#2
+  guid: d3b99d9aabfc4443b228ef66f36f493f
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-7036374001536255453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/C3
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/C3
+  guid: dd9efec5bb5d5a4d993ad1e5c0e64c28
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-6753520486335150249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +196,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637471885134339832
+  lastModified: 637491810273473983
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -197,6 +289,75 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-4443940985284116460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/G1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/G1
+  guid: a67d0d671bb1ba428af9a508e14c4c0d
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-3960784411569488212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/G2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/G2
+  guid: 4c39c84874905b459dc52214ecc4c70a
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-3811320961075097186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/B1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/B1
+  guid: 82c9095c0773554e800f94b0e1d4f5c7
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-3577142166869066906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +378,98 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-3570815606294841601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/C2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/C2
+  guid: 5944ba4b5663294e869250d36573c34b
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-3471517563682223626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/C1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/C1
+  guid: ce35783f4f31c54487c8d193a57cd516
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-3423185472166501058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/D#2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/D#2
+  guid: 3aa41edbda3487499ae966bdb172d3a8
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &-2801650310975401348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/E1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/E1
+  guid: 4a4e0caf168f714ca2087cc460cb00b0
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &-2362510367653635010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +513,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-2060998473628846605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/MusicVolume
+  m_EditorClassIdentifier: 
+  Name: MusicVolume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 267798838
+    data2: 909325272
+  Exists: 1
 --- !u!114 &-1657800764609680188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +616,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-70903681791213014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/A1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/A1
+  guid: 80f5bb8996ebe14c9c4e680b545b0684
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,12 +668,40 @@ MonoBehaviour:
   - {fileID: -7955720806333963562}
   - {fileID: -2266787210878724907}
   - {fileID: -4683429343955298786}
-  EditorParameters: []
+  - {fileID: 6788361072918802835}
+  - {fileID: -3423185472166501058}
+  - {fileID: 8931478604869091989}
+  - {fileID: -2801650310975401348}
+  - {fileID: -3960784411569488212}
+  - {fileID: 6206673927083059912}
+  - {fileID: 876353122660747882}
+  - {fileID: 2326063472154273343}
+  - {fileID: -3570815606294841601}
+  - {fileID: 5897781273282530285}
+  - {fileID: 7442908552257232268}
+  - {fileID: -70903681791213014}
+  - {fileID: -3811320961075097186}
+  - {fileID: 4323864826179003284}
+  - {fileID: -4443940985284116460}
+  - {fileID: 1944822571342673498}
+  - {fileID: 3696661050079719459}
+  - {fileID: 3767204640859142941}
+  - {fileID: 3669185321145844719}
+  - {fileID: -3471517563682223626}
+  - {fileID: -7640593160182487850}
+  - {fileID: -7036374001536255453}
+  - {fileID: 6566543161886075634}
+  - {fileID: 7598333833979439126}
+  - {fileID: -7704251286818579680}
+  - {fileID: -9020934267021614723}
+  EditorParameters:
+  - {fileID: -2060998473628846605}
+  - {fileID: 6568236034180074964}
   MasterBanks:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637471885134396438
+  stringsBankWriteTime: 637491810273522050
   cacheVersion: 6
 --- !u!114 &250169932755247837
 MonoBehaviour:
@@ -399,6 +723,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &876353122660747882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/G#1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/G#1
+  guid: 506f5da19430694fb87250652f0dfe24
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &1739546862406943849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +769,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &1944822571342673498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/D1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/D1
+  guid: ad63ed9f9e6c7748b6b44c88cebf2917
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &2326063472154273343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/A#1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/A#1
+  guid: 55e9458dfcd42c4d88fe8f98922868f9
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &2485085906862956433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +861,98 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &3669185321145844719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/F2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/F2
+  guid: bc0ab9e80abce443bba7bc4a8b6ebebf
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &3696661050079719459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/F1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/F1
+  guid: b1d8fca534bac643abcf45e7944110e8
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &3767204640859142941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/C#1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/C#1
+  guid: b678ed4bb634ef45be0643d51244fe7e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &4323864826179003284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/D#1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/D#1
+  guid: 901e2829dcb26d479de731a0faa01e44
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &4458326715726712844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,12 +1031,124 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637471885134396438
+  lastModified: 637491810273522050
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1200
+    Value: 2418
   Exists: 1
+--- !u!114 &5897781273282530285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/F#2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/F#2
+  guid: 7b0bcdb2fa1f974ebd8dbd421573202f
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &6206673927083059912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/F#1
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/F#1
+  guid: 4d269acbb1f7304d8918fa1db25839cf
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &6566543161886075634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/G#2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/G#2
+  guid: e45d299c91da2a43945cfbcea4b6350c
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &6568236034180074964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/ObjectVolume
+  m_EditorClassIdentifier: 
+  Name: ObjectVolume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 847165686
+    data2: 3325362409
+  Exists: 1
+--- !u!114 &6788361072918802835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/C#2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/C#2
+  guid: 1fcd5450dd4c1346b8fad79357770fa0
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &7191322145472552140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +1169,52 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &7442908552257232268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/B2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/B2
+  guid: 8048709727d4e64da7f67d3b6c6b670b
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
+--- !u!114 &7598333833979439126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/A2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/A2
+  guid: e9c36474130d834193473e0bbf9bf35e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &8355520707265740011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +1255,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &8931478604869091989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SineNotes/E2
+  m_EditorClassIdentifier: 
+  Path: event:/SineNotes/E2
+  guid: 47d771ba8bfb0d41b5dd934d2ead3d8e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2000
 --- !u!114 &8973645366045146959
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -136,7 +136,6 @@ public class NotesLessonController : BaseManager
                     {
                         yield return new WaitUntil(() => !PauseManager.paused);
                     }
-
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -149,7 +148,6 @@ public class NotesLessonController : BaseManager
                     {
                         yield return new WaitUntil(() => !PauseManager.paused);
                     }
-
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -169,7 +167,6 @@ public class NotesLessonController : BaseManager
                     {
                         yield return new WaitUntil(() => !PauseManager.paused);
                     }
-
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -185,7 +182,6 @@ public class NotesLessonController : BaseManager
                     {
                         yield return new WaitUntil(() => !PauseManager.paused);
                     }
-
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -203,7 +199,6 @@ public class NotesLessonController : BaseManager
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
-
             counter += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }
@@ -224,7 +219,7 @@ public class NotesLessonController : BaseManager
         Dictionary<GameObject, Vector3> targetPositions = new Dictionary<GameObject, Vector3>();
         Dictionary<GameObject, Tuple<float, float>> diffs = new Dictionary<GameObject, Tuple<float, float>>();
 
-        foreach(var (circle, idx) in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "C").WithIndex())
+        foreach(var (circle, idx) in _movableCircles.Where(c => !c.GetComponent<NoteCircleMovableController>().note.Contains("C")).WithIndex())
         {
             startPositions.Add(circle, circle.transform.localPosition);
             targetPositions.Add(circle, new Vector3(localXs[indexes[idx]], -60));
@@ -240,9 +235,8 @@ public class NotesLessonController : BaseManager
             if (PauseManager.paused)
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
-            }
-            
-            foreach (var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "C"))
+            }            
+            foreach (var circle in _movableCircles.Where(c => !c.GetComponent<NoteCircleMovableController>().note.Contains("C")))
             {
                 var pos = circle.transform.localPosition;
                 pos.x = startPositions[circle].x + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item1;
@@ -269,6 +263,7 @@ public class NotesLessonController : BaseManager
         }
         _noteCircles = Instantiate(noteCirclesPrefab, transform.GetChild(0));
         _noteCircles.transform.localPosition = new Vector3(0, -200);
+        _noteCircles.GetComponent<NoteCirclesScaleController>().Show(false);   
         float alpha = 0f;
         while (alpha <= 1f)
         {
@@ -287,7 +282,7 @@ public class NotesLessonController : BaseManager
 
     private void SpawnMovableCircles()
     {
-        string[] notes = {"C", "D", "E", "F", "G", "A", "B", "C"};
+        string[] notes = {"C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3"};
         int[] localXs = {-125, -75, -25, 25, 75, 125};
         List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
         indexes.Shuffle();
@@ -298,9 +293,8 @@ public class NotesLessonController : BaseManager
             _movableCircles[i].GetComponent<NoteCircleMovableController>().note = notes[i];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = true;
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i]];
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
-            _movableCircles[i].GetComponent<AudioSource>().clip = clips[i];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i].Substring(0, 1)];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;            
             if (i == 0) // if its a C
             {
                 _movableCircles[i].transform.localPosition = new Vector3(-175, 0);

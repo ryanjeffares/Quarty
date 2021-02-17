@@ -1194,6 +1194,7 @@ RectTransform:
   - {fileID: 1478282495}
   - {fileID: 46293048}
   - {fileID: 1323937492}
+  - {fileID: 2026044892}
   m_Father: {fileID: 1480265505}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1622,7 +1623,8 @@ MonoBehaviour:
     type: 3}
   coursesPage: {fileID: 3452618234225974499, guid: 8cdb3391bdee9494ab3fcf86407c22e8,
     type: 3}
-  audioMixer: {fileID: 24100000, guid: df73353de438fbf41b294af02faaecba, type: 2}
+  statsPage: {fileID: 8452954782764965736, guid: effb191e44057be4f93388a5602d91c8,
+    type: 3}
   devButton: {fileID: 1323937493}
 --- !u!82 &1480265507
 AudioSource:
@@ -1800,6 +1802,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1960488193}
+  m_CullTransparentMesh: 0
+--- !u!1 &2026044891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2026044892}
+  - component: {fileID: 2026044894}
+  - component: {fileID: 2026044893}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2026044892
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026044891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1148259205}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -138.98, y: -502.6}
+  m_SizeDelta: {x: 277.9641, y: 194.72891}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2026044893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026044891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: d14dcc5fbfe9d894ba492208a2bd1fc4, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Design & Development - Ryan Jeffares\n\nMentoring - Dr. Brian Carty\n\nMusic
+    - \"Music for Walking\" by Cathal MacRuair\xED"
+--- !u!222 &2026044894
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026044891}
   m_CullTransparentMesh: 0
 --- !u!1 &2141159149
 GameObject:

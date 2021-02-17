@@ -37,11 +37,7 @@ public class TonesAndSemitonesLessonController : BaseManager
     protected override void OnAwake()
     {
         NoteCircleMovableController.NotePlayed += NotePlayedCallback;
-        buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
-        {
-            {nextButton, NextButtonCallback},
-            {tryButton, TryButtonCallback}
-        };
+        buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>();                
         fullCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
             {nextButton, NextButtonCallback},
@@ -136,7 +132,10 @@ public class TonesAndSemitonesLessonController : BaseManager
                 float timeCounter = 0f;
                 while (timeCounter <= 1f)
                 {
-                    yield return new WaitUntil(() => !PauseManager.paused);
+                    if (PauseManager.paused)
+                    {
+                        yield return new WaitUntil(() => !PauseManager.paused);
+                    }
                     timeCounter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -145,7 +144,10 @@ public class TonesAndSemitonesLessonController : BaseManager
                 timeCounter = 0f;
                 while (timeCounter <= 1f)
                 {
-                    yield return new WaitUntil(() => !PauseManager.paused);
+                    if (PauseManager.paused)
+                    {
+                        yield return new WaitUntil(() => !PauseManager.paused);
+                    }
                     timeCounter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -161,7 +163,10 @@ public class TonesAndSemitonesLessonController : BaseManager
                 timeCounter = 0f;
                 while (timeCounter <= 1f)
                 {
-                    yield return new WaitUntil(() => !PauseManager.paused);
+                    if (PauseManager.paused)
+                    {
+                        yield return new WaitUntil(() => !PauseManager.paused);
+                    }
                     timeCounter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
@@ -178,10 +183,14 @@ public class TonesAndSemitonesLessonController : BaseManager
     {
         _noteScale = Instantiate(scalePrefab, mainContainer.transform);
         _noteScale.transform.localPosition = new Vector3(0, 50);
+        _noteScale.GetComponent<NoteCirclesScaleController>().Show(true, new List<string> { "A1", "B1", "C#2", "D2", "E2", "F#2", "G#2", "A2" });
         float alpha = 0f;
         while (alpha <= 1f)
         {
-            yield return new WaitUntil(() => !PauseManager.paused);
+            if (PauseManager.paused)
+            {
+                yield return new WaitUntil(() => !PauseManager.paused);
+            }
             var col = arrow.GetComponent<Image>().color;
             arrow.GetComponent<Image>().color = new Color(col.r, col.g, col.b, alpha);
             alpha += (1 / (0.5f / 0.016f));
@@ -193,7 +202,7 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void SpawnMovableCircles()
     {
-        string[] notes = { "A", "B", "C#", "D", "E", "F#", "G#", "A"};
+        string[] notes = { "A1", "B1", "C#2", "D2", "E2", "F#2", "G#2", "A2"};
         int[] localXs = {-125, -75, -25, 25, 75, 125};
         List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
         indexes.Shuffle();
@@ -204,9 +213,8 @@ public class TonesAndSemitonesLessonController : BaseManager
             _movableCircles[i].GetComponent<NoteCircleMovableController>().note = notes[i];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = true;
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i]];
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
-            _movableCircles[i].GetComponent<AudioSource>().clip = clips[i];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;            
             if (i == 0) // if its a C
             {
                 _movableCircles[i].transform.localPosition = new Vector3(-175, 0);
@@ -233,7 +241,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         Dictionary<GameObject, Vector3> targetPositions = new Dictionary<GameObject, Vector3>();
         Dictionary<GameObject, Tuple<float, float>> diffs = new Dictionary<GameObject, Tuple<float, float>>();
         int i = 0;
-        foreach(var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "A"))
+        foreach(var circle in _movableCircles.Where(c => !c.GetComponent<NoteCircleMovableController>().note.Contains("A")))
         {
             startPositions.Add(circle, circle.transform.localPosition);
             targetPositions.Add(circle, new Vector3(localXs[indexes[i]], - 60));
@@ -246,8 +254,11 @@ public class TonesAndSemitonesLessonController : BaseManager
         float interval = time / resolution;
         while (timeCounter <= time)
         {
-            yield return new WaitUntil(() => !PauseManager.paused);
-            foreach(var circle in _movableCircles.Where(c => c.GetComponent<NoteCircleMovableController>().note != "A"))
+            if (PauseManager.paused)
+            {
+                yield return new WaitUntil(() => !PauseManager.paused);
+            }
+            foreach (var circle in _movableCircles.Where(c => !c.GetComponent<NoteCircleMovableController>().note.Contains("A")))
             {
                 var pos = circle.transform.localPosition;
                 pos.x = startPositions[circle].x + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item1;

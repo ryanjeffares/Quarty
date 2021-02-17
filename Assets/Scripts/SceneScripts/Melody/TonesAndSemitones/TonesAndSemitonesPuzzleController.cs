@@ -30,7 +30,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
     [SerializeField] private AnimationCurve overshootCurve;
     [SerializeField] private AnimationCurve overshootOutCurve;
     [Header("Clips")]
-    [SerializeField] private List<AudioClip> clips;
+    [SerializeField] private List<string> clips;
 
     public int timer;
     private int _levelStage, _scalesDone;
@@ -100,7 +100,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
         {
             Persistent.sceneToLoad = "MajorScale";
             Persistent.goingHome = false;
-            Persistent.melodyLessons.lessons["MajorScale"] = true;
+            Persistent.melodyLessons.lessons["Major Scale"] = true;
             Persistent.UpdateLessonAvailability("Melody");
             SceneManager.LoadScene("LoadingScreen");
         }
@@ -200,16 +200,16 @@ public class TonesAndSemitonesPuzzleController : BaseManager
             switch (stars)
             {
                 case 1:
-                    starPositions.Add(new Vector2(0, 340));
+                    starPositions.Add(new Vector2(0, 360));
                     break;
                 case 2:
-                    starPositions.Add(new Vector2(-50, 340));
-                    starPositions.Add(new Vector2(50, 340));
+                    starPositions.Add(new Vector2(-50, 360));
+                    starPositions.Add(new Vector2(50, 360));
                     break;
                 case 3:
-                    starPositions.Add(new Vector2(-70, 340));
-                    starPositions.Add(new Vector2(0, 340));
-                    starPositions.Add(new Vector2(70, 340));
+                    starPositions.Add(new Vector2(-70, 360));
+                    starPositions.Add(new Vector2(0, 360));
+                    starPositions.Add(new Vector2(70, 360));
                     break;
             }            
             for (int i = 0; i < stars; i++)
@@ -219,6 +219,8 @@ public class TonesAndSemitonesPuzzleController : BaseManager
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
                 StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:0.2f * i));
             }
+            if(stars > Persistent.melodyLessons.scores["Tones And Semitones"])
+                Persistent.melodyLessons.scores["Tones And Semitones"] = stars;
         }
         else
         {
@@ -255,7 +257,10 @@ public class TonesAndSemitonesPuzzleController : BaseManager
             float waitCounter = 0f;
             while (waitCounter <= waitTime)
             {
-                yield return new WaitUntil(() => !PauseManager.paused);
+                if (PauseManager.paused)
+                {
+                    yield return new WaitUntil(() => !PauseManager.paused);
+                }
                 waitCounter += waitInterval;
                 yield return new WaitForSeconds(waitInterval);
             }
@@ -281,12 +286,12 @@ public class TonesAndSemitonesPuzzleController : BaseManager
             var currentNote = _fullOctave[(startIndex + Persistent.majorScale[i]) % 12];
             _correctOrder.Add(currentNote);
             _movableCircles.Add(Instantiate(movableCirclePrefab, _emptyScale.transform));            
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().note = _fullOctave[(startIndex + Persistent.majorScale[i]) % 12];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().note = clips[startIndex + Persistent.majorScale[i]];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[_fullOctave[(startIndex + Persistent.majorScale[i]) % 12]];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = _playing;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
-            _movableCircles[i].GetComponent<AudioSource>().clip = clips[startIndex + Persistent.majorScale[i]];
+            //_movableCircles[i].GetComponent<AudioSource>().clip = clips[startIndex + Persistent.majorScale[i]];
             switch (i)
             {
                 case 0:
@@ -333,15 +338,13 @@ public class TonesAndSemitonesPuzzleController : BaseManager
     private IEnumerator DecreaseTimer()
     {
         _playing = true;
-        float timeCounter = 0f;
-        float resolution = 1000f;
-        float interval = timer / resolution;        
+        float timeCounter = 0f;      
         while (timeCounter <= timer)
         {
             if (PauseManager.paused)
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
-            }
+            }            
             float remaining = timer - timeCounter;
             timeSlider.value = remaining;
             if (remaining < 5f)
@@ -363,8 +366,8 @@ public class TonesAndSemitonesPuzzleController : BaseManager
             }
 
             timeSlider.fillRect.GetComponent<Image>().color = Color.Lerp(Persistent.rainbowColours[3], Persistent.rainbowColours[0], timeCounter / timer);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;            
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         _playing = false;
         foreach (var circle in _movableCircles)

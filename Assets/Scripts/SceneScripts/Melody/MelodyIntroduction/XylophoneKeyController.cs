@@ -24,19 +24,19 @@ public class XylophoneKeyController : MonoBehaviour, IPointerDownHandler
         _text.color = Color.clear;
         GetComponent<Image>().color = new Color(_keyColour.r, _keyColour.g, _keyColour.b, 0);
         
-        StartCoroutine(FadeIn(1f, 200f));
+        StartCoroutine(FadeIn(1f));
     }
 
-    private IEnumerator FadeIn(float time, float resolution)
+    private IEnumerator FadeIn(float time)
     {
         float counter = 0f;
+        float resolution = time / 0.016f;
         while (counter <= waitTime)
         {
             if (PauseManager.paused)
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
-
             counter += Time.deltaTime;
             yield return new WaitForSeconds(Time.deltaTime);
         }

@@ -38,7 +38,7 @@ public class NotesPuzzleController : BaseManager
     private bool _arrowMoving;
     private bool _playing;
     private bool _success;
-    private string _previousRoot = "C";
+    private string _previousRoot = "C1";
     
     protected override void OnAwake()
     {
@@ -160,13 +160,14 @@ public class NotesPuzzleController : BaseManager
                 if (PauseManager.paused)
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
-                }
+                }                
                 waitCounter += waitInterval;
                 yield return new WaitForSeconds(waitInterval);
             } 
         }
         _movableCircles = new List<GameObject>();
         List<string> notes = new List<string>{"C", "D", "E", "F", "G", "A", "B", "C", "D", "E", "F", "G", "A", "B"};
+        List<string> notesFmodNames = new List<string>{"C1", "D1", "E1", "F1", "G1", "A1", "B1", "C2", "D2", "E2", "F2", "G2", "A2", "B2"};
         List<string> notesToShuffle = new List<string>{"C", "D", "E", "F", "G", "A", "B"};
         int[] localXs = {-125, -75, -25, 25, 75, 125};
         List<int> indexes = new List<int>{0, 1, 2, 3, 4, 5};
@@ -184,23 +185,23 @@ public class NotesPuzzleController : BaseManager
         {
             _movableCircles.Add(Instantiate(movableCirclePrefab, _emptyNoteCircles.transform));
             _correctOrder.Add(notes[idx + i]);
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().note = notes[idx + i];
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notesToShuffle[i % 7]];
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = _playing;
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
-            _movableCircles[i].GetComponent<AudioSource>().clip = clips[i + idx];
+            var controller = _movableCircles[i].GetComponent<NoteCircleMovableController>();
+            controller.note = notesFmodNames[idx + i];
+            controller.waitTime = wait;
+            controller.circleColour = Persistent.noteColours[notesToShuffle[i % 7]];
+            controller.draggable = _playing;
+            controller.curve = overshootCurve;            
             switch (i)
             {
                 case 0: _movableCircles[i].transform.localPosition = new Vector3(-175, 0);
                     break;
                 case 7: _movableCircles[i].transform.localPosition = new Vector3(175, 0);
-                    _movableCircles[i].GetComponent<NoteCircleMovableController>().octaveUp = true;
+                    controller.octaveUp = true;
                     break;
                 default: _movableCircles[i].transform.localPosition = new Vector3(localXs[indexes[i - 1]], -60);
                     break;
-            }
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().Show();
+            }            
+            controller.Show();
             wait += 0.1f;
         }
     }
@@ -251,6 +252,8 @@ public class NotesPuzzleController : BaseManager
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
                 StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:(0.2f * i)));
             }
+            if(stars > Persistent.melodyLessons.scores["Notes"])
+                Persistent.melodyLessons.scores["Notes"] = stars;
         }
         else
         {
@@ -374,8 +377,6 @@ public class NotesPuzzleController : BaseManager
     {
         _playing = true;
         float timeCounter = 0f;
-        float resolution = 1000f;
-        float interval = timer / resolution;
         timeRemaining.fillRect.GetComponent<Image>().color = Persistent.rainbowColours[3];
         while (timeCounter <= timer)
         {
@@ -404,8 +405,8 @@ public class NotesPuzzleController : BaseManager
             }
 
             timeRemaining.fillRect.GetComponent<Image>().color = Color.Lerp(Persistent.rainbowColours[3], Persistent.rainbowColours[0], timeCounter / timer);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return new WaitForSeconds(Time.deltaTime);
         }
         _playing = false;
         foreach (var circle in _movableCircles)

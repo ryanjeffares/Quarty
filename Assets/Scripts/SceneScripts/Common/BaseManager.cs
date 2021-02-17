@@ -192,7 +192,7 @@ public abstract class BaseManager : MonoBehaviour
         if (wait > 0f)
         {
             float waitInterval = wait / resolution;
-            float waitCounter = 0f;
+            float waitCounter = 0f;            
             while (waitCounter <= wait)
             {
                 if (PauseManager.paused)
@@ -201,7 +201,7 @@ public abstract class BaseManager : MonoBehaviour
                 }
                 waitCounter += waitInterval;
                 yield return new WaitForSeconds(waitInterval);
-            }   
+            }               
         }
 
         var startScale = text.transform.localScale;

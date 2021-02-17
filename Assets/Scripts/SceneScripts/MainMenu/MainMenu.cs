@@ -4,15 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
+using FMODUnity;
 
 public class MainMenu : BaseManager
 {
     [SerializeField] private GameObject playButton, settingsButton, statsButton, quitButton;
-    [SerializeField] private GameObject settingsPage, coursesPage;
-    [SerializeField] private AudioMixer audioMixer;
-    [SerializeField] private Button devButton;
-    private GameObject _settings, _courses;
-    
+    [SerializeField] private GameObject settingsPage, coursesPage, statsPage;    
+    [SerializeField] private Button devButton;    
+    [EventRef] private FMOD.Studio.EventInstance _musicEvent;    
+    private GameObject _settings, _courses, _stats;
+
     protected override void OnAwake()
     {
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
@@ -30,11 +31,17 @@ public class MainMenu : BaseManager
                 Application.Quit();
             }
         });
+        _musicEvent = RuntimeManager.CreateInstance("event:/Music/MenuMusic");        
     }
+
+    protected override void DestroyManager()
+    {
+        _musicEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }               
 
     protected override void OnStart()
     {
-        audioMixer.SetFloat("MasterVolume", Persistent.settings.valueSettings["Volume"]);
+        _musicEvent.start();        
     }
 
     private void PlayButtonCallback(GameObject g)
@@ -53,11 +60,13 @@ public class MainMenu : BaseManager
 
     private void StatsButtonCallback(GameObject g)
     {
-        
+        _stats = Instantiate(statsPage, transform.GetChild(0));
+        _stats.transform.GetChild(0).localScale = new Vector3(1, 1);
+        _stats.transform.localScale = new Vector3(1.2f, 1.2f);
     }
     
     private void QuitButtonCallback(GameObject g)
-    {
+    {        
         Application.Quit();
     }
 }

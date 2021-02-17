@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{2e6904b0-b238-4091-9975-419f2d95201e}">
+		<property name="assetPath">
+			<value>SineC2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4787823-c48c-4cf1-93dd-1ff016bc5436}</destination>
+		</relationship>
+	</object>
+</objects>

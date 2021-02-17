@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class NoteCircleController : MonoBehaviour
 {
@@ -20,7 +19,11 @@ public class NoteCircleController : MonoBehaviour
         _circleColour = GetComponent<Image>().color;
         GetComponent<Image>().color = new Color(_circleColour.r, _circleColour.g, _circleColour.b, 0);
         _rt = GetComponent<RectTransform>();
-        _size = _rt.sizeDelta;
+        _size = _rt.sizeDelta;        
+    }
+
+    public void Show()
+    {
         StartCoroutine(FadeIn(0.5f));
     }
 
@@ -35,7 +38,6 @@ public class NoteCircleController : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-
                 counter += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
             }
@@ -58,12 +60,12 @@ public class NoteCircleController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        GetComponent<AudioSource>().Play();
+        RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
         StartCoroutine(Resize(true));
-    }
+    }    
 
     private void OnTriggerExit2D(Collider2D other)
-    {
+    {        
         StartCoroutine(Resize(false));
     }
 

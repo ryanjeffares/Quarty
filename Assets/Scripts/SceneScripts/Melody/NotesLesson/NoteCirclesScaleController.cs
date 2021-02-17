@@ -7,23 +7,52 @@ public class NoteCirclesScaleController : MonoBehaviour
 {
     [SerializeField] private List<GameObject> circles;
     [SerializeField] private List<Text> texts;
+    [SerializeField] private bool useCustomNotes;
+    [SerializeField] private List<string> customNotes;
 
     private void Awake()
     {
-        string[] notes = { "C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3" };
-        float waitTime = 0f;
-        foreach (var (circle, index) in circles.WithIndex())
-        {
-            circle.GetComponent<NoteCircleController>().waitTime = waitTime;
-            circle.GetComponent<NoteCircleController>().note = notes[index];
-            waitTime += 0.1f;
-        }
+        
 
-        waitTime = 0f;
-        foreach (Text text in texts)
+        
+    }
+
+    public void Show(bool useCustomNotes, List<string> customNotes = null)
+    {
+        if (useCustomNotes)
         {
-            StartCoroutine(FadeText(text, 0.5f, waitTime));
-            waitTime += 0.1f;
+            float waitTime = 0f;
+            foreach (var (circle, index) in circles.WithIndex())
+            {
+                circle.GetComponent<NoteCircleController>().waitTime = waitTime;
+                circle.GetComponent<NoteCircleController>().note = useCustomNotes ? customNotes[index] : customNotes[index];
+                circle.GetComponent<NoteCircleController>().Show();
+                waitTime += 0.1f;
+            }
+            waitTime = 0f;
+            foreach (Text text in texts)
+            {
+                StartCoroutine(FadeText(text, 0.5f, waitTime));
+                waitTime += 0.1f;
+            }
+        }
+        else
+        {
+            string[] notes = { "C2", "D2", "E2", "F2", "G2", "A2", "B2", "C3" };
+            float waitTime = 0f;
+            foreach (var (circle, index) in circles.WithIndex())
+            {
+                circle.GetComponent<NoteCircleController>().waitTime = waitTime;
+                circle.GetComponent<NoteCircleController>().note = useCustomNotes ? customNotes[index] : notes[index];
+                circle.GetComponent<NoteCircleController>().Show();
+                waitTime += 0.1f;
+            }
+            waitTime = 0f;
+            foreach (Text text in texts)
+            {
+                StartCoroutine(FadeText(text, 0.5f, waitTime));
+                waitTime += 0.1f;
+            }
         }
     }
 
@@ -38,7 +67,6 @@ public class NoteCirclesScaleController : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-
                 counter += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
             }

@@ -17,7 +17,7 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         foreach (var circle in circles)
         {
             circle.GetComponent<Image>().color = Color.clear;
-            StartCoroutine(FadeCircle(circle, 0.5f, 200f, waitTime));
+            StartCoroutine(FadeCircle(circle, 0.5f, waitTime));
             waitTime += 0.1f;
         }
 
@@ -25,12 +25,12 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         foreach (var text in texts)
         {
             text.color = Color.clear;
-            StartCoroutine(FadeText(text, 0.5f, 200f, waitTime));
+            StartCoroutine(FadeText(text, 0.5f, waitTime));
             waitTime += 0.1f;
         }
     }
 
-    private IEnumerator FadeCircle(GameObject circle, float time, float resolution, float waitTime)
+    private IEnumerator FadeCircle(GameObject circle, float time, float waitTime)
     {
         if(waitTime > 0)
         {
@@ -41,7 +41,6 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-
                 counter += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
             }
@@ -51,6 +50,7 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         var targetColourCircle = new Color(0.44f, 0.44f, 0.44f, 1f);
 
         float timeCounter = 0f;
+        float resolution = time / 0.016f;
         float interval = time / resolution;
         while (timeCounter <= time)
         {
@@ -64,7 +64,7 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeText(Text text, float time, float resolution, float waitTime)
+    private IEnumerator FadeText(Text text, float time, float waitTime)
     {
         if(waitTime > 0)
         {
@@ -75,7 +75,6 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-
                 counter += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
             }
@@ -84,6 +83,7 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         var targetColour = new Color(0.196f, 0.196f, 0.196f, 1f);
 
         float timeCounter = 0f;
+        float resolution = time / 0.016f;
         float interval = time / resolution;
         while (timeCounter <= time)
         {

@@ -9,15 +9,15 @@ using UnityEngine.UI;
 
 public class SettingsController : BaseManager
 {
-    [SerializeField] private GameObject volumeSlider, cancelButton, acceptButton, settingsObject;
-    [SerializeField] private AudioMixer audioMixer;
-    private float _initVolumeSliderVal;
+    [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton;
+    private float _initVolumeSliderVal, _initObjectSliderVal;
 
     protected override void OnAwake()
     {
         sliderCallbackLookup = new Dictionary<GameObject, Action<GameObject, float>>
         {
-            {volumeSlider, VolumeSliderCallback}
+            {musicVolumeSlider, MusicVolumeSliderCallback},
+            {objectVolumeSlider, ObjectVolumeSliderCallback}
         };
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
@@ -28,16 +28,22 @@ public class SettingsController : BaseManager
         LoadSettings();
     }
 
-    private void VolumeSliderCallback(GameObject g, float value)
+    private void MusicVolumeSliderCallback(GameObject g, float value)
     {
-        audioMixer.SetFloat("MasterVolume", value);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicVolume", value);
+    }
+
+    private void ObjectVolumeSliderCallback(GameObject g, float value)
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("ObjectVolume", value);
     }
 
     private void CancelButtonCallback(GameObject g)
     {
         // Need to discard changes to settings if user cancels instead of accepts
-        volumeSlider.GetComponent<Slider>().value = _initVolumeSliderVal;
-        Destroy(settingsObject);
+        musicVolumeSlider.GetComponent<Slider>().value = _initVolumeSliderVal;
+        objectVolumeSlider.GetComponent<Slider>().value = _initObjectSliderVal;
+        Destroy(gameObject);
     }
 
     private void AcceptButtonCallback(GameObject g)
@@ -48,18 +54,21 @@ public class SettingsController : BaseManager
 
     private void LoadSettings()
     {
-        volumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["Volume"];
-        _initVolumeSliderVal = volumeSlider.GetComponent<Slider>().value;
+        musicVolumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["MusicVolume"];
+        objectVolumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["ObjectVolume"];
+        _initVolumeSliderVal = musicVolumeSlider.GetComponent<Slider>().value;
+        _initObjectSliderVal = objectVolumeSlider.GetComponent<Slider>().value;
     }
 
     private void SaveSettings()
     {
-        Persistent.settings.valueSettings["Volume"] = volumeSlider.GetComponent<Slider>().value;
+        Persistent.settings.valueSettings["MusicVolume"] = musicVolumeSlider.GetComponent<Slider>().value;
+        Persistent.settings.valueSettings["ObjectVolume"] = objectVolumeSlider.GetComponent<Slider>().value;
         Persistent.UpdateSettings();
     }
 
     private void Exit()
     {
-        Destroy(settingsObject);
+        Destroy(gameObject);
     }
 }

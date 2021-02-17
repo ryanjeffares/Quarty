@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{fba3ef8c-fedc-49c6-95db-61200053f7da}">
+		<property name="assetPath">
+			<value>MusicForWalkingQuartyLoop.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>192</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4787823-c48c-4cf1-93dd-1ff016bc5436}</destination>
+		</relationship>
+	</object>
+</objects>

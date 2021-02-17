@@ -68,27 +68,40 @@ public class Settings
     {
         valueSettings = new Dictionary<string, float>
         {
-            {"Volume", 0f}
+            {"MusicVolume", 1f},
+            {"ObjectVolume", 1f }
         };
     }
 }
 
 public class MelodyLessons
 {
-    public Dictionary<string, bool> lessons;
+    public readonly Dictionary<string, bool> lessons;
+    public readonly Dictionary<string, int> scores;
     
     public MelodyLessons()
     {
         lessons = new Dictionary<string, bool>
         {
             {"Melody Introduction", true},
-            {"Notes", true},
-            {"Tones And Semitones", true},
-            {"Major Scale", true},
-            {"Major And Perfect Intervals", true},
-            {"Minor Scale", true},
-            {"Minor Intervals", true},
-            {"Melody Writing", true}
+            {"Notes", false},
+            {"Tones And Semitones", false},
+            {"Major Scale", false},
+            {"Major And Perfect Intervals", false},
+            {"Minor Scale", false},
+            {"Minor Intervals", false},
+            {"Melody Writing", false}
+        };
+        scores = new Dictionary<string, int>
+        {
+            {"Melody Introduction", 0},
+            {"Notes", 0},
+            {"Tones And Semitones", 0},
+            {"Major Scale", 0},
+            {"Major And Perfect Intervals", 0},
+            {"Minor Scale", 0},
+            {"Minor Intervals", 0},
+            {"Melody Writing", 0}
         };
     }
 }
@@ -96,20 +109,33 @@ public class MelodyLessons
 public class HarmonyLessons
 {
     public Dictionary<string, bool> lessons;
+    public Dictionary<string, int> scores;
 
     public HarmonyLessons()
     {
         lessons = new Dictionary<string, bool>
         {
             {"Harmony Introduction", true},
-            {"Keys", true},
-            {"Triads", true},
-            {"Extended Chords", true},
-            {"Suspended Chords", true},
-            {"Inversions", true},
-            {"Circle Of Fifths", true},
-            {"Functions", true},
-            {"Cadences", true}
+            {"Keys", false},
+            {"Triads", false},
+            {"Extended Chords", false},
+            {"Suspended Chords", false},
+            {"Inversions", false},
+            {"Circle Of Fifths", false},
+            {"Functions", false},
+            {"Cadences", false}
+        };
+        scores = new Dictionary<string, int>
+        {
+            {"Harmony Introduction", 0},
+            {"Keys", 0},
+            {"Triads", 0},
+            {"Extended Chords", 0},
+            {"Suspended Chords", 0},
+            {"Inversions", 0},
+            {"Circle Of Fifths", 0},
+            {"Functions", 0},
+            {"Cadences", 0}
         };
     }
 }
@@ -117,19 +143,31 @@ public class HarmonyLessons
 public class RhythmLessons
 {
     public Dictionary<string, bool> lessons;
+    public Dictionary<string, int> scores;
 
     public RhythmLessons()
     {
         lessons = new Dictionary<string, bool>
         {
             {"Rhythm Introduction", true},
-            {"Note Values", true},
-            {"Time Signatures", true},
-            {"Dotted Notes", true},
-            {"Tied Notes", true},
-            {"Syncopation", true},
-            {"Compound Time", true},
-            {"Triplets", true}
+            {"Note Values", false},
+            {"Time Signatures", false},
+            {"Dotted Notes", false},
+            {"Tied Notes", false},
+            {"Syncopation", false},
+            {"Compound Time", false},
+            {"Triplets", false}
+        };
+        scores = new Dictionary<string, int>
+        {
+            {"Rhythm Introduction", 0},
+            {"Note Values", 0},
+            {"Time Signatures", 0},
+            {"Dotted Notes", 0},
+            {"Tied Notes", 0},
+            {"Syncopation", 0},
+            {"Compound Time", 0},
+            {"Triplets", 0}
         };
     }
 }
@@ -137,19 +175,31 @@ public class RhythmLessons
 public class TimbreLessons
 {
     public Dictionary<string, bool> lessons;
+    public Dictionary<string, int> scores;
 
     public TimbreLessons()
     {
         lessons = new Dictionary<string, bool>
         {
             {"Timbre Introduction", true},
-            {"Strings", true},
-            {"Woodwinds", true},
-            {"Brass", true},
-            {"Percussion", true},
-            {"Tremolo", true},
-            {"Vibrato", true},
-            {"Synthesis", true}
+            {"Strings", false},
+            {"Woodwinds", false},
+            {"Brass", false},
+            {"Percussion", false},
+            {"Tremolo", false},
+            {"Vibrato", false},
+            {"Synthesis", false}
+        };
+        scores = new Dictionary<string, int>
+        {
+            {"Timbre Introduction", 0},
+            {"Strings", 0},
+            {"Woodwinds", 0},
+            {"Brass", 0},
+            {"Percussion", 0},
+            {"Tremolo", 0},
+            {"Vibrato", 0},
+            {"Synthesis", 0}
         };
     }
 }
