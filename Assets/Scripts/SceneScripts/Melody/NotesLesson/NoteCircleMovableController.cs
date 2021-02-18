@@ -9,8 +9,7 @@ using FMODUnity;
 
 public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-    [SerializeField] private Text text;
-    [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private Text text;    
     private Vector2 _size;
     private RectTransform _rt;
     private Color _textColour;
@@ -46,8 +45,6 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         {
             text.text = note;
         }
-        var particleSystemMain = _particleSystem.main;
-        particleSystemMain.startColor = circleColour;
         StartCoroutine(FadeIn(0.5f));
     }
 
@@ -87,11 +84,11 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         }
         _playable = true;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_playable) return;
-        NotePlayed?.Invoke(text.text);
-        _particleSystem.Play();        
+        NotePlayed?.Invoke(text.text);        
         RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
         StartCoroutine(Resize(true));
     }

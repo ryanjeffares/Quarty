@@ -10,13 +10,6 @@ public class NoteCirclesScaleController : MonoBehaviour
     [SerializeField] private bool useCustomNotes;
     [SerializeField] private List<string> customNotes;
 
-    private void Awake()
-    {
-        
-
-        
-    }
-
     public void Show(bool useCustomNotes, List<string> customNotes = null)
     {
         if (useCustomNotes)

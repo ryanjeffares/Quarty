@@ -99,9 +99,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
         else
         {
             Persistent.sceneToLoad = "MajorScale";
-            Persistent.goingHome = false;
-            Persistent.melodyLessons.lessons["Major Scale"] = true;
-            Persistent.UpdateLessonAvailability("Melody");
+            Persistent.goingHome = false;            
             SceneManager.LoadScene("LoadingScreen");
         }
     }
@@ -219,8 +217,12 @@ public class TonesAndSemitonesPuzzleController : BaseManager
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
                 StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:0.2f * i));
             }
-            if(stars > Persistent.melodyLessons.scores["Tones And Semitones"])
+            if (stars > Persistent.melodyLessons.scores["Tones And Semitones"])
+            {
+                Persistent.melodyLessons.lessons["Major Scale"] = true;
+                Persistent.UpdateLessonAvailability("Melody");
                 Persistent.melodyLessons.scores["Tones And Semitones"] = stars;
+            }
         }
         else
         {

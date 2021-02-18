@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Melody/TonesAndSemitonesPuzzle.unity
     guid: df1de95f56c18f64582094cf08ec761f
+  - enabled: 1
+    path: Assets/Scenes/Melody/MajorScale.unity
+    guid: 5848f00c98e2d184c8ee30d0a0600de7
+  - enabled: 1
+    path: Assets/Scenes/Melody/MajorAndPerfectIntervals.unity
+    guid: bca39de6a20abc44bb4ebe3491f03974
   m_configObjects: {}

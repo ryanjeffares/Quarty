@@ -51,7 +51,7 @@ public class NotesLessonController : BaseManager
         _playedNotes = new List<string>();
         _movableCircles = new List<GameObject>();
         StartCoroutine(FadeText(introText, true, 0.5f));
-        StartCoroutine(FadeText(nextButton.transform.GetChild(0).GetComponent<Text>(), true, 0.5f, 1f));
+        StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 1f));
     }
 
     protected override void DestroyManager()

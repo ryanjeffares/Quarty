@@ -89,9 +89,7 @@ public class NotesPuzzleController : BaseManager
         else
         {
             Persistent.sceneToLoad = "TonesAndSemitones";
-            Persistent.goingHome = false;
-            Persistent.melodyLessons.lessons["Tones And Semitones"] = true;
-            Persistent.UpdateLessonAvailability("Melody");
+            Persistent.goingHome = false;            
             SceneManager.LoadScene("LoadingScreen");
         }
     }
@@ -253,7 +251,11 @@ public class NotesPuzzleController : BaseManager
                 StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:(0.2f * i)));
             }
             if(stars > Persistent.melodyLessons.scores["Notes"])
+            {
                 Persistent.melodyLessons.scores["Notes"] = stars;
+                Persistent.melodyLessons.lessons["Tones And Semitones"] = true;
+                Persistent.UpdateLessonAvailability("Melody");
+            }                
         }
         else
         {
