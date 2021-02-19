@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
+using FMODUnity;
 
 public class SettingsController : BaseManager
 {
+    public static event Action<bool> ToggleDevButton;
     [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton;
+    [SerializeField] private Toggle devButtonToggle;
     private float _initVolumeSliderVal, _initObjectSliderVal;
 
     protected override void OnAwake()
@@ -24,18 +23,19 @@ public class SettingsController : BaseManager
             {cancelButton, CancelButtonCallback},
             {acceptButton, AcceptButtonCallback}
         };
+        devButtonToggle.onValueChanged.AddListener((state) => ToggleDevButton?.Invoke(state));
         // This function only loads settings on to their UI elements, actual values are set on the main menu script
         LoadSettings();
     }
 
     private void MusicVolumeSliderCallback(GameObject g, float value)
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("MusicVolume", value);
+        RuntimeManager.StudioSystem.setParameterByName("MusicVolume", value);
     }
 
     private void ObjectVolumeSliderCallback(GameObject g, float value)
     {
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName("ObjectVolume", value);
+        RuntimeManager.StudioSystem.setParameterByName("ObjectVolume", value);
     }
 
     private void CancelButtonCallback(GameObject g)

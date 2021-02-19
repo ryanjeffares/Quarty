@@ -3,7 +3,6 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Audio;
 using FMODUnity;
 
 public class MainMenu : BaseManager
@@ -16,6 +15,7 @@ public class MainMenu : BaseManager
 
     protected override void OnAwake()
     {
+        SettingsController.ToggleDevButton += ToggleDevButtonCallback;
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
             {playButton, PlayButtonCallback},
@@ -36,12 +36,20 @@ public class MainMenu : BaseManager
 
     protected override void DestroyManager()
     {
+        SettingsController.ToggleDevButton -= ToggleDevButtonCallback;
         _musicEvent.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-    }               
+    }
 
     protected override void OnStart()
     {
+        RuntimeManager.StudioSystem.setParameterByName("MusicVolume", Persistent.settings.valueSettings["MusicVolume"]);
+        RuntimeManager.StudioSystem.setParameterByName("ObjectVolume", Persistent.settings.valueSettings["ObjectVolume"]);
         _musicEvent.start();        
+    }
+
+    private void ToggleDevButtonCallback(bool state)
+    {
+        devButton.gameObject.SetActive(state);
     }
 
     private void PlayButtonCallback(GameObject g)
