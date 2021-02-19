@@ -1248,6 +1248,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1828709444646621940}
     m_Modifications:
+    - target: {fileID: 1684555724230344954, guid: c15b5386f3702a34a8b9c47df965f72a,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Melody: Notes'
+      objectReference: {fileID: 0}
     - target: {fileID: 4334480594604813657, guid: c15b5386f3702a34a8b9c47df965f72a,
         type: 3}
       propertyPath: m_LocalPosition.x
