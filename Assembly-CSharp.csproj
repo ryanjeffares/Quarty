@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityFilter.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\NoteCirclesScaleEmptyController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorIntervals\MajorIntervalsLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\OldShitScripts\OnScreenMessageController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\StatsPageController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\TonesAndSemitones\TonesAndSemitonesLessonController.cs" />
@@ -94,13 +95,14 @@
     <Compile Include="Assets\Scripts\UI\ScrollviewArrowAnimator.cs" />
     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\NoteSquareMovableController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IAllowList.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\MajorScaleLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\NoteSquaresScaleController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\NoteSquareMovableController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
+    <Compile Include="Assets\MajorIntervalsPuzzleController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />

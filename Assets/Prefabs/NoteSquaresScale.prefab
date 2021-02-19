@@ -568,7 +568,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -793,7 +792,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1097,7 +1095,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1243,7 +1240,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1389,7 +1385,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1535,7 +1530,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1681,7 +1675,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1827,7 +1820,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -1973,7 +1965,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2
@@ -2119,7 +2110,6 @@ MonoBehaviour:
   squareColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
-  availableX: 
   draggable: 0
   curve:
     serializedVersion: 2

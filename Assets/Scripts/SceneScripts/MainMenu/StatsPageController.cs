@@ -99,7 +99,7 @@ public class StatsPageController : BaseManager
                     break;
             }
             int counter = 0;
-            foreach (var kvp in lessons.Where(kvp => !kvp.Key.Contains("Introduction")))
+            foreach (var kvp in lessons)
             {
                 int colourIndex = counter % 8;
                 _lessonListLookup[g].Add(Instantiate(statsTab, _contentLookup[g].transform));

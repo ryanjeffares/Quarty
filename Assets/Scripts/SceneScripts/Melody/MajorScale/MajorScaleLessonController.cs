@@ -60,7 +60,7 @@ public class MajorScaleLessonController : BaseManager
         }
         else
         {
-            Persistent.melodyLessons.lessons["Major And Perfect Intervals"] = true;
+            Persistent.melodyLessons.lessons["Major Intervals"] = true;
             Persistent.sceneToLoad = "MajorAndPerfectIntervals";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

@@ -13,11 +13,17 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     private RectTransform _rt;
     private Color _textColour;
     private bool _playable;
-    private float _startingYpos, _startingXpos, _startingXWorldPos, _startingYWorldPos;
-    private int _xRange = 80;    
+    private float _startingYpos, _startingYWorldPos;   
+    public float startingYpos
+    {
+        set
+        {
+            _startingYpos = value;
+        }
+    }
 
     public Color squareColour;
-    public string note;
+    public string note = "";
     public float waitTime;        
     public bool draggable;
     public AnimationCurve curve;
@@ -28,8 +34,6 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     {        
         transform.localScale = new Vector3(0, 0);        
         _startingYpos = transform.localPosition.y;
-        _startingXpos = transform.localPosition.x;
-        _startingXWorldPos = transform.position.x;
         _startingYWorldPos = transform.position.y;
         _textColour = text.color;
         text.color = Color.clear;
@@ -89,8 +93,7 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_playable) return;
-        Debug.Log("Triggers");
+        if (!_playable) return;        
         NotePlayed?.Invoke(text.text);        
         RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
         StartCoroutine(Resize(true));
@@ -107,6 +110,7 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
         {                           
             // is this hacky? i dunno but fuck knows i couldnt get it to work otherwise
             // move only the x pos as you drag but clamp between -80/80 of the start position
+            // its all done on the same frame so its FINE
             transform.position = new Vector3(eventData.position.x, _startingYWorldPos);
             float newX = transform.localPosition.x;
             if (newX > 80) newX = 80;
