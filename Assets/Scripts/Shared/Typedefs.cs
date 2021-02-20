@@ -90,14 +90,15 @@ public class MelodyLessons
             {"Major Intervals", true},
             {"Minor Scale", true},
             {"Minor Intervals", true},
-            {"Perfect Intervals", true},            
+            {"Perfect Intervals", true},
+            {"Major And Minor Second", true},
+            {"Melody Writing", true }
         };
         scores = new Dictionary<string, int>
         {            
             {"Notes", 0},
             {"Tones And Semitones", 0},            
-            {"Major Intervals", 0},
-            {"Minor Scale", 0},
+            {"Major Intervals", 0},            
             {"Minor Intervals", 0},
             {"Perfect Intervals", 0},            
         };

@@ -110,7 +110,7 @@ public class MajorIntervalsLessonController : BaseManager
                     timeCounter += Time.deltaTime;
                     yield return null;
                 }
-                introText.text = "We write these with a capital M, so they would be the M3 (Major 3rd), M6 (Major 6th), and M7 (Major 7th).\n \nThis is what they sound like!";
+                introText.text = "We write these with a capital M, so they would be the M3 (Major 3rd), M6 (Major 6th), and M7 (Major 7th).\n \nThis is what they sound like for the C Major scale!";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 StartCoroutine(SpawnSquaresInitial());
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, wait: 4f));

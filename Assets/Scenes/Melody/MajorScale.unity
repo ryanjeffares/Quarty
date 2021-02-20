@@ -1252,7 +1252,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: C, D, E, F, G, A, B, C
+  m_Text: '   T, T, S, T, T, T, S
+
+    C, D, E, F, G, A, B, C'
 --- !u!222 &1119502115
 CanvasRenderer:
   m_ObjectHideFlags: 0

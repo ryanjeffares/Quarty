@@ -96,13 +96,18 @@
     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\NotesLesson\NoteCircleController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\NoteSquareMovableController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorIntervals\MajorIntervalsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IAllowList.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\XylophoneKeyController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\MajorScaleLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\NoteSquaresScaleController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
-    <Compile Include="Assets\MajorIntervalsPuzzleController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\MinorIntervals\MinorIntervalsLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\MinorScale\MinorScaleLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\MinorIntervals\MinorIntervalsPuzzleController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\PerfectIntervals\PerfectIntervalsLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Melody\PerfectIntervals\PerfectIntervalsPuzzleController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />

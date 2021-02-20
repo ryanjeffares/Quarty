@@ -216,7 +216,14 @@ public static class Persistent
                     lessonNode.SetAttribute("number", counter.ToString());
                     lessonNode.SetAttribute("name", kvp.Key);
                     lessonNode.SetAttribute("available", kvp.Value.ToString());
-                    lessonNode.SetAttribute("score", scores[kvp.Key].ToString());
+                    if (scores.ContainsKey(kvp.Key))
+                    {
+                        lessonNode.SetAttribute("score", scores[kvp.Key].ToString());
+                    }
+                    else
+                    {
+                        lessonNode.SetAttribute("score", "0");
+                    }
                     rootNode.AppendChild(lessonNode);
                     counter++;
                 }
@@ -269,8 +276,7 @@ public static class Persistent
         foreach (var kvp in lessonList)
         {
             XmlElement lessonNode = xmlDoc.CreateElement("Lesson");
-            var name = kvp.Key;
-            Debug.Log(name);
+            var name = kvp.Key;            
             lessonNode.SetAttribute("number", counter.ToString());
             lessonNode.SetAttribute("name", name);
             lessonNode.SetAttribute("available", kvp.Value.ToString());

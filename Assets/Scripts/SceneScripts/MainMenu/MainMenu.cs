@@ -27,9 +27,10 @@ public class MainMenu : BaseManager
         {
             foreach(var dir in Directory.GetDirectories(Application.persistentDataPath + "/Files"))
             {
-                Directory.Delete(dir, true);
-                Application.Quit();
+                Directory.Delete(dir, true);                                
             }
+            Debug.Log("Deleted local files");
+            Application.Quit();
         });
         _musicEvent = RuntimeManager.CreateInstance("event:/Music/MenuMusic");        
     }
