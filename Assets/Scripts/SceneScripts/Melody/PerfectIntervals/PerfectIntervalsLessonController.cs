@@ -67,7 +67,7 @@ public class PerfectIntervalsLessonController : BaseManager
 
     private void TryButtonCallback(GameObject g)
     {
-        if (_arrowMoving || !_ready) return;
+        if (_arrowMoving || !_ready) return;        
         _playedNotes.Clear();
         StartCoroutine(MoveArrow(new Vector2(200, -200), 1.8f));
     }
@@ -76,7 +76,7 @@ public class PerfectIntervalsLessonController : BaseManager
     {
         if (_complete || _levelStage < 2) return;
         _playedNotes.Add(note);
-        if (_playedNotes.Count == 4)
+        if (_playedNotes.Count == 4) 
         {
             if (_playedNotes.SequenceEqual(_correctOrder))
             {

@@ -91,8 +91,7 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void NotePlayedCallback(string note)
     {
-        _playedNotes.Add(note);
-        Debug.Log("Level stage is " + _levelStage);
+        _playedNotes.Add(note);        
         if (_playedNotes.Count == 8)
         {
             if (_playedNotes.SequenceEqual(_correctNotes))
@@ -401,10 +400,6 @@ public class TonesAndSemitonesLessonController : BaseManager
         if (obj == arrow)
         {
             _arrowMoving = false;
-            if (!buttonCallbackLookup.ContainsKey(tryButton))
-            {
-                buttonCallbackLookup.Add(tryButton, TryButtonCallback);
-            }
         }
 
         if (destroy)

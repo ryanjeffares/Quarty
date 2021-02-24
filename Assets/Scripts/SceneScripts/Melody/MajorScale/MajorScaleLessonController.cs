@@ -134,7 +134,7 @@ public class MajorScaleLessonController : BaseManager
                     timeCounter += Time.deltaTime;
                     yield return null;
                 }
-                introText.text = "You can start that pattern on any note and it will give you the Major Scale of that note.\n \nStarting on C, for example, gives us the C Major Scale.";
+                introText.text = "You can start that pattern on any note and it will give you the Major Scale of that note.\n \nThe note you start on is called the root note. Starting on C, for example, gives us the C Major Scale.";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 StartCoroutine(FadeText(scaleText, true, 0.5f, 1f));
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 2f));

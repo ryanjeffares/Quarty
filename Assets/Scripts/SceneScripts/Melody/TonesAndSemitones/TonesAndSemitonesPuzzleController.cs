@@ -175,6 +175,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
     {
         if (_scalesDone > 0)
         {
+            _stars = new List<GameObject>();
             _success = true;
             int stars;
             if (_scalesDone < 3)

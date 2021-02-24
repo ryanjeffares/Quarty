@@ -148,23 +148,17 @@ public class PerfectIntervalsPuzzleController : BaseManager
             {
                 _scalesDone++;
                 scoreCounter.text = "Scales Done: " + _scalesDone;
-                if (_playing)
-                {
-                    niceText.text = "Nice!";
-                    niceText.color = new Color(0.32f, 0.57f, 0.47f);
-                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, true));
-                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));
-                }
+                niceText.text = "Nice!";
+                niceText.color = new Color(0.32f, 0.57f, 0.47f);
+                StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, true));
+                StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));               
             }
             else
             {
-                if (_playing)
-                {
-                    niceText.text = "Oops!";
-                    niceText.color = new Color(0.76f, 0.43f, 0.41f);
-                    StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, true));
-                    StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));
-                }
+                niceText.text = "Oops!";
+                niceText.color = new Color(0.76f, 0.43f, 0.41f);
+                StartCoroutine(TextFadeSize(niceText, overshootCurve, 0.3f, true));
+                StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));             
             }
             foreach (var s in _movableSquares)
             {
@@ -409,7 +403,7 @@ public class PerfectIntervalsPuzzleController : BaseManager
         float xDiff = targetX - startPos.x;
         float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
+        float interval = time / resolution;        
         while (timeCounter <= time)
         {
             if (PauseManager.paused)

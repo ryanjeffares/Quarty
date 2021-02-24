@@ -86,37 +86,34 @@ public class StatsPageController : BaseManager
         if (open)
         {
             // Populate the scroll view with lesson buttons, names are parsed from XML on load
-            Dictionary<string, int> lessons;
+            Dictionary<string, int> scores;
             switch (_courseButtons.IndexOf(g))
             {
-                case 0: lessons = Persistent.melodyLessons.scores; break;
-                case 1: lessons = Persistent.harmonyLessons.scores; break;
-                case 2: lessons = Persistent.rhythmLessons.scores; break;
-                case 3: lessons = Persistent.timbreLessons.scores; break;
+                case 0: scores = Persistent.melodyLessons.scores; break;
+                case 1: scores = Persistent.harmonyLessons.scores; break;
+                case 2: scores = Persistent.rhythmLessons.scores; break;
+                case 3: scores = Persistent.timbreLessons.scores; break;
                 default:
-                    lessons = new Dictionary<string, int>();
+                    scores = new Dictionary<string, int>();
                     Debug.LogError("No lessons lists found...");
                     break;
             }
             int counter = 0;
-            foreach (var kvp in lessons)
+            foreach (var kvp in scores)
             {
                 int colourIndex = counter % 8;
                 _lessonListLookup[g].Add(Instantiate(statsTab, _contentLookup[g].transform));
                 _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().text = kvp.Key;
                 _lessonListLookup[g][counter].transform.GetChild(2).GetComponent<Text>().text = kvp.Value.ToString();
-                _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().color = new Color(
-                    0.196f, 0.196f, 0.196f, 1);
-                _lessonListLookup[g][counter].transform.GetChild(0).GetComponent<Image>().color = new Color(
-                    Persistent.rainbowColours[colourIndex].r,
-                    Persistent.rainbowColours[colourIndex].g,
-                    Persistent.rainbowColours[colourIndex].b,
-                    Persistent.rainbowColours[colourIndex].a * 0.3f);
+                _lessonListLookup[g][counter].transform.GetChild(1).GetComponent<Text>().color = new Color(0.196f, 0.196f, 0.196f, 1);
+                var imgColour = Persistent.rainbowColours[colourIndex];
+                imgColour.a *= 0.3f;
+                _lessonListLookup[g][counter].transform.GetChild(0).GetComponent<Image>().color = imgColour;
                 counter++;
             }
             // Resize the content view depending on how many lessons there are
             var size = _contentLookup[g].transform.GetComponent<RectTransform>().sizeDelta;
-            size.y = lessons.Count * 70;
+            size.y = scores.Count * 70;
             _contentLookup[g].transform.GetComponent<RectTransform>().sizeDelta = size;
         }
         else

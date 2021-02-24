@@ -165,19 +165,31 @@ public static class Persistent
                         {
                             case "Melody": 
                                 melodyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
-                                melodyLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                                if (melodyLessons.scores.ContainsKey(lesson.Attributes[1].Value))
+                                {
+                                    melodyLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                                }                                
                                 break;
                             case "Harmony": 
-                                harmonyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
-                                harmonyLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value); 
+                                harmonyLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                                if (harmonyLessons.scores.ContainsKey(lesson.Attributes[1].Value))
+                                {
+                                    harmonyLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                                }
                                 break;
                             case "Rhythm": 
                                 rhythmLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
-                                rhythmLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                                if (rhythmLessons.scores.ContainsKey(lesson.Attributes[1].Value))
+                                {
+                                    rhythmLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                                }
                                 break;
                             case "Timbre": 
-                                timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value); 
-                                timbreLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value); 
+                                timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                                if (timbreLessons.scores.ContainsKey(lesson.Attributes[1].Value))
+                                {
+                                    timbreLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                                }
                                 break;
                         }                        
                     }
@@ -280,7 +292,14 @@ public static class Persistent
             lessonNode.SetAttribute("number", counter.ToString());
             lessonNode.SetAttribute("name", name);
             lessonNode.SetAttribute("available", kvp.Value.ToString());
-            lessonNode.SetAttribute("score", scores[name].ToString());
+            if (scores.ContainsKey(kvp.Key))
+            {
+                lessonNode.SetAttribute("score", scores[kvp.Key].ToString());
+            }
+            else
+            {
+                lessonNode.SetAttribute("score", "0");
+            }
             rootNode.AppendChild(lessonNode);
             counter++;
         }

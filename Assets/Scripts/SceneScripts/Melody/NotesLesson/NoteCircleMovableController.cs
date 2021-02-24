@@ -119,8 +119,8 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         GetComponent<RectTransform>().sizeDelta = _size;
         if (Math.Abs(localY - transform.localPosition.y) <= 20)
         {
-            int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 20);
-            transform.localPosition = new Vector3(snap, localY);
+            int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 20);            
+            transform.localPosition = new Vector3(snap == 0 ? transform.localPosition.x : snap, localY);
         }
     }
 

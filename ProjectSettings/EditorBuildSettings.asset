@@ -48,9 +48,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Melody/MinorIntervals.unity
     guid: dad0afe2c6bf9a34c9e96df3359a0ab3
   - enabled: 1
+    path: Assets/Scenes/Melody/MinorIntervalsPuzzle.unity
+    guid: 26a6f586d34bced40b4c5731e759b50b
+  - enabled: 1
     path: Assets/Scenes/Melody/PerfectIntervals.unity
     guid: a7e4a8e11bba8884382e9b259d4c92d0
   - enabled: 1
     path: Assets/Scenes/Melody/PerfectIntervalsPuzzle.unity
     guid: ff8db5d5b8f9be84fb5fb3f46d7613c3
+  - enabled: 1
+    path: Assets/Scenes/Melody/MajorAndMinorSecond.unity
+    guid: 092f2cbf21650824a997d82ae63e29a6
   m_configObjects: {}

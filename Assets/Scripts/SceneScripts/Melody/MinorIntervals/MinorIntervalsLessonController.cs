@@ -133,7 +133,7 @@ public class MinorIntervalsLessonController : BaseManager
                     timeCounter += Time.deltaTime;
                     yield return null;
                 }
-                introText.text = "The distance of a m3 is 3 Semitones.\nThe distance of a m6 is 8 Semitones.\nThe distance of a m7 is 10 Semitones.\n \nUsing the list of notes below, can you fill in these intervals for the E Minor Scale? One of the options is wrong.";
+                introText.text = "The distance from the root of a m3 is 3 Semitones.\nThe distance of a m6 is 8 Semitones.\nThe distance of a m7 is 10 Semitones.\n \nUsing the list of notes below, can you fill in these intervals for the E Minor Scale? One of the options is wrong.";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 StartCoroutine(FadeButtonText(tryButton, true, 0.5f, wait: 1f));
                 StartCoroutine(SpawnChallengeSquares());
