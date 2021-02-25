@@ -24,8 +24,10 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
 
     public Color squareColour;
     public string note = "";
-    public float waitTime;        
-    public bool draggable;
+    public float waitTime;
+    public float xRange = 80;
+    public float yRange = 200;
+    public bool draggable, movableYpos;
     public AnimationCurve curve;
 
     public static event Action<string> NotePlayed;
@@ -111,11 +113,14 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
             // is this hacky? i dunno but fuck knows i couldnt get it to work otherwise
             // move only the x pos as you drag but clamp between -80/80 of the start position
             // its all done on the same frame so its FINE
-            transform.position = new Vector3(eventData.position.x, _startingYWorldPos);
+            transform.position = new Vector3(eventData.position.x, movableYpos ? eventData.position.y : _startingYWorldPos);
             float newX = transform.localPosition.x;
-            if (newX > 80) newX = 80;
-            if (newX < -80) newX = -80;
-            transform.localPosition = new Vector3(newX, _startingYpos);
+            float newY = transform.localPosition.y;
+            if (newX > xRange) newX = xRange;
+            if (newX < -xRange) newX = -xRange;
+            if (newY > yRange) newY = yRange;
+            if (newY < -yRange) newY = -yRange;
+            transform.localPosition = new Vector3(newX, movableYpos ? newY : _startingYpos);
         }            
     }
 

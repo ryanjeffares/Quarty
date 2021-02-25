@@ -8,15 +8,27 @@ ScriptsOnlyBuild:
     - FirstTimeOpenScreen
     - LoadingScreen
     - MainMenu
+    - MajorAndMinorSecondLessonController
+    - MajorIntervalsLessonController
+    - MajorIntervalsPuzzleController
+    - MajorScaleLessonController
     - MelodyIntroductionController
+    - MelodyWritingLessonController
+    - MinorIntervalsLessonController
+    - MinorIntervalsPuzzleController
+    - MinorScaleLessonController
     - NoteCircleController
     - NoteCircleMovableController
     - NoteCirclesScaleController
     - NoteCirclesScaleEmptyController
+    - NoteSquareMovableController
+    - NoteSquaresScaleController
     - NotesLessonController
     - NotesPuzzleController
     - PauseManager
     - PauseMenu
+    - PerfectIntervalsLessonController
+    - PerfectIntervalsPuzzleController
     - QuaverAnimator
     - ScrollviewArrowAnimator
     - SettingsController
@@ -74,6 +86,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   sceneClasses:
     Assets/Scenes/FirstTime.unity:
@@ -100,45 +113,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 12472}
+      Script: {instanceID: 12476}
     - Class: 114
-      Script: {instanceID: 12602}
+      Script: {instanceID: 12606}
     - Class: 114
-      Script: {instanceID: 12838}
+      Script: {instanceID: 12842}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 12972}
     - Class: 114
-      Script: {instanceID: 13044}
+      Script: {instanceID: 13050}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13196}
+      Script: {instanceID: 13202}
     - Class: 114
-      Script: {instanceID: 13316}
+      Script: {instanceID: 13324}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13888}
     - Class: 114
-      Script: {instanceID: 14328}
+      Script: {instanceID: 14340}
     - Class: 114
-      Script: {instanceID: 14630}
+      Script: {instanceID: 14644}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 14938}
+      Script: {instanceID: 14956}
     - Class: 114
-      Script: {instanceID: 14952}
+      Script: {instanceID: 14970}
     - Class: 114
-      Script: {instanceID: 15060}
+      Script: {instanceID: 15078}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 15578}
     - Class: 114
-      Script: {instanceID: 15628}
+      Script: {instanceID: 15654}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -177,15 +190,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11930}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 15578}
     - Class: 114
-      Script: {instanceID: 15572}
+      Script: {instanceID: 15598}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -226,45 +239,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 12178}
+      Script: {instanceID: 12180}
     - Class: 114
-      Script: {instanceID: 12258}
+      Script: {instanceID: 12260}
     - Class: 114
-      Script: {instanceID: 12562}
+      Script: {instanceID: 12566}
     - Class: 114
-      Script: {instanceID: 12592}
+      Script: {instanceID: 12596}
     - Class: 114
-      Script: {instanceID: 12832}
+      Script: {instanceID: 12836}
     - Class: 114
-      Script: {instanceID: 12944}
+      Script: {instanceID: 12950}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13470}
     - Class: 114
-      Script: {instanceID: 13566}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13578}
     - Class: 114
-      Script: {instanceID: 13988}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14160}
+      Script: {instanceID: 14000}
     - Class: 114
-      Script: {instanceID: 14690}
+      Script: {instanceID: 14172}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14706}
     - Class: 114
-      Script: {instanceID: 14792}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14808}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 42026}
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -286,6 +301,294 @@ ScriptsOnlyBuild:
     - Class: 243
       Script: {instanceID: 0}
     - Class: 245
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MajorAndMinorSecond.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14834}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MajorIntervals.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13330}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MajorIntervalsPuzzle.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15250}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MajorScale.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14172}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15412}
+    - Class: 114
+      Script: {instanceID: 15484}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/Melody/MelodyIntroduction.unity:
     - Class: 1
@@ -315,37 +618,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 12494}
+      Script: {instanceID: 12498}
     - Class: 114
-      Script: {instanceID: 13132}
+      Script: {instanceID: 13138}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14076}
+      Script: {instanceID: 14088}
     - Class: 114
-      Script: {instanceID: 14382}
+      Script: {instanceID: 14394}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 14690}
+      Script: {instanceID: 14706}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 15348}
+      Script: {instanceID: 15370}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -367,6 +672,302 @@ ScriptsOnlyBuild:
     - Class: 243
       Script: {instanceID: 0}
     - Class: 245
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MelodyWriting.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 58
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 12670}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13268}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 114
+      Script: {instanceID: 31680}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MinorIntervals.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14670}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MinorIntervalsPuzzle.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14464}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/MinorScale.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 12370}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14172}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15484}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
       Script: {instanceID: 0}
     Assets/Scenes/Melody/Notes.unity:
     - Class: 1
@@ -400,37 +1001,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11960}
-    - Class: 114
-      Script: {instanceID: 11984}
+      Script: {instanceID: 11962}
     - Class: 114
       Script: {instanceID: 11986}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 11988}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14690}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14706}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14978}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 14996}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -483,33 +1086,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 11972}
+      Script: {instanceID: 11974}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 14690}
+      Script: {instanceID: 14706}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -521,6 +1126,148 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/PerfectIntervals.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 12868}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Melody/PerfectIntervalsPuzzle.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 50
+      Script: {instanceID: 0}
+    - Class: 61
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11962}
+    - Class: 114
+      Script: {instanceID: 13148}
+    - Class: 114
+      Script: {instanceID: 13208}
+    - Class: 114
+      Script: {instanceID: 13214}
+    - Class: 114
+      Script: {instanceID: 13248}
+    - Class: 114
+      Script: {instanceID: 13558}
+    - Class: 114
+      Script: {instanceID: 13626}
+    - Class: 114
+      Script: {instanceID: 14432}
+    - Class: 114
+      Script: {instanceID: 14706}
+    - Class: 114
+      Script: {instanceID: 14800}
+    - Class: 114
+      Script: {instanceID: 14888}
+    - Class: 114
+      Script: {instanceID: 15132}
+    - Class: 114
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -562,37 +1309,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 11984}
+      Script: {instanceID: 11986}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13484}
+      Script: {instanceID: 13496}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 14690}
+      Script: {instanceID: 14706}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 14978}
+      Script: {instanceID: 14996}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -643,33 +1392,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11932}
     - Class: 114
-      Script: {instanceID: 11960}
+      Script: {instanceID: 11962}
     - Class: 114
-      Script: {instanceID: 12666}
+      Script: {instanceID: 12670}
     - Class: 114
-      Script: {instanceID: 13142}
+      Script: {instanceID: 13148}
     - Class: 114
-      Script: {instanceID: 13206}
+      Script: {instanceID: 13214}
     - Class: 114
-      Script: {instanceID: 13240}
+      Script: {instanceID: 13248}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13546}
+      Script: {instanceID: 13558}
     - Class: 114
-      Script: {instanceID: 13614}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14420}
+      Script: {instanceID: 14432}
     - Class: 114
-      Script: {instanceID: 14638}
+      Script: {instanceID: 14652}
     - Class: 114
-      Script: {instanceID: 14690}
+      Script: {instanceID: 14706}
     - Class: 114
-      Script: {instanceID: 14784}
+      Script: {instanceID: 14800}
     - Class: 114
-      Script: {instanceID: 14870}
+      Script: {instanceID: 14888}
     - Class: 114
-      Script: {instanceID: 15552}
+      Script: {instanceID: 15578}
+    - Class: 114
+      Script: {instanceID: 15606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -825,6 +1576,12 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: 2072664c0fbe337287b779b601fa4c87
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MinorScaleLessonController
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -921,7 +1678,7 @@ ScriptsOnlyBuild:
     className: StudioGlobalParameterTrigger
   - hash:
       serializedVersion: 2
-      Hash: 94e9fe8c4da5adefa0c2e17cd1566f88
+      Hash: 4add91330877eec53fd93c9cbc887c93
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NoteCircleMovableController
@@ -999,6 +1756,12 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
+      Hash: 96da422802951d2628b204154aa5ed4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PerfectIntervalsLessonController
+  - hash:
+      serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -1065,13 +1828,19 @@ ScriptsOnlyBuild:
     className: FirstTimeOpenScreen
   - hash:
       serializedVersion: 2
+      Hash: 0937b568012142915053a42c7c4466b4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PerfectIntervalsPuzzleController
+  - hash:
+      serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: b87a82bbc5f78aa3047d5d7104ee73f4
+      Hash: 1857acb44cb4b798e2c8a8d3a2b1a98b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsController
@@ -1107,6 +1876,12 @@ ScriptsOnlyBuild:
     className: PlatformAppleTV
   - hash:
       serializedVersion: 2
+      Hash: 96da422802951d2628b204154aa5ed4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MajorIntervalsLessonController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: FMODUnity.dll
     namespaceName: FMODUnity
@@ -1117,6 +1892,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OnScreenMessageController
+  - hash:
+      serializedVersion: 2
+      Hash: cc3b83d47650eee4e761743b6722c531
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StatsPageController
   - hash:
       serializedVersion: 2
       Hash: 8d3295d055e352d35375ba3bc2ef8538
@@ -1275,6 +2056,12 @@ ScriptsOnlyBuild:
     className: PauseManager
   - hash:
       serializedVersion: 2
+      Hash: 0937b568012142915053a42c7c4466b4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MinorIntervalsPuzzleController
+  - hash:
+      serializedVersion: 2
       Hash: c1933cc0a2f4ff6eb13333347497beb3
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1291,6 +2078,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TonesAndSemitonesPuzzleController
+  - hash:
+      serializedVersion: 2
+      Hash: 96da422802951d2628b204154aa5ed4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MinorIntervalsLessonController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1315,6 +2108,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScrollviewArrowAnimator
+  - hash:
+      serializedVersion: 2
+      Hash: fff8c9a7c54489662ee8106f402c7767
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MajorAndMinorSecondLessonController
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -1371,6 +2170,12 @@ ScriptsOnlyBuild:
     className: PlatformWindows
   - hash:
       serializedVersion: 2
+      Hash: 696018eb9f1433d186caf903c5890c81
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NoteSquareMovableController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1381,6 +2186,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 0937b568012142915053a42c7c4466b4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MajorIntervalsPuzzleController
   - hash:
       serializedVersion: 2
       Hash: ebc747b6e01f08f8c9d56234e0f88365
@@ -1399,6 +2210,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ColorGradient
+  - hash:
+      serializedVersion: 2
+      Hash: 2072664c0fbe337287b779b601fa4c87
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MajorScaleLessonController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1423,6 +2240,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: 6138f1ec06f03dc5f5ecd982413a8d1f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NoteSquaresScaleController
   - hash:
       serializedVersion: 2
       Hash: 134322c9293c1896357cce271b819ce4
@@ -1503,10 +2326,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: cc3b83d47650eee4e761743b6722c531
+      Hash: a6124d1fe369f32710c3d8275160f505
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: StatsPageController
+    className: MelodyWritingLessonController
   platform: 13
   scenePathNames:
   - Assets/Scenes/FirstTime.unity
@@ -1517,4 +2340,14 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Melody/TonesAndSemitones.unity
   - Assets/Scenes/Melody/NotesPuzzle.unity
   - Assets/Scenes/Melody/TonesAndSemitonesPuzzle.unity
-  playerPath: C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Build/test.apk
+  - Assets/Scenes/Melody/MajorScale.unity
+  - Assets/Scenes/Melody/MajorIntervals.unity
+  - Assets/Scenes/Melody/MajorIntervalsPuzzle.unity
+  - Assets/Scenes/Melody/MinorScale.unity
+  - Assets/Scenes/Melody/MinorIntervals.unity
+  - Assets/Scenes/Melody/MinorIntervalsPuzzle.unity
+  - Assets/Scenes/Melody/PerfectIntervals.unity
+  - Assets/Scenes/Melody/PerfectIntervalsPuzzle.unity
+  - Assets/Scenes/Melody/MajorAndMinorSecond.unity
+  - Assets/Scenes/Melody/MelodyWriting.unity
+  playerPath: C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Build/Quarty25-02-21.apk

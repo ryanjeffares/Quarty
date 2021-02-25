@@ -22,6 +22,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     public List<int> availableX;
     public bool octaveUp;
     public bool draggable;
+    public bool clickToPlay;
     public AnimationCurve curve;
     
     public static event Action<string> NotePlayed;
@@ -106,8 +107,12 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (draggable && !PauseManager.paused)
+        if (clickToPlay)
         {
+            RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
+        }
+        if (draggable && !PauseManager.paused)
+        {            
             var size = GetComponent<RectTransform>().sizeDelta;
             size *= 0.95f;
             GetComponent<RectTransform>().sizeDelta = size;   

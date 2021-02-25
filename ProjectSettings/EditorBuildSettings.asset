@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Melody/MajorAndMinorSecond.unity
     guid: 092f2cbf21650824a997d82ae63e29a6
+  - enabled: 1
+    path: Assets/Scenes/Melody/MelodyWriting.unity
+    guid: 2e740ceb8048c6c44a12363bee46edab
   m_configObjects: {}
