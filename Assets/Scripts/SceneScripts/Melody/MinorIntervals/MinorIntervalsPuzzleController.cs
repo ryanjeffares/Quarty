@@ -81,6 +81,7 @@ public class MinorIntervalsPuzzleController : BaseManager
             {"F#", "B1" },
             {"G#", "A1" },            
         };
+        _stars = new List<GameObject>();
         _playedNotes = new List<string>();
         StartCoroutine(FadeText(introText, true, 0.5f));
         StartCoroutine(FadeText(allNotesText, true, 0.5f));
@@ -124,9 +125,11 @@ public class MinorIntervalsPuzzleController : BaseManager
         {
             Destroy(n);
         }
-        foreach (var (s, index) in _stars.WithIndex())
+        int mult = 0;
+        foreach (var s in _stars)
         {
-            StartCoroutine(FadeStar(s, overshootOutCurve, false, 0.3f, wait: 0.2f * index));
+            StartCoroutine(FadeStar(s, overshootOutCurve, false, 0.3f, wait: 0.2f * mult));
+            mult++;
         }
         _movableSquares.Clear();
         StartCoroutine(FadeText(introText, false, 0.5f));

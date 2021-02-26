@@ -242,7 +242,7 @@ public class NotesPuzzleController : BaseManager
                     starPositions.Add(new Vector2(70, 70));
                     break;
             }
-
+            _stars = new List<GameObject>();
             for (int i = 0; i < stars; i++)
             {
                 _stars.Add(Instantiate(starPrefab, mainHolder.transform));

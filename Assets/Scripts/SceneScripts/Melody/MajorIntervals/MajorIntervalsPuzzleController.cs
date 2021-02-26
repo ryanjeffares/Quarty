@@ -83,6 +83,7 @@ public class MajorIntervalsPuzzleController : BaseManager
             {"A", "E2" },
             {"B", "A2" }
         };
+        _stars = new List<GameObject>();
         _playedNotes = new List<string>();
         StartCoroutine(FadeText(introText, true, 0.5f));
         StartCoroutine(FadeText(allNotesText, true, 0.5f));        

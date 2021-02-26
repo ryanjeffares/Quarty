@@ -210,7 +210,8 @@ public class TonesAndSemitonesPuzzleController : BaseManager
                     starPositions.Add(new Vector2(0, 360));
                     starPositions.Add(new Vector2(70, 360));
                     break;
-            }            
+            }
+            _stars = new List<GameObject>();
             for (int i = 0; i < stars; i++)
             {
                 _stars.Add(Instantiate(starPrefab, mainContainer.transform));

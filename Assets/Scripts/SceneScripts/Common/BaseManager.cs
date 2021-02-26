@@ -239,6 +239,6 @@ public abstract class BaseManager : MonoBehaviour
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
-        if (!fadeIn) Destroy(star);
+        star.transform.localScale = new Vector3(0, 0);
     }
 }
