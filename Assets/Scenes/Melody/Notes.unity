@@ -380,6 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 856797731}
   - component: {fileID: 856797732}
+  - component: {fileID: 856797733}
   m_Layer: 5
   m_Name: Try
   m_TagString: Untagged
@@ -405,7 +406,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -260, y: -300}
-  m_SizeDelta: {x: 49, y: 38.19}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856797732
 MonoBehaviour:
@@ -419,6 +420,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c740073b8b4f21bf6c64c578c86b5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &856797733
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856797730}
+  m_CullTransparentMesh: 0
 --- !u!1001 &1228856797
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1122,15 +1131,6 @@ MonoBehaviour:
   movableCirclePrefab: {fileID: 7442183435059124647, guid: 3ce4616beeb74414aa77389b172e8810,
     type: 3}
   arrow: {fileID: 1767636161}
-  clips:
-  - {fileID: 8300000, guid: 73d4bec1c6bc28940992c631a7595ff0, type: 3}
-  - {fileID: 8300000, guid: 7c403d18fc7aeb34491c3ee55f7cb531, type: 3}
-  - {fileID: 8300000, guid: 00e2143fe6ac45546b47d57ccb3e610b, type: 3}
-  - {fileID: 8300000, guid: e0f50d0eb25c45441b3cc590b9d09a4b, type: 3}
-  - {fileID: 8300000, guid: d15be01255fe67c4fb7cf2d8a4b257b2, type: 3}
-  - {fileID: 8300000, guid: 8c12cb7498d2a7f48b1c408d3796af0d, type: 3}
-  - {fileID: 8300000, guid: 91575261a9b1dee44ae5964c86303b05, type: 3}
-  - {fileID: 8300000, guid: 0675d495d7717784a85047ae6607ed3e, type: 3}
   easeInOutCurve:
     serializedVersion: 2
     m_Curve:

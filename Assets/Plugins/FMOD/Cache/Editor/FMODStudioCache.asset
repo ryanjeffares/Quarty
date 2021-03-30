@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9104417055071075419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/B2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/B2
+  guid: f953737853c34641aa5327d601e01878
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-9020934267021614723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23,6 +46,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 192000
+--- !u!114 &-8922135753976112816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C1
+  guid: c754ffd6f5684244aca84477d94778f0
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-8104139716042820791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +204,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-7597887142573433566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/F3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/F3
+  guid: 1ebc3268d52efa41a11d9e1b68aac3ec
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-7036374001536255453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +250,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-6919729990582919808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/E2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/E2
+  guid: d4cedced0d5f2347a8e2d89b38c7a263
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-6753520486335150249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +288,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637491810273473983
+  lastModified: 637510020530460961
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -243,6 +335,98 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-6047092841789945787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C#3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C#3
+  guid: 6fbd42a3dcce5c4c9113d97776e5f71e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &-5171311980553694583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/G3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/G3
+  guid: eb3b0a4b0854414a8a2f5988f3db73a3
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &-5147067724006572551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/G2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/G2
+  guid: 607bf3e5de155c46830567a73bd9f090
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &-4824765802021390796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/D1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/D1
+  guid: dc5b7e34705cf4499a199ad52cd11757
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-4796591241959638596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,6 +473,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &-4518294277139773647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/A#3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/A#3
+  guid: 58e7f029e2f0da4ca32bab3a1622f523
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-4443940985284116460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,6 +519,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-4014049624837337902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/D#2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/D#2
+  guid: b6a145db523a56478a7c41b76d08bd39
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-3960784411569488212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +588,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-3750000820067955591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/A#1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/A#1
+  guid: a06f000fe0c44c47ab24ece3b720cfd8
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-3577142166869066906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +700,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-3367040377714139247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/A3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/A3
+  guid: 6e09665f9235e746b5800310d48b9a0a
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-2801650310975401348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +746,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-2758594973313551520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C3
+  guid: 7916e0623a2acb45967ca7f9e001f803
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &-2515482180133884472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C4
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C4
+  guid: 8e0a2fbd9c7a37469707a16b061ad3cb
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-2362510367653635010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -490,6 +812,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-2300733806591662033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C#2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C#2
+  guid: 4aa443d85fdf1e4386648610484e6643
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-2266787210878724907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,6 +918,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-971805308557265478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/G#3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/G#3
+  guid: eb5642853644d04e818e301db5ef86fb
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-912531098918126619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,6 +984,52 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-336870265394798054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/G1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/G1
+  guid: f2b08cb5b093dd4bb7d503f627cb8375
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &-260395900747119648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/B3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/B3
+  guid: cb98ea8e9f869e44bf98d0ddc3b1d05e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &-70903681791213014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +1108,43 @@ MonoBehaviour:
   - {fileID: 7598333833979439126}
   - {fileID: -7704251286818579680}
   - {fileID: -9020934267021614723}
+  - {fileID: 542274310407590390}
+  - {fileID: 3292609861302773663}
+  - {fileID: 5394681274186440251}
+  - {fileID: -7597887142573433566}
+  - {fileID: 1898298214023966407}
+  - {fileID: 2883608288256282701}
+  - {fileID: 6329249176145876360}
+  - {fileID: 2065452656304599368}
+  - {fileID: 7944606751714747647}
+  - {fileID: -2300733806591662033}
+  - {fileID: 3593560324289340580}
+  - {fileID: 812170907465838208}
+  - {fileID: -4518294277139773647}
+  - {fileID: -5147067724006572551}
+  - {fileID: 4307287034311030533}
+  - {fileID: 2234920934540983863}
+  - {fileID: -3367040377714139247}
+  - {fileID: -6047092841789945787}
+  - {fileID: -2758594973313551520}
+  - {fileID: 6837820861268341766}
+  - {fileID: -2515482180133884472}
+  - {fileID: 8132732022357704318}
+  - {fileID: -3750000820067955591}
+  - {fileID: 3477452557894373947}
+  - {fileID: 4965686901333276633}
+  - {fileID: -4014049624837337902}
+  - {fileID: 4774464895092099427}
+  - {fileID: -8922135753976112816}
+  - {fileID: -260395900747119648}
+  - {fileID: -6919729990582919808}
+  - {fileID: -4824765802021390796}
+  - {fileID: 7181693582813989872}
+  - {fileID: -5171311980553694583}
+  - {fileID: -971805308557265478}
+  - {fileID: 8640661754544068360}
+  - {fileID: -336870265394798054}
+  - {fileID: -9104417055071075419}
   EditorParameters:
   - {fileID: -2060998473628846605}
   - {fileID: 6568236034180074964}
@@ -701,7 +1152,7 @@ MonoBehaviour:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637491810273522050
+  stringsBankWriteTime: 637510020530540973
   cacheVersion: 6
 --- !u!114 &250169932755247837
 MonoBehaviour:
@@ -723,6 +1174,52 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &542274310407590390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/F2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/F2
+  guid: 007b9cf99ba1ba4ead64fa3c9a56875f
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &812170907465838208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/D2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/D2
+  guid: 5473d75cec469f4395702cde56712c89
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &876353122660747882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,6 +1266,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &1898298214023966407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C#1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C#1
+  guid: 24daea29e07c8043861d814c65b4f5a4
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &1944822571342673498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,6 +1312,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &2065452656304599368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/A#2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/A#2
+  guid: 3e37c904daa9af419a7bcdf8be0eab79
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &2234920934540983863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/A1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/A1
+  guid: 6c28c9e6d51d0d4d9cd66b09b65a9384
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &2326063472154273343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +1404,75 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &2883608288256282701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/E1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/E1
+  guid: 32922385a0b13f479ef414d59ea36670
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &3292609861302773663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/D#3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/D#3
+  guid: 0dd77856b1f8804a8ae3305a155ff6f5
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &3477452557894373947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/F#2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/F#2
+  guid: a218d24e62ea8c45986df1ff3e3d9577
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &3501178291959894833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,6 +1496,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &3593560324289340580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/C2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/C2
+  guid: 4d97169e71bfb249a4ab25ba4d690abc
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &3669185321145844719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,6 +1588,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &4307287034311030533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/D#1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/D#1
+  guid: 66beddb6d22d1c4c94f00d304ee7250e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &4323864826179003284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -976,6 +1657,75 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1000
+--- !u!114 &4774464895092099427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/A2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/A2
+  guid: c71cd47f7ed0e142957f6f9744264ec3
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &4965686901333276633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/F#3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/F#3
+  guid: a3b7e9d5b2b10049b8fe7b286cc271f3
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &5394681274186440251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/G#2
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/G#2
+  guid: 16a148c387077340962ca06c68f6cad1
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &5497995169515783744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,11 +1781,11 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637491810273522050
+  lastModified: 637510020530540973
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 2418
+    Value: 3780
   Exists: 1
 --- !u!114 &5897781273282530285
 MonoBehaviour:
@@ -1083,6 +1833,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &6329249176145876360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/F#1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/F#1
+  guid: 337b138c48e12a41afabc89102fc52f8
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &6566543161886075634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1149,6 +1922,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &6837820861268341766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/G#1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/G#1
+  guid: 8471fb9662671243ab3bfa6e5c879d2c
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &7181693582813989872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/E3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/E3
+  guid: df8b3cbbbb8d7d4da1e4e3da972aa94c
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &7191322145472552140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1215,6 +2034,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &7944606751714747647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/D3
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/D3
+  guid: 48349af845d0e743bfff05b426c42f9e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &8132732022357704318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/F1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/F1
+  guid: 97906e33c6ef0141aa6f3774a9fdb8f9
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &8355520707265740011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,6 +2100,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &8640661754544068360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/PianoNotes/B1
+  m_EditorClassIdentifier: 
+  Path: event:/PianoNotes/B1
+  guid: f28482b4e0f2e44ba640ce36a40fce05
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &8644302718378771904
 MonoBehaviour:
   m_ObjectHideFlags: 0

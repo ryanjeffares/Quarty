@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Melody/MelodyWriting.unity
+- path: Assets/Scenes/Harmony/MinorTriadsLesson.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

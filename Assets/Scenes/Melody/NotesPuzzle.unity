@@ -1655,7 +1655,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 01cf5e221e3455b448abec176ecf3a5c, type: 3}
   - {fileID: 8300000, guid: 39fcd780c72738149afed6302e5800c9, type: 3}
   - {fileID: 8300000, guid: 8b3bcbb0c36571445b6e3d83e603b5ee, type: 3}
-  timer: 45
+  timer: 10
 --- !u!224 &1755398095 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3552165157448131337, guid: a4159c925ab97aa4880324d2370384bb,

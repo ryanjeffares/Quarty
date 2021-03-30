@@ -114,9 +114,9 @@ public class HarmonyLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Harmony Introduction", true},
-            {"Keys", false},
-            {"Triads", false},
+            {"Harmony Introduction", true},            
+            {"Major Triads", false},
+            {"Minor Triads", false},
             {"Extended Chords", false},
             {"Suspended Chords", false},
             {"Inversions", false},
@@ -125,10 +125,9 @@ public class HarmonyLessons
             {"Cadences", false}
         };
         scores = new Dictionary<string, int>
-        {
-            {"Harmony Introduction", 0},
-            {"Keys", 0},
-            {"Triads", 0},
+        {         
+            {"Major Triads", 0},
+            {"Minor Triads", 0},
             {"Extended Chords", 0},
             {"Suspended Chords", 0},
             {"Inversions", 0},

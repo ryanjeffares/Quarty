@@ -12,8 +12,7 @@ public class NotesLessonController : BaseManager
     [SerializeField] private GameObject nextButton, tryButton;
     [SerializeField] private Text introText, helpText;
     [SerializeField] private GameObject noteCirclesPrefab, emptyNoteCirclesPrefab, movableCirclePrefab;
-    [SerializeField] private GameObject arrow;
-    [SerializeField] private List<AudioClip> clips;
+    [SerializeField] private GameObject arrow;    
 
     [SerializeField] private AnimationCurve easeInOutCurve;
     [SerializeField] private AnimationCurve overshootCurve;
@@ -170,7 +169,7 @@ public class NotesLessonController : BaseManager
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
-                introText.text = "Drag the notes into the correct place and press Try to see if you got it right!";
+                introText.text = "Drag the notes into the correct place and press \"Go\" to see if you got it right!";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 _emptyNoteCircles = Instantiate(emptyNoteCirclesPrefab, transform.GetChild(0));
                 _emptyNoteCircles.transform.localPosition = new Vector3(0, -250);

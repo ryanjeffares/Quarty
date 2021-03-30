@@ -24,8 +24,6 @@ public class NotesPuzzleController : BaseManager
     [SerializeField] private AnimationCurve overshootCurve;
     [SerializeField] private AnimationCurve overshootOutCurve;
     [SerializeField] private AnimationCurve easeInOutCurve;
-    [Header("Lists")]
-    [SerializeField] private List<AudioClip> clips;
 
     public int timer;
     
@@ -120,7 +118,7 @@ public class NotesPuzzleController : BaseManager
         _movableCircles.Clear();
         StartCoroutine(FadeText(introText, false, 0.5f));
         StartCoroutine(FadeButtonText(retryButton, false, 0.5f));
-        StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
+        StartCoroutine(FadeButtonText(nextButton, false, 0.5f));        
         StartCoroutine(DecreaseTimer());
         StartCoroutine(SpawnMovableCircles());
     }
@@ -225,8 +223,7 @@ public class NotesPuzzleController : BaseManager
             string readout = stars > 1 ? "stars" : "star";
             introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
             retryButton.transform.localPosition = new Vector3(0, -100);
-            StartCoroutine(FadeText(introText, true, 0.5f));
-            StartCoroutine(FadeText(scoreCounter, false, 0.5f));
+            StartCoroutine(FadeText(introText, true, 0.5f));            
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
             StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
             List<Vector2> starPositions = new List<Vector2>();
@@ -261,8 +258,8 @@ public class NotesPuzzleController : BaseManager
         {
             introText.text = "Looks like you didn't fill in any scales correctly. Press retry to try again.";
             StartCoroutine(FadeText(introText, true, 0.5f));
-            retryButton.transform.localPosition = new Vector3(0, -100);
-            StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
+            StartCoroutine(FadeText(scoreCounter, false, 0.5f));
+            retryButton.transform.localPosition = new Vector3(0, -100);            
         }
     }
     

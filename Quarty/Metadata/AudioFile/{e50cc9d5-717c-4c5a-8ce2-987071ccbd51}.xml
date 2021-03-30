@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{e50cc9d5-717c-4c5a-8ce2-987071ccbd51}">
+		<property name="assetPath">
+			<value>PianoA1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>4</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4787823-c48c-4cf1-93dd-1ff016bc5436}</destination>
+		</relationship>
+	</object>
+</objects>
