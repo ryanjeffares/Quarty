@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2526018097771597122}
-  - component: {fileID: 5203013156943868654}
+  - component: {fileID: 4046350044208858007}
   m_Layer: 5
   m_Name: Piano
   m_TagString: Untagged
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5203013156943868654
+--- !u!114 &4046350044208858007
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,14 +46,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2526018097771597121}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c158cce72bb35b4aa56fb68d2132737, type: 3}
+  m_Script: {fileID: 11500000, guid: 91e21bdc78754984fbdaa4ffb3976512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   keyPrefab: {fileID: 8653035700664660797, guid: 5c9aed88a6ad288458a0199bd54fbdb3,
     type: 3}
   content: {fileID: 2526018098196787828}
-  scrollbar: {fileID: 2526018099493103133}
-  scrollbarBg: {fileID: 2526018098721711755}
+  scrollbar: {fileID: 2526018098721711755}
+  scrollbarBg: {fileID: 2526018099493103133}
 --- !u!1 &2526018098196787828
 GameObject:
   m_ObjectHideFlags: 0
@@ -87,7 +88,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 300}
+  m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &2526018098709846477
 GameObject:
@@ -518,7 +519,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2526018098721711754}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.4074074
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

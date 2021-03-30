@@ -123,7 +123,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
         int index = 0;
         foreach (var star in _stars)
         {
-            StartCoroutine(FadeStar(star, overshootOutCurve, false, 0.3f, wait:0.2f * index));
+            StartCoroutine(FadeInObjectScale(star, overshootOutCurve, false, 0.3f, wait:0.2f * index));
             index++;
         }
         _movableCircles.Clear();
@@ -217,7 +217,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
                 _stars.Add(Instantiate(starPrefab, mainContainer.transform));
                 _stars[i].transform.localPosition = starPositions[i];
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
-                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:0.2f * i));
+                StartCoroutine(FadeInObjectScale(_stars[i], overshootCurve, true, 0.3f, wait:0.2f * i));
             }
             if (stars > Persistent.melodyLessons.scores["Tones And Semitones"])
             {
@@ -293,9 +293,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
             _movableCircles[i].GetComponent<NoteCircleMovableController>().note = clips[startIndex + Persistent.majorScale[i]];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[_fullOctave[(startIndex + Persistent.majorScale[i]) % 12]];
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = _playing;
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;
-            //_movableCircles[i].GetComponent<AudioSource>().clip = clips[startIndex + Persistent.majorScale[i]];
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = _playing;                        
             switch (i)
             {
                 case 0:

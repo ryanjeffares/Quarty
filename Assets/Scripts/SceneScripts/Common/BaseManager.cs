@@ -140,7 +140,7 @@ public abstract class BaseManager : MonoBehaviour
             Destroy(text);
         }
     }
-    protected virtual IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float wait = 0f)
+    protected virtual IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float wait = 0f, float targetAlpha = 1f)
     {
         if (buttonCallbackLookup.ContainsKey(button))
         {
@@ -149,7 +149,7 @@ public abstract class BaseManager : MonoBehaviour
         yield return new WaitUntil(() => canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
         canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
         var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
+        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? targetAlpha : 0f);
         float resolution = time / 0.016f;
         if (wait > 0f)
         {
@@ -223,22 +223,35 @@ public abstract class BaseManager : MonoBehaviour
         text.transform.localScale = enlarge ? new Vector2(1, 1) : new Vector2(0, 0);
     }
     
-    protected virtual IEnumerator FadeStar(GameObject star, AnimationCurve curve, bool fadeIn, float time, float wait = 0f)
+    protected virtual IEnumerator FadeInObjectScale(GameObject obj, AnimationCurve curve, bool fadeIn, float time, float wait = 0f)
     {
         yield return new WaitForSeconds(wait);
         float resolution = time / 0.016f;
         float timeCounter = 0f;
         float interval = time / resolution;
-        var startScale = star.transform.localScale;
+        var startScale = obj.transform.localScale;
         while (timeCounter <= time)
         {
-            var scale = star.transform.localScale;
+            var scale = obj.transform.localScale;
             scale.x = startScale.x + (fadeIn ? curve.Evaluate(timeCounter / time) : -curve.Evaluate(timeCounter / time));
             scale.y = startScale.y + (fadeIn ? curve.Evaluate(timeCounter / time) : -curve.Evaluate(timeCounter / time));
-            star.transform.localScale = scale;
+            obj.transform.localScale = scale;
             timeCounter += interval;
             yield return new WaitForSeconds(interval);
         }
-        star.transform.localScale = fadeIn ? new Vector3(1, 1) : new Vector3(0, 0);
+        obj.transform.localScale = fadeIn ? new Vector3(1, 1) : new Vector3(0, 0);
+    }
+
+    protected virtual IEnumerator FadeImage(Image img, Color startColour, Color targetColour, float time, float wait = 0f)
+    {
+        yield return new WaitForSeconds(wait);        
+        float timeCounter = 0f;        
+        while(timeCounter <= time)
+        {
+            img.color = Color.Lerp(startColour, targetColour, timeCounter / time);
+            timeCounter += Time.deltaTime;
+            yield return null;
+        }
+        img.color = targetColour;
     }
 }

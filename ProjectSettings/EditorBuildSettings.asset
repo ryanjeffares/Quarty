@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: 
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/FirstTime.unity
@@ -66,9 +66,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Harmony/HarmonyIntroduction.unity
     guid: 3173b8d5141c48146ab386a5662500fb
   - enabled: 1
-    path: Assets/Scenes/Harmony/MajorTriadsLesson.unity
+    path: Assets/Scenes/Harmony/MajorTriads.unity
     guid: 098e7cce0a32de74486183df6495fafd
   - enabled: 1
     path: Assets/Scenes/Harmony/MajorTriadsPuzzle.unity
     guid: 8cb1b141ccbffaa4bb10d053badb9086
+  - enabled: 1
+    path: Assets/Scenes/Harmony/MinorTriads.unity
+    guid: d474af5dc2617004f9b81008158b5239
+  - enabled: 1
+    path: Assets/Scenes/Harmony/MinorTriadsPuzzle.unity
+    guid: 31e2d8a2b16f58e46a81f61498a3355d
+  - enabled: 1
+    path: Assets/Scenes/Harmony/MajorSeventhChords.unity
+    guid: 32252bfabce51064b87dd25a534c2224
+  - enabled: 1
+    path: Assets/Scenes/Harmony/MajorSeventhChordsPuzzle.unity
+    guid: 11b8aa95b30c4e74fa4b94893362eb9c
+  - enabled: 1
+    path: Assets/Scenes/Harmony/MinorSeventhChords.unity
+    guid: c80b320a41cbf124ba135227affb5dee
+  - enabled: 1
+    path: Assets/Scenes/Harmony/MinorSeventhChordsPuzzle.unity
+    guid: bf046f3f00c418d4ca1a8134fe18d687
   m_configObjects: {}

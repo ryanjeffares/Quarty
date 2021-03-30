@@ -28,6 +28,9 @@ public static class Typedefs
 
     public static IEnumerable<(T item, int index)> WithIndex<T>(this IEnumerable<T> self)
         => self.Select((item, index) => (item, index));
+
+    public static bool CheckElementsEqualUnordered<T>(this IList<T> list1, IList<T> list2)
+        => Enumerable.SequenceEqual(list1.OrderBy(l => l), list2.OrderBy(l => l));
 }
 
 // This class exists purely so we can implement Shuffle<T> above
@@ -117,7 +120,8 @@ public class HarmonyLessons
             {"Harmony Introduction", true},            
             {"Major Triads", false},
             {"Minor Triads", false},
-            {"Extended Chords", false},
+            {"Major Seventh Chords", false},
+            {"Minor Seventh Chords", false},
             {"Suspended Chords", false},
             {"Inversions", false},
             {"Circle Of Fifths", false},
@@ -128,7 +132,8 @@ public class HarmonyLessons
         {         
             {"Major Triads", 0},
             {"Minor Triads", 0},
-            {"Extended Chords", 0},
+            {"Major Seventh Chords", 0},
+            {"Minor Seventh Chords", 0},
             {"Suspended Chords", 0},
             {"Inversions", 0},
             {"Circle Of Fifths", 0},

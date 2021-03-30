@@ -925,7 +925,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6799457150134718282}
-  - component: {fileID: 2548883265821929236}
+  - component: {fileID: 6877345348953197208}
   m_Layer: 5
   m_Name: NoteCirclesScaleEmptyTS
   m_TagString: Untagged
@@ -967,7 +967,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2548883265821929236
+--- !u!114 &6877345348953197208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -976,7 +976,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6799457150134718283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4addf0650e9cb344e9f7970798cb0cb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 60b06bc361a598d4d88b022d6420f1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   circles:

@@ -11,8 +11,9 @@ public class FirstTimeOpenScreen : BaseManager
 {
     [SerializeField] private InputField input;
     [SerializeField] private GameObject continueButton;
-    [SerializeField] private Text warningText;
+    [SerializeField] private Text warningText, mainText;
     private List<char> otherAllowedCharacters;
+    private bool _readyToContinue = false;
 
     protected override void OnAwake()
     {
@@ -36,6 +37,11 @@ public class FirstTimeOpenScreen : BaseManager
         {
             {continueButton, ContinueButtonCallback}
         };
+        canTextLerp = new Dictionary<Text, bool>
+        {
+            {mainText, true },
+            {warningText, true }
+        };
         otherAllowedCharacters = new List<char>
         {
             '-', '_'
@@ -44,54 +50,50 @@ public class FirstTimeOpenScreen : BaseManager
 
     private void ContinueButtonCallback(GameObject g)
     {
-        if (input.text != "")
+        if (_readyToContinue)
         {
-            if (!input.text.All(c =>char.IsLetterOrDigit(c) || !char.IsWhiteSpace(c) || otherAllowedCharacters.Contains(c)))
-            {
-                input.text = "";
-                warningText.text = "Illegal character found, try a different username.";
-                StartCoroutine(FadeText(0.2f, 200f));
-                return;
-            }
-            var filter = new ProfanityFilter.ProfanityFilter();
-            if (filter.IsProfanity(input.text))
-            {
-                input.text = "";
-                warningText.text = "Username not allowed! Try a different username.";
-                StartCoroutine(FadeText(0.2f, 200f));
-                return;
-            }
-            using (FileStream fs = new FileStream(Application.persistentDataPath + "/Files/User/user.dat", FileMode.CreateNew))
-            {
-                BinaryWriter bw = new BinaryWriter(fs);
-                bw.Write(input.text);
-                bw.Close();
-            }            
             Persistent.sceneToLoad = "MainMenu";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
+        else
+        {
+            if (input.text != "")
+            {
+                if (!input.text.All(c => char.IsLetterOrDigit(c) || !char.IsWhiteSpace(c) || otherAllowedCharacters.Contains(c)))
+                {
+                    input.text = "";
+                    warningText.text = "Illegal character found, try a different username.";
+                    StartCoroutine(FadeText(warningText, true, 0.5f, fadeOut: true, duration: 1f));
+                    return;
+                }
+                var filter = new ProfanityFilter.ProfanityFilter();
+                if (filter.IsProfanity(input.text))
+                {
+                    input.text = "";
+                    warningText.text = "Username not allowed! Try a different username.";
+                    StartCoroutine(FadeText(warningText, true, 0.5f, fadeOut: true, duration: 1f));
+                    return;
+                }
+                using (FileStream fs = new FileStream(Application.persistentDataPath + "/Files/User/user.dat", FileMode.CreateNew))
+                {
+                    BinaryWriter bw = new BinaryWriter(fs);
+                    bw.Write(input.text);
+                    bw.Close();
+                }
+                Destroy(input.gameObject);
+                StartCoroutine(FadeText(mainText, false, 0.5f));
+                StartCoroutine(ShowMessage());                
+            }
+        }        
     }
 
-    private IEnumerator FadeText(float time, float resolution)
+    private IEnumerator ShowMessage()
     {
-        var startColour = warningText.color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, 1);
-        float timeCounter = 0f;
-        float interval = time / resolution;
-        while (timeCounter <= time)
-        {
-            warningText.color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
-        yield return new WaitForSeconds(1);
-        timeCounter = 0f;
-        while (timeCounter <= time)
-        {
-            warningText.color = Color.Lerp(targetColour, startColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
-        }
+        yield return new WaitForSeconds(1f);
+        mainText.text = "Quarty is a game I made for my degree research project to investigate if gamification can be used to enhance music theory education. If you want to help me with that, please consider filling in the survey linked through the settings page after playing for a while.\n \nI hope you enjoy Quarty, I had a lot of fun making it. Thank you for playing my game - I really appreciate it.";
+        mainText.fontSize = 24;
+        StartCoroutine(FadeText(mainText, true, 0.5f));
+        _readyToContinue = true;
     }
 }

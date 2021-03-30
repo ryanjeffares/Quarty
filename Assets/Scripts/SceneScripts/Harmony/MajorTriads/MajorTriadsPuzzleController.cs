@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MajorTriadsPuzzleController : BaseManager
 {
@@ -61,7 +62,16 @@ public class MajorTriadsPuzzleController : BaseManager
     private void NextButtonCallback(GameObject g)
     {
         ++_levelStage;        
-        StartCoroutine(AdvanceLevelStage());
+        if (_levelStage < 2)
+        {
+            StartCoroutine(AdvanceLevelStage());
+        }
+        else
+        {
+            Persistent.sceneToLoad = "MinorTriads";
+            Persistent.goingHome = false;
+            SceneManager.LoadScene("LoadingScreen");
+        }        
     }
 
     private void RetryButtonCallback(GameObject g)
@@ -72,7 +82,7 @@ public class MajorTriadsPuzzleController : BaseManager
         int index = 0;
         foreach (var star in _stars)
         {
-            StartCoroutine(FadeStar(star, overshootOutCurve, false, 0.3f, 0.2f * index));
+            StartCoroutine(FadeInObjectScale(star, overshootOutCurve, false, 0.3f, 0.2f * index));
             index++;
         }
         _stars.Clear();        
@@ -142,7 +152,7 @@ public class MajorTriadsPuzzleController : BaseManager
                 stars = 3;
             }
             string readout = stars > 1 ? "stars" : "star";
-            introText.text = $"Awesome! You matched {_correctChords} chords and got {stars} {readout}. You can try again, or move into the next lesson.";            
+            introText.text = $"Awesome {Persistent.userName}! You matched {_correctChords} chords and got {stars} {readout}. You can try again, or move into the next lesson.";            
             StartCoroutine(FadeText(introText, true, 0.5f));            
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
             StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
@@ -168,7 +178,7 @@ public class MajorTriadsPuzzleController : BaseManager
                 _stars.Add(Instantiate(starPrefab, mainContainer.transform));
                 _stars[i].transform.localPosition = starPositions[i];
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
-                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait: (0.2f * i)));
+                StartCoroutine(FadeInObjectScale(_stars[i], overshootCurve, true, 0.3f, wait: (0.2f * i)));
             }
             if (stars > Persistent.harmonyLessons.scores["Major Triads"])
             {

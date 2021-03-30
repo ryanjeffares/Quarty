@@ -212,8 +212,7 @@ public class TonesAndSemitonesLessonController : BaseManager
             _movableCircles[i].GetComponent<NoteCircleMovableController>().note = notes[i];
             _movableCircles[i].GetComponent<NoteCircleMovableController>().waitTime = wait;
             _movableCircles[i].GetComponent<NoteCircleMovableController>().draggable = true;
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
-            _movableCircles[i].GetComponent<NoteCircleMovableController>().curve = overshootCurve;            
+            _movableCircles[i].GetComponent<NoteCircleMovableController>().circleColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];                    
             if (i == 0) // if its a C
             {
                 _movableCircles[i].transform.localPosition = new Vector3(-175, 0);

@@ -37,9 +37,9 @@ public class HarmonyIntroductionController : BaseManager
         }
         else
         {
-            Persistent.melodyLessons.lessons["Major Triads"] = true;
+            Persistent.harmonyLessons.lessons["Major Triads"] = true;
             Persistent.UpdateLessonAvailability("Harmony");
-            Persistent.sceneToLoad = "MajorTriadsLesson";
+            Persistent.sceneToLoad = "MajorTriads";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }

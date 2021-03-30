@@ -4908,7 +4908,7 @@ GameObject:
   - component: {fileID: 7442183435059124643}
   - component: {fileID: 3025282057063349171}
   - component: {fileID: 6589145482173268595}
-  - component: {fileID: 2516632275962023087}
+  - component: {fileID: 6864227390945586312}
   m_Layer: 5
   m_Name: NoteCircleMoveable
   m_TagString: Untagged
@@ -4991,7 +4991,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 20
---- !u!114 &2516632275962023087
+--- !u!114 &6864227390945586312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5000,11 +5000,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7442183435059124647}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82011313e407bc845b32bb58fff42f78, type: 3}
+  m_Script: {fileID: 11500000, guid: 24ff8c5d1a44da54ca6c234186f2b2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 8688287185059316615}
-  _particleSystem: {fileID: 3477541475813887606}
   circleColour: {r: 0, g: 0, b: 0, a: 0}
   note: 
   waitTime: 0
@@ -5012,6 +5011,7 @@ MonoBehaviour:
   availableX: 
   octaveUp: 0
   draggable: 0
+  clickToPlay: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -5024,6 +5024,15 @@ MonoBehaviour:
       weightedMode: 0
       inWeight: 0
       outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1

@@ -485,8 +485,8 @@ GameObject:
   - component: {fileID: 8190457150326717414}
   - component: {fileID: 1697159587577828745}
   - component: {fileID: 827458048033043767}
-  - component: {fileID: 4129829355595466572}
   - component: {fileID: 9101877871143268153}
+  - component: {fileID: 6579844549606896938}
   m_Layer: 5
   m_Name: 9
   m_TagString: Untagged
@@ -552,47 +552,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4129829355595466572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4647364765784553814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 8776721979144046158}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &9101877871143268153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -619,6 +578,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &6579844549606896938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4647364765784553814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8776721979144046158}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4716484486935334623
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,8 +721,8 @@ GameObject:
   - component: {fileID: 2703559623383761210}
   - component: {fileID: 7930085992721704864}
   - component: {fileID: 7545207269950882612}
-  - component: {fileID: 6250425431822855816}
   - component: {fileID: 2636442582591711657}
+  - component: {fileID: 5378949010070568281}
   m_Layer: 5
   m_Name: 10
   m_TagString: Untagged
@@ -776,47 +788,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6250425431822855816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5056853306046089738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 2151017165161851041}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &2636442582591711657
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -843,6 +814,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &5378949010070568281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056853306046089738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 2151017165161851041}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5581607576088481710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,8 +1036,8 @@ GameObject:
   - component: {fileID: 6509729163096620497}
   - component: {fileID: 6509729163096620500}
   - component: {fileID: 1507351589390557124}
-  - component: {fileID: 1603288686986715058}
   - component: {fileID: 2204482918317792673}
+  - component: {fileID: 3541230064636865502}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -1079,47 +1103,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1603288686986715058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729163096620496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 8764055743602778089}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &2204482918317792673
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1146,6 +1129,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &3541230064636865502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729163096620496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8764055743602778089}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729163120511916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,8 +1193,8 @@ GameObject:
   - component: {fileID: 6509729163120511917}
   - component: {fileID: 6509729163120511912}
   - component: {fileID: 1507351589381073336}
-  - component: {fileID: 1897546474998596268}
   - component: {fileID: 6907513515081268581}
+  - component: {fileID: 6232624819318037521}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -1224,47 +1260,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1897546474998596268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729163120511916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 676628943521491970}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &6907513515081268581
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1291,6 +1286,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &6232624819318037521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729163120511916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 676628943521491970}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729163242370615
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,8 +1350,8 @@ GameObject:
   - component: {fileID: 6509729163242370614}
   - component: {fileID: 6509729163242370611}
   - component: {fileID: 1507351589779575843}
-  - component: {fileID: 2035633912374391812}
   - component: {fileID: 7370396775121119912}
+  - component: {fileID: 4141743631404081737}
   m_Layer: 5
   m_Name: 6
   m_TagString: Untagged
@@ -1369,47 +1417,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &2035633912374391812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729163242370615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 4050446341959900637}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &7370396775121119912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1436,6 +1443,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &4141743631404081737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729163242370615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 4050446341959900637}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729163794185292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,8 +1507,8 @@ GameObject:
   - component: {fileID: 6509729163794185293}
   - component: {fileID: 6509729163794185288}
   - component: {fileID: 1507351590318808664}
-  - component: {fileID: 5096101356937599898}
   - component: {fileID: 3713274707597128835}
+  - component: {fileID: 7761413617402445042}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -1514,47 +1574,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5096101356937599898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729163794185292}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 7616422221851618908}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &3713274707597128835
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1581,6 +1600,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &7761413617402445042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729163794185292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7616422221851618908}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729163897192005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,8 +1664,8 @@ GameObject:
   - component: {fileID: 6509729163897192004}
   - component: {fileID: 6509729163897192001}
   - component: {fileID: 1507351590199549009}
-  - component: {fileID: 1820624647834941357}
   - component: {fileID: 1900217596934564265}
+  - component: {fileID: 2475625935684451554}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -1659,47 +1731,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1820624647834941357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729163897192005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 7327718629889601065}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &1900217596934564265
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1726,6 +1757,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &2475625935684451554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729163897192005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7327718629889601065}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729164134702294
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,8 +1821,8 @@ GameObject:
   - component: {fileID: 6509729164134702295}
   - component: {fileID: 6509729164134702290}
   - component: {fileID: 1507351588352474818}
-  - component: {fileID: 1993380900781890905}
   - component: {fileID: 3349983896514042525}
+  - component: {fileID: 3321853715068838231}
   m_Layer: 5
   m_Name: 5
   m_TagString: Untagged
@@ -1804,47 +1888,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1993380900781890905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729164134702294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 6601302144230919712}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &3349983896514042525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1871,6 +1914,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &3321853715068838231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729164134702294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 6601302144230919712}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729164455008338
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,8 +1978,8 @@ GameObject:
   - component: {fileID: 6509729164455008339}
   - component: {fileID: 6509729164455008342}
   - component: {fileID: 1507351588567923270}
-  - component: {fileID: 6622419805263596617}
   - component: {fileID: 6934434236991621850}
+  - component: {fileID: 7974222138404799378}
   m_Layer: 5
   m_Name: 7
   m_TagString: Untagged
@@ -1949,47 +2045,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6622419805263596617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729164455008338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 6464254847954901741}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &6934434236991621850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2016,6 +2071,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &7974222138404799378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729164455008338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 6464254847954901741}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6509729164869679118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2027,8 +2135,8 @@ GameObject:
   - component: {fileID: 6509729164869679119}
   - component: {fileID: 6509729164869679114}
   - component: {fileID: 1507351589091793434}
-  - component: {fileID: 5967816903575330768}
   - component: {fileID: 7466471948069210332}
+  - component: {fileID: 8454348255034316280}
   m_Layer: 5
   m_Name: 8
   m_TagString: Untagged
@@ -2094,47 +2202,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5967816903575330768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6509729164869679118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6243d06d8020e804fb8747771051db5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 4236954427171705078}
-  squareColour: {r: 0, g: 0, b: 0, a: 0}
-  note: 
-  waitTime: 0
-  draggable: 0
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!61 &7466471948069210332
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2161,6 +2228,59 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70, y: 70}
   m_EdgeRadius: 0
+--- !u!114 &8454348255034316280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509729164869679118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b0be663c198d242ab0b7dbce7068e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 4236954427171705078}
+  squareColour: {r: 0, g: 0, b: 0, a: 0}
+  note: 
+  waitTime: 0
+  xRange: 80
+  yRange: 200
+  draggable: 0
+  movableYpos: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.78125584
+      value: 1.0566099
+      inSlope: 0.97654414
+      outSlope: 0.97654414
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6828427643156742547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6828427643156742546}
   - component: {fileID: 4757664398073756754}
-  - component: {fileID: 1975082788497715541}
+  - component: {fileID: 5985232416860195502}
   m_Layer: 5
   m_Name: NoteSquaresScale
   m_TagString: Untagged
@@ -2234,7 +2354,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &1975082788497715541
+--- !u!114 &5985232416860195502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2243,7 +2363,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6828427643156742547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e61feee36ef14d4992691d63b0c7bb0, type: 3}
+  m_Script: {fileID: 11500000, guid: e0dc73eaef0d71c4ea0aedf10020b41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   noteSquares:

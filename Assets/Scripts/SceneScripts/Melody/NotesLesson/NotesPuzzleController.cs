@@ -111,7 +111,7 @@ public class NotesPuzzleController : BaseManager
         int index = 0;
         foreach (var star in _stars)
         {
-            StartCoroutine(FadeStar(star, overshootOutCurve, false, 0.3f, 0.2f * index));            
+            StartCoroutine(FadeInObjectScale(star, overshootOutCurve, false, 0.3f, 0.2f * index));            
             index++;
         }
         _stars.Clear();
@@ -245,7 +245,7 @@ public class NotesPuzzleController : BaseManager
                 _stars.Add(Instantiate(starPrefab, mainHolder.transform));
                 _stars[i].transform.localPosition = starPositions[i];
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
-                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait:(0.2f * i)));
+                StartCoroutine(FadeInObjectScale(_stars[i], overshootCurve, true, 0.3f, wait:(0.2f * i)));
             }
             if(stars > Persistent.melodyLessons.scores["Notes"])
             {

@@ -128,7 +128,7 @@ public class MinorIntervalsPuzzleController : BaseManager
         int mult = 0;
         foreach (var s in _stars)
         {
-            StartCoroutine(FadeStar(s, overshootOutCurve, false, 0.3f, wait: 0.2f * mult));
+            StartCoroutine(FadeInObjectScale(s, overshootOutCurve, false, 0.3f, wait: 0.2f * mult));
             mult++;
         }
         _movableSquares.Clear();
@@ -221,7 +221,7 @@ public class MinorIntervalsPuzzleController : BaseManager
                 _stars.Add(Instantiate(starPrefab, mainContainer.transform));
                 _stars[i].transform.localPosition = starPositions[i];
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
-                StartCoroutine(FadeStar(_stars[i], overshootCurve, true, 0.3f, wait: 0.2f * i));
+                StartCoroutine(FadeInObjectScale(_stars[i], overshootCurve, true, 0.3f, wait: 0.2f * i));
             }
             if (stars > Persistent.melodyLessons.scores["Minor Intervals"])
             {

@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945841822167566971}
   - component: {fileID: 532220844540717357}
-  - component: {fileID: 1204543325628991849}
+  - component: {fileID: 7212590167704871839}
   m_Layer: 5
   m_Name: Chord
   m_TagString: Untagged
@@ -252,7 +252,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945841822167566968}
   m_CullTransparentMesh: 0
---- !u!114 &1204543325628991849
+--- !u!114 &7212590167704871839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1945841822167566968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe526af646e13494ba8306d61fd0e0f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 174ae742d178c0145b50d2530c82f039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   root: {fileID: 8076215488715725984}
