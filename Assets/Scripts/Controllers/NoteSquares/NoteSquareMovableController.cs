@@ -8,13 +8,16 @@ using FMODUnity;
 
 public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    public static event Action<string> NotePlayed;
+
     [SerializeField] private Text text;
+
     private Vector2 _size;
     private RectTransform _rt;
     private Color _textColour;
     private bool _playable;
     private float _startingYpos, _startingYWorldPos;   
-    public float startingYpos
+    public float StartingYpos
     {
         set
         {
@@ -22,15 +25,14 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
         }
     }
 
-    public Color squareColour;
-    public string note = "";
-    public float waitTime;
-    public float xRange = 80;
-    public float yRange = 200;
-    public bool draggable, movableYpos;
-    public AnimationCurve curve;
+    [HideInInspector] public Color squareColour;
+    [HideInInspector] public string note = "";
+    [HideInInspector] public float waitTime;
+    [HideInInspector] public float xRange = 80;
+    [HideInInspector] public float yRange = 200;
+    [HideInInspector] public bool draggable, movableYpos;
 
-    public static event Action<string> NotePlayed;
+    public AnimationCurve curve;    
 
     private void Awake()
     {        

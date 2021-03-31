@@ -231,13 +231,13 @@ public class MajorAndMinorSecondLessonController : BaseManager
             _challengeSquares.Add(rootSquare);
             _challengeSquares.Add(movableSquare);
             var rootController = rootSquare.GetComponent<NoteSquareMovableController>();
-            rootController.startingYpos = rootSquare.transform.localPosition.y;
+            rootController.StartingYpos = rootSquare.transform.localPosition.y;
             rootController.note = rootNotes[i].Item1;
             rootController.squareColour = Persistent.noteColours[rootNotes[i].Item1.Substring(0, rootNotes[i].Item1.Length - 1)];
             rootController.waitTime = waitTime;
             rootController.Show();
             var movableController = movableSquare.GetComponent<NoteSquareMovableController>();
-            movableController.startingYpos = movableSquare.transform.localPosition.y;
+            movableController.StartingYpos = movableSquare.transform.localPosition.y;
             movableController.note = options[i].Item1;
             movableController.squareColour = Persistent.noteColours[options[i].Item1.Substring(0, options[i].Item1.Length - 1)];
             movableController.waitTime = waitTime;

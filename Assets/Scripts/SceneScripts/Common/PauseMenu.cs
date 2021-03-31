@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : BaseManager
 {
     public static event Action Unpaused;
-    [SerializeField] private GameObject resume, settings, home, quit;
-    [SerializeField] private GameObject settingsPage;
+    [SerializeField] private GameObject resume, settings, home, quit, glossary;
+    [SerializeField] private GameObject settingsPage, glossaryPage;
     
     protected override void OnAwake()
     {
@@ -17,7 +17,8 @@ public class PauseMenu : BaseManager
             {resume, ResumeButtonCallback},
             {settings, SettingsButtonCallback},
             {home, HomeButtonCallback},
-            {quit, QuitButtonCallback}
+            {quit, QuitButtonCallback},
+            {glossary, GlossaryButtonCallback }
         };
     }
 
@@ -40,6 +41,11 @@ public class PauseMenu : BaseManager
         SceneManager.LoadScene("LoadingScreen");
     }
     
+    private void GlossaryButtonCallback(GameObject g)
+    {
+        Instantiate(glossaryPage, transform);
+    }
+
     private void QuitButtonCallback(GameObject g)
     {
         Application.Quit();

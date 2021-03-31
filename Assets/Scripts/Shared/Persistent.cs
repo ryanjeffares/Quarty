@@ -25,6 +25,8 @@ public static class Persistent
     public static RhythmLessons rhythmLessons;
     public static TimbreLessons timbreLessons;
     public static Settings settings;
+    public static List<string> glossaryWords;
+    public static Dictionary<string, string> glossaryDescriptions;
     public static readonly LoadingTexts LoadingTexts;
     public static readonly SplashTexts SplashTexts;
     
@@ -61,6 +63,7 @@ public static class Persistent
             lowestNote++;
         }
         #endregion
+
         #region UI
         rainbowColours = new List<Color>
         {
@@ -141,8 +144,81 @@ public static class Persistent
         {
             sineWaveValues.Add(Math.Sin(i * Math.PI / 180));
         }
-
         #endregion
+
+        #region Glossary
+        glossaryWords = new List<string>();
+        glossaryDescriptions = new Dictionary<string, string>
+        {
+            {"Notes", "A Note is the term we use to describe a sound's pitch. The twelve notes we use in Western Music are A, A#, B, C, C#, D, D#, E, F, F#, G, and G#." },
+            {"Melody", "A Melody is a sequency of single notes." },
+            {"Scale", "A sequence of Notes that goes up or down." },            
+            {"Tone", "A gap of two notes (for example, C to D)." },
+            {"Semitone", "A gap of one note (for example, C to C#)." },
+            {"Root Note", "The Root is the first note in a scale or chord. If we start a scale on C, that is a C scale, and C is the root of that scale." },
+            {"Major Scale", "A scale that is commonly used in Western Music. It is called \"Major\" because it has a bright and happy sound. A Tone (T) and Semitone (S) pattern of T, T, S, T, T, T, S makes a Major Scale." },
+            {"Interval", "An interval is the gap between two notes of different pitch." },
+            {"Major Third", "The Major Third is the third note in a Major Scale, and has an interval of 2 Tones or 4 Semitones." },
+            {"Major Sixth", "The Major Third is the sixth note in a Major Scale, and has an interval of 9 Semitones." },
+            {"Major Seventh", "The Major Seventh is the seventh note in a Major Scale, and has an interval of 11 Semitones. It is only 1 semitone below the octave of the root note." },
+            {"Minor Third", "The Minor Third is the third note in a Minor Scale, and has an interval of 3 Semitones." },
+            {"Minor Sixth", "The Minor Third is the sixth note in a Minor Scale, and has an interval of 4 Tones or 8 Semitones." },
+            {"Minor Seventh", "The Minor Seventh is the seventh note in a Minor Scale, and has an interval of 5 Tones or 10 Semitones. It is only 1 tone below the octave of the root note." },
+            {"Perfect Fourth", "The Perfect 4th appears in the Major and Minor Scale. It has an interval of 5 Semitones." },
+            {"Perfect Fifth", "The Perfect 5th appears in the Major and Minor Scale. It has an interval of 7 Semitones." },
+            {"Perfect Octave", "The Perfect Octave, or just Octave, has an interval of 12 Semitones or 6 Tones. The Octave of any note is the same note, but at twice the pitch." },
+            {"Major Second", "The Major 2nd is the second note in both the Major and Minor scales. It has an interval of 1 Tone or 2 Semitones." },
+            {"Minor Second", "The Minor 2nd has an interval of just 1 semitone." },
+            {"Harmony", "Harmony is playing more than one note at the same time." },
+            {"Chord", "A Chord is any combination of more than one note played together." },
+            {"Triad", "A Triad is a chord made of the root, third, and fifth of any scale." },
+            {"Major Chord", "A Major Chord is a triad made from the Major Scale, so the Root, Major Third, and Perfect Fifth." },
+            {"Minor Chord", "A Minor Chord is a triad made from the Minor Scale, so the Root, Minor Third, and Perfect Fifth." },
+            {"Major Seventh Chord", "A Major Seventh Chord is made of a Major Triad with a Major Seventh on top." },
+            {"Minor Seventh Chord", "A Minor Seventh Chord is made of a Minor Triad with a Minor Seventh on top." },
+            {"Dominant Seventh Chord", "A Dominant Seventh Chord is made of a Major Triad with a Minor Seventh on top." },
+            {"Suspended Second Chord", "A Suspended Second chord is made from the Root, Major 2nd, and Perfect Fifth of any scale." },
+            {"Suspended Fourth Chord", "A Suspended Second chord is made from the Root, Perfect 4th, and Perfect Fifth of any scale." },
+        };
+        GetUserGlossary();
+        #endregion
+    }
+
+    private static void GetUserGlossary()
+    {
+        string path = Application.persistentDataPath + "/Files/User/Glossary.dat";
+        if (File.Exists(path))
+        {
+            using (var br = new BinaryReader(File.Open(path, FileMode.Open)))
+            {
+                var data = br.ReadString();
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(data);
+                foreach(XmlElement term in xmlDoc.FirstChild.ChildNodes)
+                {
+                    glossaryWords.Add(term.Attributes[0].Value);
+                }
+            }
+        }
+        else
+        {
+            var xmlDoc = new XmlDocument();
+            XmlNode rootNode = xmlDoc.CreateElement("Glossary");
+            xmlDoc.AppendChild(rootNode);
+            foreach(var term in glossaryDescriptions)
+            {
+                XmlElement el = xmlDoc.CreateElement("Term");
+                el.SetAttribute("term", term.Key);
+                rootNode.AppendChild(el);
+            }
+            using(var fs = new FileStream(path, FileMode.Create))
+            {
+                string data = xmlDoc.DocumentElement.OuterXml;
+                var bw = new BinaryWriter(fs);
+                bw.Write(data);
+                bw.Close();
+            }
+        }
     }
 
     private static void LoadLessons()

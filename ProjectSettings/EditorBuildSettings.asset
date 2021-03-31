@@ -89,4 +89,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Harmony/MinorSeventhChordsPuzzle.unity
     guid: bf046f3f00c418d4ca1a8134fe18d687
+  - enabled: 1
+    path: Assets/Scenes/Harmony/SuspendedChords.unity
+    guid: 4b283db4b375fe5469d51e5e8bb60c6d
+  - enabled: 1
+    path: Assets/Scenes/Harmony/SuspendedChordsPuzzle.unity
+    guid: 942d79ff7cfd2bd438c48e4898b69f0d
   m_configObjects: {}

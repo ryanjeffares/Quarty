@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7764706, g: 0.8862745, b: 0.9137255, a: 1}
+  m_Color: {r: 0.6117647, g: 1, b: 0.69411767, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1640,22 +1640,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  clips:
-  - {fileID: 8300000, guid: 84ab554526d26824aafd799069045309, type: 3}
-  - {fileID: 8300000, guid: bf50a7a6e49164049be4550f950b3683, type: 3}
-  - {fileID: 8300000, guid: 949433814621c4b4788e840dfadcfa0e, type: 3}
-  - {fileID: 8300000, guid: 024d63e12c5c84f499552b72bf7a414a, type: 3}
-  - {fileID: 8300000, guid: c7b1f281c282fcc49a962177cb37c410, type: 3}
-  - {fileID: 8300000, guid: e9321e584b9df2f4888492db1c333b49, type: 3}
-  - {fileID: 8300000, guid: 6d2dd5c7f671452459d6805a4afd20cc, type: 3}
-  - {fileID: 8300000, guid: d84252e98db7c29449da917f5f8487b5, type: 3}
-  - {fileID: 8300000, guid: 5dcb1a153b503dd478190b3b40dd9e20, type: 3}
-  - {fileID: 8300000, guid: 3fe0aa1d48ec1c94682c05611e80e650, type: 3}
-  - {fileID: 8300000, guid: c6441e974f42cf64f840f6734cc006a6, type: 3}
-  - {fileID: 8300000, guid: 01cf5e221e3455b448abec176ecf3a5c, type: 3}
-  - {fileID: 8300000, guid: 39fcd780c72738149afed6302e5800c9, type: 3}
-  - {fileID: 8300000, guid: 8b3bcbb0c36571445b6e3d83e603b5ee, type: 3}
-  timer: 10
+  timer: 45
 --- !u!224 &1755398095 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3552165157448131337, guid: a4159c925ab97aa4880324d2370384bb,

@@ -288,7 +288,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637510020530460961
+  lastModified: 637528107639484994
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637510020530540973
+  stringsBankWriteTime: 637528107639555014
   cacheVersion: 6
 --- !u!114 &250169932755247837
 MonoBehaviour:
@@ -1781,7 +1781,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637510020530540973
+  lastModified: 637528107639555014
   LoadResult: 0
   FileSizes:
   - Name: Desktop

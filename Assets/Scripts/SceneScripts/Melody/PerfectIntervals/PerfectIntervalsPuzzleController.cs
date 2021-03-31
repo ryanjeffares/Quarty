@@ -284,7 +284,7 @@ public class PerfectIntervalsPuzzleController : BaseManager
             controller.squareColour = Persistent.noteColours[nextCombo[i].Substring(0, nextCombo[i].Length - 1)];
             controller.draggable = !nextCombo[i].Contains(root);
             _movableSquares[i].transform.localPosition = new Vector3(nextCombo[i].Contains(root) ? 0 : -100, y);
-            controller.startingYpos = y;
+            controller.StartingYpos = y;
             controller.Show();
             y -= 100;
             wait += 0.1f;
@@ -323,7 +323,7 @@ public class PerfectIntervalsPuzzleController : BaseManager
 
             timeSlider.fillRect.GetComponent<Image>().color = Color.Lerp(Persistent.rainbowColours[3], Persistent.rainbowColours[0], timeCounter / timer);
             timeCounter += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
         _playing = false;
         foreach (var s in _movableSquares)

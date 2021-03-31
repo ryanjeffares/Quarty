@@ -76,7 +76,7 @@ public class MelodyIntroductionController : BaseManager
                     "More on that later, for now have a play with the notes. Pay attention to which notes sound good together, and which don't.";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 _xylophone = Instantiate(xylophonePrefab, transform.GetChild(0));
-                _xylophone.transform.localPosition = new Vector3(0, -180, 0);
+                _xylophone.transform.localPosition = new Vector3(0, -200, 0);
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 5f));
                 break;
             case 2:
@@ -93,7 +93,7 @@ public class MelodyIntroductionController : BaseManager
                     counter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
-                introText.text = "Whenever you're ready, let's move into the first lesson!";
+                introText.text = "When we introduce new terms in each lesson, they will be added to the Glossary which you can see any time through the Pause Menu or from the Main Menu.\n \nWhenever you're ready, let's move into the first lesson!";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, wait:1f));
                 break;

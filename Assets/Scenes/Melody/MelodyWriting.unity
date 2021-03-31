@@ -885,9 +885,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: Congratulations! You have completed the Melody section of Quarty. Take
     some time here to play around writing melodies by tapping the circles or arranging
-    them. You can see how you did on the Stats page from the main menu and try and
-    levels again if you like, and move on into the Harmony section whenever you want
-    to.
+    them. You can see how you did on the Stats page from the main menu and try any
+    levels again if you like. Move on into the Harmony section whenever you want
+    to!
 --- !u!1001 &1049948941
 PrefabInstance:
   m_ObjectHideFlags: 0

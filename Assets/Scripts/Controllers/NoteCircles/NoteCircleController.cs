@@ -6,10 +6,14 @@ using FMODUnity;
 public class NoteCircleController : MonoBehaviour
 {
     [SerializeField] private Text text;
+    [SerializeField] private AnimationCurve curve;
     private Vector2 _size;
     private RectTransform _rt;
     private Color _textColour, _circleColour; 
+
+    [HideInInspector]
     public float waitTime;
+    [HideInInspector]
     public string note;
 
     private void Awake()
@@ -70,29 +74,14 @@ public class NoteCircleController : MonoBehaviour
     }
 
     private IEnumerator Resize(bool enlarge)
-    {
-        float target = enlarge ? _size.x * 1.1f : _size.x;
-        if (enlarge)
-        {            
-            while (_rt.rect.width <= target)
-            {
-                var sizeDelta = _rt.sizeDelta;
-                sizeDelta.x = sizeDelta.x > target ? target : sizeDelta.x + Time.deltaTime / 0.01f;
-                sizeDelta.y = sizeDelta.y > target ? target : sizeDelta.y + Time.deltaTime / 0.01f;
-                _rt.sizeDelta = sizeDelta;
-                yield return null;
-            }
-        }
-        else
+    {        
+        float timeCounter = 0f;
+        while (timeCounter <= 0.1f)
         {
-            while (_rt.rect.width >= target)
-            {
-                var sizeDelta = _rt.sizeDelta;
-                sizeDelta.x = sizeDelta.x < target ? target : sizeDelta.x - Time.deltaTime / 0.01f;
-                sizeDelta.y = sizeDelta.y < target ? target : sizeDelta.y - Time.deltaTime / 0.01f;
-                _rt.sizeDelta = sizeDelta;
-                yield return null;
-            }
+            var scaleDiff = 0.1f * curve.Evaluate(timeCounter / 0.1f);
+            transform.localScale = enlarge ? new Vector3(1 + scaleDiff, 1 + scaleDiff) : new Vector3(1.1f - scaleDiff, 1.1f - scaleDiff);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 }

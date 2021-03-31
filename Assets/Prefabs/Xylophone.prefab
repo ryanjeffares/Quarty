@@ -1864,7 +1864,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyHolders:
   - {fileID: 4669459943985629669}
-  - {fileID: 1661524321521673635}
+  - {fileID: 3967665712215247333}
+  - {fileID: 7132068562072182477}
 --- !u!1 &5551074817721115944
 GameObject:
   m_ObjectHideFlags: 0

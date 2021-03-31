@@ -5,19 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using FMODUnity;
 
-public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IDragHandler, IDropHandler
+public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IDragHandler
 {
     public static event Action<string> NotePlayed;
-    public static event Action<PianoKeyDraggableController> Dropped;
+    public static event Action<PianoKeyDraggableController, bool> Dropped;
     
     [SerializeField] private Text text;
+    [SerializeField] private AnimationCurve curve;
 
     private Color _colour;
-    private bool _clickable, _usePersistentColour, _collidable, _anyCoroutinesRunning;
+    private bool _clickable, _usePersistentColour, _collidable, _onTarget;
     private Vector3 _targetPosition;
 
     private string _note;
-    public string note
+    public string Note
     {
         get => _note;
         set
@@ -35,6 +36,16 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
         }
     }
 
+    private void Awake()
+    {
+        KeyOutlineCollider.KeyInsideBounds += (state) => _onTarget = state;
+    }
+
+    private void OnDestroy()
+    {
+        KeyOutlineCollider.KeyInsideBounds -= (state) => _onTarget = state;
+    }
+
     public void Show(float waitTime, Vector3 target, bool clickable = true, bool usePersistentColour = false, bool collidable = false)
     {
         GetComponent<Image>().color = Color.clear;
@@ -43,12 +54,12 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
         _usePersistentColour = usePersistentColour;
         _collidable = collidable;
         _targetPosition = target;
+        Debug.Log(_targetPosition);
         StartCoroutine(FadeIn(waitTime));
     }
 
     private IEnumerator FadeIn(float waitTime)
-    {
-        _anyCoroutinesRunning = true;
+    {    
         yield return new WaitForSeconds(waitTime);
         float timeCounter = 0f;
         while (timeCounter < 0.5f)
@@ -58,8 +69,7 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
             timeCounter += Time.deltaTime;
             yield return null;
         }
-        GetComponent<Image>().color = _colour;
-        _anyCoroutinesRunning = false;
+        GetComponent<Image>().color = _colour;        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -68,43 +78,44 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
         transform.position = eventData.position;
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        if((Mathf.Abs(_targetPosition.x - eventData.position.x) <= 10) || (Mathf.Abs(_targetPosition.y - eventData.position.y) <= 10))
-        {
-            transform.position = _targetPosition;
-            Dropped?.Invoke(this);
-        }
-    }
-
     public void OnPointerDown(PointerEventData eventDate)
-    {
-        if (!_clickable) return;
+    {                
         StopAllCoroutines();
-        StartCoroutine(FadeColour(true));
-        RuntimeManager.PlayOneShot($"event:/PianoNotes/{note}");
-        NotePlayed?.Invoke(note);
+        StartCoroutine(FadeColourAndScale(true));
+        if (_clickable)
+        {
+            RuntimeManager.PlayOneShot($"event:/PianoNotes/{Note}");
+            NotePlayed?.Invoke(Note);
+        }        
     }
 
     public void OnPointerUp(PointerEventData eventData)
-    {
-        if (!_clickable) return;
+    {        
+        if (_onTarget)
+        {
+            transform.localPosition = _targetPosition;
+            Dropped?.Invoke(this, true);
+        }
+        else
+        {
+            Dropped?.Invoke(this, false);
+        }        
         StopAllCoroutines();
-        StartCoroutine(FadeColour(false));
+        StartCoroutine(FadeColourAndScale(false));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!_collidable) return;
-        RuntimeManager.PlayOneShot("event:/PianoNotes/" + note);
-        NotePlayed?.Invoke(note);
-        StartCoroutine(FadeColour(true));
+        RuntimeManager.PlayOneShot("event:/PianoNotes/" + Note);
+        NotePlayed?.Invoke(Note);
+        StartCoroutine(FadeColourAndScale(true));
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!_collidable) return;
-        StartCoroutine(FadeColour(false));
+        StartCoroutine(FadeColourAndScale(false));
     }
 
     public void ManualPlayNote()
@@ -114,29 +125,27 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
 
     private IEnumerator ManualPlayNoteAsync()
     {
-        _anyCoroutinesRunning = true;
-        StartCoroutine(FadeColour(true));
-        RuntimeManager.PlayOneShot($"event:/PianoNotes/{note}");
-        NotePlayed?.Invoke(note);
+        StartCoroutine(FadeColourAndScale(true));
+        RuntimeManager.PlayOneShot($"event:/PianoNotes/{Note}");
+        NotePlayed?.Invoke(Note);
         yield return new WaitForSeconds(1f);
-        StartCoroutine(FadeColour(false));
-        _anyCoroutinesRunning = false;
+        StartCoroutine(FadeColourAndScale(false));
     }
 
-    private IEnumerator FadeColour(bool noteOn)
+    private IEnumerator FadeColourAndScale(bool noteOn)
     {
-        _anyCoroutinesRunning = true;
         var target = noteOn ? new Color(_colour.r, _colour.g, _colour.b, 0.7f) : _colour;
         var start = GetComponent<Image>().color;
         float timeCounter = 0f;
         while (timeCounter <= 0.1f)
         {
-            GetComponent<Image>().color = Color.Lerp(start, target, timeCounter / 0.2f);
+            GetComponent<Image>().color = Color.Lerp(start, target, timeCounter / 0.1f);
+            var scaleDiff = 0.1f * curve.Evaluate(timeCounter / 0.1f);
+            transform.localScale = noteOn ? new Vector3(1 - scaleDiff, 1 - scaleDiff) : new Vector3(0.9f + scaleDiff, 0.9f + scaleDiff);
             timeCounter += Time.deltaTime;
             yield return null;
         }
         GetComponent<Image>().color = target;
-        _anyCoroutinesRunning = false;
     }
 
     public IEnumerator Dispose()

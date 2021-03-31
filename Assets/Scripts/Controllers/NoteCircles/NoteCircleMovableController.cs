@@ -15,14 +15,15 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     private Color _textColour;
     private bool _playable;
 
-    public Color circleColour;
-    public string note;
-    public float waitTime;
-    public float localY = 0;
-    public List<int> availableX;
-    public bool octaveUp;
-    public bool draggable;
-    public bool clickToPlay;
+    [HideInInspector] public Color circleColour;
+    [HideInInspector] public string note;
+    [HideInInspector] public float waitTime;
+    [HideInInspector] public float localY = 0;
+    [HideInInspector] public List<int> availableX;
+    [HideInInspector] public bool octaveUp;
+    [HideInInspector] public bool draggable;
+    [HideInInspector] public bool clickToPlay;
+
     public AnimationCurve curve;
     
     public static event Action<string> NotePlayed;
@@ -91,12 +92,12 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         if (!_playable) return;
         NotePlayed?.Invoke(text.text);        
         RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
-        StartCoroutine(Resize(true));
+        StartCoroutine(Resize(true, true));
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        StartCoroutine(Resize(false));
+        StartCoroutine(Resize(false, true));
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -117,6 +118,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             size *= 0.95f;
             GetComponent<RectTransform>().sizeDelta = size;   
         }
+        StartCoroutine(Resize(true, false));
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -127,32 +129,25 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 20);            
             transform.localPosition = new Vector3(snap == 0 ? transform.localPosition.x : snap, localY);
         }
+        StartCoroutine(Resize(false, false));
     }
 
-    private IEnumerator Resize(bool enlarge)
+    private IEnumerator Resize(bool noteOn, bool enlarge)
     {
-        float target = enlarge ? _size.x * 1.1f : _size.x;
-        if (enlarge)
-        {            
-            while (_rt.rect.width <= target)
-            {
-                var sizeDelta = _rt.sizeDelta;
-                sizeDelta.x = sizeDelta.x > target ? target : sizeDelta.x + Time.deltaTime / 0.01f;
-                sizeDelta.y = sizeDelta.y > target ? target : sizeDelta.y + Time.deltaTime / 0.01f;
-                _rt.sizeDelta = sizeDelta;
-                yield return null;
-            }
-        }
-        else
+        float timeCounter = 0f;
+        while (timeCounter <= 0.1f)
         {
-            while (_rt.rect.width >= target)
+            var scaleDiff = 0.1f * curve.Evaluate(timeCounter / 0.1f);
+            if (enlarge)
             {
-                var sizeDelta = _rt.sizeDelta;
-                sizeDelta.x = sizeDelta.x < target ? target : sizeDelta.x - Time.deltaTime / 0.01f;
-                sizeDelta.y = sizeDelta.y < target ? target : sizeDelta.y - Time.deltaTime / 0.01f;
-                _rt.sizeDelta = sizeDelta;
-                yield return null;
+                transform.localScale = noteOn ? new Vector3(1 + scaleDiff, 1 + scaleDiff) : new Vector3(1.1f - scaleDiff, 1.1f - scaleDiff);
             }
+            else
+            {
+                transform.localScale = noteOn ? new Vector3(1 - scaleDiff, 1 - scaleDiff) : new Vector3(0.9f + scaleDiff, 0.9f + scaleDiff);
+            }
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -160,16 +155,13 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     {
         float time = 0.5f;
         float timeCounter = 0f;
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
         var start = GetComponent<Image>().color;
         while (timeCounter <= time)
         {
             GetComponent<Image>().color = Color.Lerp(start, Color.clear, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
-
         Destroy(gameObject);
     } 
 }

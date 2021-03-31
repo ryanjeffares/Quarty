@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// parent class with boilerplate code for scene controllers
 public abstract class BaseManager : MonoBehaviour
 {
     protected Dictionary<GameObject, Action<GameObject>> buttonCallbackLookup;
@@ -25,6 +26,7 @@ public abstract class BaseManager : MonoBehaviour
         OnAwake();
     }
     
+    // override this function in place of Awake
     protected abstract void OnAwake();
     
     private void Start()

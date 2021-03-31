@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2526018097515019239}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.4074074
+  m_Size: 0.40740743
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2241,12 +2241,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2526018098980884524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c158cce72bb35b4aa56fb68d2132737, type: 3}
+  m_Script: {fileID: 11500000, guid: 91e21bdc78754984fbdaa4ffb3976512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   debug: 0
   keyPrefab: {fileID: 8653035700664660797, guid: 5c9aed88a6ad288458a0199bd54fbdb3,
     type: 3}
   content: {fileID: 2526018099135573785}
-  scrollbar: {fileID: 2526018098283854704}
-  scrollbarBg: {fileID: 2526018097515019238}
+  scrollbar: {fileID: 2526018097515019238}
+  scrollbarBg: {fileID: 2526018098283854704}

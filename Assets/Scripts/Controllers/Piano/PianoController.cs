@@ -69,8 +69,8 @@ public class PianoController : MonoBehaviour
             note.transform.localPosition = pos;
             _keys.Add(note);
             var controller = note.GetComponent<PianoKeyController>();
-            controller.note = _naturals[i];
             controller.Show(waitTime, clickable);
+            controller.Note = _naturals[i];            
             pos.x += 60;
             if(_naturals[i].Contains("E") || _naturals[i].Contains("B"))
             {
@@ -90,9 +90,9 @@ public class PianoController : MonoBehaviour
                 var note = Instantiate(keyPrefab, content.transform);
                 note.transform.localPosition = pos;
                 _keys.Add(note);
-                var controller = note.GetComponent<PianoKeyController>();
-                controller.note = _sharps[i];
+                var controller = note.GetComponent<PianoKeyController>();                
                 controller.Show(waitTime, clickable);
+                controller.Note = _sharps[i];
                 if (_sharps[i].Contains("C") || _sharps[i].Contains("F") || _sharps[i].Contains("G"))
                 {
                     waitTime += 0.2f;
@@ -126,15 +126,15 @@ public class PianoController : MonoBehaviour
 
     public void HighlightKeys(string[] notes)
     {
-        foreach(var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().note)))
+        foreach(var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().Note)))
         {
-            StartCoroutine(k.GetComponent<PianoKeyController>().AnimateText());
+            k.GetComponent<PianoKeyController>().BeginHighlight();
         }
     }
 
     public void RemoveKeyHighlights(string[] notes)
     {
-        foreach (var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().note)))
+        foreach (var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().Note)))
         {
             k.GetComponent<PianoKeyController>().animate = false;
         }
@@ -142,7 +142,7 @@ public class PianoController : MonoBehaviour
 
     public void PlayNotesManual(string[] notes)
     {
-        foreach (var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().note)))
+        foreach (var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().Note)))
         {
             k.GetComponent<PianoKeyController>().ManualPlayNote();
         }

@@ -63,6 +63,7 @@ public class MinorSeventhsPuzzleController : BaseManager
         {
             "B1", "C2", "D2", "E2", "F2", "G2", "A2"
         };
+        _stars = new List<GameObject>();
         PianoKeyDraggableController.Dropped += KeyDroppedCallback;
         PianoKeyDraggableController.NotePlayed += NotePlayedCallback;
         PianoKeyController.NotePlayed += NotePlayedCallback;
@@ -89,7 +90,7 @@ public class MinorSeventhsPuzzleController : BaseManager
         }
         else
         {
-            Persistent.sceneToLoad = "MinorSeventhChords";
+            Persistent.sceneToLoad = "SuspendedChords";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
@@ -118,7 +119,7 @@ public class MinorSeventhsPuzzleController : BaseManager
 
     private void TryButtonCallback(GameObject g)
     {
-        if (!_ready) return;
+        if (!_ready || !_playing) return;
         _playedNotes = new List<string>();
         foreach (var k in _keys)
         {
@@ -129,11 +130,11 @@ public class MinorSeventhsPuzzleController : BaseManager
         _ready = false;
     }
 
-    private void KeyDroppedCallback(PianoKeyDraggableController kc)
+    private void KeyDroppedCallback(PianoKeyDraggableController kc, bool onTarget)
     {
-        _ready = true;
-        tryButton.GetComponentInChildren<Text>().color = new Color(0.196f, 0.196f, 0.196f, 1);
-        _draggableKeyToPlay = kc;
+        _ready = onTarget;
+        tryButton.GetComponentInChildren<Text>().color = new Color(0.196f, 0.196f, 0.196f, onTarget ? 1 : 0.5f);
+        _draggableKeyToPlay = onTarget ? kc : null;
     }
 
     private void NotePlayedCallback(string note)
@@ -192,7 +193,7 @@ public class MinorSeventhsPuzzleController : BaseManager
             var controller = key.GetComponent<PianoKeyController>();
             key.transform.localPosition = new Vector3(x, 200);
             controller.Show(wait, clickable: false, usePersistentColour: true);
-            controller.note = n;
+            controller.Note = n;
             wait += 0.1f;
             x += 100;
         }
@@ -216,8 +217,8 @@ public class MinorSeventhsPuzzleController : BaseManager
             _draggableKeys.Add(key);
             var controller = key.GetComponent<PianoKeyDraggableController>();
             key.transform.localPosition = new Vector3(x, -100);
-            controller.Show(wait, keyOutline.gameObject.transform.position, clickable: false, usePersistentColour: true);
-            controller.note = n;
+            controller.Show(wait, keyOutline.gameObject.transform.localPosition, clickable: false, usePersistentColour: true);
+            controller.Note = n;
             wait += 0.1f;
             x += 100;
         }
@@ -272,7 +273,7 @@ public class MinorSeventhsPuzzleController : BaseManager
             if (stars > Persistent.harmonyLessons.scores["Minor Seventh Chords"])
             {
                 Persistent.harmonyLessons.scores["Minor Seventh Chords"] = stars;
-                Persistent.harmonyLessons.lessons["Minor Seventh Chords"] = true;
+                Persistent.harmonyLessons.lessons["Suspended Chords"] = true;
                 Persistent.UpdateLessonAvailability("Harmony");
             }
         }

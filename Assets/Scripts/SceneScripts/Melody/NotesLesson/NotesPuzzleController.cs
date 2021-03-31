@@ -405,7 +405,7 @@ public class NotesPuzzleController : BaseManager
 
             timeRemaining.fillRect.GetComponent<Image>().color = Color.Lerp(Persistent.rainbowColours[3], Persistent.rainbowColours[0], timeCounter / timer);
             timeCounter += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
         _playing = false;
         foreach (var circle in _movableCircles)

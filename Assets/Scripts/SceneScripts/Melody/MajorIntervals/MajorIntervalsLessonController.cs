@@ -207,7 +207,7 @@ public class MajorIntervalsLessonController : BaseManager
             square.squareColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
             square.waitTime = waitTime;
             square.draggable = !notes[i].Contains("G");
-            square.startingYpos = y;
+            square.StartingYpos = y;
             square.Show();
             y -= 100;
             waitTime += 0.1f;

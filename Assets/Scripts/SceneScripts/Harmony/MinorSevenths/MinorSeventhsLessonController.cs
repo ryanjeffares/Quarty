@@ -66,6 +66,7 @@ public class MinorSeventhsLessonController : BaseManager
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 _piano = Instantiate(pianoPrefab, pianoContainer.transform);
                 _piano.GetComponent<PianoController>().Show(2, showFlats: false);
+                yield return new WaitForSeconds(1f);
                 _piano.GetComponent<PianoController>().HighlightKeys(new[] { "D2", "F2", "A2", "C3" });
                 yield return new WaitForSeconds(2f);
                 _piano.GetComponent<PianoController>().PlayNotesManual(new[] { "D2", "F2", "A2", "C3" });
