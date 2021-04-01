@@ -40,6 +40,7 @@ public class MinorTriadsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary("Minor Chord");
             Persistent.sceneToLoad = "MinorTriadsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

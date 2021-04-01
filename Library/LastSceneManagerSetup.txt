@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Harmony/SuspendedChordsPuzzle.unity
+- path: Assets/Scenes/Harmony/ChordProgressions.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

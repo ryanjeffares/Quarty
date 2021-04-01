@@ -60,6 +60,7 @@ public class MajorScaleLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Root Note", "Major Scale" });
             Persistent.melodyLessons.lessons["Major Intervals"] = true;
             Persistent.sceneToLoad = "MajorIntervals";
             Persistent.goingHome = false;

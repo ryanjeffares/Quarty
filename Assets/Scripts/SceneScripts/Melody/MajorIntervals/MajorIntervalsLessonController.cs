@@ -59,6 +59,7 @@ public class MajorIntervalsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Interval", "Major Third", "Major Sixth", "Major Seventh" });
             Persistent.sceneToLoad = "MajorIntervalsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

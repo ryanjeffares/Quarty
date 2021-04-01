@@ -75,6 +75,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Tone", "Semitone" });
             Persistent.sceneToLoad = "TonesAndSemitonesPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

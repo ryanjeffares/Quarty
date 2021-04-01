@@ -78,6 +78,7 @@ public class MajorAndMinorSecondLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Major Second", "Minor Second" });
             Persistent.melodyLessons.lessons["Melody Writing"] = true;
             Persistent.sceneToLoad = "MelodyWriting";
             Persistent.goingHome = false;

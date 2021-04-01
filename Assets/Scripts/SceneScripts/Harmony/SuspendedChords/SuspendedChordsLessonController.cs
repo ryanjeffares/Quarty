@@ -42,6 +42,7 @@ public class SuspendedChordsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Suspended Second Chord", "Suspended Fourth Chord" });
             Persistent.sceneToLoad = "SuspendedChordsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

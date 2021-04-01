@@ -39,6 +39,7 @@ public class MinorSeventhsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[]{ "Minor Seventh Chord", "Dominant Seventh Chord" });
             Persistent.sceneToLoad = "MinorSeventhChordsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

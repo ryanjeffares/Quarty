@@ -104,7 +104,7 @@ public class SuspendedChordsPuzzleController : BaseManager
         }
         else
         {
-            Persistent.sceneToLoad = "SuspendedChords";
+            Persistent.sceneToLoad = "DiminishedChords";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
@@ -294,7 +294,7 @@ public class SuspendedChordsPuzzleController : BaseManager
             if (stars > Persistent.harmonyLessons.scores["Suspended Chords"])
             {
                 Persistent.harmonyLessons.scores["Suspended Chords"] = stars;
-                Persistent.harmonyLessons.lessons["Suspended Chords"] = true;
+                Persistent.harmonyLessons.lessons["Diminished Chords"] = true;
                 Persistent.UpdateLessonAvailability("Harmony");
             }
         }

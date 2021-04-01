@@ -67,6 +67,7 @@ public class NotesLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary("Scale");
             Persistent.sceneToLoad = "NotesPuzzle";
             Persistent.goingHome = false;            
             SceneManager.LoadScene("LoadingScreen");

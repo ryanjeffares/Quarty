@@ -40,6 +40,7 @@ public class MajorTriadsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Chord", "Triad", "Major Chord" });
             Persistent.sceneToLoad = "MajorTriadsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

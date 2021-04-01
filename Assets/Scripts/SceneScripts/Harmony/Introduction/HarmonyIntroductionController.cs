@@ -37,6 +37,7 @@ public class HarmonyIntroductionController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary("Harmony");
             Persistent.harmonyLessons.lessons["Major Triads"] = true;
             Persistent.UpdateLessonAvailability("Harmony");
             Persistent.sceneToLoad = "MajorTriads";

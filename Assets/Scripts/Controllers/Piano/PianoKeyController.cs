@@ -9,9 +9,10 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
 {
     public static event Action<string> NotePlayed;
 
-    [SerializeField] private Text text;
+    [SerializeField] private Text text, numberText;
     [SerializeField] private AnimationCurve curve;
 
+    private PianoController _parent;
     private Color _colour;
     private bool _clickable, _usePersistentColour, _fadedIn;    
     private string _note;
@@ -34,14 +35,23 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
     }
     
     [HideInInspector]
-    public bool animate;    
+    public bool animate;
+    [HideInInspector]
+    public bool autoChord;
 
-    public void Show(float waitTime, bool clickable = true, bool usePersistentColour = false)
+    public void Show(float waitTime, bool clickable = true, bool usePersistentColour = false, 
+        bool autoPlayChord = false, PianoController parent = null, bool showNumbers = false, int number = 0)
     {
         GetComponent<Image>().color = Color.clear;
+        _parent = parent;
         text.color = Color.clear;
         _clickable = clickable;
-        _usePersistentColour = usePersistentColour;        
+        _usePersistentColour = usePersistentColour;
+        autoChord = autoPlayChord;
+        if (showNumbers)
+        {
+            numberText.text = number.ToString();
+        }
         StartCoroutine(FadeIn(waitTime));
     }
 
@@ -53,6 +63,7 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             GetComponent<Image>().color = Color.Lerp(Color.clear, _colour, timeCounter / 0.5f);
             text.color = Color.Lerp(Color.clear, Color.grey, timeCounter / 0.5f);
+            numberText.color = Color.Lerp(Color.clear, Color.grey, timeCounter / 0.5f);
             timeCounter += Time.deltaTime;
             yield return null;
         }
@@ -66,12 +77,30 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
         StartCoroutine(FadeColourAndScale(true));
         RuntimeManager.PlayOneShot($"event:/PianoNotes/{Note}");
         NotePlayed?.Invoke(Note);
+        if (autoChord)
+        {
+            if(_parent == null)
+            {
+                Debug.Log("You tried to autoplay chord but PianoKeyController's parent is null!");
+                return;
+            }
+            _parent.PlayChord(gameObject);
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         if (!_clickable) return;        
         StartCoroutine(FadeColourAndScale(false));
+        if (autoChord)
+        {
+            if (_parent == null)
+            {
+                Debug.Log("You tried to autoplay chord but PianoKeyController's parent is null!");
+                return;
+            }
+            _parent.ChordOff(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -79,25 +108,51 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
         RuntimeManager.PlayOneShot("event:/PianoNotes/" + Note);
         NotePlayed?.Invoke(Note);
         StartCoroutine(FadeColourAndScale(true));
+        if (autoChord)
+        {
+            if (_parent == null)
+            {
+                Debug.Log("You tried to autoplay chord but PianoKeyController's parent is null!");
+                return;
+            }
+            _parent.PlayChord(gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         StartCoroutine(FadeColourAndScale(false));
+        if (autoChord)
+        {
+            if (_parent == null)
+            {
+                Debug.Log("You tried to autoplay chord but PianoKeyController's parent is null!");
+                return;
+            }
+            _parent.ChordOff(gameObject);
+        }
     }
 
-    public void ManualPlayNote()
+    public void ManualPlayNote(bool waitForNoteOff = false)
     {
-        StartCoroutine(ManualPlayNoteAsync());
+        StartCoroutine(ManualPlayNoteAsync(waitForNoteOff: waitForNoteOff));
     }
 
-    private IEnumerator ManualPlayNoteAsync()
+    public void ManualNoteOff()
+    {
+        StartCoroutine(FadeColourAndScale(false));
+    }
+
+    private IEnumerator ManualPlayNoteAsync(bool waitForNoteOff = false)
     {        
         StartCoroutine(FadeColourAndScale(true));
         RuntimeManager.PlayOneShot($"event:/PianoNotes/{Note}");
         NotePlayed?.Invoke(Note);
-        yield return new WaitForSeconds(0.5f);
-        StartCoroutine(FadeColourAndScale(false));     
+        if (!waitForNoteOff)
+        {
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(FadeColourAndScale(false));
+        }             
     }
 
     private IEnumerator FadeColourAndScale(bool noteOn)

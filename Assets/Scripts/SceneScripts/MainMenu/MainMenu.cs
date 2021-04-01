@@ -7,11 +7,11 @@ using FMODUnity;
 
 public class MainMenu : BaseManager
 {
-    [SerializeField] private GameObject playButton, settingsButton, statsButton, quitButton;
-    [SerializeField] private GameObject settingsPage, coursesPage, statsPage;    
+    [SerializeField] private GameObject playButton, settingsButton, statsButton, glossaryButton, quitButton;
+    [SerializeField] private GameObject settingsPage, coursesPage, glossaryPage, statsPage;    
     [SerializeField] private Button devButton;    
     [EventRef] private FMOD.Studio.EventInstance _musicEvent;    
-    private GameObject _settings, _courses, _stats;
+    private GameObject _settings, _courses, _glossary, _stats;
 
     protected override void OnAwake()
     {
@@ -21,6 +21,7 @@ public class MainMenu : BaseManager
             {playButton, PlayButtonCallback},
             {settingsButton, SettingsButtonCallback},
             {statsButton, StatsButtonCallback},
+            {glossaryButton, GlossaryButtonCallback },
             {quitButton, QuitButtonCallback}
         };
         devButton.onClick.AddListener(() =>
@@ -74,6 +75,13 @@ public class MainMenu : BaseManager
         _stats.transform.localScale = new Vector3(1.2f, 1.2f);
     }
     
+    private void GlossaryButtonCallback(GameObject g)
+    {
+        _glossary = Instantiate(glossaryPage, transform.GetChild(0));
+        _glossary.transform.GetChild(0).localScale = new Vector3(1, 1);
+        _glossary.transform.localScale = new Vector3(1.2f, 1.2f);
+    }
+
     private void QuitButtonCallback(GameObject g)
     {        
         Application.Quit();

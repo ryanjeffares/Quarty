@@ -161,6 +161,7 @@ public static class Persistent
             {"Major Third", "The Major Third is the third note in a Major Scale, and has an interval of 2 Tones or 4 Semitones." },
             {"Major Sixth", "The Major Third is the sixth note in a Major Scale, and has an interval of 9 Semitones." },
             {"Major Seventh", "The Major Seventh is the seventh note in a Major Scale, and has an interval of 11 Semitones. It is only 1 semitone below the octave of the root note." },
+            {"Minor Scale", "A scale that is commonly used in Western Music. It is called \"Minor\" because it has a dark and sad sound. A Tone (T) and Semitone (S) pattern of T, S, T, T, S, T, T makes a Minor Scale." },
             {"Minor Third", "The Minor Third is the third note in a Minor Scale, and has an interval of 3 Semitones." },
             {"Minor Sixth", "The Minor Third is the sixth note in a Minor Scale, and has an interval of 4 Tones or 8 Semitones." },
             {"Minor Seventh", "The Minor Seventh is the seventh note in a Minor Scale, and has an interval of 5 Tones or 10 Semitones. It is only 1 tone below the octave of the root note." },
@@ -179,6 +180,13 @@ public static class Persistent
             {"Dominant Seventh Chord", "A Dominant Seventh Chord is made of a Major Triad with a Minor Seventh on top." },
             {"Suspended Second Chord", "A Suspended Second chord is made from the Root, Major 2nd, and Perfect Fifth of any scale." },
             {"Suspended Fourth Chord", "A Suspended Second chord is made from the Root, Perfect 4th, and Perfect Fifth of any scale." },
+            {"Diminished Chord", "A Diminished Chord is made from the Root, Minor Third, and Tritone. It is dissonant and rarely used." },
+            {"Dissonant", "Dissonant means unpleasant sounding and not useful in Harmony. The notes in a Dissonant chord clash with eachother." },
+            {"Consonant", "Consonant means pleasant sounding and useful in Harmony. The notes in a Consonant chord sound good together." },
+            {"Key", "A Key is a collection of notes and chords, based on a scale, that work together." },
+            {"Major Key", "The Major Key is a key based on the Major Scale of any note. It contains all the notes from that scale and chords with those notes as roots. The notes, in order, give us Major, Minor, Minor, Major, Major, Minor, and Diminished Chords." },
+            {"Minor Key", "The Minor Key is a key based on the Minor Scale of any note. It contains all the notes from that scale and chords with those notes as roots. The notes, in order, give us Minor, Diminished, Major, Minor, Minor, Major, and Major Chords." },
+            {"Chord Progression", "A Chord Progression is a sequency of chords. They can be designed to create certain emotions or feelings of movement." }
         };
         GetUserGlossary();
         #endregion
@@ -200,21 +208,40 @@ public static class Persistent
                 }
             }
         }
-        else
+    }
+
+    public static void UpdateUserGlossary(string newTerm)
+    {
+        glossaryWords.Add(newTerm);
+        UpdateGlossaryFile();
+    }
+
+    public static void UpdateUserGlossary(string[] newTerms)
+    {
+        foreach(var t in newTerms)
         {
-            var xmlDoc = new XmlDocument();
-            XmlNode rootNode = xmlDoc.CreateElement("Glossary");
-            xmlDoc.AppendChild(rootNode);
-            foreach(var term in glossaryDescriptions)
+            glossaryWords.Add(t);
+        }
+        UpdateGlossaryFile();
+    }
+
+    private static void UpdateGlossaryFile()
+    {
+        var path = Application.persistentDataPath + "/Files/User/Glossary.dat";
+        var xmlDoc = new XmlDocument();
+        XmlNode rootNode = xmlDoc.CreateElement("Glossary");
+        xmlDoc.AppendChild(rootNode);
+        foreach (var term in glossaryWords)
+        {
+            XmlElement el = xmlDoc.CreateElement("Term");
+            el.SetAttribute("term", term);
+            rootNode.AppendChild(el);
+        }
+        using (var fs = new FileStream(path, FileMode.Create))
+        {
+            string data = xmlDoc.DocumentElement.OuterXml;
+            using (var bw = new BinaryWriter(fs))
             {
-                XmlElement el = xmlDoc.CreateElement("Term");
-                el.SetAttribute("term", term.Key);
-                rootNode.AppendChild(el);
-            }
-            using(var fs = new FileStream(path, FileMode.Create))
-            {
-                string data = xmlDoc.DocumentElement.OuterXml;
-                var bw = new BinaryWriter(fs);
                 bw.Write(data);
                 bw.Close();
             }

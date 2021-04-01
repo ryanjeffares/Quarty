@@ -59,6 +59,7 @@ public class PerfectIntervalsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Perfect Fourth", "Perfect Fifth", "Perfect Octave" });
             Persistent.sceneToLoad = "PerfectIntervalsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

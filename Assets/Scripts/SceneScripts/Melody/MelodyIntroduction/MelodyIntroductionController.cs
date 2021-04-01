@@ -45,6 +45,7 @@ public class MelodyIntroductionController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Notes", "Melody" });
             Persistent.sceneToLoad = "Notes";
             Persistent.goingHome = false;
             Persistent.melodyLessons.lessons["Notes"] = true;

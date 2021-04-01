@@ -32,7 +32,8 @@ public class PianoController : MonoBehaviour
         Show(2, false);
     }
 
-    public void Show(int numOctaves, bool showFlats = true, bool useColours = false, bool clickable = true)
+    public void Show(int numOctaves, bool showFlats = true, bool useColours = false, bool clickable = true, bool autoPlayNotes = false, 
+        bool useCustomNotes = false, string[] customNaturals = null, string[] customSharps = null, bool showNumbers = false)
     {
         int naturalStartIndex, sharpStartIndex, naturalEndIndex, sharpEndIndex; // these will be inclusive in the loop conditions
         switch (numOctaves)
@@ -56,11 +57,12 @@ public class PianoController : MonoBehaviour
                 sharpEndIndex = 14;
                 break;
             default:
-                Debug.LogWarning("Invalid number of octaves given to PianoController.Show() returning.");
+                Debug.LogWarning("Invalid number of octaves given to PianoController.Show(), returning.");
                 return;
         }
         _keys = new List<GameObject>();
         var pos = new Vector2(30, -150);
+        var nats = useCustomNotes ? customNaturals : _naturals;
         float waitTime = 0f;
         for(int i = naturalStartIndex; i <= naturalEndIndex; i++)
         {            
@@ -69,10 +71,10 @@ public class PianoController : MonoBehaviour
             note.transform.localPosition = pos;
             _keys.Add(note);
             var controller = note.GetComponent<PianoKeyController>();
-            controller.Show(waitTime, clickable);
-            controller.Note = _naturals[i];            
+            controller.Show(waitTime, clickable: clickable, usePersistentColour: useColours, autoPlayChord: autoPlayNotes, parent: this, showNumbers: showNumbers, number: (i % 7) + 1);
+            controller.Note = nats[i];            
             pos.x += 60;
-            if(_naturals[i].Contains("E") || _naturals[i].Contains("B"))
+            if(nats[i].Contains("E") || nats[i].Contains("B"))
             {
                 waitTime += 0.1f;
             }
@@ -83,6 +85,7 @@ public class PianoController : MonoBehaviour
         }
         if (showFlats)
         {
+            var sharps = useCustomNotes ? customSharps : _sharps;
             pos = new Vector2(60, -75);
             waitTime = 0.1f;
             for (int i = sharpStartIndex; i <= sharpEndIndex; i++)
@@ -91,9 +94,9 @@ public class PianoController : MonoBehaviour
                 note.transform.localPosition = pos;
                 _keys.Add(note);
                 var controller = note.GetComponent<PianoKeyController>();                
-                controller.Show(waitTime, clickable);
-                controller.Note = _sharps[i];
-                if (_sharps[i].Contains("C") || _sharps[i].Contains("F") || _sharps[i].Contains("G"))
+                controller.Show(waitTime, clickable: clickable, usePersistentColour: useColours, autoPlayChord: autoPlayNotes, parent: this);
+                controller.Note = sharps[i];
+                if (sharps[i].Contains("C") || sharps[i].Contains("F") || sharps[i].Contains("G"))
                 {
                     waitTime += 0.2f;
                     pos.x += 60;
@@ -110,6 +113,14 @@ public class PianoController : MonoBehaviour
             300);
         StartCoroutine(FadeImages(scrollbar));
         StartCoroutine(FadeImages(scrollbarBg));
+    }
+
+    public void ToggleAutoplay(bool state)
+    {
+        foreach(var k in _keys)
+        {
+            k.GetComponent<PianoKeyController>().autoChord = state;
+        }
     }
 
     private IEnumerator FadeImages(Image img)
@@ -145,6 +156,34 @@ public class PianoController : MonoBehaviour
         foreach (var k in _keys.Where(k => notes.Contains(k.GetComponent<PianoKeyController>().Note)))
         {
             k.GetComponent<PianoKeyController>().ManualPlayNote();
+        }
+    }
+
+    public void PlayChord(GameObject root)
+    {
+        if(_keys.IndexOf(root) + 2 < _keys.Count)
+        {
+            var third = _keys[_keys.IndexOf(root) + 2];
+            third.GetComponent<PianoKeyController>().ManualPlayNote(waitForNoteOff: true);
+        }
+        if (_keys.IndexOf(root) + 4 < _keys.Count)
+        {
+            var fifth = _keys[_keys.IndexOf(root) + 4];
+            fifth.GetComponent<PianoKeyController>().ManualPlayNote(waitForNoteOff: true);
+        }                    
+    }
+
+    public void ChordOff(GameObject root)
+    {
+        if (_keys.IndexOf(root) + 2 < _keys.Count)
+        {
+            var third = _keys[_keys.IndexOf(root) + 2];
+            third.GetComponent<PianoKeyController>().ManualNoteOff();
+        }
+        if (_keys.IndexOf(root) + 4 < _keys.Count)
+        {
+            var fifth = _keys[_keys.IndexOf(root) + 4];
+            fifth.GetComponent<PianoKeyController>().ManualNoteOff();
         }
     }
 }

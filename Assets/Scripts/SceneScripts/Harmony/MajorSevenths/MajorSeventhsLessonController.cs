@@ -38,6 +38,7 @@ public class MajorSeventhsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary("Major Seventh Chord");
             Persistent.sceneToLoad = "MajorSeventhChordsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

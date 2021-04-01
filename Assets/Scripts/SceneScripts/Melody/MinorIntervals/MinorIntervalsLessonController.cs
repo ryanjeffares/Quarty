@@ -59,6 +59,7 @@ public class MinorIntervalsLessonController : BaseManager
         }
         else
         {
+            Persistent.UpdateUserGlossary(new[] { "Minor Scale", "Minor Third", "Minor Sixth", "Minor Seventh" });
             Persistent.sceneToLoad = "MinorIntervalsPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
