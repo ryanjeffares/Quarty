@@ -9,30 +9,23 @@ public class PauseManager : BaseManager
     
     protected override void OnAwake()
     {
-        PauseMenu.Unpaused += UnpausedCallback;
+        PauseMenu.Unpaused += () => paused = false;
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
-            {pauseButton, PauseButtonCallback}
+            {pauseButton, (g) => 
+                { 
+                    if(!paused)
+                    {
+                        Instantiate(pauseMenu);
+                        paused = true; 
+                    } 
+                } 
+            }
         };
     }
 
     protected override void DestroyManager()
     {
-        PauseMenu.Unpaused -= UnpausedCallback;
-    }
-
-    private void PauseButtonCallback(GameObject g)
-    {
-        Debug.Log("Pause clicked");
-        if(!paused)
-        {
-            Instantiate(pauseMenu);
-            paused = true;
-        }
-    }
-
-    private void UnpausedCallback()
-    {
-        paused = false;
+        PauseMenu.Unpaused -= () => paused = false;
     }
 }

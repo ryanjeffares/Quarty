@@ -33,6 +33,7 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     [HideInInspector] public bool draggable, movableYpos;
 
     public AnimationCurve curve;    
+    [SerializeField] private AnimationCurve smoothCurve;    
 
     private void Awake()
     {        
@@ -129,16 +130,29 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     public void OnPointerDown(PointerEventData eventData)
     {        
         if (draggable && !PauseManager.paused)
-        {                        
-            var size = GetComponent<RectTransform>().sizeDelta;
-            size *= 0.95f;
-            GetComponent<RectTransform>().sizeDelta = size;
+        {
+            StartCoroutine(OnPress(true));
         }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        GetComponent<RectTransform>().sizeDelta = _size;
+        if(draggable && !PauseManager.paused)
+        {
+            StartCoroutine(OnPress(false));
+        }        
+    }
+
+    private IEnumerator OnPress(bool down)
+    {
+        float timeCounter = 0f;
+        while (timeCounter <= 0.1f)
+        {
+            var scaleDiff = 0.1f * curve.Evaluate(timeCounter / 0.1f);
+            transform.localScale = down ? new Vector3(1 - scaleDiff, 1 - scaleDiff) : new Vector3(0.9f + scaleDiff, 0.9f + scaleDiff);
+            timeCounter += Time.deltaTime;
+            yield return null;
+        }
     }
 
     private IEnumerator Resize(bool enlarge)

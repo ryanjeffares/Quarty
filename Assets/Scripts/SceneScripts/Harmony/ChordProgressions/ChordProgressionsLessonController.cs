@@ -49,6 +49,7 @@ public class ChordProgressionsLessonController : BaseManager
         }
         else
         {
+            Persistent.rhythmLessons.lessons["Rhythm Introduction"] = true;
             Persistent.UpdateUserGlossary("Chord Progression");
             Persistent.sceneToLoad = "MainMenu";
             Persistent.goingHome = true;

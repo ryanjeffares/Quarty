@@ -69,6 +69,7 @@ public class MelodyWritingLessonController : BaseManager
 
     private void NextButtonCallback(GameObject g)
     {
+        Persistent.harmonyLessons.lessons["Harmony Introduction"] = true;
         Persistent.sceneToLoad = "MainMenu";
         Persistent.goingHome = true;
         SceneManager.LoadScene("LoadingScreen");

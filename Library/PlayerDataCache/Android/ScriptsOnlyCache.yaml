@@ -704,7 +704,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 26918}
+      Script: {instanceID: 19414}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1149,7 +1149,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 26918}
+      Script: {instanceID: 19414}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1507,7 +1507,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 26918}
+      Script: {instanceID: 19414}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2080,7 +2080,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 22182}
+      Script: {instanceID: 30968}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3508,7 +3508,7 @@ ScriptsOnlyBuild:
     className: TonesAndSemitonesLessonController
   - hash:
       serializedVersion: 2
-      Hash: 696018eb9f1433d186caf903c5890c81
+      Hash: 8c4d8a721d64e53c2b7ed6bfe01ec7b5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NoteSquareMovableController
@@ -4039,4 +4039,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Harmony/MajorKeys.unity
   - Assets/Scenes/Harmony/MinorKeys.unity
   - Assets/Scenes/Harmony/ChordProgressions.unity
-  playerPath: C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Build/Quarty01-04-21.apk
+  playerPath: C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Build/Quarty02-04-21.apk
