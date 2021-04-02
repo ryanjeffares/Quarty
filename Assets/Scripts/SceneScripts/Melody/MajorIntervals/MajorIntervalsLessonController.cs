@@ -162,7 +162,7 @@ public class MajorIntervalsLessonController : BaseManager
             _demoNoteSquares.Add(Instantiate(noteSquarePrefab, noteSquareContainer.transform));
             _demoNoteSquares[i].transform.localPosition = new Vector3(0, y);
             var square = _demoNoteSquares[i].GetComponent<NoteSquareMovableController>();
-            square.note = notes[i];
+            square.note = notes[i];            
             square.squareColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
             square.waitTime = waitTime;
             square.Show();            
@@ -208,6 +208,7 @@ public class MajorIntervalsLessonController : BaseManager
             square.squareColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
             square.waitTime = waitTime;
             square.draggable = !notes[i].Contains("G");
+            square.canMoveRight = false;
             square.StartingYpos = y;
             square.Show();
             y -= 100;

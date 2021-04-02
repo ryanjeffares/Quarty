@@ -7,7 +7,7 @@ public class NoteSquaresScaleController : MonoBehaviour
     [SerializeField] List<GameObject> noteSquares;
     private string _rootNote;
     
-    public void Show(bool useCustomNotes = false, List<string> customNotes = null)
+    public void Show(bool useCustomNotes = false, List<string> customNotes = null, bool squaresDraggableRight = true, bool squaresDraggableLeft = true)
     {
         string[] notes = new string[] { "C2", "D2", "D#2", "E2", "F2", "G2", "G#2", "A2", "B2", "C3" };
         _rootNote = useCustomNotes ? customNotes[0].Substring(0, customNotes[0].Length - 1) : notes[0].Substring(0, notes[0].Length - 1);
@@ -19,6 +19,8 @@ public class NoteSquaresScaleController : MonoBehaviour
             controller.squareColour = Persistent.noteColours[useCustomNotes ?
                 customNotes[index].Substring(0, customNotes[index].Length - 1) : notes[index].Substring(0, notes[index].Length - 1)];
             controller.waitTime = waitTime;
+            controller.canMoveRight = squaresDraggableRight;
+            controller.canMoveLeft = squaresDraggableLeft;
             controller.Show();
             waitTime += 0.1f;
         }

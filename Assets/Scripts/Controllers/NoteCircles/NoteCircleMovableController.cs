@@ -46,13 +46,14 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
         else
         {
             text.text = note;
-        }
+        }        
         StartCoroutine(FadeIn(0.5f));
     }
 
     private IEnumerator FadeIn(float time)
-    {        
-        if(waitTime > 0)
+    {
+        transform.localScale = new Vector3(0, 0);
+        if (waitTime > 0)
         {
             float counter = 0f;
             while (counter <= waitTime)
@@ -62,12 +63,10 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
                 counter += Time.deltaTime;
-                yield return new WaitForSeconds(Time.deltaTime);
+                yield return null;
             }
-        }
-        float resolution = time / 0.016f;
-        var startScale = transform.localScale;
-        float interval = time / resolution;
+        }        
+        var startScale = transform.localScale;        
         float timeCounter = 0f;
         while (timeCounter <= time)
         {
@@ -77,13 +76,11 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             }
             text.color = Color.Lerp(text.color, _textColour, timeCounter / time);
             GetComponent<Image>().color = Color.Lerp(GetComponent<Image>().color, circleColour, timeCounter / time);
-            var scale = transform.localScale;
-            scale.x = startScale.x + curve.Evaluate(timeCounter / time);
-            scale.y = startScale.y + curve.Evaluate(timeCounter / time);
-            transform.localScale = scale;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            transform.localScale = new Vector3(curve.Evaluate(timeCounter / time), curve.Evaluate(timeCounter / time));
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
+        transform.localScale = new Vector3(1, 1);
         _playable = true;
     }
 
@@ -113,27 +110,27 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
             RuntimeManager.PlayOneShot("event:/SineNotes/" + note);
         }
         if (draggable && !PauseManager.paused)
-        {            
-            var size = GetComponent<RectTransform>().sizeDelta;
-            size *= 0.95f;
-            GetComponent<RectTransform>().sizeDelta = size;   
-        }
-        StartCoroutine(Resize(true, false));
+        {
+            StartCoroutine(Resize(true, false));
+        }        
     }
 
     public void OnPointerUp(PointerEventData eventData)
-    {
-        GetComponent<RectTransform>().sizeDelta = _size;
+    {        
         if (Math.Abs(localY - transform.localPosition.y) <= 20)
         {
             int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 20);            
             transform.localPosition = new Vector3(snap == 0 ? transform.localPosition.x : snap, localY);
         }
-        StartCoroutine(Resize(false, false));
+        if(draggable && !PauseManager.paused)
+        {
+            StartCoroutine(Resize(false, false));
+        }        
     }
 
     private IEnumerator Resize(bool noteOn, bool enlarge)
     {
+        Debug.Log(note);
         float timeCounter = 0f;
         while (timeCounter <= 0.1f)
         {

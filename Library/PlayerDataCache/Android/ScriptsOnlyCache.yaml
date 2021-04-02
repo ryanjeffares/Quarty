@@ -6,6 +6,7 @@ ScriptsOnlyBuild:
     - ChordProgressionsLessonController
     - CoursesController
     - DiminishedChordsLessonController
+    - DrumKitController
     - FallingChordController
     - FirstTimeOpenScreen
     - GlossaryController
@@ -50,6 +51,7 @@ ScriptsOnlyBuild:
     - PianoKeyController
     - PianoKeyDraggableController
     - QuaverAnimator
+    - RhythmIntroductionController
     - ScrollviewArrowAnimator
     - SettingsController
     - SliderChanged
@@ -105,6 +107,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.InputField
     - UnityEngine.UI.LayoutElement
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -704,7 +707,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 19414}
+      Script: {instanceID: 23580}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1149,7 +1152,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 19414}
+      Script: {instanceID: 23580}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1507,7 +1510,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 19414}
+      Script: {instanceID: 23580}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -2080,7 +2083,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 30968}
+      Script: {instanceID: 70290}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -3019,6 +3022,108 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    Assets/Scenes/Rhythm/RhythmIntroduction.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 11928}
+    - Class: 114
+      Script: {instanceID: 11930}
+    - Class: 114
+      Script: {instanceID: 11932}
+    - Class: 114
+      Script: {instanceID: 11934}
+    - Class: 114
+      Script: {instanceID: 11936}
+    - Class: 114
+      Script: {instanceID: 11938}
+    - Class: 114
+      Script: {instanceID: 12318}
+    - Class: 114
+      Script: {instanceID: 12766}
+    - Class: 114
+      Script: {instanceID: 12910}
+    - Class: 114
+      Script: {instanceID: 12962}
+    - Class: 114
+      Script: {instanceID: 13160}
+    - Class: 114
+      Script: {instanceID: 13226}
+    - Class: 114
+      Script: {instanceID: 13260}
+    - Class: 114
+      Script: {instanceID: 13300}
+    - Class: 114
+      Script: {instanceID: 13568}
+    - Class: 114
+      Script: {instanceID: 13634}
+    - Class: 114
+      Script: {instanceID: 14184}
+    - Class: 114
+      Script: {instanceID: 14448}
+    - Class: 114
+      Script: {instanceID: 14724}
+    - Class: 114
+      Script: {instanceID: 14822}
+    - Class: 114
+      Script: {instanceID: 14840}
+    - Class: 114
+      Script: {instanceID: 14912}
+    - Class: 114
+      Script: {instanceID: 15612}
+    - Class: 114
+      Script: {instanceID: 15640}
+    - Class: 114
+      Script: {instanceID: 27710}
+    - Class: 114
+      Script: {instanceID: 61008}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    Assets/Scenes/Rhythm/Tempo.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
   scriptHashData:
   - hash:
       serializedVersion: 2
@@ -3448,7 +3553,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
-      Hash: 1857acb44cb4b798e2c8a8d3a2b1a98b
+      Hash: aa6c75d7b035b8fd6a3aca30ac989088
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsController
@@ -4004,6 +4109,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: c071937b10f6e735398495dce55c224d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DrumKitController
+  - hash:
+      serializedVersion: 2
+      Hash: b414b01e464a9b8e2669152ba215f7a5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RhythmIntroductionController
   platform: 13
   scenePathNames:
   - Assets/Scenes/FirstTime.unity
@@ -4039,4 +4156,6 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Harmony/MajorKeys.unity
   - Assets/Scenes/Harmony/MinorKeys.unity
   - Assets/Scenes/Harmony/ChordProgressions.unity
+  - Assets/Scenes/Rhythm/RhythmIntroduction.unity
+  - Assets/Scenes/Rhythm/Tempo.unity
   playerPath: C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Build/Quarty02-04-21.apk

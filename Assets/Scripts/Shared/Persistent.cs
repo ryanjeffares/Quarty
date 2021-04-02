@@ -186,7 +186,8 @@ public static class Persistent
             {"Key", "A Key is a collection of notes and chords, based on a scale, that work together." },
             {"Major Key", "The Major Key is a key based on the Major Scale of any note. It contains all the notes from that scale and chords with those notes as roots. The notes, in order, give us Major, Minor, Minor, Major, Major, Minor, and Diminished Chords." },
             {"Minor Key", "The Minor Key is a key based on the Minor Scale of any note. It contains all the notes from that scale and chords with those notes as roots. The notes, in order, give us Minor, Diminished, Major, Minor, Minor, Major, and Major Chords." },
-            {"Chord Progression", "A Chord Progression is a sequency of chords. They can be designed to create certain emotions or feelings of movement." }
+            {"Chord Progression", "A Chord Progression is a sequency of chords. They can be designed to create certain emotions or feelings of movement." },
+            {"Rhythm", "Rhythm is a piece of music's pattern in time. It describes its speed and pattern." }
         };
         GetUserGlossary();
         #endregion

@@ -208,6 +208,7 @@ public class MinorIntervalsLessonController : BaseManager
             square.squareColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
             square.waitTime = waitTime;
             square.draggable = !notes[i].Contains("E");
+            square.canMoveLeft = false;
             square.StartingYpos = y;
             square.Show();
             y -= 100;

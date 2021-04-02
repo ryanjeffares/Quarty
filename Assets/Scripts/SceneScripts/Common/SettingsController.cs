@@ -9,6 +9,7 @@ public class SettingsController : BaseManager
     public static event Action<bool> ToggleDevButton;
     [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton;
     [SerializeField] private Toggle devButtonToggle;
+    [SerializeField] private Dropdown colourblindDropdown;
     private float _initVolumeSliderVal, _initObjectSliderVal;
 
     protected override void OnAwake()
@@ -23,7 +24,7 @@ public class SettingsController : BaseManager
             {cancelButton, CancelButtonCallback},
             {acceptButton, AcceptButtonCallback}
         };
-        devButtonToggle.onValueChanged.AddListener((state) => ToggleDevButton?.Invoke(state));
+        devButtonToggle.onValueChanged.AddListener((state) => ToggleDevButton?.Invoke(state));        
         // This function only loads settings on to their UI elements, actual values are set on the main menu script
         LoadSettings();
     }

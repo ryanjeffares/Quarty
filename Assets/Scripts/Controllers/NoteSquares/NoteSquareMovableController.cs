@@ -31,6 +31,11 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     [HideInInspector] public float xRange = 80;
     [HideInInspector] public float yRange = 200;
     [HideInInspector] public bool draggable, movableYpos;
+    [HideInInspector] public float[] targetXs;
+    [HideInInspector] public float targetY;
+    [HideInInspector] public bool shouldSnap;    
+
+    [HideInInspector] public bool canMoveRight = true, canMoveLeft = true;
 
     public AnimationCurve curve;    
     [SerializeField] private AnimationCurve smoothCurve;    
@@ -119,8 +124,22 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
             transform.position = new Vector3(eventData.position.x, movableYpos ? eventData.position.y : _startingYWorldPos);
             float newX = transform.localPosition.x;
             float newY = transform.localPosition.y;
-            if (newX > xRange) newX = xRange;
-            if (newX < -xRange) newX = -xRange;
+            if (canMoveRight)
+            {
+                if (newX > xRange) newX = xRange;                
+            }
+            else
+            {
+                if (newX > 0) newX = 0;
+            }
+            if (canMoveLeft)
+            {
+                if (newX < -xRange) newX = -xRange;
+            }
+            else
+            {
+                if (newX < 0) newX = 0;
+            }
             if (newY > yRange) newY = yRange;
             if (newY < -yRange) newY = -yRange;
             transform.localPosition = new Vector3(newX, movableYpos ? newY : _startingYpos);
@@ -140,6 +159,27 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
         if(draggable && !PauseManager.paused)
         {
             StartCoroutine(OnPress(false));
+            if (shouldSnap)
+            {
+                // for the record, i hate this
+                float newY = -1, newX = -1;
+                if(Mathf.Abs(targetY - transform.localPosition.y) <= 40)
+                {
+                    newY = targetY;
+                }
+                foreach(var x in targetXs)
+                {
+                    if(Mathf.Abs(x - transform.localPosition.x) <= 40)
+                    {
+                        newX = x;
+                        break;
+                    }
+                }
+                if(newX != -1 && newY != -1)
+                {
+                    transform.localPosition = new Vector3(newX, newY);
+                }
+            }
         }        
     }
 

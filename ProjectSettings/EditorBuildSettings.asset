@@ -107,4 +107,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Harmony/ChordProgressions.unity
     guid: ba5bcbd8529436c478cec65304ee5618
+  - enabled: 1
+    path: Assets/Scenes/Rhythm/RhythmIntroduction.unity
+    guid: 4944fb43bb0f8fc46b01a530cd680387
+  - enabled: 1
+    path: Assets/Scenes/Rhythm/Tempo.unity
+    guid: c5c9df74f12065c46be2f5d940c97ddf
   m_configObjects: {}

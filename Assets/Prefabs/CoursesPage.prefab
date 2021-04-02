@@ -1937,8 +1937,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2041655662425300798}
   - component: {fileID: 8717404720099995243}
-  - component: {fileID: 5401602885365668981}
   - component: {fileID: 7764883343703251807}
+  - component: {fileID: 5401602885365668981}
   m_Layer: 5
   m_Name: Melody
   m_TagString: Untagged
@@ -1977,18 +1977,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4208912523767367422}
   m_CullTransparentMesh: 0
---- !u!114 &5401602885365668981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4208912523767367422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0c740073b8b4f21bf6c64c578c86b5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7764883343703251807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2019,6 +2007,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5401602885365668981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4208912523767367422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c740073b8b4f21bf6c64c578c86b5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4253021328880117213
 GameObject:
   m_ObjectHideFlags: 0

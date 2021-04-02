@@ -8,8 +8,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{2C7B9F76-0596-4745-9B4E-7C1BA26D9FD4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -63,9 +62,11 @@
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MajorTriads\MajorTriadsLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\CoursesController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Harmony\ChordProgressions\ChordProgressionsLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MinorScale\MinorScaleLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Piano\FallingChordController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyIntroduction\MelodyIntroductionController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\DrumKit\DrumKitController.cs" />
     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MajorSevenths\MajorSeventhsLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\SplashTextAnimator.cs" />
@@ -73,8 +74,10 @@
     <Compile Include="Assets\Scripts\Controllers\NoteCircles\NoteCirclesScaleEmptyController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\PerfectIntervals\PerfectIntervalsLessonController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\AllowList.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryTabController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\SuspendedChords\SuspendedChordsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IProfanityFilter.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorKeys\MinorKeysLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\FirstTimeOpenScreen.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\PerfectIntervals\PerfectIntervalsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\SettingsController.cs" />
@@ -87,7 +90,9 @@
     <Compile Include="Assets\Scripts\Controllers\NoteSquares\NoteSquareMovableController.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonClickedAnimation.cs" />
     <Compile Include="Assets\Scripts\EventScripts\ButtonClicked.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Harmony\MajorKeys\MajorKeysLessonController.cs" />
     <Compile Include="Assets\Scripts\Shared\Typedefs.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\RhythmIntroduction\RhythmIntroductionController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityBase.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorSevenths\MinorSeventhsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\Shared\UserSettings.cs" />
@@ -111,6 +116,7 @@
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorSevenths\MinorSeventhsLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Xylophone\XylophoneKeyController.cs" />
     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Harmony\DiminishedChords\DiminishedChordsLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Piano\KeyOutlineCollider.cs" />
     <Compile Include="Assets\Scripts\Controllers\Piano\PianoController.cs" />
     <Compile Include="Assets\Scripts\Controllers\NoteCircles\NoteCircleMovableController.cs" />
@@ -121,16 +127,14 @@
     <Compile Include="Assets\Scripts\Controllers\Xylophone\XylophoneController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\LoadingScreen\LoadingScreen.cs" />
+    <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyWriting\MelodyWritingLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\Introduction\HarmonyIntroductionController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryTabController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Harmony\MajorKeys\MajorKeysLessonController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Harmony\DiminishedChords\DiminishedChordsLessonController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorKeys\MinorKeysLessonController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Harmony\ChordProgressions\ChordProgressionsLessonController.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />
+     <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />
+     <None Include="Assets\Colorblind Effect\Assets\Shaders\Colorblind.shader" />
+     <None Include="Assets\UnityPackages\JsonNet\Newtonsoft.Json.dll" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.6f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -759,7 +763,6 @@
       <Name>FMODUnityEditor</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

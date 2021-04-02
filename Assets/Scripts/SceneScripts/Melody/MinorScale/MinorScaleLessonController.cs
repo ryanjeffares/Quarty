@@ -156,7 +156,7 @@ public class MinorScaleLessonController : BaseManager
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 _squareScale = Instantiate(squaresScalePrefab, mainContainer.transform);
                 _squareScale.transform.localPosition = new Vector3(200, 200);
-                _squareScale.GetComponent<NoteSquaresScaleController>().Show(true, new List<string> { "A1", "B1", "C2", "C#2", "D2", "E2", "F2", "G2", "G#2", "A2" });
+                _squareScale.GetComponent<NoteSquaresScaleController>().Show(true, new List<string> { "A1", "B1", "C2", "C#2", "D2", "E2", "F2", "G2", "G#2", "A2" }, squaresDraggableRight: false);
                 _squareScale.GetComponent<NoteSquaresScaleController>().MakeDraggable(true);
                 StartCoroutine(FadeInArrow(0.5f));
                 StartCoroutine(FadeButtonText(tryButton, true, 0.5f));
@@ -177,7 +177,7 @@ public class MinorScaleLessonController : BaseManager
         StartCoroutine(FadeText(introText, true, 0.5f));
         _secondSquareScale = Instantiate(squaresScalePrefab, mainContainer.transform);
         _secondSquareScale.transform.localPosition = new Vector3(200, 200);        
-        _secondSquareScale.GetComponent<NoteSquaresScaleController>().Show(true, new List<string> { "E1", "F#1", "G1", "G#1", "A1", "B1", "C2", "C#2", "D2", "E2" });
+        _secondSquareScale.GetComponent<NoteSquaresScaleController>().Show(true, new List<string> { "E1", "F#1", "G1", "G#1", "A1", "B1", "C2", "C#2", "D2", "E2" }, squaresDraggableRight: false);
         _secondSquareScale.GetComponent<NoteSquaresScaleController>().MakeDraggable(true);
         _correctOrder = new List<string> { "E", "F#", "G", "A", "B", "C", "D", "E" };
         yield return new WaitForSeconds(1);

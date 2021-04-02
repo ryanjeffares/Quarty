@@ -285,6 +285,7 @@ public class PerfectIntervalsPuzzleController : BaseManager
             controller.draggable = !nextCombo[i].Contains(root);
             _movableSquares[i].transform.localPosition = new Vector3(nextCombo[i].Contains(root) ? 0 : -100, y);
             controller.StartingYpos = y;
+            controller.canMoveRight = false;
             controller.Show();
             y -= 100;
             wait += 0.1f;

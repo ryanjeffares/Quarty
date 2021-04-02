@@ -208,6 +208,7 @@ public class PerfectIntervalsLessonController : BaseManager
             square.squareColour = Persistent.noteColours[notes[i].Substring(0, notes[i].Length - 1)];
             square.waitTime = waitTime;
             square.draggable = notes[i] != "G1";
+            square.canMoveLeft = false;
             square.StartingYpos = y;
             square.Show();
             y -= 100;

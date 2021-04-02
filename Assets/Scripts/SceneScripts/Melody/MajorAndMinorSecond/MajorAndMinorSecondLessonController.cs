@@ -14,6 +14,7 @@ public class MajorAndMinorSecondLessonController : BaseManager
     [SerializeField] private List<GameObject> exampleArrows, challengeArrows;
     [SerializeField] private List<Text> exampleTexts, challengeTexts;
     [SerializeField] private Text introText, notesText, helpText;
+    [SerializeField] private List<Image> squareOutlines;
     [SerializeField] private AnimationCurve easeInOutCurve;
 
     private int _levelStage;
@@ -206,7 +207,11 @@ public class MajorAndMinorSecondLessonController : BaseManager
     }
 
     private void SpawnChallengeSquares()
-    {        
+    {
+        foreach(var img in squareOutlines)
+        {
+            StartCoroutine(FadeImage(img, Color.clear, Color.white, 0.5f));
+        }
         var rootNotes = new List<Tuple<string, Vector2>>
         {
             new Tuple<string, Vector2>("C2", new Vector2(-150, -100)),
@@ -245,6 +250,9 @@ public class MajorAndMinorSecondLessonController : BaseManager
             movableController.draggable = true;
             movableController.movableYpos = true;
             movableController.xRange = 200;
+            movableController.shouldSnap = true;
+            movableController.targetY = 0;
+            movableController.targetXs = new float[] { -150, -50, 50, 150 };
             movableController.Show();
             waitTime += 0.1f;
         }

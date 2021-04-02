@@ -289,6 +289,7 @@ public class MajorIntervalsPuzzleController : BaseManager
             controller.waitTime = wait;
             controller.squareColour = Persistent.noteColours[nextCombo[i].Substring(0, nextCombo[i].Length - 1)];
             controller.draggable = !nextCombo[i].Contains(root);
+            controller.canMoveRight = false;
             _movableSquares[i].transform.localPosition = new Vector3(nextCombo[i].Contains(root) ? 0 : -100, y);
             controller.StartingYpos = y;
             controller.Show();
