@@ -130,6 +130,10 @@
     <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyWriting\MelodyWritingLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\Introduction\HarmonyIntroductionController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Common\DetectCamera.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\Tempo\TempoLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\Tempo\TempoPuzzleController.cs" />
+    <Compile Include="Assets\ClickableTempoTextController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />

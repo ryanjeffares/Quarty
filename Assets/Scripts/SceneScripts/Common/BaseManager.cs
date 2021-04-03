@@ -86,14 +86,12 @@ public abstract class BaseManager : MonoBehaviour
     protected virtual IEnumerator FadeText(Text text, bool fadeIn, float time, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
     {
         yield return new WaitUntil(() => canTextLerp[text]);
-        canTextLerp[text] = false;
-        float resolution = time / 0.016f;
+        canTextLerp[text] = false;        
         var startColour = text.color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
 
         if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
+        {            
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -101,13 +99,12 @@ public abstract class BaseManager : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
 
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        float timeCounter = 0f;        
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -115,8 +112,8 @@ public abstract class BaseManager : MonoBehaviour
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             text.color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         text.color = targetColour;
         if (fadeOut)
@@ -130,8 +127,8 @@ public abstract class BaseManager : MonoBehaviour
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
                 text.color = Color.Lerp(targetColour, startColour, timeCounter / time);
-                timeCounter += interval;
-                yield return new WaitForSeconds(interval);
+                timeCounter += Time.deltaTime; ;
+                yield return null;
             }
             text.color = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 0f : 1f);
         }
@@ -151,11 +148,9 @@ public abstract class BaseManager : MonoBehaviour
         yield return new WaitUntil(() => canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
         canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
         var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? targetAlpha : 0f);
-        float resolution = time / 0.016f;
+        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? targetAlpha : 0f);        
         if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
+        {            
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -163,13 +158,12 @@ public abstract class BaseManager : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
 
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        float timeCounter = 0f;        
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -177,8 +171,8 @@ public abstract class BaseManager : MonoBehaviour
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             button.transform.GetChild(0).GetComponent<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         button.transform.GetChild(0).GetComponent<Text>().color = targetColour;
         canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = true;
@@ -189,11 +183,9 @@ public abstract class BaseManager : MonoBehaviour
     }
     
     protected virtual IEnumerator TextFadeSize(Text text, AnimationCurve curve, float time, bool enlarge, float wait = 0f)
-    {
-        float resolution = time / 0.016f;
+    {        
         if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
+        {         
             float waitCounter = 0f;            
             while (waitCounter <= wait)
             {
@@ -201,14 +193,13 @@ public abstract class BaseManager : MonoBehaviour
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }               
         }
 
         var startScale = text.transform.localScale;
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        float timeCounter = 0f;        
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -219,18 +210,16 @@ public abstract class BaseManager : MonoBehaviour
             sc.x = startScale.x + (enlarge ? curve.Evaluate(timeCounter / time) : -curve.Evaluate(timeCounter / time));
             sc.y = startScale.y + (enlarge ? curve.Evaluate(timeCounter / time) : -curve.Evaluate(timeCounter / time));
             text.transform.localScale = sc;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         text.transform.localScale = enlarge ? new Vector2(1, 1) : new Vector2(0, 0);
     }
     
     protected virtual IEnumerator FadeInObjectScale(GameObject obj, AnimationCurve curve, bool fadeIn, float time, float wait = 0f)
     {
-        yield return new WaitForSeconds(wait);
-        float resolution = time / 0.016f;
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        yield return new WaitForSeconds(wait);        
+        float timeCounter = 0f;        
         var startScale = obj.transform.localScale;
         while (timeCounter <= time)
         {
@@ -238,8 +227,8 @@ public abstract class BaseManager : MonoBehaviour
             scale.x = startScale.x + (fadeIn ? curve.Evaluate(timeCounter / time) : -curve.Evaluate(timeCounter / time));
             scale.y = startScale.y + (fadeIn ? curve.Evaluate(timeCounter / time) : -curve.Evaluate(timeCounter / time));
             obj.transform.localScale = scale;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         obj.transform.localScale = fadeIn ? new Vector3(1, 1) : new Vector3(0, 0);
     }

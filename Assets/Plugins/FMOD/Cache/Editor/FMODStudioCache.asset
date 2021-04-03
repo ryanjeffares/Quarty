@@ -69,6 +69,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-8153361905233017419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/Syncopated90bpm
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/Syncopated90bpm
+  guid: 62c4958984878a41838265990af1c967
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 19828
 --- !u!114 &-8104139716042820791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +311,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637529884954361888
+  lastModified: 637530671672778070
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -395,6 +418,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/PianoNotes/G2
   guid: 607bf3e5de155c46830567a73bd9f090
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &-5001586153978578395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tempo/Click120bpm
+  m_EditorClassIdentifier: 
+  Path: event:/Tempo/Click120bpm
+  guid: 1af3047ae1f2cc4da7cd39a6f23b83f7
   Banks:
   - {fileID: -6753520486335150249}
   IsStream: 0
@@ -815,6 +861,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-2497781303710571079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tempo/Click90bpm
+  m_EditorClassIdentifier: 
+  Path: event:/Tempo/Click90bpm
+  guid: 4455a73af846724fb1b18c7abc1bef63
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &-2362510367653635010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1196,6 +1265,13 @@ MonoBehaviour:
   - {fileID: 7430264576168655140}
   - {fileID: -2873029793130053838}
   - {fileID: 4029766935000670382}
+  - {fileID: 278824254912035024}
+  - {fileID: -8153361905233017419}
+  - {fileID: 1294225322050228104}
+  - {fileID: -5001586153978578395}
+  - {fileID: -2497781303710571079}
+  - {fileID: 5281443870699005312}
+  - {fileID: 1377342536331927186}
   EditorParameters:
   - {fileID: -2060998473628846605}
   - {fileID: 6568236034180074964}
@@ -1203,7 +1279,7 @@ MonoBehaviour:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637529884954401900
+  stringsBankWriteTime: 637530671672815033
   cacheVersion: 6
 --- !u!114 &250169932755247837
 MonoBehaviour:
@@ -1225,6 +1301,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &278824254912035024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/Backbeat90bpm
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/Backbeat90bpm
+  guid: 3c56eed2a776864db2797b91f11a278a
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 19828
 --- !u!114 &542274310407590390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1294,6 +1393,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &1294225322050228104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/Funk120bpm
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/Funk120bpm
+  guid: 6c31d4ff62ec75449625c65191b557d1
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 17161
+--- !u!114 &1377342536331927186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tempo/Click90bpm 2
+  m_EditorClassIdentifier: 
+  Path: event:/Tempo/Click90bpm 2
+  guid: 5c8127a7b7d8b04b9cbd9ec46d27fd57
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10666
 --- !u!114 &1739546862406943849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,6 +1968,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &5281443870699005312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tempo/Click120bpm 2
+  m_EditorClassIdentifier: 
+  Path: event:/Tempo/Click120bpm 2
+  guid: 102973a209b52948a128e0a8ad0512f8
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8000
 --- !u!114 &5394681274186440251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,11 +2069,11 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637529884954401900
+  lastModified: 637530671672815033
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4032
+    Value: 4358
   Exists: 1
 --- !u!114 &5897781273282530285
 MonoBehaviour:

@@ -9,22 +9,30 @@ public class SettingsController : BaseManager
     public static event Action<bool> ToggleDevButton;
     [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton;
     [SerializeField] private Toggle devButtonToggle;
-    [SerializeField] private Dropdown colourblindDropdown;
+    [SerializeField] private Text colourBlindReadout;
+    //[SerializeField] private Dropdown colourblindDropdown;
     private float _initVolumeSliderVal, _initObjectSliderVal;
+    private string[] _colourblindTypes = new string[]
+    {
+        "Normal Vision",
+        "Protanopia",
+        "Deuteranopia",
+        "Tritanopia",
+    };
 
     protected override void OnAwake()
     {
         sliderCallbackLookup = new Dictionary<GameObject, Action<GameObject, float>>
         {
             {musicVolumeSlider, MusicVolumeSliderCallback},
-            {objectVolumeSlider, ObjectVolumeSliderCallback}
+            {objectVolumeSlider, ObjectVolumeSliderCallback}            
         };
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {
             {cancelButton, CancelButtonCallback},
             {acceptButton, AcceptButtonCallback}
         };
-        devButtonToggle.onValueChanged.AddListener((state) => ToggleDevButton?.Invoke(state));        
+        devButtonToggle.onValueChanged.AddListener((state) => ToggleDevButton?.Invoke(state));
         // This function only loads settings on to their UI elements, actual values are set on the main menu script
         LoadSettings();
     }
@@ -40,15 +48,15 @@ public class SettingsController : BaseManager
     }
 
     private void CancelButtonCallback(GameObject g)
-    {
+    {        
         // Need to discard changes to settings if user cancels instead of accepts
         musicVolumeSlider.GetComponent<Slider>().value = _initVolumeSliderVal;
-        objectVolumeSlider.GetComponent<Slider>().value = _initObjectSliderVal;
+        objectVolumeSlider.GetComponent<Slider>().value = _initObjectSliderVal;        
         Destroy(gameObject);
     }
 
     private void AcceptButtonCallback(GameObject g)
-    {
+    {        
         SaveSettings();
         Exit();
     }
@@ -56,20 +64,20 @@ public class SettingsController : BaseManager
     private void LoadSettings()
     {
         musicVolumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["MusicVolume"];
-        objectVolumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["ObjectVolume"];
+        objectVolumeSlider.GetComponent<Slider>().value = Persistent.settings.valueSettings["ObjectVolume"];        
         _initVolumeSliderVal = musicVolumeSlider.GetComponent<Slider>().value;
-        _initObjectSliderVal = objectVolumeSlider.GetComponent<Slider>().value;
+        _initObjectSliderVal = objectVolumeSlider.GetComponent<Slider>().value;        
     }
 
     private void SaveSettings()
     {
         Persistent.settings.valueSettings["MusicVolume"] = musicVolumeSlider.GetComponent<Slider>().value;
-        Persistent.settings.valueSettings["ObjectVolume"] = objectVolumeSlider.GetComponent<Slider>().value;
+        Persistent.settings.valueSettings["ObjectVolume"] = objectVolumeSlider.GetComponent<Slider>().value;        
         Persistent.UpdateSettings();
     }
 
     private void Exit()
-    {
+    {        
         Destroy(gameObject);
     }
 }

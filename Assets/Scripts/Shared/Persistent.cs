@@ -213,6 +213,7 @@ public static class Persistent
 
     public static void UpdateUserGlossary(string newTerm)
     {
+        if (glossaryWords.Contains(newTerm)) return;
         glossaryWords.Add(newTerm);
         UpdateGlossaryFile();
     }
