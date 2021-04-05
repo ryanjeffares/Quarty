@@ -185,11 +185,9 @@ public class MinorScaleLessonController : BaseManager
     }
 
     protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float wait = 0, bool reset = false, bool destroy = false)
-    {
-        float resolution = time / 0.016f;
+    {        
         if (wait > 0f)
-        {
-            float waitInterval = wait / resolution;
+        {     
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -197,12 +195,11 @@ public class MinorScaleLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }
         }
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        float timeCounter = 0f;        
         var startPos = obj.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -211,8 +208,8 @@ public class MinorScaleLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             obj.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (destroy)
         {
@@ -227,10 +224,8 @@ public class MinorScaleLessonController : BaseManager
         if (disableTrigger)
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
-        }
-        float resolution = time / 0.016f;
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        }        
+        float timeCounter = 0f;        
         var startPos = arrow.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -239,8 +234,8 @@ public class MinorScaleLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             arrow.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -270,15 +265,13 @@ public class MinorScaleLessonController : BaseManager
         if (disableTrigger)
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
-        }
-        float resolution = time / 0.016f;
+        }        
         float targetX = target.x;
         float targetY = target.y;
         var startPos = arrow.transform.localPosition;
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        float timeCounter = 0f;        
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -289,8 +282,8 @@ public class MinorScaleLessonController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             arrow.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {

@@ -30,7 +30,6 @@ public class XylophoneKeyController : MonoBehaviour, IPointerDownHandler
     private IEnumerator FadeIn(float time)
     {
         float counter = 0f;
-        float resolution = time / 0.016f;
         while (counter <= waitTime)
         {
             if (PauseManager.paused)
@@ -38,9 +37,8 @@ public class XylophoneKeyController : MonoBehaviour, IPointerDownHandler
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             counter += Time.deltaTime;
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return null;
         }
-        float interval = time / resolution;
         float timeCounter = 0f;
         while (timeCounter <= time)
         {
@@ -50,8 +48,8 @@ public class XylophoneKeyController : MonoBehaviour, IPointerDownHandler
             }
             _text.color = Color.Lerp(_text.color, _textColour, timeCounter / time);
             GetComponent<Image>().color = Color.Lerp(GetComponent<Image>().color, _keyColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 

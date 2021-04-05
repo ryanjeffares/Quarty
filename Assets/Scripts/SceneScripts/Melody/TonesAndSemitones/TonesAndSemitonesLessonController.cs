@@ -25,8 +25,6 @@ public class TonesAndSemitonesLessonController : BaseManager
     [SerializeField] private AnimationCurve easeInOutCurve;
     [SerializeField] private AnimationCurve overshootCurve;
     [SerializeField] private AnimationCurve overshootOutCurve;
-    [Header("Clips")] 
-    [SerializeField] private List<AudioClip> clips;
 
     private int _levelStage;
     private bool _arrowMoving;
@@ -84,8 +82,9 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void TryButtonCallback(GameObject g)
     {
-        if(_levelStage > 1)
+        if(_levelStage > 1 && !_arrowMoving)
         {
+            _playedNotes = new List<string>();
             StartCoroutine(MoveObject(arrow, new Vector2(260, 200), 2f));
         }                    
     }
@@ -97,25 +96,21 @@ public class TonesAndSemitonesLessonController : BaseManager
         {
             if (_playedNotes.SequenceEqual(_correctNotes))
             {
-                switch (_levelStage)
-                {
-                    case 2:
-                        helpText.text = "Awesome! You can hear it again or move into the puzzle.";
-                        StartCoroutine(FadeText(helpText, true, 0.5f));
-                        StartCoroutine(FadeButtonText(nextButton, true, 0.5f));                        
-                        ++_levelStage;
-                        break;
+                if(_levelStage == 2) 
+                {                    
+                    helpText.text = "Awesome! You can hear it again or move into the puzzle.";
+                    StartCoroutine(FadeText(helpText, true, 0.5f));
+                    StartCoroutine(FadeButtonText(nextButton, true, 0.5f));                        
+                    ++_levelStage;                        
                 }
             }
             else
             {
-                switch (_levelStage)
-                {
-                    case 2:
-                        helpText.text = "That wasn't quite right - look at the list of notes below and remember a Tone is 2 notes and a Semitone is 1 note.";
-                        StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
-                        StartCoroutine(MoveMovableCircles(0.5f));
-                        break;
+                if (_levelStage == 2)
+                {                    
+                    helpText.text = "That wasn't quite right - look at the list of notes below and remember a Tone is 2 notes and a Semitone is 1 note.";
+                    StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
+                    StartCoroutine(MoveMovableCircles(0.5f));                 
                 }
             }
             _playedNotes.Clear();
@@ -248,9 +243,7 @@ public class TonesAndSemitonesLessonController : BaseManager
                 (targetPositions[circle].x - startPositions[circle].x, targetPositions[circle].y - startPositions[circle].y));
             i++;
         }
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -264,8 +257,8 @@ public class TonesAndSemitonesLessonController : BaseManager
                 pos.y = startPositions[circle].y + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item2;
                 circle.transform.localPosition = pos;
             }
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -279,10 +272,8 @@ public class TonesAndSemitonesLessonController : BaseManager
     protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float wait = 0f,
         bool disableTrigger = false, bool destroy = false)
     {
-        float resolution = time / 0.016f;
         if (wait > 0f)
         {
-            float waitInterval = wait / resolution;
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -290,8 +281,8 @@ public class TonesAndSemitonesLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
 
@@ -301,17 +292,11 @@ public class TonesAndSemitonesLessonController : BaseManager
             _arrowMoving = true;
         }
 
-        if (obj == arrow && buttonCallbackLookup.ContainsKey(tryButton))
-        {
-            buttonCallbackLookup.Remove(tryButton);
-        }
-
         if (disableTrigger)
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }        
         float timeCounter = 0f;
-        float interval = time / resolution;
         var startPos = obj.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -320,8 +305,8 @@ public class TonesAndSemitonesLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             obj.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -349,10 +334,8 @@ public class TonesAndSemitonesLessonController : BaseManager
         float wait = 0f,
         bool disableTrigger = false, bool reset = true, bool destroy = false)
     {
-        float resolution = time / 0.016f;
         if (wait > 0f)
         {
-            float waitInterval = wait / resolution;
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -360,8 +343,8 @@ public class TonesAndSemitonesLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
         if (obj == arrow && _arrowMoving)
@@ -379,7 +362,6 @@ public class TonesAndSemitonesLessonController : BaseManager
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -390,8 +372,8 @@ public class TonesAndSemitonesLessonController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             obj.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -410,10 +392,8 @@ public class TonesAndSemitonesLessonController : BaseManager
     
     private IEnumerator RotateArrow360(float time, float wait = 0f)
     {
-        float resolution = time / 0.016f;
         if (wait > 0f)
         {
-            float waitInterval = wait / resolution;
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -421,18 +401,17 @@ public class TonesAndSemitonesLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
         float timeCounter = 0f;
-        float interval = time / resolution;
+        var rotation = arrow.transform.eulerAngles;
         while (timeCounter <= time)
-        {
-            var rotation = arrow.transform.eulerAngles;
-            arrow.transform.eulerAngles = new Vector3(0, 0, rotation.z + 360 / resolution);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+        {            
+            arrow.transform.eulerAngles = new Vector3(0, 0, rotation.z + (360 * (timeCounter / time)));
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         arrow.transform.eulerAngles = new Vector3(0, 0, 90);
     }

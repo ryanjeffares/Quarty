@@ -11,6 +11,7 @@ public class DrumKitController : BaseManager
     [SerializeField] private GameObject kick, snare, hatClosed, highTom, midTom, crash;
     [SerializeField] private GameObject kickImg, snareImg, hatClosedImg, highTomImg, midTomImg, crashImg;
     [SerializeField] private AnimationCurve easeInOutCurve, overshootCurve;
+    [SerializeField] private List<Text> names;
 
     private Dictionary<GameObject, string> _drumNames;
     private Dictionary<GameObject, GameObject> _drumImages;
@@ -48,6 +49,11 @@ public class DrumKitController : BaseManager
         foreach(var img in _drumImages)
         {
             img.Value.transform.localScale = new Vector3(0, 0);
+        }
+        canTextLerp = new Dictionary<Text, bool>();
+        foreach(var t in names)
+        {
+            canTextLerp.Add(t, true);
         }
         backbeatLookup = new Dictionary<double, List<GameObject>>
         {
@@ -237,6 +243,17 @@ public class DrumKitController : BaseManager
         foreach(var img in _drumImages)
         {
             StartCoroutine(FadeInObjectScale(img.Value, overshootCurve, true, 0.5f));
+        }
+    }
+
+    private bool _namesOn;
+
+    public void ShowNames()
+    {
+        _namesOn = !_namesOn;
+        foreach(var t in names)
+        {
+            StartCoroutine(FadeText(t, _namesOn, 0.5f));
         }
     }
 

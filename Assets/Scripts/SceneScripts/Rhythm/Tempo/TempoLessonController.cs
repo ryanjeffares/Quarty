@@ -45,7 +45,7 @@ public class TempoLessonController : BaseManager
         }
         else
         {
-            Persistent.UpdateUserGlossary(new[] { "Tempo", "BPM" });
+            Persistent.UpdateUserGlossary(new[] { "Tempo" });
             Persistent.sceneToLoad = "TempoPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

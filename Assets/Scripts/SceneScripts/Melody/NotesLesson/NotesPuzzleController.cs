@@ -146,19 +146,17 @@ public class NotesPuzzleController : BaseManager
 
     private IEnumerator SpawnMovableCircles(float waitTime = 0f)
     {
-        float resolution = waitTime / 0.016f;
         if (waitTime > 0)
         {
-            float waitInterval = waitTime / resolution;
             float waitCounter = 0f;
             while (waitCounter <= waitTime)
             {
                 if (PauseManager.paused)
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
-                }                
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                }
+                waitCounter += Time.deltaTime;
+                yield return null;
             } 
         }
         _movableCircles = new List<GameObject>();
@@ -309,9 +307,7 @@ public class NotesPuzzleController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         var startPos = arrow.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -320,8 +316,8 @@ public class NotesPuzzleController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             arrow.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -339,14 +335,12 @@ public class NotesPuzzleController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
-        float resolution = time / 0.016f;
         float targetX = target.x;
         float targetY = target.y;
         var startPos = arrow.transform.localPosition;
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -357,8 +351,8 @@ public class NotesPuzzleController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             arrow.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -418,9 +412,7 @@ public class NotesPuzzleController : BaseManager
     
     private IEnumerator FadeSlider(float time)
     {
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         var startScale = timeRemaining.transform.localScale;
         while (timeCounter <= time)
         {
@@ -436,8 +428,8 @@ public class NotesPuzzleController : BaseManager
             sc.x = startScale.x + overshootCurve.Evaluate(timeCounter / time);
             sc.y = startScale.y + overshootCurve.Evaluate(timeCounter / time);
             timeRemaining.transform.localScale = sc;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 }

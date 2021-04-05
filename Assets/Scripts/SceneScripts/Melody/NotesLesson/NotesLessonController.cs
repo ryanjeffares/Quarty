@@ -226,10 +226,7 @@ public class NotesLessonController : BaseManager
             diffs.Add(circle, new Tuple<float, float>
                 (targetPositions[circle].x - startPositions[circle].x, targetPositions[circle].y - startPositions[circle].y));
         }
-
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -243,8 +240,8 @@ public class NotesLessonController : BaseManager
                 pos.y = startPositions[circle].y + easeInOutCurve.Evaluate(timeCounter / time) * diffs[circle].Item2;
                 circle.transform.localPosition = pos;
             }
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -320,9 +317,7 @@ public class NotesLessonController : BaseManager
         var startPos = _noteCircles.transform.localPosition;
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -333,8 +328,8 @@ public class NotesLessonController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             _noteCircles.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         arrow.GetComponent<BoxCollider2D>().enabled = true;
         if (destroy)
@@ -345,10 +340,8 @@ public class NotesLessonController : BaseManager
 
     protected override IEnumerator MoveObject(GameObject obj, Vector2 target, float time, float wait = 0f, bool disableTrigger = false, bool destroy = false)
     {
-        float resolution = time / 0.016f;
         if (wait > 0f)
         {
-            float waitInterval = wait / resolution;
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -356,8 +349,8 @@ public class NotesLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
 
@@ -377,7 +370,6 @@ public class NotesLessonController : BaseManager
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
         float timeCounter = 0f;
-        float interval = time / resolution;
         var startPos = obj.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -386,8 +378,8 @@ public class NotesLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             obj.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -416,10 +408,8 @@ public class NotesLessonController : BaseManager
         bool reset = false, 
         bool destroy = false)
     {
-        float resolution = time / 0.016f;
         if (wait > 0f)
         {
-            float waitInterval = wait / resolution;
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -427,8 +417,8 @@ public class NotesLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
         if (obj == arrow && _arrowMoving)
@@ -446,7 +436,6 @@ public class NotesLessonController : BaseManager
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -457,8 +446,8 @@ public class NotesLessonController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             obj.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -480,10 +469,8 @@ public class NotesLessonController : BaseManager
 
     private IEnumerator RotateArrow360(float time, float wait = 0f)
     {
-        float resolution = time / 0.016f;
         if (wait > 0f)
         {
-            float waitInterval = wait / resolution;
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -491,18 +478,17 @@ public class NotesLessonController : BaseManager
                 {
                     yield return new WaitUntil(() => !PauseManager.paused);
                 }
-                waitCounter += waitInterval;
-                yield return new WaitForSeconds(waitInterval);
+                waitCounter += Time.deltaTime;
+                yield return null;
             }   
         }
         float timeCounter = 0f;
-        float interval = time / resolution;
+        var rotation = arrow.transform.eulerAngles;
         while (timeCounter <= time)
-        {
-            var rotation = arrow.transform.eulerAngles;
-            arrow.transform.eulerAngles = new Vector3(0, 0, rotation.z + 360 / resolution);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+        {            
+            arrow.transform.eulerAngles = new Vector3(0, 0, rotation.z + (360 * (timeCounter / time)));
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 }

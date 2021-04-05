@@ -219,9 +219,9 @@ public class PerfectIntervalsPuzzleController : BaseManager
             }
             if (stars > Persistent.melodyLessons.scores["Perfect Intervals"])
             {
-                Persistent.melodyLessons.lessons["Major And Minor Second"] = true;
-                Persistent.UpdateLessonAvailability("Melody");
+                Persistent.melodyLessons.lessons["Major And Minor Second"] = true;                
                 Persistent.melodyLessons.scores["Perfect Intervals"] = stars;
+                Persistent.UpdateLessonAvailability("Melody");
             }
         }
         else
@@ -336,10 +336,8 @@ public class PerfectIntervalsPuzzleController : BaseManager
     }
 
     private IEnumerator FadeSlider(float time)
-    {
-        float resolution = time / 0.016f;
-        float timeCounter = 0f;
-        float interval = time / resolution;
+    {        
+        float timeCounter = 0f;     
         var startScale = timeSlider.transform.localScale;
         while (timeCounter <= time)
         {
@@ -355,8 +353,8 @@ public class PerfectIntervalsPuzzleController : BaseManager
             sc.x = startScale.x + overshootCurve.Evaluate(timeCounter / time);
             sc.y = startScale.y + overshootCurve.Evaluate(timeCounter / time);
             timeSlider.transform.localScale = sc;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -367,10 +365,8 @@ public class PerfectIntervalsPuzzleController : BaseManager
         if (disableTrigger)
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
-        }
-        float resolution = time / 0.016f;
-        float timeCounter = 0f;
-        float interval = time / resolution;
+        }        
+        float timeCounter = 0f;        
         var startPos = arrow.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -379,8 +375,8 @@ public class PerfectIntervalsPuzzleController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             arrow.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -402,10 +398,8 @@ public class PerfectIntervalsPuzzleController : BaseManager
         float targetY = target.y;
         var startPos = arrow.transform.localPosition;
         float yDiff = targetY - startPos.y;
-        float xDiff = targetX - startPos.x;
-        float resolution = time / 0.016f;
-        float timeCounter = 0f;
-        float interval = time / resolution;        
+        float xDiff = targetX - startPos.x;        
+        float timeCounter = 0f;                
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -416,8 +410,8 @@ public class PerfectIntervalsPuzzleController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             arrow.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {

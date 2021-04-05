@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryDefinitionPageController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorIntervals\MajorIntervalsLessonController.cs" />
+    <Compile Include="Assets\ClickableTempoTextController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\StatsPageController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\TonesAndSemitones\TonesAndSemitonesLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\NoteSquares\NoteSquareMovableController.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Scripts\Shared\UserSettings.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\SuspendedChords\SuspendedChordsLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Piano\PianoKeyDraggableController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\Tempo\TempoLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MajorTriads\MajorTriadsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorTriads\MinorTriadsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\ProfanityList.cs" />
@@ -119,10 +121,12 @@
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\DiminishedChords\DiminishedChordsLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Piano\KeyOutlineCollider.cs" />
     <Compile Include="Assets\Scripts\Controllers\Piano\PianoController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Common\DetectCamera.cs" />
     <Compile Include="Assets\Scripts\Controllers\NoteCircles\NoteCircleMovableController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorIntervals\MajorIntervalsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IAllowList.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorScale\MajorScaleLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\Tempo\TempoPuzzleController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorTriads\MinorTriadsLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Xylophone\XylophoneController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\BaseManager.cs" />
@@ -130,10 +134,6 @@
     <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyWriting\MelodyWritingLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\Introduction\HarmonyIntroductionController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Common\DetectCamera.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\Tempo\TempoLessonController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\Tempo\TempoPuzzleController.cs" />
-    <Compile Include="Assets\ClickableTempoTextController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />

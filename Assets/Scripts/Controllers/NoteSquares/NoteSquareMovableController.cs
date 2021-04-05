@@ -78,10 +78,8 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
                 counter += Time.deltaTime;
                 yield return new WaitForSeconds(Time.deltaTime);
             }
-        }
-        float resolution = time / 0.016f;
-        var startScale = transform.localScale;
-        float interval = time / resolution;
+        }        
+        var startScale = transform.localScale;        
         float timeCounter = 0f;
         while (timeCounter <= time)
         {
@@ -95,8 +93,8 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
             scale.x = startScale.x + curve.Evaluate(timeCounter / time);
             scale.y = startScale.y + curve.Evaluate(timeCounter / time);
             transform.localScale = scale;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         _playable = true;
     }
@@ -225,15 +223,13 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     public IEnumerator Destroy()
     {
         float time = 0.5f;
-        float timeCounter = 0f;
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
+        float timeCounter = 0f;                
         var start = GetComponent<Image>().color;
         while (timeCounter <= time)
         {
             GetComponent<Image>().color = Color.Lerp(start, Color.clear, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
 
         Destroy(gameObject);

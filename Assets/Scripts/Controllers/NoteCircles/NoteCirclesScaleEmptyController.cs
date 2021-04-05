@@ -50,8 +50,6 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         var targetColourCircle = new Color(0.44f, 0.44f, 0.44f, 1f);
 
         float timeCounter = 0f;
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -59,8 +57,8 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             circle.GetComponent<Image>().color = Color.Lerp(startColour, targetColourCircle, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 
@@ -83,8 +81,6 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
         var targetColour = new Color(0.196f, 0.196f, 0.196f, 1f);
 
         float timeCounter = 0f;
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -92,8 +88,8 @@ public class NoteCirclesScaleEmptyController : MonoBehaviour
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             text.color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 }

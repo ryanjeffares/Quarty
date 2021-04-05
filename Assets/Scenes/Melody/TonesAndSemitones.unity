@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 91, y: -409}
-  m_SizeDelta: {x: 335.45178, y: 178.38196}
+  m_AnchoredPosition: {x: 91, y: -363.2}
+  m_SizeDelta: {x: 335.45178, y: 310.72992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &25058418
 CanvasRenderer:
@@ -190,7 +190,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d14dcc5fbfe9d894ba492208a2bd1fc4, type: 3}
-    m_FontSize: 36
+    m_FontSize: 34
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -906,15 +906,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  clips:
-  - {fileID: 8300000, guid: 8c5e5cb37ae433c46bcf41994a811df9, type: 3}
-  - {fileID: 8300000, guid: aa6b7937d60d88542a74a1b3c0fae9c8, type: 3}
-  - {fileID: 8300000, guid: b5af24f95dadfd341bf11d03da803a87, type: 3}
-  - {fileID: 8300000, guid: 7c403d18fc7aeb34491c3ee55f7cb531, type: 3}
-  - {fileID: 8300000, guid: 00e2143fe6ac45546b47d57ccb3e610b, type: 3}
-  - {fileID: 8300000, guid: 30bb5869cc20aa546a37e7e41dd8f6c6, type: 3}
-  - {fileID: 8300000, guid: 1030ef7db8396784dbd701588e07a1f3, type: 3}
-  - {fileID: 8300000, guid: 8c12cb7498d2a7f48b1c408d3796af0d, type: 3}
 --- !u!1 &917053633
 GameObject:
   m_ObjectHideFlags: 0

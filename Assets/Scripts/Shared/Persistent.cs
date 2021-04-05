@@ -187,7 +187,13 @@ public static class Persistent
             {"Major Key", "The Major Key is a key based on the Major Scale of any note. It contains all the notes from that scale and chords with those notes as roots. The notes, in order, give us Major, Minor, Minor, Major, Major, Minor, and Diminished Chords." },
             {"Minor Key", "The Minor Key is a key based on the Minor Scale of any note. It contains all the notes from that scale and chords with those notes as roots. The notes, in order, give us Minor, Diminished, Major, Minor, Minor, Major, and Major Chords." },
             {"Chord Progression", "A Chord Progression is a sequency of chords. They can be designed to create certain emotions or feelings of movement." },
-            {"Rhythm", "Rhythm is a piece of music's pattern in time. It describes its speed and pattern." }
+            {"Rhythm", "Rhythm is a piece of music's pattern in time. It describes its speed and pattern." },
+            {"Kick", "A large drum that produces a low note, played with a foot pedal. Often used to carry the beat of a song." },
+            {"Snare", "A drum, hit by a drum stick, that produces a sharp sound. Often used with the kick to carry the beat of a song." },
+            {"Hi Hat", "A combination of two cymbals and a pedal. It can be played closed to make a short and sharp sound, or open to make a longer sound that rings out." },
+            {"Toms", "Similar to the kick but smaller and produce a higher pitch. Drummers often have multiple toms that produce different notes." },
+            {"Crash", "A large cymbal that rings out for a long time. Used for accents and finales." },
+            {"Tempo", "Tempo is the speed of a piece of music. It is given in BPM or Beats Per Minute - how many beats there are in one minute." }            
         };
         GetUserGlossary();
         #endregion
@@ -347,9 +353,11 @@ public static class Persistent
                 using (FileStream fs = new FileStream(path, FileMode.Create))
                 {
                     string xmlData = xmlDoc.DocumentElement.OuterXml;
-                    BinaryWriter bw = new BinaryWriter(fs);
-                    bw.Write(xmlData);
-                    bw.Close();
+                    using (var bw = new BinaryWriter(fs))
+                    {
+                        bw.Write(xmlData);
+                        bw.Close();
+                    }
                 }
             }
         }
@@ -411,9 +419,11 @@ public static class Persistent
         using (FileStream fs = new FileStream(path, FileMode.Create))
         {
             string xmlData = xmlDoc.DocumentElement.OuterXml;
-            BinaryWriter bw = new BinaryWriter(fs);
-            bw.Write(xmlData);
-            bw.Close();
+            using(var bw = new BinaryWriter(fs))
+            {
+                bw.Write(xmlData);
+                bw.Close();
+            }                        
         }
     }
     
@@ -449,9 +459,11 @@ public static class Persistent
             using(FileStream fs = new FileStream(path, FileMode.Create))
             {
                 string xmlData = xmlDoc.DocumentElement.OuterXml;
-                BinaryWriter bw = new BinaryWriter(fs);
-                bw.Write(xmlData);
-                bw.Close();
+                using (var bw = new BinaryWriter(fs))
+                {
+                    bw.Write(xmlData);
+                    bw.Close();
+                }
             }
         }
     }
@@ -472,9 +484,11 @@ public static class Persistent
         using (FileStream fs = new FileStream(path, FileMode.Create))
         {
             string xmlData = xmlDoc.DocumentElement.OuterXml;
-            BinaryWriter bw = new BinaryWriter(fs);
-            bw.Write(xmlData);
-            bw.Close();
+            using (var bw = new BinaryWriter(fs))
+            {
+                bw.Write(xmlData);
+                bw.Close();
+            }
         }
     }
 }

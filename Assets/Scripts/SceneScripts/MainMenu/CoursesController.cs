@@ -166,38 +166,35 @@ public class CoursesController : BaseManager
 
     private IEnumerator RotateArrow(GameObject g, float time, bool down)
     {
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
         float timer = 0f;
-        float inc = 90 / resolution;
         while (timer <= time)
         {
             var rotation = g.transform.eulerAngles;
-            g.transform.eulerAngles = new Vector3(0, 0, down ? rotation.z - inc : rotation.z + inc);
-            timer += interval;
-            yield return new WaitForSeconds(interval);
+            float rot = down ? Mathf.Lerp(90, 0, timer / time) : Mathf.Lerp(0, 90, timer / time);
+            g.transform.eulerAngles = new Vector3(0, 0, rot);
+            timer += Time.deltaTime;
+            yield return null;
         }
+        g.transform.eulerAngles = new Vector3(0, 0, down ? 0 : 90);
     }
 
     private IEnumerator ResizeTab(GameObject g, float time, bool enlarge)
     {        
         var rt = g.GetComponent<RectTransform>();
         var bgCol = g.GetComponent<Image>().color;
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
         float timer = 0;
-        float heightIncr = (enlarge ? 300 : -300) / resolution;
-        float alphaInc = (enlarge ? 0.2f : -0.2f) / resolution;
         _tabMovingLookup[g] = true;
+        float startHeight = rt.sizeDelta.y;
         while (timer <= time)
         {
             var sizeDelta = rt.sizeDelta;
-            sizeDelta = new Vector2(sizeDelta[0], sizeDelta[1] + heightIncr);
+            float newHeight = enlarge ? Mathf.Lerp(startHeight, startHeight + 300, timer / time) : Mathf.Lerp(startHeight, startHeight - 300, timer / time);
+            float newAlpha = enlarge ? Mathf.Lerp(0, 0.2f, timer / time) : Mathf.Lerp(0.2f, 0, timer / time);
+            sizeDelta = new Vector2(sizeDelta[0], newHeight);
             rt.sizeDelta = sizeDelta;
-            bgCol.a += alphaInc;
-            g.GetComponent<Image>().color = bgCol;
-            timer += interval;
-            yield return new WaitForSeconds(interval);
+            g.GetComponent<Image>().color = new Color(bgCol.r, bgCol.g, bgCol.b, newAlpha);
+            timer += Time.deltaTime;
+            yield return null;
         }
         _tabMovingLookup[g] = false;
         // Resize the main scroll view to be the same size as all the course buttons in their open/closed state

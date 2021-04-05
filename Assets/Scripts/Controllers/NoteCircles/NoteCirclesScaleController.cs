@@ -66,9 +66,7 @@ public class NoteCirclesScaleController : MonoBehaviour
         }
         var startColour = text.color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, 1f);
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -76,8 +74,8 @@ public class NoteCirclesScaleController : MonoBehaviour
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             text.color = Color.Lerp(startColour, targetColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 }

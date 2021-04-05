@@ -89,9 +89,7 @@ public class MelodyWritingLessonController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
-        float resolution = time / 0.016f;
         float timeCounter = 0f;
-        float interval = time / resolution;
         var startPos = arrow.transform.localPosition;
         while (timeCounter <= time)
         {
@@ -100,8 +98,8 @@ public class MelodyWritingLessonController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             arrow.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {
@@ -132,14 +130,12 @@ public class MelodyWritingLessonController : BaseManager
         {
             arrow.GetComponent<BoxCollider2D>().enabled = false;
         }
-        float resolution = time / 0.016f;
         float targetX = target.x;
         float targetY = target.y;
         var startPos = arrow.transform.localPosition;
         float yDiff = targetY - startPos.y;
         float xDiff = targetX - startPos.x;
         float timeCounter = 0f;
-        float interval = time / resolution;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -150,8 +146,8 @@ public class MelodyWritingLessonController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             arrow.transform.localPosition = pos;
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
         if (disableTrigger)
         {

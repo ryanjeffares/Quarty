@@ -184,6 +184,7 @@ public abstract class BaseManager : MonoBehaviour
     
     protected virtual IEnumerator TextFadeSize(Text text, AnimationCurve curve, float time, bool enlarge, float wait = 0f)
     {        
+
         if (wait > 0f)
         {         
             float waitCounter = 0f;            

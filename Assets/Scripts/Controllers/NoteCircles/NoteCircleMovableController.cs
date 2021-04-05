@@ -117,9 +117,9 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
 
     public void OnPointerUp(PointerEventData eventData)
     {        
-        if (Math.Abs(localY - transform.localPosition.y) <= 20)
+        if (Math.Abs(localY - transform.localPosition.y) <= 25)
         {
-            int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 20);            
+            int snap = availableX.FirstOrDefault(x => Math.Abs(x - transform.localPosition.x) <= 25);            
             transform.localPosition = new Vector3(snap == 0 ? transform.localPosition.x : snap, localY);
         }
         if(draggable && !PauseManager.paused)

@@ -46,8 +46,6 @@ public class NoteCircleController : MonoBehaviour
                 yield return new WaitForSeconds(Time.deltaTime);
             }
         }
-        float resolution = time / 0.016f;
-        float interval = time / resolution;
         float timeCounter = 0f;
         while (timeCounter <= time)
         {
@@ -57,8 +55,8 @@ public class NoteCircleController : MonoBehaviour
             }
             text.color = Color.Lerp(text.color, _textColour, timeCounter / time);
             GetComponent<Image>().color = Color.Lerp(GetComponent<Image>().color, _circleColour, timeCounter / time);
-            timeCounter += interval;
-            yield return new WaitForSeconds(interval);
+            timeCounter += Time.deltaTime;
+            yield return null;
         }
     }
 
