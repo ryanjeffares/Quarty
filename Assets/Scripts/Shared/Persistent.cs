@@ -193,7 +193,12 @@ public static class Persistent
             {"Hi Hat", "A combination of two cymbals and a pedal. It can be played closed to make a short and sharp sound, or open to make a longer sound that rings out." },
             {"Toms", "Similar to the kick but smaller and produce a higher pitch. Drummers often have multiple toms that produce different notes." },
             {"Crash", "A large cymbal that rings out for a long time. Used for accents and finales." },
-            {"Tempo", "Tempo is the speed of a piece of music. It is given in BPM or Beats Per Minute - how many beats there are in one minute." }            
+            {"Tempo", "Tempo is the speed of a piece of music. It is given in BPM or Beats Per Minute - how many beats there are in one minute." },
+            {"Time Signature", "A Time Signature is what we use in Western Music to describe how many beats are in a bar of a piece of music, and which note value each beat is." },
+            {"Note Value", "A Note Value is the length of a note. It is described in terms of what fraction of a bar that note would take up." },
+            {"Quarter Note", "A Quarter Note is a quarter of a bar of 4/4, so there are 4 Quarter Notes in a bar of 4/4." },
+            {"Eighth Note", "An Eighth Note is an eighth of a bar of 4/4, so there are 8 Eighth Notes in a bar of 4/4, and 2 Eighth Notes in a Quarter Note." },
+            {"Sixteenth Note", "A Sixteenth Note is a sixteenth of a bar of 4/4, so there are 16 Sixteenth Notes in a bar of 4/4, 2 Sixteenth Notes in an Eighth Note, and 4 Sixteenth Notes in a Quarter Note." }            
         };
         GetUserGlossary();
         #endregion
@@ -228,6 +233,7 @@ public static class Persistent
     {
         foreach(var t in newTerms)
         {
+            if (glossaryWords.Contains(t)) continue;
             glossaryWords.Add(t);
         }
         UpdateGlossaryFile();

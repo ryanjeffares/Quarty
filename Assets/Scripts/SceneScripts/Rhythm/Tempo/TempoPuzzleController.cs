@@ -15,7 +15,7 @@ public class TempoPuzzleController : BaseManager
 
     private int _levelStage;
     private int _nextIndex = 0;
-    private bool _sequencePlaying, _clickTime;
+    private bool _sequencePlaying;
     private float _currentTime;
     private float[] _correctTimes;
     private List<float> _playedTimes;
@@ -69,9 +69,9 @@ public class TempoPuzzleController : BaseManager
         else
         {
             Persistent.rhythmLessons.scores["Tempo"] = 3;
-            Persistent.rhythmLessons.lessons["Note Values"] = true;
+            Persistent.rhythmLessons.lessons["Time Signatures"] = true;
             Persistent.UpdateLessonAvailability("Harmony");
-            Persistent.sceneToLoad = "NoteValues";
+            Persistent.sceneToLoad = "TimeSignatures";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
@@ -172,7 +172,7 @@ public class TempoPuzzleController : BaseManager
 
     private void TimerEnd()
     {
-        if (_success)
+        if (_success && _playedTimes.Count == 8)
         {
             if (_levelStage == 1)
             {
@@ -189,7 +189,7 @@ public class TempoPuzzleController : BaseManager
         }
         else
         {
-            introText.text = $"So close! Hit retry to try that tempo again.";
+            introText.text = "So close! Hit retry to try that tempo again.";
             StartCoroutine(FadeText(introText, true, 0.5f));
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
         }

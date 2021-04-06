@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{dbe8887e-943f-4376-bf29-84edbeb3a42b}">
+		<property name="assetPath">
+			<value>Kick - Trimmed (3).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.66666666666666663</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{f4787823-c48c-4cf1-93dd-1ff016bc5436}</destination>
+		</relationship>
+	</object>
+</objects>

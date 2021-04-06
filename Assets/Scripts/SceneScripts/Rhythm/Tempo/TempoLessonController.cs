@@ -45,7 +45,9 @@ public class TempoLessonController : BaseManager
         }
         else
         {
-            Persistent.UpdateUserGlossary(new[] { "Tempo" });
+            var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+            bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            Persistent.UpdateUserGlossary("Tempo");
             Persistent.sceneToLoad = "TempoPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

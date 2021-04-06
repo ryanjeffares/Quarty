@@ -69,6 +69,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-8623509538606514280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/KickLoop
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/KickLoop
+  guid: 16e6b79b350d974f8d82f1a067be046f
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &-8153361905233017419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +334,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637530671672778070
+  lastModified: 637533339265294379
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -450,6 +473,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-4831868135523873551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/SimpleBackbeat90bpmWithClick
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/SimpleBackbeat90bpmWithClick
+  guid: db6451ce6a5a754d8b1f4708d11005b4
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &-4824765802021390796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,6 +611,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-4186134750129169930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/SimpleBackbeat90bpm
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/SimpleBackbeat90bpm
+  guid: db6451ce6a5a754d8b1f4708d11005b4
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &-4014049624837337902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,6 +1341,13 @@ MonoBehaviour:
   - {fileID: -2497781303710571079}
   - {fileID: 5281443870699005312}
   - {fileID: 1377342536331927186}
+  - {fileID: -4831868135523873551}
+  - {fileID: 8688419311091350445}
+  - {fileID: -8623509538606514280}
+  - {fileID: 3063290455169251190}
+  - {fileID: 4357937731284314021}
+  - {fileID: 3045537080374312578}
+  - {fileID: 3355441966960601352}
   EditorParameters:
   - {fileID: -2060998473628846605}
   - {fileID: 6568236034180074964}
@@ -1279,7 +1355,7 @@ MonoBehaviour:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637530671672815033
+  stringsBankWriteTime: 637533339265334399
   cacheVersion: 6
 --- !u!114 &250169932755247837
 MonoBehaviour:
@@ -1623,6 +1699,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &3045537080374312578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/KickAndHatsLoopEights
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/KickAndHatsLoopEights
+  guid: 1c9a2e2805d0fe4d8e2b47ecdd69da64
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
+--- !u!114 &3063290455169251190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/HatsLoop
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/HatsLoop
+  guid: 734ab6f2adc6cc45bb14b2aeb9bdf8b6
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &3292609861302773663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1669,6 +1791,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &3355441966960601352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/KickAndHatsLoopSixteenths
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/KickAndHatsLoopSixteenths
+  guid: 223dca733fbf49418623baa993f6a369
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &3477452557894373947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,6 +2044,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &4357937731284314021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/HatsLoopSixteenths
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/HatsLoopSixteenths
+  guid: f3a7de0ee248e844999f13fa6cd7733c
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &4458326715726712844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,11 +2237,11 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637530671672815033
+  lastModified: 637533339265334399
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4358
+    Value: 4738
   Exists: 1
 --- !u!114 &5897781273282530285
 MonoBehaviour:
@@ -2477,6 +2645,29 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &8688419311091350445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/CompoundBackbeat90bpmWithClick
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/CompoundBackbeat90bpmWithClick
+  guid: e4b58d82b634c940a4ab6ec9a88d6aad
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
 --- !u!114 &8931478604869091989
 MonoBehaviour:
   m_ObjectHideFlags: 0

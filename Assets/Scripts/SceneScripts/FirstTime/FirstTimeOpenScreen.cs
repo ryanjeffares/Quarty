@@ -11,9 +11,10 @@ public class FirstTimeOpenScreen : BaseManager
 {
     [SerializeField] private InputField input;
     [SerializeField] private GameObject continueButton;
-    [SerializeField] private Text warningText, mainText;
+    [SerializeField] private Text warningText, mainText, secondText;
+
     private List<char> otherAllowedCharacters;
-    private bool _readyToContinue = false;
+    private int _levelStage;
 
     protected override void OnAwake()
     {
@@ -40,7 +41,8 @@ public class FirstTimeOpenScreen : BaseManager
         canTextLerp = new Dictionary<Text, bool>
         {
             {mainText, true },
-            {warningText, true }
+            {warningText, true },
+            {secondText, true }
         };
         otherAllowedCharacters = new List<char>
         {
@@ -50,13 +52,19 @@ public class FirstTimeOpenScreen : BaseManager
 
     private void ContinueButtonCallback(GameObject g)
     {
-        if (_readyToContinue)
+        ++_levelStage;        
+        if (_levelStage == 3)
         {
             Persistent.sceneToLoad = "MainMenu";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
-        else
+        else if(_levelStage == 2)
+        {
+            StartCoroutine(FadeText(mainText, false, 0.5f));
+            StartCoroutine(FadeText(secondText, true, 0.5f, wait: 1f));
+        }
+        else if(_levelStage == 1)
         {
             if (input.text != "")
             {
@@ -91,9 +99,8 @@ public class FirstTimeOpenScreen : BaseManager
     private IEnumerator ShowMessage()
     {
         yield return new WaitForSeconds(1f);
-        mainText.text = "Quarty is a game I made for my degree research project to investigate if gamification can be used to enhance music theory education. If you want to help me with that, please consider filling in the survey linked through the settings page after playing for a while.\n \nI hope you enjoy Quarty, I had a lot of fun making it. Thank you for playing my game - I really appreciate it.";
+        mainText.text = "Quarty is a game I made for my degree research project to investigate if gamification can be used to enhance music theory education. It is designed to be a beginner level introduction to Music Theory before you study it more formally. If you want to help me with that, please consider filling in the survey linked through the settings page after playing for a while.\n \nI hope you enjoy Quarty, I had a lot of fun making it. Thank you for playing my game - I really appreciate it.";
         mainText.fontSize = 24;
-        StartCoroutine(FadeText(mainText, true, 0.5f));
-        _readyToContinue = true;
+        StartCoroutine(FadeText(mainText, true, 0.5f));        
     }
 }

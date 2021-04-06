@@ -85,7 +85,7 @@
     <Compile Include="Assets\Scripts\SceneScripts\Common\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryDefinitionPageController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorIntervals\MajorIntervalsLessonController.cs" />
-    <Compile Include="Assets\ClickableTempoTextController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Tempo\ClickableTempoTextController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\MainMenu\StatsPageController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\TonesAndSemitones\TonesAndSemitonesLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\NoteSquares\NoteSquareMovableController.cs" />
@@ -115,7 +115,9 @@
     <Compile Include="Assets\Scripts\UI\ScrollviewArrowAnimator.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorAndMinorSecond\MajorAndMinorSecondLessonController.cs" />
+    <Compile Include="Assets\NoteValuesLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorSevenths\MinorSeventhsLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\TimeSignatures\TimeSignaturesLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Xylophone\XylophoneKeyController.cs" />
     <Compile Include="Assets\Scripts\Shared\Persistent.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\DiminishedChords\DiminishedChordsLessonController.cs" />

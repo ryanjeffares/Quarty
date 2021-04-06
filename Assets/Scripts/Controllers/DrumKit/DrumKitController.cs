@@ -15,7 +15,9 @@ public class DrumKitController : BaseManager
 
     private Dictionary<GameObject, string> _drumNames;
     private Dictionary<GameObject, GameObject> _drumImages;
-    Dictionary<double, List<GameObject>> backbeatLookup, syncopatedLookup, funkLookup;
+    Dictionary<double, List<GameObject>> backbeatLookup, simpleBackbeatLookup, compoundBackbeatLookup, syncopatedLookup, funkLookup, kickQuarterNotes, hatsEighthNotes, hatsSixteenthNotes;
+
+    private bool _clickable;
 
     protected override void OnAwake()
     {        
@@ -100,6 +102,44 @@ public class DrumKitController : BaseManager
             {10.333, new List<GameObject>{snareImg} },
             {10.5, new List<GameObject>{snareImg} },
             {10.666, new List<GameObject>{crashImg} }
+        };
+        simpleBackbeatLookup = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{kickImg, hatClosedImg} },  //1
+            {0.333, new List<GameObject>{hatClosedImg} },
+            {0.666, new List<GameObject>{snareImg, hatClosed} },
+            {1, new List<GameObject>{hatClosedImg} },
+
+            {1.333, new List<GameObject>{kickImg, hatClosedImg} },
+            {1.666, new List<GameObject>{hatClosedImg} },
+            {2, new List<GameObject>{snareImg, hatClosed} },
+            {2.333, new List<GameObject>{hatClosedImg} },
+
+            {2.666, new List<GameObject>{kickImg, hatClosedImg} },  //2
+            {3, new List<GameObject>{hatClosedImg} },
+            {3.333, new List<GameObject>{snareImg, hatClosed} },
+            {3.666, new List<GameObject>{hatClosedImg} },
+
+            {4, new List<GameObject>{kickImg, hatClosedImg} },
+            {4.333, new List<GameObject>{hatClosedImg} },
+            {4.666, new List<GameObject>{snareImg, hatClosed} },
+            {5, new List<GameObject>{hatClosedImg} }
+        };
+        compoundBackbeatLookup = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{kickImg, hatClosedImg} },
+            {0.333f, new List<GameObject>{hatClosedImg} },
+            {0.666f, new List<GameObject>{hatClosedImg} },
+            {1, new List<GameObject>{snareImg, hatClosedImg} },
+            {1.333f, new List<GameObject>{hatClosedImg} },
+            {1.666f, new List<GameObject>{hatClosedImg} },
+
+            {2, new List<GameObject>{kickImg, hatClosedImg} },
+            {2.333f, new List<GameObject>{hatClosedImg} },
+            {2.666f, new List<GameObject>{hatClosedImg} },
+            {3, new List<GameObject>{snareImg, hatClosedImg} },
+            {3.333f, new List<GameObject>{hatClosedImg} },
+            {3.666f, new List<GameObject>{hatClosedImg} },
         };
         syncopatedLookup = new Dictionary<double, List<GameObject>>
         {
@@ -236,10 +276,78 @@ public class DrumKitController : BaseManager
             {8, new List<GameObject>{ crashImg } },
 
         };
+        kickQuarterNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{kickImg} },
+            {0.666f, new List<GameObject>{kickImg} },
+            {1.333f, new List<GameObject>{kickImg} },
+            {2, new List<GameObject>{kickImg} },
+            {2.666f, new List<GameObject>{kickImg} },
+            {3.333f, new List<GameObject>{kickImg} },
+            {4, new List<GameObject>{kickImg} },
+            {4.666f, new List<GameObject>{kickImg} },
+        };
+        hatsEighthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{hatClosedImg} },
+            {0.333f, new List<GameObject>{hatClosedImg} },
+            {0.666f, new List<GameObject>{hatClosedImg} },
+            {1, new List<GameObject>{hatClosedImg} },
+            {1.333f, new List<GameObject>{hatClosedImg} },
+            {1.666f, new List<GameObject>{hatClosedImg} },
+            {2, new List<GameObject>{hatClosedImg} },
+            {2.333f, new List<GameObject>{hatClosedImg} },
+
+            {2.666f, new List<GameObject>{hatClosedImg} },
+            {3, new List<GameObject>{hatClosedImg} },
+            {3.333f, new List<GameObject>{hatClosedImg} },
+            {3.666f, new List<GameObject>{hatClosedImg} },
+            {4, new List<GameObject>{hatClosedImg} },
+            {4.333f, new List<GameObject>{hatClosedImg} },
+            {4.666f, new List<GameObject>{hatClosedImg} },
+            {5, new List<GameObject>{hatClosedImg} }
+        };
+        hatsSixteenthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{hatClosedImg} },
+            {0.166f, new List<GameObject>{hatClosedImg} },
+            {0.333f, new List<GameObject>{hatClosedImg} },
+            {0.5f, new List<GameObject>{hatClosedImg} },
+            {0.666f, new List<GameObject>{hatClosedImg} },
+            {0.833f, new List<GameObject>{hatClosedImg} },
+            {1, new List<GameObject>{hatClosedImg} },
+            {1.166, new List<GameObject>{hatClosedImg} },
+            {1.333f, new List<GameObject>{hatClosedImg} },
+            {1.5f, new List<GameObject>{hatClosedImg} },
+            {1.666f, new List<GameObject>{hatClosedImg} },
+            {1.833f, new List<GameObject>{hatClosedImg} },
+            {2, new List<GameObject>{hatClosedImg} },
+            {2.166f, new List<GameObject>{hatClosedImg} },
+            {2.333f, new List<GameObject>{hatClosedImg} },
+            {2.5f, new List<GameObject>{hatClosedImg} },
+
+            {2.666f, new List<GameObject>{hatClosedImg} },
+            {2.833f, new List<GameObject>{hatClosedImg} },
+            {3, new List<GameObject>{hatClosedImg} },
+            {3.166f, new List<GameObject>{hatClosedImg} },
+            {3.333f, new List<GameObject>{hatClosedImg} },
+            {3.5f, new List<GameObject>{hatClosedImg} },
+            {3.666f, new List<GameObject>{hatClosedImg} },
+            {3.833f, new List<GameObject>{hatClosedImg} },
+            {4, new List<GameObject>{hatClosedImg} },
+            {4.166f, new List<GameObject>{hatClosedImg} },
+            {4.333f, new List<GameObject>{hatClosedImg} },
+            {4.5f, new List<GameObject>{hatClosedImg} },
+            {4.666f, new List<GameObject>{hatClosedImg} },
+            {4.833f, new List<GameObject>{hatClosedImg} },
+            {5, new List<GameObject>{hatClosedImg} },
+            {5.166f, new List<GameObject>{hatClosedImg} }
+        };
     }
 
-    public void Show()
+    public void Show(bool clickable = true)
     {
+        _clickable = clickable;
         foreach(var img in _drumImages)
         {
             StartCoroutine(FadeInObjectScale(img.Value, overshootCurve, true, 0.5f));
@@ -275,11 +383,27 @@ public class DrumKitController : BaseManager
             case 2: // funk 120
                 StartCoroutine(AnimatePattern(funkLookup));
                 break;
+            case 3:
+                StartCoroutine(AnimatePattern(simpleBackbeatLookup));
+                break;
+            case 4:
+                StartCoroutine(AnimatePattern(compoundBackbeatLookup));
+                break;
+            case 5:
+                StartCoroutine(AnimatePattern(kickQuarterNotes));
+                break;
+            case 6:
+                StartCoroutine(AnimatePattern(hatsEighthNotes));
+                break;
+            case 7:
+                StartCoroutine(AnimatePattern(hatsSixteenthNotes));
+                break;
         }
     }
 
     private void DrumCallback(GameObject g)
-    {     
+    {
+        if (!_clickable) return;
         RuntimeManager.PlayOneShot($"event:/Drums/{_drumNames[g]}");
         StartCoroutine(DrumHit(_drumImages[g]));
     }

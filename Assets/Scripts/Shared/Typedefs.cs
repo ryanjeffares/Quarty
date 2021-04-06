@@ -149,16 +149,15 @@ public class RhythmLessons
         {
             {"Rhythm Introduction", true},
             {"Tempo", false},
-            {"Note Values", false},
             {"Time Signatures", false},
+            {"Note Values", false},            
             {"Triplets", false},
             {"Putting It All Together", false}
         };
         scores = new Dictionary<string, int>
         {
-            {"Tempo", 0},
-            {"Note Values", 0},
-            {"Time Signatures", 0},
+            {"Tempo", 0},            
+            {"Note Values", 0},            
             {"Triplets", 0}
         };
     }
