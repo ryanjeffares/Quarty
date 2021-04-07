@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Rhythm/NoteValues.unity
+- path: Assets/Scenes/Rhythm/NoteValuesPuzzle.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

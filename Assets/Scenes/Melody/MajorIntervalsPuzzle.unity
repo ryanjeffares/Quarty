@@ -747,12 +747,12 @@ PrefabInstance:
     - target: {fileID: 8759027606441697954, guid: f21c9d61021a5374fb75bba093517b57,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -260
+      value: -240
       objectReference: {fileID: 0}
     - target: {fileID: 8759027606441697954, guid: f21c9d61021a5374fb75bba093517b57,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 560
+      value: 540
       objectReference: {fileID: 0}
     - target: {fileID: 8759027606441697954, guid: f21c9d61021a5374fb75bba093517b57,
         type: 3}
@@ -995,9 +995,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "See for how many scales you can remove the note that isn't a Major 3rd,
-    Major 6th, or Major 7th within the time. \n\nWe'll leave some help on the screen.
-    Hit next when you're ready to go!"
+  m_Text: 'See for how many scales you can slide in the Major 3rd, Major 6th, and
+    Major 7th within the time.
+
+
+    We''ll leave some help on the screen. Hit next
+    when you''re ready to go!'
 --- !u!1 &1050565088
 GameObject:
   m_ObjectHideFlags: 0

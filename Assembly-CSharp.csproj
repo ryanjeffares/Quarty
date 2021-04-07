@@ -115,7 +115,6 @@
     <Compile Include="Assets\Scripts\UI\ScrollviewArrowAnimator.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MajorAndMinorSecond\MajorAndMinorSecondLessonController.cs" />
-    <Compile Include="Assets\NoteValuesLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorSevenths\MinorSeventhsLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Rhythm\TimeSignatures\TimeSignaturesLessonController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Xylophone\XylophoneKeyController.cs" />
@@ -136,6 +135,8 @@
     <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyWriting\MelodyWritingLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\Introduction\HarmonyIntroductionController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\NoteValues\NoteValuesLessonController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\NoteValues\NoteValuesPuzzleController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />
