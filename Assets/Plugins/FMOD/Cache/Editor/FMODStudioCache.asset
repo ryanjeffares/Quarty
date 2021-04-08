@@ -334,7 +334,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637533339265294379
+  lastModified: 637535032810739048
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -404,6 +404,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-5261071142963403788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/TomsEighths
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/TomsEighths
+  guid: 542ab7a34a59f349a7caccb2597a82cb
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5666
 --- !u!114 &-5171311980553694583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1084,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-1669774881290043420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/SnareEighths
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/SnareEighths
+  guid: f7ef96654b1ec54882cfe4e8b2f4613e
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5333
 --- !u!114 &-1657800764609680188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,6 +1259,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-127858687784365500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/SnareSixteenths
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/SnareSixteenths
+  guid: 061960cdaf58e84d95ddd7cefb168b90
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5500
 --- !u!114 &-70903681791213014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1348,6 +1417,11 @@ MonoBehaviour:
   - {fileID: 4357937731284314021}
   - {fileID: 3045537080374312578}
   - {fileID: 3355441966960601352}
+  - {fileID: -127858687784365500}
+  - {fileID: 649669474302856726}
+  - {fileID: 7688303804349866941}
+  - {fileID: -5261071142963403788}
+  - {fileID: -1669774881290043420}
   EditorParameters:
   - {fileID: -2060998473628846605}
   - {fileID: 6568236034180074964}
@@ -1355,7 +1429,7 @@ MonoBehaviour:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637533339265334399
+  stringsBankWriteTime: 637535032810789058
   cacheVersion: 6
 --- !u!114 &250169932755247837
 MonoBehaviour:
@@ -1423,6 +1497,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &649669474302856726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/TomsSixteenths
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/TomsSixteenths
+  guid: 24b04879990b8848af5d1cf8dec9f95c
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5500
 --- !u!114 &812170907465838208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,11 +2334,11 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637533339265334399
+  lastModified: 637535032810789058
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4738
+    Value: 4960
   Exists: 1
 --- !u!114 &5897781273282530285
 MonoBehaviour:
@@ -2536,6 +2633,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &7688303804349866941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Drums/KickEights
+  m_EditorClassIdentifier: 
+  Path: event:/Drums/KickEights
+  guid: 47a0aac34a4d7a40ba8355a176a5a243
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5666
 --- !u!114 &7944606751714747647
 MonoBehaviour:
   m_ObjectHideFlags: 0

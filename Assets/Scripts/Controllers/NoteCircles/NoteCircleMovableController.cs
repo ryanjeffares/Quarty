@@ -9,8 +9,7 @@ using FMODUnity;
 
 public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointerUpHandler, IPointerDownHandler
 {
-    [SerializeField] private Text text;    
-    private Vector2 _size;
+    [SerializeField] private Text text;        
     private RectTransform _rt;
     private Color _textColour;
     private bool _playable;
@@ -32,8 +31,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     {
         _textColour = text.color;
         text.color = Color.clear;
-        _rt = GetComponent<RectTransform>();
-        _size = _rt.sizeDelta;
+        _rt = GetComponent<RectTransform>();        
         availableX = new List<int>{-175, -125, -75, -25, 25, 75, 125, 175};
     }
 
@@ -100,7 +98,9 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     public void OnDrag(PointerEventData eventData)
     {
         if(draggable && !PauseManager.paused)
+        {
             transform.position = eventData.position;
+        }            
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -129,8 +129,7 @@ public class NoteCircleMovableController : MonoBehaviour, IDragHandler, IPointer
     }
 
     private IEnumerator Resize(bool noteOn, bool enlarge)
-    {
-        Debug.Log(note);
+    {        
         float timeCounter = 0f;
         while (timeCounter <= 0.1f)
         {

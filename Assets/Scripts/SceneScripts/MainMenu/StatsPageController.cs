@@ -92,7 +92,7 @@ public class StatsPageController : BaseManager
                 case 0: scores = Persistent.melodyLessons.scores; break;
                 case 1: scores = Persistent.harmonyLessons.scores; break;
                 case 2: scores = Persistent.rhythmLessons.scores; break;
-                case 3: scores = Persistent.timbreLessons.scores; break;
+                //case 3: scores = Persistent.timbreLessons.scores; break;
                 default:
                     scores = new Dictionary<string, int>();
                     Debug.LogError("No lessons lists found...");

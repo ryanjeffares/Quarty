@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\SceneScripts\Common\GlossaryTabController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\SuspendedChords\SuspendedChordsPuzzleController.cs" />
     <Compile Include="Assets\Scripts\ProfanityFilter\Interfaces\IProfanityFilter.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\NoteValues\NoteValuesLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MinorKeys\MinorKeysLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\FirstTime\FirstTimeOpenScreen.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\PerfectIntervals\PerfectIntervalsPuzzleController.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Assets\Scripts\Controllers\NoteSquares\NoteSquareMovableController.cs" />
     <Compile Include="Assets\Scripts\UI\ButtonClickedAnimation.cs" />
     <Compile Include="Assets\Scripts\EventScripts\ButtonClicked.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\NoteValues\NoteValuesPuzzleController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\MajorKeys\MajorKeysLessonController.cs" />
     <Compile Include="Assets\Scripts\Shared\Typedefs.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Rhythm\RhythmIntroduction\RhythmIntroductionController.cs" />
@@ -135,8 +137,6 @@
     <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyWriting\MelodyWritingLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\Introduction\HarmonyIntroductionController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\NoteValues\NoteValuesLessonController.cs" />
-    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\NoteValues\NoteValuesPuzzleController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />

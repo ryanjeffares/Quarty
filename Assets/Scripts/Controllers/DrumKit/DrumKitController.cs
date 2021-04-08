@@ -6,6 +6,18 @@ using UnityEngine;
 using UnityEngine.UI;
 using FMODUnity;
 
+public enum DrumPattern
+{
+    KickQuarters,
+    KickEights,
+    SnareEights,
+    SnareSixteenths,
+    HatsEights,
+    HatsSixteenths,
+    TomsEights,
+    TomsSixteenths
+}
+
 public class DrumKitController : BaseManager
 {    
     [SerializeField] private GameObject kick, snare, hatClosed, highTom, midTom, crash;
@@ -15,7 +27,8 @@ public class DrumKitController : BaseManager
 
     private Dictionary<GameObject, string> _drumNames;
     private Dictionary<GameObject, GameObject> _drumImages;
-    Dictionary<double, List<GameObject>> backbeatLookup, simpleBackbeatLookup, compoundBackbeatLookup, syncopatedLookup, funkLookup, kickQuarterNotes, hatsEighthNotes, hatsSixteenthNotes;
+    Dictionary<double, List<GameObject>> backbeatLookup, simpleBackbeatLookup, compoundBackbeatLookup, syncopatedLookup, funkLookup, 
+        kickQuarterNotes, kickEighthNotes, hatsEighthNotes, hatsSixteenthNotes, snareEighthNotes, snareSixteenthNotes, tomsEighthNotes, tomsSixteenthNotes;
 
     private bool _clickable;
 
@@ -285,7 +298,26 @@ public class DrumKitController : BaseManager
             {2.666f, new List<GameObject>{kickImg} },
             {3.333f, new List<GameObject>{kickImg} },
             {4, new List<GameObject>{kickImg} },
+            {4.666f, new List<GameObject>{kickImg} }
+        };
+        kickEighthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{kickImg} },
+            {0.333f, new List<GameObject>{kickImg} },
+            {0.666f, new List<GameObject>{kickImg} },
+            {1, new List<GameObject>{kickImg} },
+            {1.333f, new List<GameObject>{kickImg} },
+            {1.666f, new List<GameObject>{kickImg} },
+            {2, new List<GameObject>{kickImg} },
+            {2.333f, new List<GameObject>{kickImg} },
+            {2.666f, new List<GameObject>{kickImg} },
+            {3, new List<GameObject>{kickImg} },
+            {3.333f, new List<GameObject>{kickImg} },
+            {3.666f, new List<GameObject>{kickImg} },
+            {4, new List<GameObject>{kickImg} },
+            {4.333f, new List<GameObject>{kickImg} },
             {4.666f, new List<GameObject>{kickImg} },
+            {5, new List<GameObject>{kickImg} }
         };
         hatsEighthNotes = new Dictionary<double, List<GameObject>>
         {
@@ -343,6 +375,118 @@ public class DrumKitController : BaseManager
             {5, new List<GameObject>{hatClosedImg} },
             {5.166f, new List<GameObject>{hatClosedImg} }
         };
+        snareEighthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{snareImg} },
+            {0.333f, new List<GameObject>{snareImg} },
+            {0.666f, new List<GameObject>{snareImg} },
+            {1, new List<GameObject>{snareImg} },
+            {1.333f, new List<GameObject>{snareImg} },
+            {1.666f, new List<GameObject>{snareImg} },
+            {2, new List<GameObject>{snareImg} },
+            {2.333f, new List<GameObject>{snareImg} },
+
+            {2.666f, new List<GameObject>{snareImg} },
+            {3, new List<GameObject>{snareImg} },
+            {3.333f, new List<GameObject>{snareImg} },
+            {3.666f, new List<GameObject>{snareImg} },
+            {4, new List<GameObject>{snareImg} },
+            {4.333f, new List<GameObject>{snareImg} },
+            {4.666f, new List<GameObject>{snareImg} },
+            {5, new List<GameObject>{snareImg} }
+        };
+        snareSixteenthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{snareImg} },
+            {0.166f, new List<GameObject>{snareImg} },
+            {0.333f, new List<GameObject>{snareImg} },
+            {0.5f, new List<GameObject>{snareImg} },
+            {0.666f, new List<GameObject>{snareImg} },
+            {0.833f, new List<GameObject>{snareImg} },
+            {1, new List<GameObject>{snareImg} },
+            {1.166, new List<GameObject>{snareImg} },
+            {1.333f, new List<GameObject>{snareImg} },
+            {1.5f, new List<GameObject>{snareImg} },
+            {1.666f, new List<GameObject>{snareImg} },
+            {1.833f, new List<GameObject>{snareImg} },
+            {2, new List<GameObject>{snareImg} },
+            {2.166f, new List<GameObject>{snareImg} },
+            {2.333f, new List<GameObject>{snareImg} },
+            {2.5f, new List<GameObject>{snareImg} },
+
+            {2.666f, new List<GameObject>{snareImg} },
+            {2.833f, new List<GameObject>{snareImg} },
+            {3, new List<GameObject>{snareImg} },
+            {3.166f, new List<GameObject>{snareImg} },
+            {3.333f, new List<GameObject>{snareImg} },
+            {3.5f, new List<GameObject>{snareImg} },
+            {3.666f, new List<GameObject>{snareImg} },
+            {3.833f, new List<GameObject>{snareImg} },
+            {4, new List<GameObject>{snareImg} },
+            {4.166f, new List<GameObject>{snareImg} },
+            {4.333f, new List<GameObject>{snareImg} },
+            {4.5f, new List<GameObject>{snareImg} },
+            {4.666f, new List<GameObject>{snareImg} },
+            {4.833f, new List<GameObject>{snareImg} },
+            {5, new List<GameObject>{snareImg} },
+            {5.166f, new List<GameObject>{snareImg} }
+        };
+        tomsEighthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{highTomImg} },
+            {0.333f, new List<GameObject>{midTomImg} },
+            {0.666f, new List<GameObject>{highTomImg} },
+            {1, new List<GameObject>{midTomImg} },
+            {1.333f, new List<GameObject>{highTomImg} },
+            {1.666f, new List<GameObject>{midTomImg} },
+            {2, new List<GameObject>{highTomImg} },
+            {2.333f, new List<GameObject>{midTomImg} },
+
+            {2.666f, new List<GameObject>{highTomImg} },
+            {3, new List<GameObject>{midTomImg} },
+            {3.333f, new List<GameObject>{highTomImg} },
+            {3.666f, new List<GameObject>{midTomImg} },
+            {4, new List<GameObject>{highTomImg} },
+            {4.333f, new List<GameObject>{midTomImg} },
+            {4.666f, new List<GameObject>{highTomImg} },
+            {5, new List<GameObject>{midTomImg} }
+        };
+        tomsSixteenthNotes = new Dictionary<double, List<GameObject>>
+        {
+            {0, new List<GameObject>{highTomImg} },
+            {0.166f, new List<GameObject>{midTomImg} },
+            {0.333f, new List<GameObject>{highTomImg} },
+            {0.5f, new List<GameObject>{midTomImg} },
+            {0.666f, new List<GameObject>{highTomImg} },
+            {0.833f, new List<GameObject>{midTomImg} },
+            {1, new List<GameObject>{highTomImg} },
+            {1.166, new List<GameObject>{midTomImg} },
+            {1.333f, new List<GameObject>{highTomImg} },
+            {1.5f, new List<GameObject>{midTomImg} },
+            {1.666f, new List<GameObject>{highTomImg} },
+            {1.833f, new List<GameObject>{midTomImg} },
+            {2, new List<GameObject>{highTomImg} },
+            {2.166f, new List<GameObject>{midTomImg} },
+            {2.333f, new List<GameObject>{highTomImg} },
+            {2.5f, new List<GameObject>{midTomImg} },
+
+            {2.666f, new List<GameObject>{highTomImg} },
+            {2.833f, new List<GameObject>{midTomImg} },
+            {3, new List<GameObject>{highTomImg} },
+            {3.166f, new List<GameObject>{midTomImg} },
+            {3.333f, new List<GameObject>{highTomImg} },
+            {3.5f, new List<GameObject>{midTomImg} },
+            {3.666f, new List<GameObject>{highTomImg} },
+            {3.833f, new List<GameObject>{midTomImg} },
+            {4, new List<GameObject>{highTomImg} },
+            {4.166f, new List<GameObject>{midTomImg} },
+            {4.333f, new List<GameObject>{highTomImg} },
+            {4.5f, new List<GameObject>{midTomImg} },
+            {4.666f, new List<GameObject>{highTomImg} },
+            {4.833f, new List<GameObject>{midTomImg} },
+            {5, new List<GameObject>{highTomImg} },
+            {5.166f, new List<GameObject>{midTomImg} }
+        };
     }
 
     public void Show(bool clickable = true)
@@ -365,8 +509,13 @@ public class DrumKitController : BaseManager
         }
     }
 
-    public void StopAnimating()
+    public void StopAnimating(bool stopAudio = false)
     {
+        if (stopAudio)
+        {
+            var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+            bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        }
         StopAllCoroutines();
     }
 
@@ -397,6 +546,45 @@ public class DrumKitController : BaseManager
                 break;
             case 7:
                 StartCoroutine(AnimatePattern(hatsSixteenthNotes));
+                break;
+        }
+    }
+
+    public void PlayPattern(DrumPattern pattern)
+    {
+        switch (pattern)
+        {
+            case DrumPattern.KickQuarters:
+                RuntimeManager.PlayOneShot("event:/Drums/KickLoop");
+                StartCoroutine(AnimatePattern(kickQuarterNotes));
+                break;
+            case DrumPattern.KickEights:
+                StartCoroutine(AnimatePattern(kickEighthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/KickEights");
+                break;
+            case DrumPattern.SnareEights:
+                StartCoroutine(AnimatePattern(snareEighthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/SnareEighths");
+                break;
+            case DrumPattern.SnareSixteenths:
+                StartCoroutine(AnimatePattern(snareSixteenthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/SnareSixteenths");
+                break;
+            case DrumPattern.TomsEights:
+                StartCoroutine(AnimatePattern(tomsEighthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/TomsEighths");
+                break;
+            case DrumPattern.TomsSixteenths:
+                StartCoroutine(AnimatePattern(tomsSixteenthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/TomsSixteenths");
+                break;
+            case DrumPattern.HatsEights:
+                StartCoroutine(AnimatePattern(hatsEighthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/HatsLoop");
+                break;
+            case DrumPattern.HatsSixteenths:
+                StartCoroutine(AnimatePattern(hatsSixteenthNotes));
+                RuntimeManager.PlayOneShot("event:/Drums/HatsLoopSixteenths");
                 break;
         }
     }

@@ -23,7 +23,7 @@ public static class Persistent
     public static MelodyLessons melodyLessons;
     public static HarmonyLessons harmonyLessons;
     public static RhythmLessons rhythmLessons;
-    public static TimbreLessons timbreLessons;
+    //public static TimbreLessons timbreLessons;
     public static Settings settings;
     public static List<string> glossaryWords;
     public static Dictionary<string, string> glossaryDescriptions;
@@ -119,7 +119,7 @@ public static class Persistent
         melodyLessons = new MelodyLessons();
         harmonyLessons = new HarmonyLessons();
         rhythmLessons = new RhythmLessons();
-        timbreLessons = new TimbreLessons();
+        //timbreLessons = new TimbreLessons();
         LoadLessons();
         
         #endregion
@@ -301,13 +301,13 @@ public static class Persistent
                                     rhythmLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
                                 }
                                 break;
-                            case "Timbre": 
-                                timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
-                                if (timbreLessons.scores.ContainsKey(lesson.Attributes[1].Value))
-                                {
-                                    timbreLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
-                                }
-                                break;
+                            //case "Timbre": 
+                            //    timbreLessons.lessons[lesson.Attributes[1].Value] = bool.Parse(lesson.Attributes[2].Value);
+                            //    if (timbreLessons.scores.ContainsKey(lesson.Attributes[1].Value))
+                            //    {
+                            //        timbreLessons.scores[lesson.Attributes[1].Value] = int.Parse(lesson.Attributes[3].Value);
+                            //    }
+                            //    break;
                         }                        
                     }
                 }
@@ -333,10 +333,10 @@ public static class Persistent
                         lessons = rhythmLessons.lessons;
                         scores = rhythmLessons.scores;
                         break;
-                    case "Timbre":
-                        lessons = timbreLessons.lessons;
-                        scores = timbreLessons.scores;
-                        break;
+                    //case "Timbre":
+                    //    lessons = timbreLessons.lessons;
+                    //    scores = timbreLessons.scores;
+                    //    break;
                 }                         
                 int counter = 1;
                 foreach (var kvp in lessons)
@@ -391,11 +391,11 @@ public static class Persistent
                 scores = rhythmLessons.scores;
                 path = Application.persistentDataPath + "/Files/Lessons/RhythmLessons.dat";
                 break;
-            case "Timbre":
-                lessonList = timbreLessons.lessons;
-                scores = timbreLessons.scores;
-                path = Application.persistentDataPath + "/Files/Lessons/TimbreLessons.dat";
-                break;
+            //case "Timbre":
+            //    lessonList = timbreLessons.lessons;
+            //    scores = timbreLessons.scores;
+            //    path = Application.persistentDataPath + "/Files/Lessons/TimbreLessons.dat";
+            //    break;
             default:
                 Debug.LogError("Invalid string given to UpdateLessonAvailability. Returning.");
                 return;

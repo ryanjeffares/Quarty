@@ -122,7 +122,7 @@ public class CoursesController : BaseManager
                 case 0: lessons = Persistent.melodyLessons.lessons; break;
                 case 1: lessons = Persistent.harmonyLessons.lessons; break;
                 case 2: lessons = Persistent.rhythmLessons.lessons; break;
-                case 3: lessons = Persistent.timbreLessons.lessons; break;
+                //case 3: lessons = Persistent.timbreLessons.lessons; break;
                 default: lessons = new Dictionary<string, bool>();
                     Debug.LogError("No lessons lists found...");
                     break;

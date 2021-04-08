@@ -147,23 +147,21 @@ public class RhythmLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Rhythm Introduction", true},
+            {"Rhythm Introduction", false},
             {"Tempo", false},
             {"Time Signatures", false},
-            {"Note Values", false},            
-            {"Triplets", false},
+            {"Note Values", false},                        
             {"Putting It All Together", false}
         };
         scores = new Dictionary<string, int>
         {
             {"Tempo", 0},            
-            {"Note Values", 0},            
-            {"Triplets", 0}
+            {"Note Values", 0}
         };
     }
 }
 
-public class TimbreLessons
+/*public class TimbreLessons
 {
     public Dictionary<string, bool> lessons;
     public Dictionary<string, int> scores;
@@ -193,7 +191,7 @@ public class TimbreLessons
             {"Synthesis", 0}
         };
     }
-}
+}*/
 
 public class LoadingTexts
 {

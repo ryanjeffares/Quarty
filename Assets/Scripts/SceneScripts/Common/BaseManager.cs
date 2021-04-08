@@ -85,13 +85,8 @@ public abstract class BaseManager : MonoBehaviour
     
     protected virtual IEnumerator FadeText(Text text, bool fadeIn, float time, float wait = 0f, bool destroy = false, bool fadeOut = false, float duration = 0f)
     {
-        yield return new WaitUntil(() => canTextLerp[text]);
-        canTextLerp[text] = false;        
-        var startColour = text.color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);
-
         if (wait > 0f)
-        {            
+        {
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -101,8 +96,13 @@ public abstract class BaseManager : MonoBehaviour
                 }
                 waitCounter += Time.deltaTime;
                 yield return null;
-            }   
+            }
         }
+
+        yield return new WaitUntil(() => canTextLerp[text]);
+        canTextLerp[text] = false;        
+        var startColour = text.color;
+        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? 1f : 0f);        
 
         float timeCounter = 0f;        
         while (timeCounter <= time)
@@ -141,16 +141,8 @@ public abstract class BaseManager : MonoBehaviour
     }
     protected virtual IEnumerator FadeButtonText(GameObject button, bool fadeIn, float time, float wait = 0f, float targetAlpha = 1f)
     {
-        if (buttonCallbackLookup.ContainsKey(button))
-        {
-            buttonCallbackLookup.Remove(button);
-        }
-        yield return new WaitUntil(() => canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
-        canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
-        var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
-        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? targetAlpha : 0f);        
         if (wait > 0f)
-        {            
+        {
             float waitCounter = 0f;
             while (waitCounter <= wait)
             {
@@ -160,8 +152,17 @@ public abstract class BaseManager : MonoBehaviour
                 }
                 waitCounter += Time.deltaTime;
                 yield return null;
-            }   
+            }
         }
+
+        if (buttonCallbackLookup.ContainsKey(button))
+        {
+            buttonCallbackLookup.Remove(button);
+        }
+        yield return new WaitUntil(() => canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
+        canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
+        var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
+        var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? targetAlpha : 0f);                
 
         float timeCounter = 0f;        
         while (timeCounter <= time)
