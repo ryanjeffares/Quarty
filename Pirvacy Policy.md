@@ -1,4 +1,4 @@
-<h1>Privacy Policy for Quarty (Android and Windows)</h1>
+<h1>Privacy Policy for Quarty</h1>
 
 Last Updated: April 9th, 2021.
 
