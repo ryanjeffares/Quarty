@@ -1,6 +1,6 @@
 <h1>Privacy Policy for Quarty (Android and Windows)</h1>
 
-Last Updated: April 8th, 2021.
+Last Updated: April 9th, 2021.
 
 This Privacy Policy describes Our policies and procedures on the collection, usage, and disclosure of Your data and information while You use the Application, and informs You of Your privacy rights and how the law protects You.
 
@@ -22,7 +22,7 @@ For the purposes of this Privacy Policy:
 The Application has no facilities to and does not collect, use, or transmit any Personal Data from the user, such as Your name, address, phone number, or email address. The username You may set upon first opening the Application is stored internally within the device on which the Application is downloaded, and is not shared with Us or with any third parties. The Application does not use or collect any data on the user's geographic location, and does not require an internet connection or connect to the internet at any time. As no Personal Data or Information is collected, transmitted, or maintained by the Application, We do not share any Personal Data or Information with anyone, including Third Party Service Providers, Advertisers, Vendors, or Analytics Providers.
 
 <h2>Third Party Services</h2>
-The Application has no facilities to and does not require You to log in, create an account, or link with any Third Party Service Providers. As the Application has no facility to collect, maintain, or transmit Personal Data or Usage Data or to log in, create an account, or link with any Third Party Service Providers, the Application does not share or transmit any Personal Data or Usage Data with any Third Party Service Providers.
+The Application has no facilities to and does not require You to log in, create an account, or link with any Third Party Service Providers. As the Application has no facility to collect, maintain, or transmit Personal Data or Usage Data or to log in, create an account, or link with any Third Party Service Providers, the Application does not share or transmit any Personal Data or Usage Data with any Third Party Service Providers. The survey You are asked to fill out on Your experiences with the Application is hosted by Google and is completely anonymous, and We do not collect, maintain, or transmit any identifiable data through the survey, such as email address, name, or information about the device on which the survey is accessed.
 
 <h2>Children's Privacy</h2>
 The Application is partially aimed at children under the age of 13. We do not collect, maintain, or transmit any Personal Data or Usage Data from children under the age of 13, or people of any other age bracket. If a parent or guardian becomes aware that their child has provided us with information without their consent, they should contact Us at ryan.jeffares.business@gmail.com.
