@@ -78,7 +78,16 @@ public class NoteValuesPuzzleController : BaseManager
     private void NextButtonCallback(GameObject g)
     {
         ++_levelStage;
-        StartCoroutine(AdvanceLevelStage());
+        if(_levelStage < 2)
+        {
+            StartCoroutine(AdvanceLevelStage());
+        }
+        else
+        {
+            Persistent.goingHome = false;
+            Persistent.sceneToLoad = "PuttingItAllTogether";
+            SceneManager.LoadScene("LoadingScreen");
+        }
     }
 
     private void RetryButtonCallback(GameObject g)

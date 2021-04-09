@@ -53,6 +53,7 @@ public class RhythmIntroductionController : BaseManager
             bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Persistent.UpdateUserGlossary(new[] { "Rhythm", "Kick", "Snare", "Hi Hat", "Toms", "Crash" });
             Persistent.rhythmLessons.lessons["Tempo"] = true;
+            Persistent.UpdateLessonAvailability("Rhythm");
             Persistent.sceneToLoad = "Tempo";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

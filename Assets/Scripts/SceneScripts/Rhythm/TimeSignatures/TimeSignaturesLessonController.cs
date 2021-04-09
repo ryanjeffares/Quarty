@@ -50,6 +50,8 @@ public class TimeSignaturesLessonController : BaseManager
             var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
             bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Persistent.UpdateUserGlossary("Time Signature");
+            Persistent.rhythmLessons.lessons["Note Values"] = true;
+            Persistent.UpdateLessonAvailability("Rhythm");
             Persistent.sceneToLoad = "NoteValues";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

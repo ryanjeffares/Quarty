@@ -137,6 +137,7 @@
     <Compile Include="Assets\Colorblind Effect\Assets\Scripts\Colorblind.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Melody\MelodyWriting\MelodyWritingLessonController.cs" />
     <Compile Include="Assets\Scripts\SceneScripts\Harmony\Introduction\HarmonyIntroductionController.cs" />
+    <Compile Include="Assets\Scripts\SceneScripts\Rhythm\PuttingItAllTogether\PuttingItAllTogetherController.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Colorblind Effect\Documentation\ReadMe.txt" />

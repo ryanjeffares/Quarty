@@ -115,6 +115,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 19828
+--- !u!114 &-8146397424570455011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/1564Volume
+  m_EditorClassIdentifier: 
+  Name: 1564Volume
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3599686323
+    data2: 2712285236
+  Exists: 1
 --- !u!114 &-8104139716042820791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,7 +354,7 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637535032810739048
+  lastModified: 637535790729819095
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -404,6 +424,49 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &-5948713191916882862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/1251Volume
+  m_EditorClassIdentifier: 
+  Name: 1251Volume
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 4180126634
+    data2: 2275545416
+  Exists: 1
+--- !u!114 &-5524211295596111459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AllTogether/Backbeat90bpm
+  m_EditorClassIdentifier: 
+  Path: event:/AllTogether/Backbeat90bpm
+  guid: 6c07b8fb027e9d4e8a311b68c23a4dc4
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 19828
 --- !u!114 &-5261071142963403788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +901,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2000
+--- !u!114 &-3407734055383380606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AllTogether/Funk120bpm
+  m_EditorClassIdentifier: 
+  Path: event:/AllTogether/Funk120bpm
+  guid: 1b9fd2996992994aa9ccd2a66ce5484c
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 17161
 --- !u!114 &-3367040377714139247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1422,15 +1508,44 @@ MonoBehaviour:
   - {fileID: 7688303804349866941}
   - {fileID: -5261071142963403788}
   - {fileID: -1669774881290043420}
+  - {fileID: -3407734055383380606}
+  - {fileID: -5524211295596111459}
+  - {fileID: 11840354285756497}
   EditorParameters:
   - {fileID: -2060998473628846605}
   - {fileID: 6568236034180074964}
+  - {fileID: -5948713191916882862}
+  - {fileID: 826106461189913566}
+  - {fileID: -8146397424570455011}
   MasterBanks:
   - {fileID: -6753520486335150249}
   StringsBanks:
   - {fileID: 5767194702823762805}
-  stringsBankWriteTime: 637535032810789058
+  stringsBankWriteTime: 637535790729879101
   cacheVersion: 6
+--- !u!114 &11840354285756497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AllTogether/Syncopated90bpm
+  m_EditorClassIdentifier: 
+  Path: event:/AllTogether/Syncopated90bpm
+  guid: b753919dfc4c6c4da19d801fe25113f2
+  Banks:
+  - {fileID: -6753520486335150249}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 19828
 --- !u!114 &250169932755247837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1543,6 +1658,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 4000
+--- !u!114 &826106461189913566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/1451Volume
+  m_EditorClassIdentifier: 
+  Name: 1451Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 10693189
+    data2: 4091856466
+  Exists: 1
 --- !u!114 &876353122660747882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2334,11 +2469,11 @@ MonoBehaviour:
   Path: Quarty/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637535032810789058
+  lastModified: 637535790729879101
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 4960
+    Value: 5248
   Exists: 1
 --- !u!114 &5897781273282530285
 MonoBehaviour:

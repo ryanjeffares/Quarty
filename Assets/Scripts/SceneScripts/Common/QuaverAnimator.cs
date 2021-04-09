@@ -14,7 +14,8 @@ public class QuaverAnimator : MonoBehaviour
     private readonly Random _random = new Random();
     [SerializeField] private Sprite eyesClosed, eyesOpen;
     [SerializeField] private Image face;
-    [SerializeField] private bool shouldBlink, shouldMove;
+    [SerializeField] private bool shouldBlink;
+    public bool shouldMove;
 
     private void Awake()
     {

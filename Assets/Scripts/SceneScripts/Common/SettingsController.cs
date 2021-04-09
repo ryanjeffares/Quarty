@@ -7,7 +7,7 @@ using FMODUnity;
 public class SettingsController : BaseManager
 {
     public static event Action<bool> ToggleDevButton;
-    [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton, policyButton;
+    [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton, policyButton, surveyButton;
     [SerializeField] private Toggle devButtonToggle;
     [SerializeField] private Text colourBlindReadout;
     //[SerializeField] private Dropdown colourblindDropdown;
@@ -31,7 +31,8 @@ public class SettingsController : BaseManager
         {
             {cancelButton, CancelButtonCallback},
             {acceptButton, AcceptButtonCallback},
-            {policyButton, (g) => Application.OpenURL("https://github.com/ryanjeffares/Quarty/blob/master/Pirvacy%20Policy.md") }            
+            {policyButton, (g) => Application.OpenURL("https://github.com/ryanjeffares/Quarty/blob/master/Pirvacy%20Policy.md") } ,
+            {surveyButton, (g) => Application.OpenURL("https://forms.gle/BEtWR7UEYQkCZr876") }
         };
         devButtonToggle.onValueChanged.AddListener((state) => ToggleDevButton?.Invoke(state));
         // This function only loads settings on to their UI elements, actual values are set on the main menu script

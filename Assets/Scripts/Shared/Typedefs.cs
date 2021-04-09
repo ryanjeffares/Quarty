@@ -87,15 +87,15 @@ public class MelodyLessons
         lessons = new Dictionary<string, bool>
         {
             {"Melody Introduction", true},
-            {"Notes", false},
-            {"Tones And Semitones", false},
-            {"Major Scale", false},
-            {"Major Intervals", false},
-            {"Minor Scale", false},
-            {"Minor Intervals", false},
-            {"Perfect Intervals", false},
-            {"Major And Minor Second", false},
-            {"Melody Writing", false }
+            {"Notes", true},
+            {"Tones And Semitones", true},
+            {"Major Scale", true},
+            {"Major Intervals", true},
+            {"Minor Scale", true},
+            {"Minor Intervals", true},
+            {"Perfect Intervals", true},
+            {"Major And Minor Second", true},
+            {"Melody Writing", true }
         };
         scores = new Dictionary<string, int>
         {            
@@ -117,15 +117,15 @@ public class HarmonyLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Harmony Introduction", false},            
-            {"Major Triads", false},
-            {"Minor Triads", false},
-            {"Major Seventh Chords", false},
-            {"Minor Seventh Chords", false},
-            {"Suspended Chords", false},
-            {"Major Keys", false},
-            {"Minor Keys", false},
-            {"Chord Progressions", false}            
+            {"Harmony Introduction", true},            
+            {"Major Triads", true},
+            {"Minor Triads", true},
+            {"Major Seventh Chords", true},
+            {"Minor Seventh Chords", true},
+            {"Suspended Chords", true},
+            {"Major Keys", true},
+            {"Minor Keys", true},
+            {"Chord Progressions", true}            
         };
         scores = new Dictionary<string, int>
         {         
@@ -147,11 +147,11 @@ public class RhythmLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Rhythm Introduction", false},
-            {"Tempo", false},
-            {"Time Signatures", false},
-            {"Note Values", false},                        
-            {"Putting It All Together", false}
+            {"Rhythm Introduction", true},
+            {"Tempo", true},
+            {"Time Signatures", true},
+            {"Note Values", true},                        
+            {"Putting It All Together", true}
         };
         scores = new Dictionary<string, int>
         {
@@ -177,7 +177,7 @@ public class RhythmLessons
             {"Percussion", false},
             {"Tremolo", false},
             {"Vibrato", false},
-            {"Synthesis", false}
+            {"Synthesis", true}
         };
         scores = new Dictionary<string, int>
         {
@@ -203,10 +203,11 @@ public class LoadingTexts
         {
             "Tuning pianos...",
             "Warming up...",
-            "Sending data to the CIA...",
+            "Stringing guitars...",
             "Resurrecting Mozart...",
             "Training musicians...",
-            "Loading..."
+            "Loading...",
+            "Bowing violins..."
         };
         loadingHome = new List<string>
         {
@@ -215,7 +216,7 @@ public class LoadingTexts
             "Decomposing...",
             "Loading...",
             "Going home...",
-            "Retrieving data from the CIA..."
+            "Detuning..."
         };
     }
 }
@@ -230,13 +231,10 @@ public class SplashTexts
         {
             "Now with classes!",
             "Hacked together with Perl.",
-            "{placeholderfunnycomment}",
-            "NOT sponsored by the CIA.",
-            "Drink responsibly.",
-            "Featuring 100 gecs!",
-            "сука блять, иди нахуй!",
-            "The prequels were just BETTER",
-            "Brought to you by Raid Shadow Legends"
+            "Reliably sourced!",
+            "Take the survey!",
+            "Mostly bug free!",
+            "The newest craze!"
         };
     }
 }

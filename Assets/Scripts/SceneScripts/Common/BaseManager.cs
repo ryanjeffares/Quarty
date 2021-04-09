@@ -159,9 +159,9 @@ public abstract class BaseManager : MonoBehaviour
         {
             buttonCallbackLookup.Remove(button);
         }
-        yield return new WaitUntil(() => canTextLerp[button.transform.GetChild(0).GetComponent<Text>()]);
-        canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = false;
-        var startColour = button.transform.GetChild(0).GetComponent<Text>().color;
+        yield return new WaitUntil(() => canTextLerp[button.GetComponentInChildren<Text>()]);
+        canTextLerp[button.GetComponentInChildren<Text>()] = false;
+        var startColour = button.GetComponentInChildren<Text>().color;
         var targetColour = new Color(0.196f, 0.196f, 0.196f, fadeIn ? targetAlpha : 0f);                
 
         float timeCounter = 0f;        
@@ -171,12 +171,12 @@ public abstract class BaseManager : MonoBehaviour
             {
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
-            button.transform.GetChild(0).GetComponent<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
+            button.GetComponentInChildren<Text>().color = Color.Lerp(startColour, targetColour, timeCounter / time);
             timeCounter += Time.deltaTime;
             yield return null;
         }
-        button.transform.GetChild(0).GetComponent<Text>().color = targetColour;
-        canTextLerp[button.transform.GetChild(0).GetComponent<Text>()] = true;
+        button.GetComponentInChildren<Text>().color = targetColour;
+        canTextLerp[button.GetComponentInChildren<Text>()] = true;
         if(fadeIn)
         {
             buttonCallbackLookup.Add(button, fullCallbackLookup[button]);
