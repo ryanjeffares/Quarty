@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f0d1bb61-7659-4d92-bbd5-173111b5f662" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProfessionalProject/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProfessionalProject/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProfessionalProject/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProfessionalProject/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/ProfessionalProject/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/.vs/ProfessionalProject/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Piano.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Piano.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/FirstTime.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/FirstTime.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Harmony/MajorTriadsPuzzle.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Harmony/MajorTriadsPuzzle.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Harmony/MinorTriadsLesson.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Harmony/MinorTriadsLesson.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FadeInTextLetterByLetter.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/FadeInTextLetterByLetter.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/ExampleLevelController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/ExampleLevelController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/HintTextController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/HintTextController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/NoteBlockController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/NoteBlockController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/OnScreenMessageButtonController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/OnScreenMessageButtonController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/OnScreenMessageController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/OnScreenMessageController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/TryAgainTextController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/OldShitScripts/TryAgainTextController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/BaseManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/BaseManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/FirstTime/FirstTimeOpenScreen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/FirstTime/FirstTimeOpenScreen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/Introduction/PianoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/Introduction/PianoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/Introduction/PianoKeyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/Introduction/PianoKeyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/MajorTriads/MajorTriadsPuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/MajorTriads/MajorTriadsPuzzleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MajorIntervals/MajorIntervalsPuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MajorIntervals/MajorIntervalsPuzzleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MinorIntervals/MinorIntervalsPuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MinorIntervals/MinorIntervalsPuzzleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesPuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesPuzzleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/PerfectIntervals/PerfectIntervalsPuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/PerfectIntervals/PerfectIntervalsPuzzleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/TonesAndSemitones/TonesAndSemitonesPuzzleController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/TonesAndSemitones/TonesAndSemitonesPuzzleController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Shared/Typedefs.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Shared/Typedefs.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FMODUnity.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FMODUnity.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FMODUnityEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FMODUnityEditor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FMODUnityResonance.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FMODUnityResonance.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FMODUnityResonanceEditor.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/FMODUnityResonanceEditor.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ArtifactDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ArtifactDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/01/013d6a78375d1682112d6e63e9ebd892" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/02/027cd9b7e4560244c2da107dcd2735c8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/5b/5b225be6b61912c97b2697fb9ae4ee19" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/83/833605835b3a45c54b1d337595a0a140" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/8e/8e42735ec4ad9b5f24a8693e5a427345" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/d2/d2b248e3424e7ba17a160a388d1396c9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/Artifacts/e2/e2a9ebb19972db35568ec46eb9f0eae6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentLayout-default.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/EditorUserBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/InspectorExpandedItems.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Library/LastSceneManagerSetup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SceneVisibilityState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/ScriptAssemblies/BuiltinAssemblies.stamp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/SourceAssetDB" beforeDir="false" afterPath="$PROJECT_DIR$/Library/SourceAssetDB" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/MainStageHierarchy/4d/4d2a36d9faf65734f0bbefb3ee623532.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/PrefabStageHierarchy/15/15641f6eb95e9a2e2001d9fdf08a5f70.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/PrefabStageHierarchy/15/15641f6eb95e9a2e2001d9fdf08a5f70.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/PrefabStageHierarchy/f6/f65c9d74256dde63c6a842d26c6a84d2.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/PrefabStageHierarchy/f6/f65c9d74256dde63c6a842d26c6a84d2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/26/262681a28005752f20214b27627671a8.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/26/262681a28005752f20214b27627671a8.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" beforeDir="false" afterPath="$PROJECT_DIR$/Library/StateCache/SceneView/8c/8cd7c613bf844de3b80696e27a479d5e.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProfessionalProject.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ProfessionalProject.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quarty/.unsaved/.user/Metadata/Asset/{f4787823-c48c-4cf1-93dd-1ff016bc5436}.user.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quarty/.unsaved/.user/Metadata/Mixer.user.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quarty/.unsaved/.user/Metadata/Workspace.user.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quarty/.unsaved/Metadata/Event/{3ffe4a56-79d4-4a4d-83eb-004e544fa77a}.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quarty/.unsaved/metadataFileMapping.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FMODUnity.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FMODUnity.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FMODUnityEditor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FMODUnityEditor.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FMODUnityResonance.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FMODUnityResonance.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/obj/Debug/FMODUnityResonanceEditor.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/FMODUnityResonanceEditor.csprojAssemblyReference.cache" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/A9810827-DCE3-444A-8E5C-4E9F3F5E0828/16/0510f3f5/RectTransform.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/LoadingScreen/LoadingScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/SplashTextAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NoteCirclesScaleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/FirstTime/FirstTimeOpenScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/PauseMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesLessonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MelodyIntroduction/XylophoneController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NoteCircleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MelodyIntroduction/XylophoneKeyController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/CoursesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/QuaverAnimator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesPuzzleController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MelodyIntroduction/MelodyIntroductionController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/EventScripts/ButtonClicked.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/BaseScene.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonClickedAnimation.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/BaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/splashtexts.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/BaseLessonManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Controllers/FadeInTextLetterByLetter.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shared/UserSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/loadingscreentexts.txt" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/loadingscreentextshome.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shared/SharedData.cs" />
+        <option value="$PROJECT_DIR$/Assets/NotesLessonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/PauseMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/NotesLesson/XylophoneController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/Lessons/melodylessons.xml" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/Lessons/rhythmlessons.xml" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/Lessons/timbrelessons.xml" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/Lessons/harmonylessons.xml" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/CoursesController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/SplashTextAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/QuaverAnimator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/NotesLesson/NotesLessonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/LoadingScreen/LoadingScreen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/NotesLesson/XylophoneKeyController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/NotesLesson/MelodyIntroductionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/PauseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/NoteCircleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/ArrowTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/NotesLessonArrowController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NoteCircleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shared/Ease.cs" />
+        <option value="$PROJECT_DIR$/Assets/EmptyNoteCirclesScaleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NoteCircleMoveableController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shared/Typedefs.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/MainMenu/MainMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/SettingsController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/FirstTime/ProfanityList.cs" />
+        <option value="$PROJECT_DIR$/Assets/Resources/Files/Lessons/MelodyLessons.xml" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesLessonArrowController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NoteCircleMovableController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/LessonManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/FirstTime/FirstTimeOpenScreen.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesPuzzleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/MelodyIntroduction/MelodyIntroductionController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NoteCirclesScaleController.cs" />
+        <option value="$PROJECT_DIR$/Assets/NoteCirclesScaleEmptyController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Shared/Persistent.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/TonesAndSemitones/TonesAndSemitonesLessonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Common/BaseManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Melody/NotesLesson/NotesLessonController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/SceneScripts/Harmony/MajorsSevenths/MajorSeventhsPuzzleController.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iqBLZUhEZlJvh4KMYXEAs90T9z" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="Inspections-C#" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/Build\ProfessionalProject.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\College\ProfessionalProject\ProfessionalProject\Build" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0d1bb61-7659-4d92-bbd5-173111b5f662" name="Default Changelist" comment="" />
+      <created>1602625188928</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602625188928</updated>
+      <workItem from="1602625202125" duration="2977000" />
+      <workItem from="1604862823535" duration="13180000" />
+      <workItem from="1604944248818" duration="7705000" />
+      <workItem from="1604972290449" duration="11150000" />
+      <workItem from="1605001117753" duration="6676000" />
+      <workItem from="1605198513653" duration="599000" />
+      <workItem from="1605207630510" duration="765000" />
+      <workItem from="1605541926661" duration="10943000" />
+      <workItem from="1605617888341" duration="3909000" />
+      <workItem from="1605812499087" duration="1232000" />
+      <workItem from="1605885731870" duration="1418000" />
+      <workItem from="1605970214826" duration="649000" />
+      <workItem from="1606137652692" duration="12478000" />
+      <workItem from="1606156073911" duration="2599000" />
+      <workItem from="1607427203544" duration="12320000" />
+      <workItem from="1607533909815" duration="36785000" />
+      <workItem from="1607644645690" duration="2231000" />
+      <workItem from="1608051258080" duration="24282000" />
+      <workItem from="1608419161457" duration="2583000" />
+      <workItem from="1608491758197" duration="1889000" />
+      <workItem from="1608659388929" duration="9715000" />
+      <workItem from="1609083911416" duration="13350000" />
+      <workItem from="1617130776522" duration="246000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-8" y="-8" width="976" height="1056" maximized="true" key="dock-window-1" timestamp="1609111608975">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2167" y="16" width="1449" height="1028" maximized="true" key="dock-window-1/0.0.1920.1040/1920.16.1680.1010@0.0.1920.1040" timestamp="1609085213458" />
+    <state x="-8" y="-8" width="976" height="1056" maximized="true" key="dock-window-1/0.0.1920.1040/1920.16.1680.1010@1920.16.1680.1010" timestamp="1609111608975" />
+    <state x="623" y="226" width="768" height="679" key="search.everywhere.popup" timestamp="1617130968797">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2465" y="235" width="672" height="659" key="search.everywhere.popup/0.0.1920.1040/1920.16.1680.1010@1920.16.1680.1010" timestamp="1609089714575" />
+    <state x="623" y="226" width="768" height="679" key="search.everywhere.popup/0.0.1920.1040/1920.26.1680.1010@0.0.1920.1040" timestamp="1617130968797" />
+  </component>
+</project>
