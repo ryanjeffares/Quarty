@@ -1,6 +1,6 @@
 <h1>Privacy Policy for Quarty</h1>
 
-Last Updated: April 9th, 2021.
+Last Updated: April 13th, 2021.
 
 This Privacy Policy describes Our policies and procedures on the collection, usage, and disclosure of Your data and information while You use the Application, and informs You of Your privacy rights and how the law protects You.
 
@@ -13,7 +13,7 @@ For the purposes of this Privacy Policy:
 <li><b>"We", "Us", </b>or <b>"Our"</b> refers to the creator of Quarty.</li>
 <li><b>You</b> means the individual accessing or using the game or game's creator, or any other legal entity on behalf of which such individual is accessing or using the game or the game's creator.</li>
 <li><b>(Personal) Data</b> means any information that relates to or identifies an individual.</li>
-<li><b>Service Provider</b> means any natural or legal person who processer data on Our behalf.</li>
+<li><b>Service Provider</b> means any natural or legal person who processes data on Our behalf.</li>
 <li><b>Third Party Service</b> means any website, social network, or company that is not Us through which a user can log in or create an account to use the Application.</li>
 <li><b>Usage Data</b> refers to any data collected or generated automatically through use of the Application.</li>
 </ul>
