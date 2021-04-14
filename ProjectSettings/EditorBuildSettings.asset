@@ -123,6 +123,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Rhythm/NoteValuesPuzzle.unity
     guid: 4b6b435ee50d7894381243e725c23557
   - enabled: 1
-    path: Assets/Scenes/Rhythm/PuttinItAllTogether.unity
+    path: Assets/Scenes/Rhythm/PuttingItAllTogether.unity
     guid: 4389970bd6096f44e862eeb0011ea181
+  - enabled: 1
+    path: Assets/Scenes/Rhythm/TimeSignatures.unity
+    guid: 7936d624d91480d4e8ca73b9646faaab
   m_configObjects: {}
