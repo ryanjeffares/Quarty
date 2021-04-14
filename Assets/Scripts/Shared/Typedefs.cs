@@ -30,7 +30,7 @@ public static class Typedefs
         => self.Select((item, index) => (item, index));
 
     public static bool CheckElementsEqualUnordered<T>(this IList<T> list1, IList<T> list2)
-        => Enumerable.SequenceEqual(list1.OrderBy(l => l), list2.OrderBy(l => l));
+        => Enumerable.SequenceEqual(list1.OrderBy(l => l), list2.OrderBy(l => l));    
 }
 
 // This class exists purely so we can implement Shuffle<T> above
@@ -89,10 +89,8 @@ public class MelodyLessons
             {"Melody Introduction", true},
             {"Notes", true},
             {"Tones And Semitones", true},
-            {"Major Scale", true},
-            {"Major Intervals", true},
-            {"Minor Scale", true},
-            {"Minor Intervals", true},
+            {"Major Scale", true},            
+            {"Minor Scale", true},            
             {"Perfect Intervals", true},
             {"Major And Minor Second", true},
             {"Melody Writing", true }
@@ -101,8 +99,8 @@ public class MelodyLessons
         {            
             {"Notes", 0},
             {"Tones And Semitones", 0},            
-            {"Major Intervals", 0},            
-            {"Minor Intervals", 0},
+            {"Major Scale", 0},
+            {"Minor Scale", 0},
             {"Perfect Intervals", 0},            
         };
     }

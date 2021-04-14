@@ -283,7 +283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
+  m_AnchoredPosition: {x: 200, y: 180}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &371918933
@@ -464,7 +464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -290.00006}
+  m_AnchoredPosition: {x: -67, y: -40}
   m_SizeDelta: {x: 400, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443093593
@@ -682,7 +682,7 @@ PrefabInstance:
     - target: {fileID: 3935414310249936123, guid: f21c9d61021a5374fb75bba093517b57,
         type: 3}
       propertyPath: m_Text
-      value: 'Melody: Major Intervals'
+      value: 'Melody: Major Scale'
       objectReference: {fileID: 0}
     - target: {fileID: 8759027606441697953, guid: f21c9d61021a5374fb75bba093517b57,
         type: 3}
@@ -951,8 +951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.32, y: 182.16}
-  m_SizeDelta: {x: 335.4521, y: 673.20886}
+  m_AnchoredPosition: {x: -113.32, y: 168.5}
+  m_SizeDelta: {x: 335.4521, y: 645.871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &987019030
 CanvasRenderer:
@@ -995,12 +995,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'See for how many scales you can slide in the Major 3rd, Major 6th, and
-    Major 7th within the time.
+  m_Text: 'See for how many scales you can slide out the note that is not in the
+    Major Scale!
 
 
-    We''ll leave some help on the screen. Hit next
-    when you''re ready to go!'
+    We''ll leave some help on the screen. Hit next when you''re
+    ready to go!'
 --- !u!1 &1050565088
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1709,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.32, y: 0.000013351}
+  m_AnchoredPosition: {x: -67, y: 50}
   m_SizeDelta: {x: 335.4521, y: 154.44531}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1591556038
@@ -1745,12 +1745,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Major 3rd - 4 Semitones
+  m_Text: 'Major Scale
 
-    Major 6th - 9 Semitones
-
-    Major 7th -
-    11 Semitones'
+    T, T, S, T, T, T, S'
 --- !u!222 &1591556039
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2277,7 +2274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9574322, b: 0.6650944, a: 1}
+  m_Color: {r: 1, g: 0.9372549, b: 0.99215686, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2392,7 +2389,7 @@ GameObject:
   - component: {fileID: 2140063457}
   - component: {fileID: 2140063456}
   m_Layer: 0
-  m_Name: MajorIntervalsPuzzle
+  m_Name: MajorScalePuzzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2412,7 +2409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starPrefab: {fileID: 2309308132283115431, guid: e5036368d34594247b0111affc03bc9e,
     type: 3}
-  squarePrefab: {fileID: 1666173508633572853, guid: 7793b10b3dbe1a04ea11d346b7c160be,
+  squareScalePrefab: {fileID: 6828427643156742547, guid: 7a345f8b575019d4984b9932d1804c5c,
     type: 3}
   introText: {fileID: 987019031}
   helpText: {fileID: 533851815}

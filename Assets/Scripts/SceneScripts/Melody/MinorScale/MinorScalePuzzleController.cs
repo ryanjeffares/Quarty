@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class MajorIntervalsPuzzleController : BaseManager
+public class MinorScalePuzzleController : BaseManager
 {
     [Header("Prefabs")]
     [SerializeField] private GameObject starPrefab;
-    [SerializeField] private GameObject squarePrefab;
+    [SerializeField] private GameObject squareScalePrefab;
     [Header("Texts")]
     [SerializeField] private Text introText;
     [SerializeField] private Text helpText;
@@ -34,10 +34,22 @@ public class MajorIntervalsPuzzleController : BaseManager
 
     public int timer;
 
+    private GameObject _scale;
+    private GameObject Scale
+    {
+        get => _scale;
+        set
+        {
+            _scale = value;
+            _controller = _scale.GetComponent<NoteSquaresScaleController>();
+        }
+    }
+    private NoteSquaresScaleController _controller;
+    private readonly System.Random _random = new System.Random();
     private List<List<string>> _noteCombinations;
     private List<string> _correctOrder, _playedNotes;
-    private List<GameObject> _movableSquares, _stars;
-    private Dictionary<string, string> _wrongNotes;
+    private List<GameObject> _stars;
+    private Dictionary<string, string[]> _wrongNotes;
     private int _levelStage, _scalesDone;
     private bool _playing, _success, _arrowMoving;
 
@@ -65,28 +77,26 @@ public class MajorIntervalsPuzzleController : BaseManager
         };
         _noteCombinations = new List<List<string>>
         {
-            new List<string>{"C2", "E2", "G2", "A2", "B2", "C3" },
-            new List<string>{"D1", "F#1", "A1", "B1", "C#2", "D2" },
-            new List<string>{"E1", "G#1", "C#2", "D2", "D#2", "E2" },
-            new List<string>{"F1", "G1", "A1", "D2", "E2", "F2" },
-            new List<string>{"G1", "B1", "E2", "F2", "F#2", "G2" },
-            new List<string>{"A1", "C#2", "E2", "F#2", "G#2", "A2" },            
-            new List<string>{"B1", "D#2", "G#2", "A#2", "A2", "B2" }
+            new List<string>{"A1", "B1", "C2", "C#2", "D2", "E2", "F2", "F#2", "G2", "A2" },
+            new List<string>{"B1", "C2", "C#2", "D2", "E2", "F#2", "G2", "A2", "A#2", "B2" },
+            new List<string>{"C#1", "D#1", "E1", "F1", "F#1", "G#1", "A1", "B1", "C2", "C#2" },
+            new List<string>{"E1", "F#1", "G1", "G#1", "A1", "B1", "C2", "C#2", "D2", "E2" },
+            new List<string>{"F#1", "G#1", "A1", "B1", "C2", "C#2", "D2", "E2", "F2", "F#2" },
+            new List<string>{"G#1", "A1", "A#1", "B1", "C#2", "D#2", "E2", "F2", "F#2", "G#2" }
         };
-        _wrongNotes = new Dictionary<string, string>
+        _wrongNotes = new Dictionary<string, string[]>
         {
-            {"C", "G2" },
-            {"D", "A1" },
-            {"E", "D2" },
-            {"F", "G1" },
-            {"G", "F2" },
-            {"A", "E2" },
-            {"B", "A2" }
+            {"A", new[]{"F#2", "C#2" }},
+            {"B", new[]{"A#2", "C2" }},
+            {"C#", new[]{ "F1", "C2" }},
+            {"E", new[]{ "G#1", "C#2" }},
+            {"F#", new[]{ "C2", "F2" }},
+            {"G#", new[]{ "A1", "F2" }},            
         };
         _stars = new List<GameObject>();
         _playedNotes = new List<string>();
         StartCoroutine(FadeText(introText, true, 0.5f));
-        StartCoroutine(FadeText(allNotesText, true, 0.5f));        
+        StartCoroutine(FadeText(allNotesText, true, 0.5f));
         StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
         StartCoroutine(FadeSlider(0.5f));
         StartCoroutine(SpawnMovableSquares());
@@ -102,20 +112,20 @@ public class MajorIntervalsPuzzleController : BaseManager
         ++_levelStage;
         if (_success)
         {
-            Persistent.sceneToLoad = "MinorScale";
+            Persistent.sceneToLoad = "PerfectIntervals";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
         else
         {
             StartCoroutine(AdvanceLevelStage());
-        }        
+        }
     }
 
     private void TryButtonCallback(GameObject g)
     {
         if (!_playing || _arrowMoving) return;
-        StartCoroutine(MoveArrow(new Vector2(200, -300), 1.5f));
+        StartCoroutine(MoveArrow(new Vector2(200, -480), 2f));
     }
 
     private void RetryButtonCallback(GameObject g)
@@ -123,15 +133,13 @@ public class MajorIntervalsPuzzleController : BaseManager
         _scalesDone = 0;
         scoreCounter.text = "Scales Done: 0";
         timeSlider.value = timer;
-        foreach(var n in _movableSquares)
+        _controller.DestroySquares();
+        int mult = 0;
+        foreach (var s in _stars)
         {
-            Destroy(n);
-        }
-        foreach(var (s, index) in _stars.WithIndex())
-        {
-            StartCoroutine(FadeInObjectScale(s, overshootOutCurve, false, 0.3f, wait: 0.2f * index));
-        }
-        _movableSquares.Clear();
+            StartCoroutine(FadeInObjectScale(s, overshootOutCurve, false, 0.3f, wait: 0.2f * mult));
+            mult++;
+        }        
         StartCoroutine(FadeText(introText, false, 0.5f));
         StartCoroutine(FadeButtonText(retryButton, false, 0.5f));
         StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
@@ -143,7 +151,7 @@ public class MajorIntervalsPuzzleController : BaseManager
     {
         if (!_playing) return;
         _playedNotes.Add(note);
-        if (_playedNotes.Count == 5)
+        if (_playedNotes.Count == 8)
         {
             if (_playedNotes.SequenceEqual(_correctOrder))
             {
@@ -167,11 +175,7 @@ public class MajorIntervalsPuzzleController : BaseManager
                     StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));
                 }
             }
-            foreach (var s in _movableSquares)
-            {
-                StartCoroutine(s.GetComponent<NoteSquareMovableController>().Destroy());
-            }
-            _movableSquares.Clear();
+            _controller.DestroySquares();
             StartCoroutine(SpawnMovableSquares());
         }
     }
@@ -195,10 +199,10 @@ public class MajorIntervalsPuzzleController : BaseManager
                 stars = 3;
             }
             string readout = stars > 1 ? "stars" : "star";
-            introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
+            introText.text = $"Nice job {Persistent.userName}! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
             StartCoroutine(FadeText(introText, true, 0.5f));
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
-            StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
+            StartCoroutine(FadeButtonText(nextButton, true, 0.5f));            
             List<Vector2> starPositions = new List<Vector2>();
             switch (stars)
             {
@@ -223,11 +227,11 @@ public class MajorIntervalsPuzzleController : BaseManager
                 _stars[i].GetComponent<RectTransform>().sizeDelta = new Vector2(60, 60);
                 StartCoroutine(FadeInObjectScale(_stars[i], overshootCurve, true, 0.3f, wait: 0.2f * i));
             }
-            if (stars > Persistent.melodyLessons.scores["Major Intervals"])
+            if (stars > Persistent.melodyLessons.scores["Minor Scale"])
             {
-                Persistent.melodyLessons.lessons["Minor Scale"] = true;
-                Persistent.melodyLessons.scores["Major Intervals"] = stars;
-                Persistent.UpdateLessonAvailability("Melody");                
+                Persistent.melodyLessons.lessons["Perfect Intervals"] = true;                
+                Persistent.melodyLessons.scores["Minor Scale"] = stars;
+                Persistent.UpdateLessonAvailability("Melody");
             }
         }
         else
@@ -270,39 +274,26 @@ public class MajorIntervalsPuzzleController : BaseManager
                 yield return new WaitForSeconds(waitInterval);
             }
         }
-        _correctOrder = new List<string>();
-        _movableSquares = new List<GameObject>();
-        var random = new System.Random();
-        var nextCombo = _noteCombinations[random.Next(_noteCombinations.Count)];
-        var root = nextCombo[0].Substring(0, 1);                
-        float y = 300;
-        float wait = 0f;
-        for (int i = 0; i < nextCombo.Count; i++)
+        _correctOrder = new List<string>();                
+        var nextCombo = _noteCombinations[_random.Next(_noteCombinations.Count)];
+        var root = nextCombo[0].Substring(0, nextCombo[0].Length - 1);
+        Scale = Instantiate(squareScalePrefab, squareContainer.transform);
+        _controller.Show(squaresDraggableRight: false, useCustomNotes: true, customNotes: nextCombo);
+        _controller.MakeDraggable(true);
+        nextCombo.ForEach(n =>
         {
-            if(nextCombo[i] != _wrongNotes[root])
+            if (!_wrongNotes[root].Contains(n))
             {
-                _correctOrder.Add(nextCombo[i].Substring(0, nextCombo[i].Length - 1));                
+                _correctOrder.Add(n.Substring(0, n.Length - 1));
             }
-            _movableSquares.Add(Instantiate(squarePrefab, squareContainer.transform));
-            var controller = _movableSquares[i].GetComponent<NoteSquareMovableController>();
-            controller.note = nextCombo[i];
-            controller.waitTime = wait;
-            controller.squareColour = Persistent.noteColours[nextCombo[i].Substring(0, nextCombo[i].Length - 1)];
-            controller.draggable = !nextCombo[i].Contains(root);
-            controller.canMoveRight = false;
-            _movableSquares[i].transform.localPosition = new Vector3(nextCombo[i].Contains(root) ? 0 : -100, y);
-            controller.StartingYpos = y;
-            controller.Show();
-            y -= 100;
-            wait += 0.1f;
-        }
+        });
     }
 
     private IEnumerator DecreaseTimer()
     {
         _playing = true;
         float timeCounter = 0f;
-        while(timeCounter <= timer)
+        while (timeCounter <= timer)
         {
             if (PauseManager.paused)
             {
@@ -333,10 +324,7 @@ public class MajorIntervalsPuzzleController : BaseManager
             yield return null;
         }
         _playing = false;
-        foreach(var s in _movableSquares)
-        {
-            s.GetComponent<NoteSquareMovableController>().draggable = false;
-        }
+        _controller.MakeDraggable(false);
         timeText.text = "Time Remaining: 0";
         TimerEnd();
     }
@@ -381,7 +369,7 @@ public class MajorIntervalsPuzzleController : BaseManager
                 yield return new WaitUntil(() => !PauseManager.paused);
             }
             arrow.transform.localPosition = Vector2.Lerp(startPos, target, timeCounter / time);
-            timeCounter += Time.deltaTime; ;
+            timeCounter += Time.deltaTime;
             yield return null;
         }
         if (disableTrigger)
@@ -416,7 +404,7 @@ public class MajorIntervalsPuzzleController : BaseManager
             pos.y = startPos.y + (easeInOutCurve.Evaluate(timeCounter / time) * yDiff);
             pos.x = startPos.x + (easeInOutCurve.Evaluate(timeCounter / time) * xDiff);
             arrow.transform.localPosition = pos;
-            timeCounter += Time.deltaTime; ;
+            timeCounter += Time.deltaTime;
             yield return null;
         }
         if (disableTrigger)

@@ -8,17 +8,8 @@ public class SettingsController : BaseManager
 {
     public static event Action<bool> ToggleDevButton;
     [SerializeField] private GameObject musicVolumeSlider, objectVolumeSlider, cancelButton, acceptButton, policyButton, surveyButton;
-    [SerializeField] private Toggle devButtonToggle;
-    [SerializeField] private Text colourBlindReadout;
-    //[SerializeField] private Dropdown colourblindDropdown;
+    [SerializeField] private Toggle devButtonToggle;        
     private float _initVolumeSliderVal, _initObjectSliderVal;
-    private string[] _colourblindTypes = new string[]
-    {
-        "Normal Vision",
-        "Protanopia",
-        "Deuteranopia",
-        "Tritanopia",
-    };
 
     protected override void OnAwake()
     {

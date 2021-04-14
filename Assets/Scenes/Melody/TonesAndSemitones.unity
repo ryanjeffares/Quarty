@@ -748,17 +748,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'A Tone is a gap of two notes, so C to D for example.
-
-
-    C -> C# ->
-    D
-
-
-    A Semitone is a gap of only one note, so like C to C#.
-
-
-    C -> C#'
+  m_Text: In music, and Interval is the distance between two notes.
 --- !u!1 &872522169
 GameObject:
   m_ObjectHideFlags: 0

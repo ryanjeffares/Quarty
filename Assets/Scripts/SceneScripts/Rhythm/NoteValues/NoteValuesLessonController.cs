@@ -18,7 +18,7 @@ public class NoteValuesLessonController : BaseManager
     private bool _readyToAnimate = true;
 
     protected override void OnAwake()
-    {
+    {        
         buttonCallbackLookup = new Dictionary<GameObject, Action<GameObject>>();
         fullCallbackLookup = new Dictionary<GameObject, Action<GameObject>>
         {

@@ -191,7 +191,7 @@ public class TonesAndSemitonesPuzzleController : BaseManager
                 stars = 3;
             }
             string readout = stars > 1 ? "stars" : "star";
-            introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";            
+            introText.text = $"Great work, {Persistent.userName}! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";            
             StartCoroutine(FadeText(introText, true, 0.5f));            
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
             StartCoroutine(FadeButtonText(nextButton, true, 0.5f));

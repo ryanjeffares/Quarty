@@ -123,6 +123,14 @@ public class PianoController : MonoBehaviour
         }
     }
 
+    public void SetPlayable(bool state)
+    {
+        foreach(var k in _keys)
+        {
+            k.GetComponent<PianoKeyController>().playNoteOnTrigger = state;
+        }
+    }
+
     private IEnumerator FadeImages(Image img)
     {
         var start = img.color;

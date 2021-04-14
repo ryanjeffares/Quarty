@@ -14,13 +14,12 @@ public class MajorTriadsPuzzleController : BaseManager
     [SerializeField] private GameObject piano;
     [SerializeField] private Text introText, niceText, scoreCounter;
     [SerializeField] private AnimationCurve overshootCurve, overshootOutCurve;
-
+    
     private int _levelStage, _chordsSpawned, _correctChords;
     private List<string[]> chords;
     private List<string> _playedNotes;
     private List<GameObject> _stars;
-    string[] lastChord;
-    private bool _success;
+    private string[] _lastChord;
 
     protected override void OnAwake()
     {
@@ -46,7 +45,7 @@ public class MajorTriadsPuzzleController : BaseManager
             new string[]{ "F", "A", "C" },
             new string[]{ "G", "B", "D" },
         };
-        lastChord = chords[0];
+        _lastChord = chords[0];
         _playedNotes = new List<string>();
         _stars = new List<GameObject>();
         StartCoroutine(FadeText(introText, true, 0.5f));
@@ -96,9 +95,8 @@ public class MajorTriadsPuzzleController : BaseManager
     {
         _playedNotes.Add(note.Substring(0, 1));
         if(_playedNotes.Count == 3)
-        {
-            bool equal = Enumerable.SequenceEqual(_playedNotes.OrderBy(n => n), lastChord.OrderBy(n => n));
-            if (equal)
+        {            
+            if (Enumerable.SequenceEqual(_playedNotes.OrderBy(n => n), _lastChord.OrderBy(n => n)))
             {
                 niceText.text = "Nice!";
                 niceText.color = new Color(0.32f, 0.57f, 0.47f);
@@ -115,6 +113,7 @@ public class MajorTriadsPuzzleController : BaseManager
                 StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));
             }            
             _playedNotes.Clear();
+            StartCoroutine(BlockNotes());
         }
     }
 
@@ -136,8 +135,7 @@ public class MajorTriadsPuzzleController : BaseManager
     private void LevelComplete()
     {
         if (_correctChords > 0)
-        {
-            _success = true;
+        {            
             int stars;
             if (_correctChords < 3)
             {
@@ -208,13 +206,20 @@ public class MajorTriadsPuzzleController : BaseManager
             newChord.transform.localPosition = new Vector3(0, 600);
             var random = new System.Random();
             var ch = chords[random.Next(chords.Count)];
-            while(ch[0] == lastChord[0])
+            while(ch[0] == _lastChord[0])
             {
                 ch = chords[random.Next(chords.Count)];
             }
-            lastChord = ch;
-            newChord.GetComponent<FallingChordController>().Show(lastChord);
+            _lastChord = ch;
+            newChord.GetComponent<FallingChordController>().Show(_lastChord);
             _playedNotes.Clear();
         }        
+    }
+
+    private IEnumerator BlockNotes()
+    {
+        piano.GetComponent<PianoController>().SetPlayable(false);
+        yield return new WaitForSeconds(1);
+        piano.GetComponent<PianoController>().SetPlayable(true);
     }
 }

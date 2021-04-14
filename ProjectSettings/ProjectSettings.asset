@@ -712,7 +712,7 @@ PlayerSettings:
   additionalIl2CppArgs: --additional-cpp="C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Assets/../Temp/fmod_register_static_plugins.cpp"
     --additional-cpp="C:/Users/ryand/College/ProfessionalProject/ProfessionalProject/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
   scriptingRuntimeVersion: 1
-  gcIncremental: 0
+  gcIncremental: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform:
     Android: 6

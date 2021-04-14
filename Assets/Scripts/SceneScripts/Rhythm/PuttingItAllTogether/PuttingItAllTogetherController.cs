@@ -67,6 +67,7 @@ public class PuttingItAllTogetherController : BaseManager
             {finishedButton, (g) => 
                 {
                     if (_levelStage < 2) return;
+                    FMODUnity.RuntimeManager.GetBus("bus:/Objects").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
                     Persistent.goingHome = true; 
                     Persistent.sceneToLoad = "MainMenu"; 
                     SceneManager.LoadScene("LoadingScreen"); 

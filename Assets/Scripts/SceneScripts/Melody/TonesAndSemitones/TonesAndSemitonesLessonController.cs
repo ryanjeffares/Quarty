@@ -66,7 +66,7 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void NextButtonCallback(GameObject g)
     {
-        if(_levelStage < 3)
+        if(_levelStage < 4)
         {
             ++_levelStage;
             StartCoroutine(AdvanceLevelStage());
@@ -82,7 +82,7 @@ public class TonesAndSemitonesLessonController : BaseManager
 
     private void TryButtonCallback(GameObject g)
     {
-        if(_levelStage > 1 && !_arrowMoving)
+        if(_levelStage > 2 && !_arrowMoving)
         {
             _playedNotes = new List<string>();
             StartCoroutine(MoveObject(arrow, new Vector2(260, 200), 2f));
@@ -96,7 +96,7 @@ public class TonesAndSemitonesLessonController : BaseManager
         {
             if (_playedNotes.SequenceEqual(_correctNotes))
             {
-                if(_levelStage == 2) 
+                if(_levelStage == 3) 
                 {                    
                     helpText.text = "Awesome! You can hear it again or move into the puzzle.";
                     StartCoroutine(FadeText(helpText, true, 0.5f));
@@ -106,7 +106,7 @@ public class TonesAndSemitonesLessonController : BaseManager
             }
             else
             {
-                if (_levelStage == 2)
+                if (_levelStage == 3)
                 {                    
                     helpText.text = "That wasn't quite right - look at the list of notes below and remember a Tone is 2 notes and a Semitone is 1 note.";
                     StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
@@ -134,6 +134,23 @@ public class TonesAndSemitonesLessonController : BaseManager
                     timeCounter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
+                introText.text = "A Tone is an interval of two notes, so C to D for example.\n \nC->C# -> D\n \nA Semitone is an interval of only one note, so like C to C#.\n \nC->C#";
+                StartCoroutine(FadeText(introText, true, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, wait: 2f));
+                break;
+            case 2:
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
+                timeCounter = 0f;
+                while (timeCounter <= 1f)
+                {
+                    if (PauseManager.paused)
+                    {
+                        yield return new WaitUntil(() => !PauseManager.paused);
+                    }
+                    timeCounter += Time.deltaTime;
+                    yield return new WaitForSeconds(Time.deltaTime);
+                }
                 introText.text = "Look how the notes follow the tone and semitone pattern.\n \nRemember, all the notes in music are A, A#, B, C, C#, D, D#, E, F, F#, G, and G# - and they repeat!";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 timeCounter = 0f;
@@ -149,7 +166,7 @@ public class TonesAndSemitonesLessonController : BaseManager
                 StartCoroutine(SpawnSampleScale());
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 4f));
                 break;
-            case 2:
+            case 3:
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, 200), 1.5f, disableTrigger:true));
@@ -321,7 +338,7 @@ public class TonesAndSemitonesLessonController : BaseManager
             _arrowMoving = false;
             if (target.x > 0)
             {
-                if(_levelStage > 1)
+                if(_levelStage > 2)
                 {
                     StartCoroutine(MoveObjectLog(arrow, new Vector2(-260, arrow.transform.localPosition.y), 1f, 0f,
                         true, true));

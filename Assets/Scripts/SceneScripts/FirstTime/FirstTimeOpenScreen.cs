@@ -85,6 +85,7 @@ public class FirstTimeOpenScreen : BaseManager
                 }
                 using (FileStream fs = new FileStream(Application.persistentDataPath + "/Files/User/user.dat", FileMode.CreateNew))
                 {
+                    Persistent.userName = input.text;
                     BinaryWriter bw = new BinaryWriter(fs);
                     bw.Write(input.text);
                     bw.Close();
@@ -99,7 +100,7 @@ public class FirstTimeOpenScreen : BaseManager
     private IEnumerator ShowMessage()
     {
         yield return new WaitForSeconds(1f);
-        mainText.text = "Quarty is a game I made for my degree research project to investigate if gamification can be used to enhance music theory education. It is designed to be a beginner level introduction to Music Theory before you study it more formally. If you want to help me with that, please consider filling in the survey linked through the settings page after playing for a while.\n \nI hope you enjoy Quarty, I had a lot of fun making it. Thank you for playing my game - I really appreciate it.";
+        mainText.text = "Quarty is a game I made for my degree research project to investigate if gamification can be used to enhance music theory education. It is designed to be a beginner level introduction to Music Theory before you study it more formally. If you want to help me with that, please consider giving 5 minutes of your time and filling in the survey linked through the settings page after playing for a while.\n \nI hope you enjoy Quarty, I had a lot of fun making it. Thank you for playing my game - I really appreciate it.";
         mainText.fontSize = 24;
         StartCoroutine(FadeText(mainText, true, 0.5f));        
     }

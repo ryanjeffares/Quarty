@@ -53,15 +53,15 @@ public class MinorScaleLessonController : BaseManager
 
     private void NextButtonCallback(GameObject g)
     {
-        if(_levelStage < 3)
+        if(_levelStage < 4)
         {
             ++_levelStage;
             StartCoroutine(AdvanceLevelStage());
         }
         else
         {
-            Persistent.melodyLessons.lessons["Minor Intervals"] = true;
-            Persistent.sceneToLoad = "MinorIntervals";
+            Persistent.UpdateUserGlossary(new[] { "Minor Scale", "Minor Third", "Minor Sixth", "Minor Seventh" });            
+            Persistent.sceneToLoad = "MinorScalePuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
@@ -85,15 +85,15 @@ public class MinorScaleLessonController : BaseManager
             {
                 switch (_levelStage)
                 {
-                    case 2:
+                    case 3:
                         helpText.text = "Nice job! Now lets see if you can do it by yourself with a different scale.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
                         ++_levelStage;
                         _ready = false;
                         StartCoroutine(StageThree());
                         break;
-                    case 3:
-                        helpText.text = "Incredible! You can hear it again, or move into the next lesson.";
+                    case 4:
+                        helpText.text = "Incredible! You can hear it again, or move into the puzzle.";
                         StartCoroutine(FadeText(helpText, true, 0.5f));
                         StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
                         _complete = true;
@@ -104,11 +104,11 @@ public class MinorScaleLessonController : BaseManager
             {
                 switch (_levelStage)
                 {
-                    case 2:
+                    case 3:
                         helpText.text = "That didn't sound quite right, make sure to slide out the notes that are not present in the A Minor Scale below.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
                         break;
-                    case 3:
+                    case 4:
                         helpText.text = "That didn't sound quite right, make sure to slide out the notes that are not present in the E Minor Scale below.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
                         break;
@@ -140,6 +140,23 @@ public class MinorScaleLessonController : BaseManager
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 2f));
                 break;
             case 2:
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
+                timeCounter = 0f;
+                while (timeCounter <= 1f)
+                {
+                    if (PauseManager.paused)
+                    {
+                        yield return new WaitUntil(() => !PauseManager.paused);
+                    }
+                    timeCounter += Time.deltaTime;
+                    yield return null;
+                }
+                introText.text = "Just like in the Major Scale, the third, sixth, and seventh intervals here are unique to the Minor Scale. They are the Minor Third, Minor Sixth, and Minor Seventh.";
+                StartCoroutine(FadeText(introText, true, 0.5f));                
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 2f));
+                break;
+            case 3:
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f));                
                 timeCounter = 0f;

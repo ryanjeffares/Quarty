@@ -219,7 +219,7 @@ public class NotesPuzzleController : BaseManager
                 stars = 3;
             }
             string readout = stars > 1 ? "stars" : "star";
-            introText.text = $"Awesome! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
+            introText.text = $"Awesome {Persistent.userName}! You completed {_scalesDone} scales and got {stars} {readout}. You can try again, or move into the next lesson.";
             retryButton.transform.localPosition = new Vector3(0, -100);
             StartCoroutine(FadeText(introText, true, 0.5f));            
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));

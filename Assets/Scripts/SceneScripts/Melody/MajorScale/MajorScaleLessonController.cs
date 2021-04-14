@@ -53,16 +53,15 @@ public class MajorScaleLessonController : BaseManager
 
     private void NextButtonCallback(GameObject g)
     {
-        if(_levelStage < 3)
+        if(_levelStage < 4)
         {
             ++_levelStage;
             StartCoroutine(AdvanceLevelStage());
         }
         else
         {
-            Persistent.UpdateUserGlossary(new[] { "Root Note", "Major Scale" });
-            Persistent.melodyLessons.lessons["Major Intervals"] = true;
-            Persistent.sceneToLoad = "MajorIntervals";
+            Persistent.UpdateUserGlossary(new[] { "Root Note", "Major Scale", "Interval", "Major Third", "Major Sixth", "Major Seventh" });            
+            Persistent.sceneToLoad = "MajorScalePuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
@@ -86,15 +85,15 @@ public class MajorScaleLessonController : BaseManager
             {
                 switch (_levelStage)
                 {
-                    case 2:
+                    case 3:
                         helpText.text = "Nice job! Now lets see if you can do it by yourself with a different scale.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
                         ++_levelStage;
                         _ready = false;
                         StartCoroutine(StageThree());
                         break;
-                    case 3:
-                        helpText.text = "Incredible! You can hear it again, or move into the next lesson.";
+                    case 4:
+                        helpText.text = "Incredible! You can hear it again, or move into the puzzle.";
                         StartCoroutine(FadeText(helpText, true, 0.5f));
                         StartCoroutine(FadeButtonText(nextButton, true, 0.5f));
                         _complete = true;
@@ -105,11 +104,11 @@ public class MajorScaleLessonController : BaseManager
             {
                 switch (_levelStage)
                 {
-                    case 2:
+                    case 3:
                         helpText.text = "That didn't sound quite right, make sure to slide out the notes that are not present in the C Major Scale below.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
                         break;
-                    case 3:
+                    case 4:
                         helpText.text = "That didn't sound quite right, make sure to slide out the notes that are not present in the A Major Scale below.";
                         StartCoroutine(FadeText(helpText, true, 0.5f, fadeOut: true, duration: 3f));
                         break;
@@ -141,6 +140,23 @@ public class MajorScaleLessonController : BaseManager
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 2f));
                 break;
             case 2:
+                StartCoroutine(FadeText(introText, false, 0.5f));
+                StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
+                timeCounter = 0f;
+                while (timeCounter <= 1f)
+                {
+                    if (PauseManager.paused)
+                    {
+                        yield return new WaitUntil(() => !PauseManager.paused);
+                    }
+                    timeCounter += Time.deltaTime;
+                    yield return null;
+                }
+                introText.text = "The third, sixth, and seventh notes are unique intervals to the Major Scale. They are the Major Third, Major Sixth, and Major Seventh.";
+                StartCoroutine(FadeText(introText, true, 0.5f));                
+                StartCoroutine(FadeButtonText(nextButton, true, 0.5f, 2f));
+                break;
+            case 3:
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f));                
                 timeCounter = 0f;
@@ -174,7 +190,7 @@ public class MajorScaleLessonController : BaseManager
         StartCoroutine(FadeText(scaleText, false, 0.5f));
         StartCoroutine(MoveObject(_squareScale, new Vector2(-500, _squareScale.transform.localPosition.y), 1f, wait: 0.5f, destroy: true));
         yield return new WaitForSeconds(1);
-        introText.text = "Try it with the A Major scale. You'll have to use the notes at the bottom of the screen to help you.\n \nRemember the pattern: T, T, S, T, T, T, S.";
+        introText.text = "Try it with the A Major scale. You can use the notes at the bottom of the screen to help you.\n \nRemember the pattern: T, T, S, T, T, T, S.";
         StartCoroutine(FadeText(introText, true, 0.5f));
         _secondSquareScale = Instantiate(squaresScalePrefab, mainContainer.transform);
         _secondSquareScale.transform.localPosition = new Vector3(-200, 200);

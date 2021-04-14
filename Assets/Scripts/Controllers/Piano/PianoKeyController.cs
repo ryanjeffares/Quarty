@@ -8,6 +8,7 @@ using FMODUnity;
 public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public static event Action<string> NotePlayed;
+    public bool playNoteOnTrigger = true;
 
     [SerializeField] private Text text, numberText;
     [SerializeField] private AnimationCurve curve;
@@ -105,8 +106,11 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        RuntimeManager.PlayOneShot("event:/PianoNotes/" + Note);
-        NotePlayed?.Invoke(Note);
+        if (playNoteOnTrigger)
+        {
+            RuntimeManager.PlayOneShot("event:/PianoNotes/" + Note);
+            NotePlayed?.Invoke(Note);
+        }        
         StartCoroutine(FadeColourAndScale(true));
         if (autoChord)
         {

@@ -166,7 +166,7 @@ public class NoteValuesPuzzleController : BaseManager
                 stars = 3;
             }
             string readout = stars > 1 ? "stars" : "star";
-            introText.text = $"Awesome {Persistent.userName}! You correctly matched {_correctPatterns} note values and got {stars} {readout}. You can try again, or move into the next lesson.";
+            introText.text = $"Outstanding, {Persistent.userName}! You correctly matched {_correctPatterns} note values and got {stars} {readout}. You can try again, or move into the next lesson.";
             StartCoroutine(FadeText(introText, true, 0.5f));
             StartCoroutine(FadeButtonText(retryButton, true, 0.5f));
             StartCoroutine(FadeButtonText(nextButton, true, 0.5f));

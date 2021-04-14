@@ -26,9 +26,17 @@ public class NoteSquaresScaleController : MonoBehaviour
         }
     }
 
+    public void DestroySquares()
+    {
+        foreach(var n in noteSquares)
+        {
+            StartCoroutine(n.GetComponent<NoteSquareMovableController>().Destroy());
+        }
+    }
+
     public void MakeDraggable(bool state)
     {
-        foreach (var n in noteSquares.Where(ns => !ns.GetComponent<NoteSquareMovableController>().note.Contains(_rootNote)))
+        foreach (var n in noteSquares.Where(ns => noteSquares.IndexOf(ns) != 0 && noteSquares.IndexOf(ns) != 9))
         {
             n.GetComponent<NoteSquareMovableController>().draggable = state;
         }
