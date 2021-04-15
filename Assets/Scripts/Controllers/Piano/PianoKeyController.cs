@@ -12,6 +12,7 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     [SerializeField] private Text text, numberText;
     [SerializeField] private AnimationCurve curve;
+    [SerializeField] private Image outline;
 
     private PianoController _parent;
     private Color _colour;
@@ -44,6 +45,7 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
         bool autoPlayChord = false, PianoController parent = null, bool showNumbers = false, int number = 0)
     {
         GetComponent<Image>().color = Color.clear;
+        outline.color = Color.clear;
         _parent = parent;
         text.color = Color.clear;
         _clickable = clickable;
@@ -63,6 +65,7 @@ public class PianoKeyController : MonoBehaviour, IPointerDownHandler, IPointerUp
         while(timeCounter < 0.5f)
         {
             GetComponent<Image>().color = Color.Lerp(Color.clear, _colour, timeCounter / 0.5f);
+            outline.color = Color.Lerp(Color.clear, Color.black, timeCounter / 0.5f);
             text.color = Color.Lerp(Color.clear, Color.grey, timeCounter / 0.5f);
             numberText.color = Color.Lerp(Color.clear, Color.grey, timeCounter / 0.5f);
             timeCounter += Time.deltaTime;

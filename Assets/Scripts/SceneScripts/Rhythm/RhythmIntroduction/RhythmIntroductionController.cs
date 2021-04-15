@@ -52,9 +52,9 @@ public class RhythmIntroductionController : BaseManager
             var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
             bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Persistent.UpdateUserGlossary(new[] { "Rhythm", "Kick", "Snare", "Hi Hat", "Toms", "Crash" });
-            Persistent.rhythmLessons.lessons["Tempo"] = true;
+            Persistent.rhythmLessons.lessons["Time Signatures"] = true;
             Persistent.UpdateLessonAvailability("Rhythm");
-            Persistent.sceneToLoad = "Tempo";
+            Persistent.sceneToLoad = "TimeSignatures";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }

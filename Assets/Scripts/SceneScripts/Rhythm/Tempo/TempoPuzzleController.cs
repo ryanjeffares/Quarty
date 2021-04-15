@@ -79,9 +79,9 @@ public class TempoPuzzleController : BaseManager
         else
         {
             Persistent.rhythmLessons.scores["Tempo"] = 3;
-            Persistent.rhythmLessons.lessons["Time Signatures"] = true;
+            Persistent.rhythmLessons.lessons["Putting It All Together"] = true;
             Persistent.UpdateLessonAvailability("Rhythm");
-            Persistent.sceneToLoad = "TimeSignatures";
+            Persistent.sceneToLoad = "PuttingItAllTogether";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }

@@ -12,6 +12,7 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
     
     [SerializeField] private Text text;
     [SerializeField] private AnimationCurve curve;
+    [SerializeField] private Image outline;
 
     private Color _colour;
     private bool _clickable, _usePersistentColour, _collidable, _onTarget;
@@ -49,6 +50,7 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
     public void Show(float waitTime, Vector3 target, bool clickable = true, bool usePersistentColour = false, bool collidable = false)
     {
         GetComponent<Image>().color = Color.clear;
+        outline.color = Color.clear;
         text.color = Color.clear;
         _clickable = clickable;
         _usePersistentColour = usePersistentColour;
@@ -65,6 +67,7 @@ public class PianoKeyDraggableController : MonoBehaviour, IPointerUpHandler, IPo
         while (timeCounter < 0.5f)
         {
             GetComponent<Image>().color = Color.Lerp(Color.clear, _colour, timeCounter / 0.5f);
+            outline.color = Color.Lerp(Color.black, _colour, timeCounter / 0.5f);
             text.color = Color.Lerp(Color.clear, Color.grey, timeCounter / 0.5f);
             timeCounter += Time.deltaTime;
             yield return null;

@@ -12,7 +12,7 @@ public class MajorTriadsPuzzleController : BaseManager
     [SerializeField] private GameObject mainContainer;
     [SerializeField] private GameObject chordPrefab, starPrefab;
     [SerializeField] private GameObject piano;
-    [SerializeField] private Text introText, niceText, scoreCounter;
+    [SerializeField] private Text introText, niceText, scoreCounter, scrollText;
     [SerializeField] private AnimationCurve overshootCurve, overshootOutCurve;
     
     private int _levelStage, _chordsSpawned, _correctChords;
@@ -36,6 +36,7 @@ public class MajorTriadsPuzzleController : BaseManager
             {introText, true },
             {niceText, true },
             {scoreCounter, true },
+            {scrollText, true },
             {nextButton.transform.GetChild(0).GetComponent<Text>(), true },
             {retryButton.transform.GetChild(0).GetComponent<Text>(), true }
         };
@@ -125,8 +126,9 @@ public class MajorTriadsPuzzleController : BaseManager
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 StartCoroutine(FadeText(scoreCounter, true, 0.5f));
+                StartCoroutine(FadeText(scrollText, true, 0.5f));
                 SpawnNewChord();
-                piano.GetComponent<PianoController>().Show(3, showFlats: false, clickable: false);
+                piano.GetComponent<PianoController>().Show(2, showFlats: false, clickable: false, useColours: true);
                 break;
         }
         yield return null;

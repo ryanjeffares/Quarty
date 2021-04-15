@@ -349,8 +349,8 @@ public class MajorScalePuzzleController : BaseManager
 
     private IEnumerator FadeSlider(float time)
     {        
-        float timeCounter = 0f;     
-        var startScale = timeSlider.transform.localScale;
+        float timeCounter = 0f;
+        timeSlider.transform.localScale = Vector3.zero;
         while (timeCounter <= time)
         {
             if (PauseManager.paused)
@@ -362,8 +362,8 @@ public class MajorScalePuzzleController : BaseManager
                 arrow.GetComponent<Image>().color = Color.Lerp(Color.clear, Color.black, timeCounter / time);
             }
             var sc = timeSlider.transform.localScale;
-            sc.x = startScale.x + overshootCurve.Evaluate(timeCounter / time);
-            sc.y = startScale.y + overshootCurve.Evaluate(timeCounter / time);
+            sc.x = 0.8f * + overshootCurve.Evaluate(timeCounter / time);
+            sc.y = 0.8f * + overshootCurve.Evaluate(timeCounter / time);
             timeSlider.transform.localScale = sc;
             timeCounter += Time.deltaTime;
             yield return null;

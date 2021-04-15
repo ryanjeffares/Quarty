@@ -85,7 +85,7 @@ public class NoteValuesPuzzleController : BaseManager
         else
         {
             Persistent.goingHome = false;
-            Persistent.sceneToLoad = "PuttingItAllTogether";
+            Persistent.sceneToLoad = "Tempo";
             SceneManager.LoadScene("LoadingScreen");
         }
     }
@@ -196,7 +196,7 @@ public class NoteValuesPuzzleController : BaseManager
             }
             if (stars > Persistent.rhythmLessons.scores["Note Values"])
             {
-                Persistent.rhythmLessons.lessons["Putting It All Together"] = true;
+                Persistent.rhythmLessons.lessons["Tempo"] = true;
                 Persistent.rhythmLessons.scores["Note Values"] = stars;
                 Persistent.UpdateLessonAvailability("Rhythm");
             }

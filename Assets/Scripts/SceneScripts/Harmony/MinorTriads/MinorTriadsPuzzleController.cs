@@ -12,7 +12,7 @@ public class MinorTriadsPuzzleController : BaseManager
     [SerializeField] private GameObject mainContainer;
     [SerializeField] private GameObject chordPrefab, starPrefab;
     [SerializeField] private GameObject piano;
-    [SerializeField] private Text introText, niceText, scoreCounter;
+    [SerializeField] private Text introText, niceText, scoreCounter, scrollText;
     [SerializeField] private AnimationCurve overshootCurve, overshootOutCurve;
 
     private int _levelStage, _chordsSpawned, _correctChords;
@@ -36,6 +36,7 @@ public class MinorTriadsPuzzleController : BaseManager
             {introText, true },
             {niceText, true },
             {scoreCounter, true },
+            {scrollText, true },
             {nextButton.transform.GetChild(0).GetComponent<Text>(), true },
             {retryButton.transform.GetChild(0).GetComponent<Text>(), true }
         };
@@ -114,6 +115,7 @@ public class MinorTriadsPuzzleController : BaseManager
                 StartCoroutine(TextFadeSize(niceText, overshootOutCurve, 0.3f, false, wait: 1f));
             }
             _playedNotes.Clear();
+            StartCoroutine(BlockNotes());
         }
     }
 
@@ -125,8 +127,9 @@ public class MinorTriadsPuzzleController : BaseManager
                 StartCoroutine(FadeText(introText, false, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, false, 0.5f));
                 StartCoroutine(FadeText(scoreCounter, true, 0.5f));
+                StartCoroutine(FadeText(scrollText, true, 0.5f));
                 SpawnNewChord();
-                piano.GetComponent<PianoController>().Show(3, showFlats: false, clickable: false);
+                piano.GetComponent<PianoController>().Show(2, useColours: true, showFlats: false, clickable: false);
                 break;
         }
         yield return null;
@@ -214,5 +217,12 @@ public class MinorTriadsPuzzleController : BaseManager
             newChord.GetComponent<FallingChordController>().Show(lastChord);
             _playedNotes.Clear();
         }
+    }
+
+    private IEnumerator BlockNotes()
+    {
+        piano.GetComponent<PianoController>().SetPlayable(false);
+        yield return new WaitForSeconds(1);
+        piano.GetComponent<PianoController>().SetPlayable(true);
     }
 }

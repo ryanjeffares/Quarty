@@ -145,16 +145,16 @@ public class RhythmLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Rhythm Introduction", true},
-            {"Tempo", true},
+            {"Rhythm Introduction", true},            
             {"Time Signatures", true},
-            {"Note Values", true},                        
+            {"Note Values", true},
+            {"Tempo", true},
             {"Putting It All Together", true}
         };
         scores = new Dictionary<string, int>
         {
-            {"Tempo", 0},            
-            {"Note Values", 0}
+            {"Note Values", 0},
+            {"Tempo", 0}                  
         };
     }
 }
