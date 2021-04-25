@@ -134,7 +134,7 @@ public class TonesAndSemitonesLessonController : BaseManager
                     timeCounter += Time.deltaTime;
                     yield return new WaitForSeconds(Time.deltaTime);
                 }
-                introText.text = "A Tone is an interval of two notes, so C to D for example.\n \nC->C# -> D\n \nA Semitone is an interval of only one note, so like C to C#.\n \nC->C#";
+                introText.text = "A Tone is an interval of two notes, so C to D for example.\n \nC -> C# -> D\n \nA Semitone is an interval of only one note, so like C to C#.\n \nC -> C#";
                 StartCoroutine(FadeText(introText, true, 0.5f));
                 StartCoroutine(FadeButtonText(nextButton, true, 0.5f, wait: 2f));
                 break;
