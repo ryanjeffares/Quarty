@@ -81,6 +81,7 @@ public class MajorAndMinorSecondLessonController : BaseManager
         {
             Persistent.UpdateUserGlossary(new[] { "Major Second", "Minor Second" });
             Persistent.melodyLessons.lessons["Melody Writing"] = true;
+            Persistent.UpdateLessonAvailability("Melody");
             Persistent.sceneToLoad = "MelodyWriting";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

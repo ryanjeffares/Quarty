@@ -45,13 +45,17 @@ public class TempoLessonController : BaseManager
         }
         else
         {
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
-            bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Persistent.UpdateUserGlossary("Tempo");
             Persistent.sceneToLoad = "TempoPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
+    }
+
+    protected override void DestroyManager()
+    {
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void TryButtonCallback(GameObject g)

@@ -49,13 +49,17 @@ public class NoteValuesLessonController : BaseManager
         }
         else
         {
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
-            bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Persistent.UpdateUserGlossary(new[] { "Note Value", "Quarter Note", "Eighth Note", "Sixteenth Note" });
             Persistent.sceneToLoad = "NoteValuesPuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
+    }
+
+    protected override void DestroyManager()
+    {
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void PatternButtonCallback(GameObject g)

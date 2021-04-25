@@ -7,7 +7,6 @@ using FMODUnity;
 
 public class XylophoneKeyController : MonoBehaviour, IPointerDownHandler
 {
-    public static event Action<GameObject> XylophoneKeyClicked;
     public string note;
     public float waitTime;
     private Text _text;

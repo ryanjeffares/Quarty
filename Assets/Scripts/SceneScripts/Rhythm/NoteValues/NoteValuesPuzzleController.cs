@@ -90,6 +90,12 @@ public class NoteValuesPuzzleController : BaseManager
         }
     }
 
+    protected override void DestroyManager()
+    {
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+
     private void RetryButtonCallback(GameObject g)
     {
         foreach(var (s, i) in _stars.WithIndex())
@@ -174,16 +180,16 @@ public class NoteValuesPuzzleController : BaseManager
             switch (stars)
             {
                 case 1:
-                    starPositions.Add(new Vector2(0, 220));
+                    starPositions.Add(new Vector2(0, -430));
                     break;
                 case 2:
-                    starPositions.Add(new Vector2(-50, 220));
-                    starPositions.Add(new Vector2(50, 220));
+                    starPositions.Add(new Vector2(-50, -430));
+                    starPositions.Add(new Vector2(50, -430));
                     break;
                 case 3:
-                    starPositions.Add(new Vector2(-70, 220));
-                    starPositions.Add(new Vector2(0, 220));
-                    starPositions.Add(new Vector2(70, 220));
+                    starPositions.Add(new Vector2(-70, -430));
+                    starPositions.Add(new Vector2(0, -430));
+                    starPositions.Add(new Vector2(70, -430));
                     break;
             }
             _stars = new List<GameObject>();

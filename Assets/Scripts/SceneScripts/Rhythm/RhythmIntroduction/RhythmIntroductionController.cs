@@ -49,8 +49,6 @@ public class RhythmIntroductionController : BaseManager
         }
         else
         {
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
-            bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Persistent.UpdateUserGlossary(new[] { "Rhythm", "Kick", "Snare", "Hi Hat", "Toms", "Crash" });
             Persistent.rhythmLessons.lessons["Time Signatures"] = true;
             Persistent.UpdateLessonAvailability("Rhythm");
@@ -58,6 +56,12 @@ public class RhythmIntroductionController : BaseManager
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
+    }
+
+    protected override void DestroyManager()
+    {
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void PatternButtonCallback(GameObject g)

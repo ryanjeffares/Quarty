@@ -66,8 +66,7 @@ public class PuttingItAllTogetherController : BaseManager
             {playButton, PlayButtonCallback },
             {finishedButton, (g) => 
                 {
-                    if (_levelStage < 2) return;
-                    FMODUnity.RuntimeManager.GetBus("bus:/Objects").stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    if (_levelStage < 2) return;                    
                     Persistent.goingHome = true; 
                     Persistent.sceneToLoad = "MainMenu"; 
                     SceneManager.LoadScene("LoadingScreen"); 
@@ -99,6 +98,12 @@ public class PuttingItAllTogetherController : BaseManager
             $"\nBest of luck on your future musical journey - we hope this little game has helped to prepare you for it.";
         StartCoroutine(FadeText(introText, true, 0.5f));
         StartCoroutine(FadeButtonText(nextButton, true, 0.5f, wait: 2f));
+    }
+
+    protected override void DestroyManager()
+    {
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void NextButtonCallback(GameObject g)

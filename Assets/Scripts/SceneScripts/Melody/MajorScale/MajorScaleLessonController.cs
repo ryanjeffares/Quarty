@@ -60,7 +60,7 @@ public class MajorScaleLessonController : BaseManager
         }
         else
         {
-            Persistent.UpdateUserGlossary(new[] { "Root Note", "Major Scale", "Interval", "Major Third", "Major Sixth", "Major Seventh" });            
+            Persistent.UpdateUserGlossary(new[] { "Root Note", "Major Scale", "Major Third", "Major Sixth", "Major Seventh" });            
             Persistent.sceneToLoad = "MajorScalePuzzle";
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");

@@ -46,9 +46,7 @@ public class TimeSignaturesLessonController : BaseManager
             StartCoroutine(AdvanceLevelStage());
         }
         else
-        {
-            var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
-            bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        {            
             Persistent.UpdateUserGlossary("Time Signature");
             Persistent.rhythmLessons.lessons["Note Values"] = true;
             Persistent.UpdateLessonAvailability("Rhythm");
@@ -56,6 +54,12 @@ public class TimeSignaturesLessonController : BaseManager
             Persistent.goingHome = false;
             SceneManager.LoadScene("LoadingScreen");
         }
+    }
+
+    protected override void DestroyManager()
+    {
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void PlayButtonCallback(GameObject g)

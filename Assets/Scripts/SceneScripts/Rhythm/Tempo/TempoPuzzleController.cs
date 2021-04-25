@@ -67,6 +67,8 @@ public class TempoPuzzleController : BaseManager
     protected override void DestroyManager()
     {
         DrumSequencerController.PlayerDone -= PlayerDoneCallback;
+        var bus = FMODUnity.RuntimeManager.GetBus("bus:/Objects");
+        bus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
     private void NextButtonCallback(GameObject g)
