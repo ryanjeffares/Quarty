@@ -87,13 +87,13 @@ public class MelodyLessons
         lessons = new Dictionary<string, bool>
         {
             {"Melody Introduction", true},
-            {"Notes", false},
-            {"Tones And Semitones", false},
-            {"Major Scale", false},            
-            {"Minor Scale", false},            
-            {"Perfect Intervals", false},
-            {"Major And Minor Second", false},
-            {"Melody Writing", false }
+            {"Notes", true},
+            {"Tones And Semitones", true},
+            {"Major Scale", true},            
+            {"Minor Scale", true},            
+            {"Perfect Intervals", true},
+            {"Major And Minor Second", true},
+            {"Melody Writing", true }
         };
         scores = new Dictionary<string, int>
         {            
@@ -115,16 +115,16 @@ public class HarmonyLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Harmony Introduction", false},            
-            {"Major Triads", false},
-            {"Minor Triads", false},
-            {"Major Seventh Chords", false},
-            {"Minor Seventh Chords", false},
-            {"Suspended Chords", false},
-            {"Diminished Chords", false },
-            {"Major Keys", false},
-            {"Minor Keys", false},            
-            {"Chord Progressions", false}            
+            {"Harmony Introduction", true},            
+            {"Major Triads", true},
+            {"Minor Triads", true},
+            {"Major Seventh Chords", true},
+            {"Minor Seventh Chords", true},
+            {"Suspended Chords", true},
+            {"Diminished Chords", true },
+            {"Major Keys", true},
+            {"Minor Keys", true},            
+            {"Chord Progressions", true}            
         };
         scores = new Dictionary<string, int>
         {         
@@ -146,11 +146,11 @@ public class RhythmLessons
     {
         lessons = new Dictionary<string, bool>
         {
-            {"Rhythm Introduction", false},            
-            {"Time Signatures", false},
-            {"Note Values", false},
-            {"Tempo", false},
-            {"Putting It All Together", false}
+            {"Rhythm Introduction", true},            
+            {"Time Signatures", true},
+            {"Note Values", true},
+            {"Tempo", true},
+            {"Putting It All Together", true}
         };
         scores = new Dictionary<string, int>
         {
