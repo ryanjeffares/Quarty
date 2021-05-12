@@ -116,7 +116,7 @@ public class NoteSquareMovableController : MonoBehaviour, IDragHandler, IPointer
     {
         if (draggable && !PauseManager.paused)
         {                           
-            // is this hacky with world position/local position? i dunno but fuck knows i couldnt get it to work otherwise
+            // is this hacky with world position/local position? i dunno but god knows i couldnt get it to work otherwise
             // move only the x pos as you drag but clamp between -80/80 of the start position
             // its all done on the same frame so its FINE
             transform.position = new Vector3(eventData.position.x, movableYpos ? eventData.position.y : _startingYWorldPos);
